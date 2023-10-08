@@ -1,0 +1,36 @@
+---
+title: Political Leadership Survival in the Aftermath of Coups or Overstays
+format:
+  jasa-pdf:
+    keep-tex: true  
+    linestretch: 1.75
+    papersize: A4
+    indent: true
+    mainfont: Source Serif Pro
+    number-sections: true
+    keywords: [Political survival, Coups, Overstays]
+
+date: last-modified
+author:
+  - name: Zhu Qi
+    acknowledgements: | 
+      The authors gratefully acknowledge _please remember to list all relevant funding sources in the non-anonymized (unblinded) version_.
+    affiliations:
+      - name: University of Essex
+        department: Department of Government
+  
+abstract: |
+ This study endeavors to conduct an in-depth analysis of the determinants impacting the survival of political leadership that has ascended to power, either through coups or overstays. Utilizing a survival model, the research investigates the influence of factors such as political stability, military control, economic performance, external alliances, regime types, and levels of democracy on the endurance of political leaders. Employing a quantitative approach with a novel dataset encompassing coups and overstays, this research makes a significant contribution to existing literature by providing valuable insights into the factors shaping political survival for leaders who assume office or maintain power through unconstitutional means.
+
+bibliography: survival.bib
+execute: 
+  freeze: auto
+---
+
+## Introduction
+
+
+
+\newpage
+
+## References
