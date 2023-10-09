@@ -29,7 +29,39 @@ execute:
 
 ## Introduction
 
+Building upon discussions surrounding coups and incumbent overstays, this paper delves into the trajectories of political leaders who ascended to power through coups or overstayed their intended terms. The primary focus lies in unraveling the duration of these leaders' tenures and understanding the underlying determinants.
 
+Within the realm of political science, a prominent puzzle persists: why do some leaders maintain their grip on power for three or four decades, whereas the majority experience shorter tenures, with some enduring for mere months or even days? Numerous existing works [@clinton1975politics, @buenodemesquita2003] have explored this question in broad strokes. In contrast, this paper specifically addresses leaders who acquire and sustain power through unconstitutional means. Firstly, these leaders constitute the majority of unanticipated instances of prolonged rule. Unlike those who ascend through conventional means, whose tenures are generally predictable unless disrupted by coups or managed overstay, the tenure of leaders with unconventional paths varies significantly---from mere months to several decades. The substantial variances in their tenures remain inadequately explained, perplexing and attracting many more political scientists.
+
+## Theories
+
+The survival of political leaders following coups or overstays may hinge on six pivotal factors:
+
+### Coups vs. overstays
+
+Survival in power relies significantly on the cohesion of the ruling group. As numerous scholars have pointed out, internal conflicts among elites pose a more serious threat to the stability of those in power. Coups often lay bare the fractures within a regime, not only attracting more followers to orchestrate new coups but also emboldening external challengers, including uprisings, revolutions, and civil wars. On the other hand, successful tenures unmistakably showcase the incumbents' firm grasp on power, discouraging both internal dissent and external threats [@dahl2023].
+
+**Hypothesis 1 (H1):** Political leaders who successfully extend their time in power are more likely to have prolonged survival compared to leaders who assume power through coups.
+
+### Economic performance
+
+**Hypothesis 2 (H2):** Leaders with a robust economic performance are likely to endure longer than their counterparts facing economic crises.
+
+### Regime types
+
+**Hypothesis 3 (H3):** Leaders who effectively control their armed forces are expected to have longer survival periods than those with powerful and independent military officers.
+
+### External alliances
+
+**Hypothesis 4 (H4):** Leaders with strong external alliances are anticipated to have extended survival periods.
+
+### Societal stablity
+
+**Hypothesis 5 (H5):** Political leaders presiding over stable societies are likely to experience longer tenures.
+
+### Repression level
+
+**Hypothesis 6 (H6):** Leaders who are more prone to employ stringent repression against dissidents are expected to have longer survival durations.
 
 \newpage
 
