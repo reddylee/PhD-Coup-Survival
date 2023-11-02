@@ -62,8 +62,14 @@ Finally, in Chapter 6, the paper concludes by synthesizing these findings and ex
 ## Literature review
 
 Prior research concerning the longevity of political leaders has predominantly concentrated on two primary facets.
-One dimension revolves around the contextual conditions and resources available to leaders, including factors like the stability of their society [@arriola2009], economic performance [@palmer1999], access to natural resources [@smith2004], and external support networks [@licht2009; @wright2008].
+One dimension revolves around the contextual conditions and resources available to leaders, including factors like personal competence [@yu2016], the stability of their society [@arriola2009], economic performance [@palmer1999, @williams2011], access to natural resources [@smith2004; @quirozflores2012], and external support networks [@licht2009; @wright2008, @thyne2017].
 The other dimension delves into the strategies employed by leaders in enacting their political and economic policies [@gandhi2007; @morrison2009], as well as their responses to challenges and dissent within their regimes [@escribà-folch2013; @davenport2021].
+
+The duration for which political leaders can maintain their hold on power is, to a significant extent, influenced by the manner in which they ascended to leadership positions.
+It's conceivable that leaders who engage in regular and constitutional transitions of power are more likely to voluntarily step down as their terms expire, while those who came to power through unconstitutional means are at a higher risk of being unexpectedly removed from office.
+Much of the existing research on the relationship between coups and the survival of leadership primarily focuses on strategies to prevent coups [@powell2017; @sudduth2017; @debruin2020] or how leaders can prolong their stay in power after surviving failed coup attempts \[@easton2018\].
+Unfortunately, there is a limited emphasis on the study of leadership survival in the context of successful coups.
+A similar gap in research attention exists concerning incumbents who overstay their terms in power.
 
 In their seminal work, @buenodemesquita2003 introduce and expound upon the selectorate theory of politics.
 This theory centers on the analysis of leadership survival based on the concept of a sufficiently large winning coalition ($W$) within the selectorate ($S$).
