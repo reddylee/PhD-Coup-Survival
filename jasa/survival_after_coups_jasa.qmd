@@ -6,15 +6,12 @@ format:
     linestretch: 1.75
     papersize: A4
     indent: true
-    mainfont: Source Serif Pro
     number-sections: true
     keywords: [Political survival, Coups, Overstays]
 
 date: last-modified
 author:
   - name: Zhu Qi
-    acknowledgements: | 
-      The authors gratefully acknowledge _please remember to list all relevant funding sources in the non-anonymized (unblinded) version_.
     affiliations:
       - name: University of Essex
         department: Department of Government
@@ -23,21 +20,66 @@ abstract: |
  This study endeavors to conduct an in-depth analysis of the determinants impacting the survival of political leadership that has ascended to power, either through coups or overstays. Utilizing a survival model, the research investigates the influence of factors such as political stability, military control, economic performance, external alliances, regime types, and levels of democracy on the endurance of political leaders. Employing a quantitative approach with a novel dataset encompassing coups and overstays, this research makes a significant contribution to existing literature by providing valuable insights into the factors shaping political survival for leaders who assume office or maintain power through unconstitutional means.
 
 bibliography: survival.bib
+mainfont: Times New Roman
+fontsize: 12pt
 execute: 
   freeze: auto
 ---
 
 ## Introduction
 
-In political science, a compelling enigma persists: why do certain leaders manage to cling to power for three or four decades, while others find their tenures cut short after just several years, or even mere months or days? This intriguing question has been extensively explored in numerous existing works [@clinton1975politics, @buenodemesquita2003]. Some of these works encompass leaders across diverse political landscapes, spanning democracies and autocracies, parliamentary and presidential systems, as well as civilian and military contexts [@buenodemesquita2003]. Others narrow their focus to specific types of regimes, delving into democracies [@svolik2014] or autocracies [@davenport2021].
+In political science, a compelling enigma persists: why do certain leaders manage to cling to power for three or four decades, while others find their tenures cut short after just several years, or even mere months or days?
+This intriguing question has been extensively explored in numerous existing works [@clinton1975politics, @buenodemesquita2003].
+Some of these works encompass leaders across diverse political landscapes, spanning democracies and autocracies, parliamentary and presidential systems, as well as civilian and military contexts [@buenodemesquita2003].
+Others narrow their focus to specific types of regimes, delving into democracies [@svolik2014] or autocracies [@davenport2021].
 
-However, a significant number of political leaders, particularly in democracies and some in autocracies, undergo regular and predictable tenures. A prime example is found in the United States, where presidents may stay in the White House for up to eight years if they perform well and secure a second term. Even in cases of poor performance, they typically complete a full four-year term. Another illustration can be drawn from autocratic Mexico between 1919 and 2000, where each president served a fixed six-year term without facing overthrows or overstays. In such scenarios, analyzing the survival of these leaders seems futile, as power transitions from one political leader to the next are typically observed within the framework of constitutional rules or unwritten conventions.
+However, a significant number of political leaders, particularly in democracies and some in autocracies, undergo regular and predictable tenures.
+A prime example is found in the United States, where presidents may stay in the White House for up to eight years if they perform well and secure a second term.
+Even in cases of poor performance, they typically complete a full four-year term.
+Another illustration can be drawn from autocratic Mexico between 1919 and 2000, where each president served a fixed six-year term without facing overthrows or overstays.
+In such scenarios, analyzing the survival of these leaders seems futile, as power transitions from one political leader to the next are typically observed within the framework of constitutional rules or unwritten conventions.
 
-The central emphasis on political longevity centers around leaders who stay in power for unforeseen durations. In theory, such situations can happen in any political context. Even in the United States, one of the most regular power transition countries, President Trump, following his electoral defeat, endeavoured to extend his tenure by contesting the outcome of the general election. However, the predominant instances of unexpected political tenures revolve around leaders who either seize power through coups or overstay through unconstitutional means---this constitutes the core focus of this paper.
+Therefore, the central emphasis on political longevity should center around leaders who stay in power for unforeseen duration.
+In theory, such situations can happen in any political context.
+Even in the United States, one of the most regular power transition countries, President Trump, following his electoral defeat, attempted to extend his tenure by contesting the outcome of the general election.
+However, the predominant instances of unexpected political tenures revolve around leaders who either seize power through coups or overstay through unconstitutional means---this constitutes the core focus of this paper.
 
-The analysis of their tenures is particularly significant for two reasons. Firstly, the durations of these leaders' tenures exhibit considerable variation, ranging from mere months to several decades. Secondly, predicting the tenures of such leaders proves challenging. A seemingly robust and stable regime can collapse suddenly overnight, while an apparently fragile one might persist for decades. The substantial disparities in these tenures remain inadequately explained, posing a perplexing challenge and attracting the attention of numerous political scientists.
+The analysis of their tenures is particularly significant for two reasons.
+Firstly, the duration of these leaders' tenures exhibits considerable variation, ranging from mere months to several decades.
+Secondly, predicting the tenures of such leaders proves challenging.
+A seemingly robust and stable regime can collapse suddenly overnight, while an apparently fragile one might persist for decades.
+The substantial disparities in these tenures remain inadequately explained, posing a perplexing challenge and attracting the attention of numerous political scientists.
 
-Building upon discussions surrounding coups and incumbent overstays, this paper delves into the trajectories of political leaders who ascended to power through coups or overstayed their intended terms. The primary focus lies in unravelling the duration of these leaders' tenures and understanding the underlying determinants.
+Building upon discussions surrounding coups and incumbent overstays, this paper delves into the trajectories of political leaders who ascended to power through coups or overstayed their intended terms.
+The primary focus lies in unraveling the duration of these leaders' tenures and understanding the underlying determinants.
+
+This paper follows a structured approach as outlined below: The second section encompasses a comprehensive literature review on political survival and highlighting the contributions of this paper might offer.
+The third chapter delves into the examination of factors influencing the survival of leaders who have ascended to power through unconstitutional means.
+Chapter 4 provides an account of the methodology and data employed, utilizing a survival model for a comprehensive analysis of the determinants of leaders' survival.
+The subsequent chapter, Chapter 5, presents the findings of this analysis, facilitating an in-depth discussion of the results.
+Finally, in Chapter 6, the paper concludes by synthesizing these findings and exploring their broader implications.
+
+## Literature review
+
+Prior research concerning the longevity of political leaders has predominantly concentrated on two primary facets.
+One dimension revolves around the contextual conditions and resources available to leaders, including factors like the stability of their society [@arriola2009], economic performance [@palmer1999], access to natural resources [@smith2004], and external support networks [@licht2009; @wright2008].
+The other dimension delves into the strategies employed by leaders in enacting their political and economic policies [@gandhi2007; @morrison2009], as well as their responses to challenges and dissent within their regimes [@escribà-folch2013; @davenport2021].
+
+In their seminal work, @buenodemesquita2003 introduce and expound upon the selectorate theory of politics.
+This theory centers on the analysis of leadership survival based on the concept of a sufficiently large winning coalition ($W$) within the selectorate ($S$).
+The selectorate, which encompasses individuals with the authority to determine leadership, contrasts with the winning coalition, signifying the minimum number of selectorate members required to secure power.
+In this framework, the endurance of political leaders depends on the maintenance of a supportive winning coalition.
+Winning coalitions, driven by the pursuit of benefits, opt to back incumbents, but their allegiance may shift towards challengers if they anticipate greater advantages from a change in leadership.
+
+However, two critical issues arise within this framework.
+Firstly, in democracies, while those who support and vote for incumbents may see their preferred policies enacted, those who vote against them still face the same policies.
+For example, individuals casting their votes for a candidate in favor of lower taxes confront the same tax rates as those who vote against the incumbents.
+This doesn't translate into lower taxes for supporters and higher taxes for opponents; rather, both groups face identical tax levels.
+Consequently, we cannot assert that winning coalitions inherently gain a significant advantage over the broader selectorate.
+Secondly, in many autocratic regimes, the process of leadership selection remains shrouded in secrecy.
+In countries like China, the mechanisms for appointing leaders resemble a black box, with outsiders left unaware of the rules and procedures.
+Expressing dissenting views, whether as potential challengers or supporters of challengers, is fraught with danger.
+In Russia, despite the presence of general elections, challengers often face perilous consequences, including assassination, poisoning, imprisonment, or exile.
 
 ## Theories
 
@@ -45,15 +87,25 @@ The survival of political leaders following coups or overstays may hinge on six 
 
 ### Coups vs. overstays
 
-Survival in power relies significantly on the cohesion of the ruling group. As numerous scholars have pointed out, internal conflicts among elites pose a more serious threat to the stability of those in power. Coups often lay bare the fractures within a regime, not only attracting more followers to orchestrate new coups but also emboldening external challengers, including uprisings, revolutions, and civil wars. On the other hand, successful tenures unmistakably showcase the incumbents' firm grasp on power, discouraging both internal dissent and external threats [@dahl2023].
+Survival in power relies significantly on the cohesion of the ruling group.
+As numerous scholars have pointed out, internal conflicts among elites pose a more serious threat to the stability of those in power.
+Coups often lay bare the fractures within a regime, not only attracting more followers to orchestrate new coups but also emboldening external challengers, including uprisings, revolutions, and civil wars.
+On the other hand, successful tenures unmistakably showcase the incumbents' firm grasp on power, discouraging both internal dissent and external threats [@dahl2023].
 
 **Hypothesis 1 (H1):** Political leaders who successfully extend their time in power are more likely to have prolonged survival compared to leaders who assume power through coups.
 
 ### Regime types
 
-In the majority of cases, regimes following coups or prolonged stays tend to be non-democratic. Democratic leaders are generally anticipated to relinquish power in a regular and cyclical manner. Conversely, for non-democratic leaders, the duration of their tenures is heavily influenced by the type of autocracy. The three primary autocratic regimes are dominant party, military, and personal.
+In the majority of cases, regimes following coups or prolonged stays tend to be non-democratic.
+Democratic leaders are generally anticipated to relinquish power in a regular and cyclical manner.
+Conversely, for non-democratic leaders, the duration of their tenures is heavily influenced by the type of autocracy.
+The three primary autocratic regimes are dominant party, military, and personal.
 
-Within the military regime, leaders often encounter more challenges during their tenures. The ability to challenge incumbents, particularly those within ruling groups, relies significantly on the support of military forces. In dominant party or personal regimes, the military typically operates under the control of party or personal leaders, who are the incumbents themselves. Unlike military regimes, where generals often play significant roles in politics, there are typically many generals in dominant party or personal regimes, acting as checks and balances on each other. Military regimes, however, with their powerful army leaders and more influential generals, are more prone to political interference and internal conflicts, leading to shorter tenures for leaders in such regimes.
+Within the military regime, leaders often encounter more challenges during their tenures.
+The ability to challenge incumbents, particularly those within ruling groups, relies significantly on the support of military forces.
+In dominant party or personal regimes, the military typically operates under the control of party or personal leaders, who are the incumbents themselves.
+Unlike military regimes, where generals often play significant roles in politics, there are typically many generals in dominant party or personal regimes, acting as checks and balances on each other.
+Military regimes, however, with their powerful army leaders and more influential generals, are more prone to political interference and internal conflicts, leading to shorter tenures for leaders in such regimes.
 
 Hypothesis 2 (H2): Leaders in dominant party or personal regimes are expected to have longer survival periods than those in military regimes.
 
