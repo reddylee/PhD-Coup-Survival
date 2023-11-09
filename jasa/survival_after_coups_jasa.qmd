@@ -67,7 +67,7 @@ Chapter 4 provides an account of the methodology and data employed, utilizing a 
 The subsequent chapter, Chapter 5, presents the findings of this analysis, facilitating an in-depth discussion of the results.
 Finally, in Chapter 6, the paper concludes by synthesizing these findings and exploring their broader implications.
 
-## The dynamics of leadership survival in different scenarios
+## Literature review: The dynamics of leadership survival in different scenarios
 
 In their ambitious work, @buenodemesquita2003 set out to provide a comprehensive explanation for the logic of political leadership survival within a universal framework.
 According to this framework, the endurance of political leaders hinges on the maintenance of a supportive winning coalition.
@@ -91,7 +91,26 @@ Expressing dissenting views, whether as potential challengers or supporters of c
 In Russia, despite the presence of general elections, challengers frequently face severe consequences such as assassination, poisoning, imprisonment, or exile.
 As a result of the absence of transparent and fair conventional procedures for power transitions, leaders in autocratic regimes are more vulnerable to being deposed through coups or other unconventional means.
 
-## Theories
+Beyond distinctions among various regimes, the endurance of leaders can fluctuate even within the confines of a single regime, contingent on the circumstances they encounter.
+It stands to reason that leaders ascending through conventional means may experience a different survival trajectory compared to those ushered in by coups or those who overstay their terms.
+Additionally, leaders operating in favorable economic, social, and international contexts are likely to have a more prolonged tenure compared to their counterparts navigating challenging conditions.
+
+Considering the factors discussed earlier, a substantial portion of existing literature seeks to unravel the underlying principles governing political survival in non-democratic regimes.
+Notably, scholarly attention has gravitated towards the examination of coup-proofing strategies, given that coups emerge as a primary driver of irregular exits in autocracies [@quinlivan1999; @powell2014; @sudduth2017; @tang2021].
+Additionally, there is a notable focus on the study of survival strategies following failed coup attempts, as evidenced by the works of [@kebschull1994; @easton2018; @oztig2020].
+
+In @sudduth2017a, the author delves into the post-coup actions of a dictator, despite the primary focus of the paper being on purge strategies.
+The central argument asserts that leaders who rise to power through coups experience a temporary surge in influence compared to the elites immediately following the coups, making them less susceptible to being ousted by subsequent coup attempts.
+This assertion, as highlighted by the author, challenges the conventional notion that new leaders are generally in a position of weakness in the initial stages of their tenure [@roessler2011].
+Regardless of their initial strength, both Sudduth and previous scholars concur that new leaders are inclined to purge rival elite groups to bolster their power.
+The distinction lies in Sudduth's claim that dictators undertake purges when they possess the capability to do so without significant risk, while conventional views posit that dictators resort to purges when compelled to prevent potential ousting by coups.
+
+Yet, it's important to recognize that new leaders, especially those who ascend through unconventional means, don't conform to a universal pattern of being either inherently weak or powerful.
+Leadership transitions occur in diverse contexts, and thus, leaders face a spectrum of challenges.
+Some emerge in positions of vulnerability, while others wield considerable strength.
+Regardless of individual power, when juxtaposed with the entirety of elites or the entire population, leaders remain in a position of relative weakness---unity among elites or residents can overshadow even the most powerful leaders.
+
+## The logic of political leader survival in irregular ascensions
 
 The survival of political leaders following coups or overstays may hinge on six pivotal factors:
 
