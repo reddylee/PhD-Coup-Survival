@@ -112,6 +112,20 @@ Regardless of individual power, when juxtaposed with the entirety of elites or t
 
 ## The logic of political leader survival in irregular ascensions
 
+Engaging in a discourse on the survival logic of political leaders in non-democratic regimes poses a formidable challenge.
+The complexity lies in the absence of a universal pattern that encapsulates the rules or conventions governing power transitions in autocracies.
+Even in Middle Eastern monarchies, the transmission of power doesn't strictly adhere to a father-to-son lineage.
+Consequently, not only the ruling elites and ordinary citizens but also the leaders themselves remain uncertain about the dynamics of when, how, and to whom power will be transferred.
+This prevailing uncertainty gives rise to inherent dangers, and reciprocally, the presence of dangers amplifies the prevailing uncertainty.
+
+For leaders who ascend to power through coups or overstay their tenure, these conflicts typify their regimes.
+Following coups, regimes face four potential outcomes: democracies initially overthrown by coups may either persist as democracies (I) or transform into autocracies (II), while autocracies overthrown by coups may either endure as autocracies (III) or evolve into democracies (IV).
+However, even in democracies reinstated after coups, a degree of uncertainty lingers.
+In contrast, regimes characterized by leaders overstaying their terms, with only rare exceptions, typically persist as autocracies or undergo a transition towards autocracy.
+
+As one might envision, in an environment marked by uncertainty, the foremost strategy for rulers is to uphold the stability of the entire society.
+For instance, the Chinese Communist Party frequently asserts, in public statements, that '**Stability is Everything**'.
+
 The survival of political leaders following coups or overstays may hinge on six pivotal factors:
 
 ### Coups vs. overstays
