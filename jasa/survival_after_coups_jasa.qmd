@@ -116,57 +116,61 @@ Engaging in a discourse on the survival logic of political leaders in non-democr
 The complexity lies in the absence of a universal pattern that encapsulates the rules or conventions governing power transitions in autocracies.
 Even in Middle Eastern monarchies, the transmission of power doesn't strictly adhere to a father-to-son lineage.
 Consequently, not only the ruling elites and ordinary citizens but also the leaders themselves remain uncertain about the dynamics of when, how, and to whom power will be transferred.
-This prevailing uncertainty gives rise to inherent dangers, and reciprocally, the presence of dangers amplifies the prevailing uncertainty.
+This uncertainty gives rise to inherent dangers, and reciprocally, the presence of dangers amplifies the uncertainty.
 
-For leaders who ascend to power through coups or overstay their tenure, these conflicts typify their regimes.
+For leaders who ascend to power through coups or overstay their tenure, these conflicts typify their rules.
 Following coups, regimes face four potential outcomes: democracies initially overthrown by coups may either persist as democracies (I) or transform into autocracies (II), while autocracies overthrown by coups may either endure as autocracies (III) or evolve into democracies (IV).
 However, even in democracies reinstated after coups, a degree of uncertainty lingers.
 In contrast, regimes characterized by leaders overstaying their terms, with only rare exceptions, typically persist as autocracies or undergo a transition towards autocracy.
 
-As one might envision, in an environment marked by uncertainty, the foremost strategy for rulers is to uphold the stability of the entire society.
-For instance, the Chinese Communist Party frequently asserts, in public statements, that '**Stability is Everything**'.
+In an environment characterized by uncertainty, the primary strategy for rulers is to maintain the stability of society.
+The Chinese Communist Party, for example, consistently emphasizes in public statements that '**Stability is Everything**'.
+The underlying logic is clear: in an unstable situation, people experience a lack of security, fostering a desire for change among the ruling elites or even opposition factions.
+This perception often leads to the belief that the current ruler is incompetent and should be replaced by someone more powerful or capable.
+Moreover, the ruling elite or opposition factions may exploit the instability as an opportunity to challenge existing power structures.
 
-The survival of political leaders following coups or overstays may hinge on six pivotal factors:
+In stark contrast, leaders who attain power through coups confront more formidable initial challenges than those who overstay their terms.
+While rulers exceeding their terms might incite discontent and unrest, successful tenures unmistakably demonstrate the incumbents' robust control over power, effectively discouraging both internal dissent and external threats.
+This, in turn, contributes to the overall stability of the governing structure and society.
+Consequently, the pressing need to dismantle the old ruling paradigm and establish a new order is markedly diminished in this context.
 
-### Coups vs. overstays
+On the contrary, coup-instated leaders almost always ascend to power amid instability, even if some coups are executed peacefully.
+They overthrow previous rulers, necessitating the dismantling of at least part of the old ruling framework and the replacement of certain officers and officials.
+These actions inevitably lead to turbulence and create adversaries for the new rulers.
+Distributing the benefits of successful coups among supporters poses another challenge, as it is nearly impossible to satisfy every supporter.
+If grievances, whether from former ruler supporters or the coup-instated leaders' backers, intensify, the new leaders might resort to purging some of them, further fueling chaos.
 
-Survival in power relies significantly on the cohesion of the ruling group.
-As numerous scholars have pointed out, internal conflicts among elites pose a more serious threat to the stability of those in power.
-Coups often lay bare the fractures within a regime, not only attracting more followers to orchestrate new coups but also emboldening external challengers, including uprisings, revolutions, and civil wars.
-On the other hand, successful tenures unmistakably showcase the incumbents' firm grasp on power, discouraging both internal dissent and external threats [@dahl2023].
+Moreover, despite temporarily wielding power, leaders who come to office through coups face enduring challenges.
+Coups often expose the fractures within a regime, not only galvanizing more adherents to plot subsequent coups but also emboldening external adversaries, including uprisings, revolutions, and civil wars.
+A comprehensive coup dataset [@powell2011] spanning from 1950 to 2023 reveals that 97 countries experienced coups during this period.
+Among them, 15 countries endured at least 10 coups, and 10 countries witnessed more than 6 successful coups.
+These factors collectively contribute to a decrease in the expected lifespan of the regime after coups [@dahl2023].
 
-**Hypothesis 1 (H1):** Political leaders who successfully extend their time in power are more likely to have prolonged survival compared to leaders who assume power through coups.
+```{r eval=FALSE, include=FALSE}
+library(tidyverse)
+coups <- read.csv("https://www.uky.edu/~clthyn2/coup_data/powell_thyne_coups_final.txt",sep = "\t")
 
-### Regime types
+attempts <- coups %>% 
+  select(country) %>% 
+  summarise(count=n(),.by = country) %>% 
+  arrange(-count) 
 
-In the majority of cases, regimes following coups or prolonged stays tend to be non-democratic.
-Democratic leaders are generally anticipated to relinquish power in a regular and cyclical manner.
-Conversely, for non-democratic leaders, the duration of their tenures is heavily influenced by the type of autocracy.
-The three primary autocratic regimes are dominant party, military, and personal.
+success <- coups %>% 
+  filter(coup==2) %>% 
+  select(country) %>% 
+  summarise(count=n(),.by = country) %>% 
+  arrange(-count) 
 
-Within the military regime, leaders often encounter more challenges during their tenures.
-The ability to challenge incumbents, particularly those within ruling groups, relies significantly on the support of military forces.
-In dominant party or personal regimes, the military typically operates under the control of party or personal leaders, who are the incumbents themselves.
-Unlike military regimes, where generals often play significant roles in politics, there are typically many generals in dominant party or personal regimes, acting as checks and balances on each other.
-Military regimes, however, with their powerful army leaders and more influential generals, are more prone to political interference and internal conflicts, leading to shorter tenures for leaders in such regimes.
+sum(Sum$count[1:10])
+```
 
-Hypothesis 2 (H2): Leaders in dominant party or personal regimes are expected to have longer survival periods than those in military regimes.
+```{r eval=FALSE, include=FALSE}
+table(coups$coup)
+```
 
-### Societal stability
+**Hypothesis:** Political leaders who successfully extend their time in power are more likely to have prolonged survival compared to leaders who assume power through coups.
 
-**Hypothesis 3 (H3):** Political leaders presiding over stable societies are likely to experience longer tenures.
-
-### Purges and repressions
-
-**Hypothesis 4 (H4):** Leaders who are more prone to employ stringent repression against dissidents are expected to have longer survival durations.
-
-### External alliances
-
-**Hypothesis 5 (H5):** Leaders with strong external alliances are anticipated to have extended survival periods.
-
-### Economic performance
-
-**Hypothesis 6 (H6):** Leaders with a robust economic performance are likely to endure longer than their counterparts facing economic crises.
+## Method and data
 
 \newpage
 
