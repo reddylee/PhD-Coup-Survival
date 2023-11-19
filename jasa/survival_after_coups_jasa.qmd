@@ -127,7 +127,10 @@ This lack of legitimacy can sometimes justify the cause of those seeking their r
 
 The second characteristic revolves around the uncertainty surrounding power transitions.
 This uncertainty creates ambiguity not only for ruling elites and ordinary citizens but also for the leaders themselves regarding when, how, and to whom power might be transferred.
-Such uncertainty breeds inherent risks, and conversely, the existence of risks further amplifies the uncertainty.
+Such uncertainty breeds inherent instability.
+Amidst such instability, people experience a lack of security.
+This perception often leads to the belief that the current ruler is incompetent and should be replaced by someone more powerful or capable.
+Consequently, the ruling elite or opposition factions may exploit the instability as an opportunity to challenge existing power structures.
 
 The third aspect involves the collective action problem within the opposition.
 As highlighted in the introduction, expressing dissenting views in autocratic systems, either as potential challengers or supporters of challengers, can be perilous.
@@ -136,6 +139,39 @@ Beyond small, close-knit groups, it becomes impossible to discern who supports t
 Attempts to determine the numbers of supporters or opponents and efforts to unite different anti-incumbent factions can also be risky.
 Consequently, anti-incumbent forces often maintain a low profile for safety until a particular group gains the confidence to succeed.
 
+The trifecta of illegitimacy, uncertainty, and collective action issues profoundly impact the longevity of a regime.
+Yet, compared to leaders who gain power through coups, those who overstay their terms find themselves in a comparatively advantageous position concerning these three aspects.
+
+### Legitimacy
+
+As per Powell and Thyne's definition, coups constitute "illegal and overt attempts by the military or other elites within the state apparatus to unseat the sitting executive." [@powell2011, p.252].
+While it is undeniable that a few coups have been justified by resolving crises and leading to improved outcomes, they remain illegal means to remove incumbents.
+These unlawful methods open Pandora's box, publicly suggesting alternatives to constitutional procedures for seizing power, particularly in the case of successful coups.
+Such actions inevitably prompt imitators to launch new coups.
+As society becomes accustomed to coups, subsequent ones may not elicit significant backlash, given that the incumbents themselves ascended to power through similar means.
+Furthermore, coups not only invite further coups but also embolden external challengers, including uprisings, revolutions, and civil wars [@dahl2023].
+
+On the other hand, leaders who overstay their tenures may lack legitimacy but often manage to maintain power through a facade of legitimacy.
+They don't blatantly seize power via military force but rather cling to power through parliamentary or congressional processes, the Supreme Court, and even nationwide referendums.
+The opposition usually chooses to confront these leaders using legal means, engaging in legislative debates or legal proceedings, and sometimes by advocating for another referendum.
+Attempts to overthrow leaders who overstay their terms through coups would be even less legitimate and might struggle to garner support.
+However, removing such leaders within the boundaries of the law presents an arduous challenge, if not a near-impossible task.
+
+### Uncertainty and instability
+
+When discussing instability, it's clear that regimes following coups are more prone to instability.
+In many cases, coups occur amidst chaotic situations, with coup leaders using the pretext of restoring order.
+To expedite the restoration of order, leaders emerging from coups may find themselves compelled to make compromises among various internal or external factions.
+As noted by @roessler2011, these rulers might try to reduce the likelihood of further coups at the cost of increasing the risk of societal rebellions and civil wars.
+This is also the logic of the Chinese ruler, Chiang Kai-shek, in 1930s.
+In order to eliminate the internal threats, Chinese Communist Party, he resorted to a strategy of compromise with both Japan and the Soviet Union.
+"Domestic stability takes precedence over resisting foreign invasion" was one of the most commonly used slogans by Chiang Kai-shek during that time @chu1999chiang.
+
+Survival in power relies significantly on the cohesion of the ruling group.
+As numerous scholars have pointed out, internal conflicts among elites pose a more serious threat to the stability of those in power.
+Coups often lay bare the fractures within a regime, not only attracting more followers to orchestrate new coups but also emboldening external challengers, including uprisings, revolutions, and civil wars.
+On the other hand, successful tenures unmistakably showcase the incumbents' firm grasp on power, discouraging both internal dissent and external threats
+
 For leaders who ascend to power through coups or overstay their tenure, these conflicts typify their rules.
 Following coups, regimes face four potential outcomes: democracies initially overthrown by coups may either persist as democracies (I) or transform into autocracies (II), while autocracies overthrown by coups may either endure as autocracies (III) or evolve into democracies (IV).
 However, even in democracies reinstated after coups, a degree of uncertainty lingers.
@@ -143,9 +179,7 @@ In contrast, regimes characterized by leaders overstaying their terms, with only
 
 In an environment characterized by uncertainty, the primary strategy for rulers is to maintain the stability of society.
 The Chinese Communist Party, for example, consistently emphasizes in public statements that '**Stability is Everything**'.
-The underlying logic is clear: in an unstable situation, people experience a lack of security, fostering a desire for change among the ruling elites or even opposition factions.
-This perception often leads to the belief that the current ruler is incompetent and should be replaced by someone more powerful or capable.
-Moreover, the ruling elite or opposition factions may exploit the instability as an opportunity to challenge existing power structures.
+The underlying logic is clear:
 
 In stark contrast, leaders who attain power through coups confront more formidable initial challenges than those who overstay their terms.
 While rulers exceeding their terms might incite discontent and unrest, successful tenures unmistakably demonstrate the incumbents' robust control over power, effectively discouraging both internal dissent and external threats.
