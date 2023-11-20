@@ -132,14 +132,17 @@ Amidst such instability, people experience a lack of security.
 This perception often leads to the belief that the current ruler is incompetent and should be replaced by someone more powerful or capable.
 Consequently, the ruling elite or opposition factions may exploit the instability as an opportunity to challenge existing power structures.
 
-The third aspect involves the collective action problem within the opposition.
-As highlighted in the introduction, expressing dissenting views in autocratic systems, either as potential challengers or supporters of challengers, can be perilous.
-The absence of free public expression renders the power balance unclear.
-Beyond small, close-knit groups, it becomes impossible to discern who supports the incumbent and who opposes them.
-Attempts to determine the numbers of supporters or opponents and efforts to unite different anti-incumbent factions can also be risky.
-Consequently, anti-incumbent forces often maintain a low profile for safety until a particular group gains the confidence to succeed.
+The third aspect revolves around the equilibrium of power.
+In autocracies, governance typically rests with a minority faction that possesses a highly structured organization, distinctly contrasting with the decentralized and disorganized subjects.
+Even amid protests or uprisings, ruling groups adeptly suppress such incidents individually.
+The possibility of overthrowing tyranny arises if the subjects can coalesce their efforts.
+However, the principal obstacle lies in the formidable challenge of surmounting the collective action problem.
+Autocratic dictators commonly adopt a ruling strategy focused on preventing unity among subjects and complicating endeavors to address collective action issues.
+This elucidates why dictatorships curtail free expression, assembly, and association.
+The absence of free public expression and association renders the power balance unclear.
+Consequently, rulers maintain relative power advantages over not only the elites but also the subjects.
 
-The trifecta of illegitimacy, uncertainty, and collective action issues profoundly impact the longevity of a regime.
+The trifecta of illegitimacy, uncertainty, and the equilibrium of power profoundly impact the longevity of a regime.
 Yet, compared to leaders who gain power through coups, those who overstay their terms find themselves in a comparatively advantageous position concerning these three aspects.
 
 ### Legitimacy
@@ -157,112 +160,56 @@ The opposition usually chooses to confront these leaders using legal means, enga
 Attempts to overthrow leaders who overstay their terms through coups would be even less legitimate and might struggle to garner support.
 However, removing such leaders within the boundaries of the law presents an arduous challenge, if not a near-impossible task.
 
-### Uncertainty and instability
+### Uncertainty
 
-As discussed earlier, both coup-entry leaders and overstaying rulers bring about uncertainty for their regimes.
-However, there are less uncertainty in regimes of overstays.
-Most overstayers try to stay in office as long as they could.
-The only uncertainty lies in how long they could manage to do so.
-As in the cases of Putin in Russia and Xi Jinping in China, it is less likely they will voluntarily step down unless they are ousted by force.
-Coup-entry leaders, on the other hand, face more uncertainty.
-Most coups would take a good excuse for the actions.
-Some of them claimed the action as the defense of the democratic order, as in the case of President Manual Zelaya's oust in Honduras in 2009.
-Some of them claimed to protect the constitution, as the case of President Mamadou Tandja's overthrown in Niger in 2010 [@ginsburg2019].
-The trick is that some of them did keep their words and returned the power to a constitutional successor.
-In the coup in Niger in 2010, a new constitution restored civilian power, and restated the absolute two-term limit on the presidency.
-Most others, however, hold the office and refused to step down, as in the coup in Chile in 1973.
-Therefore, there are more uncertainties after coups.
-Will they succeed in the end (how long will they hold the power)?
-How do they decide the ways of governance?
-How do they share the power inside supporters and those they will to cooperate?
-Will they keep their words?
-Are there backlash from the ousted rulers' alliances or other opposition factions?
-Will they be better or even worse than the previous ones?
+As previously discussed, both leaders who assume power through coups and those who extend their terms contribute to uncertainties within their regimes.
+However, regimes led by overstaying rulers generally demonstrate lesser overall uncertainty.
 
-Uncertainty arise instability.
-More uncertainties in regimes following coups are clearly more prone to instability.
-In most cases, coups occur amidst chaotic situations, with coup leaders using the pretext of restoring order.
-To expedite the restoration of order, leaders emerging from coups may find themselves compelled to make compromises among various internal or external factions.
-As noted by @roessler2011, these rulers might try to reduce the likelihood of further coups at the cost of increasing the risk of societal rebellions and civil wars.
-This is also the logic of the Chinese ruler, Chiang Kai-shek, in 1930s.
-In order to eliminate the internal threats, Chinese Communist Party, he resorted to a strategy of compromise with both Japan and the Soviet Union.
-"Domestic stability takes precedence over resisting foreign invasion" was one of the most commonly used slogans by Chiang Kai-shek during that time @chu1999chiang.
+Primarily, following coups, regimes face uncertainty regarding four potential outcomes: democracies initially overthrown by coups may either persist as democracies (I) or transition into autocracies (II), while autocracies overthrown by coups may either endure as autocracies (III) or evolve into democracies (IV).
+In contrast, regimes with leaders overstaying their terms, with only rare exceptions, typically persist as autocracies.
 
-### Uncertainty and Instability
+Secondly, the anticipated duration of future ruling tenures tends to be longer for overstaying rulers than for coup-entry leaders.
+Most overstaying leaders endeavor to prolong their tenures for as long as possible.
+For example, figures like Putin in Russia and Xi Jinping in China are less inclined to voluntarily step down unless forcibly removed from power.
+Conversely, coup-entry leaders face greater uncertainty.
+Coups are often justified through diverse excuses or claims.
+Some assert their actions as defending democratic order, exemplified by President Manuel Zelaya's ousting in Honduras in 2009.
+Others claim to protect the constitution, such as President Mamadou Tandja's overthrow in Niger in 2010.
+The complexity arises when certain coup leaders honor their promises by transferring power to a constitutional successor.
+For instance, following the 2010 coup in Niger, a new constitution restored civilian power and reinstated a strict two-term limit on the presidency in the same year [@ginsburg2019].
+However, numerous others refuse to step down and retain power, as observed in the 1973 coup in Chile [@ökten2022].
 
-As previously discussed, both leaders who come into power via coups and those who overstay their terms contribute to uncertainty within their regimes.
-However, regimes led by overstaying rulers tend to harbor less uncertainty overall.
-Most of overstaying leaders would strive to prolong their time in office for as long as possible.
-The only uncertainty in these cases revolves around how long they can maintain their rule.
-For instance, figures like Putin in Russia and Xi Jinping in China are less inclined to voluntarily step down unless forcibly removed from power.
+Thirdly, uncertainties abound regarding policy changes and power reshuffling.
+Comparatively, coup-entry leaders need to restructure top officials and justify their actions by implementing noticeable differences after overthrowing the incumbents.
+In contrast, overstaying leaders face fewer issues as their regimes experience minimal dramatic changes.
+There is no rush to dismantle the old ruling paradigm and establish a new order.
 
-Conversely, leaders brought to power through coups face greater uncertainty.
-Most coups are justified through various excuses or claims.
-Some assert their actions as a defense of democratic order, exemplified by President Manuel Zelaya's ousting in Honduras in 2009.
-Others claim to protect the constitution, such as President Mamadou Tandja's overthrow in Niger in 2010 [@ginsburg2019].
-The complexity arises when some coup leaders actually honor their promises and transfer power to a constitutional successor.
-For instance, after the 2010 coup in Niger, a new constitution restored civilian power and reinstated a strict two-term limit on the presidency in the same year.
-However, many others refuse to step down and retain power, as seen in the 1973 coup in Chile.
-Therefore, post-coup scenarios tend to harbor more uncertainties.
-Uncertainties stem from concerns about how long they will remain in power, their strategies for governance, the distribution of power among their supporters and potential allies, their dedication to fulfilling promises, possible backlash from alliances or opposition factions of ousted rulers, and whether they will bring about improvements or exacerbate the situation compared to previous leaders.
+### Equilibrium of power
 
-These uncertainties lead to instability, particularly in regimes post-coups.
-Often, coups transpire amidst chaotic circumstances, with coup leaders justifying their actions as necessary for restoring order.
-To hasten the restoration of order, these leaders may find themselves obliged to compromise among various internal or external factions.
-As noted by @roessler2011, these rulers might attempt to decrease the likelihood of further coups, potentially raising the risk of societal rebellions and civil wars.
-This approach echoes the strategy of the Chinese leader Chiang Kai-shek in the 1930s.
-In his bid to eliminate the internal threat posed by the Chinese Communist Party, he pursued a strategy of compromise with both Japan and the Soviet Union.
-"Domestic stability takes precedence over resisting foreign invasion" was one of the most commonly used slogans by Chiang Kai-shek during that period [@chu1999chiang].
+Rulers in autocracies face a challenging dilemma in managing powerful elites.
+They require a strong force to counter potential external threats while constantly grappling with the fear of being replaced by competent and ambitious subordinates.
+Therefore, maintaining a delicate balance of power becomes a sophisticated skill.
+It's apparent that sustaining equilibrium is easier than restoring it once disrupted.
 
-### Collective action challenges
+In regimes with leaders overstaying their terms, there exists, at least temporarily, a superficial equilibrium of power.
+Successful overstays demonstrate the incumbents' firm grip on power, effectively deterring both internal dissent and external challenges.
+Consequently, this contributes to the overall stability of the governing structure and society.
 
-Autocracies are often governed by a minority faction that possesses a well-organized structure, contrasting sharply with decentralized and unorganized subjects.
-Even in the face of protests or rebellions, ruling groups can systematically suppress these incidents individually.
-If the subjects could unite their efforts, overthrowing tyranny might become feasible.
-However, the significant hurdle lies in the immense difficulty of overcoming the collective action problem.
-Dictators in autocracies primarily adopt a ruling strategy aimed at preventing unity among subjects and complicating efforts to tackle collective action problems.
-This explains why dictatorships restrict free expression, assembly, and association.
-In their pursuit of this strategy, they are willing to risk compromising their ability to fend off external threats.
-This situation is prevalent in long-term ruler regimes, which tend to exhibit relative stability.
-It is this stability that enables rulers to weaken both their subjects and internal elites.
-A prime example of this can be seen in Russia's ongoing conflict, where despite being the world's second most powerful military, Russia faces challenges in the invasion war against Ukraine, a smaller military force.
+Conversely, leaders who come to power through coups invariably disrupt the balance of power and must establish a new equilibrium, even in relatively peaceful coup scenarios.
+The overthrow of previous rulers necessitates the dismantling of the existing ruling framework and a reshuffling of top officers and officials.
+These actions inevitably breed turbulence and adversaries for the new rulers, making the restoration of order and the balance of power considerably more challenging.
 
-Conversely, regimes post-coups often grapple with higher instability, compelling rulers to prioritize the restoration of stability.
-However, these rulers face a dilemma.
-If they resort to harsh actions against internal elites---some of whom are their supporters or close allies---they risk weakening themselves or inciting backlash, as witnessed in the case of Bokassa's coup in 1966 in the Central African Republic.
-On the other hand, when dealing with external threats, even if suppression tactics succeed, they may inadvertently empower new internal factions, thereby creating new threats.
-This scenario mirrors Napoleon's challenges in France during the 1790s.
+Internal conflicts among elites, as highlighted by numerous scholars, pose a significant threat to the stability of those in power.
+Hence, they are often compelled to negotiate and compromise among external factions.
+As noted by @roessler2011, these rulers might attempt to reduce the likelihood of subsequent coups, albeit at the expense of increasing the risk of societal rebellions and civil wars.
+This strategy resonates with the approach adopted by Chinese leader Chiang Kai-shek in the 1930s.
+He pursued a strategy of compromise with both Japan and the Soviet Union to eliminate the internal threat posed by the Chinese Communist Party, prioritizing "Domestic stability takes precedence over resisting foreign invasion" during that period [@chu1999chiang].
+However, adopting a hardline stance internally could not only weaken themselves by purging elites, but also incite backlash from close allies, as witnessed in instances like Idi Amin's coup in 1971 in Uganda and Pervez Musharraf's coup in 1999 in Pakistan [@sudduth2017a].
 
-Survival in power relies significantly on the cohesion of the ruling group.
-As numerous scholars have pointed out, internal conflicts among elites pose a more serious threat to the stability of those in power.
-Coups often lay bare the fractures within a regime, not only attracting more followers to orchestrate new coups but also emboldening external challengers, including uprisings, revolutions, and civil wars.
-On the other hand, successful tenures unmistakably showcase the incumbents' firm grasp on power, discouraging both internal dissent and external threats
-
-For leaders who ascend to power through coups or overstay their tenure, these conflicts typify their rules.
-Following coups, regimes face four potential outcomes: democracies initially overthrown by coups may either persist as democracies (I) or transform into autocracies (II), while autocracies overthrown by coups may either endure as autocracies (III) or evolve into democracies (IV).
-However, even in democracies reinstated after coups, a degree of uncertainty lingers.
-In contrast, regimes characterized by leaders overstaying their terms, with only rare exceptions, typically persist as autocracies or undergo a transition towards autocracy.
-
-In an environment characterized by uncertainty, the primary strategy for rulers is to maintain the stability of society.
-The Chinese Communist Party, for example, consistently emphasizes in public statements that '**Stability is Everything**'.
-The underlying logic is clear:
-
-In stark contrast, leaders who attain power through coups confront more formidable initial challenges than those who overstay their terms.
-While rulers exceeding their terms might incite discontent and unrest, successful tenures unmistakably demonstrate the incumbents' robust control over power, effectively discouraging both internal dissent and external threats.
-This, in turn, contributes to the overall stability of the governing structure and society.
-Consequently, the pressing need to dismantle the old ruling paradigm and establish a new order is markedly diminished in this context.
-
-On the contrary, coup-instated leaders almost always ascend to power amid instability, even if some coups are executed peacefully.
-They overthrow previous rulers, necessitating the dismantling of at least part of the old ruling framework and the replacement of certain officers and officials.
-These actions inevitably lead to turbulence and create adversaries for the new rulers.
-Distributing the benefits of successful coups among supporters poses another challenge, as it is nearly impossible to satisfy every supporter.
-If grievances, whether from former ruler supporters or the coup-instated leaders' backers, intensify, the new leaders might resort to purging some of them, further fueling chaos.
-
-Moreover, despite temporarily wielding power, leaders who come to office through coups face enduring challenges.
-Coups often expose the fractures within a regime, not only galvanizing more adherents to plot subsequent coups but also emboldening external adversaries, including uprisings, revolutions, and civil wars.
-A comprehensive coup dataset [@powell2011] spanning from 1950 to 2023 reveals that 97 countries experienced coups during this period.
-Among them, 15 countries endured at least 10 coups, and 10 countries witnessed more than 6 successful coups.
-These factors collectively contribute to a decrease in the expected lifespan of the regime after coups [@dahl2023].
+These factors collectively contribute to a shorter expected lifespan of regimes following coups [@dahl2023], compared to relatively longer tenures for overstaying regimes.
+Analyzing a comprehensive coup dataset [@powell2011] spanning from 1950 to 2023, it's evident that 97 countries experienced coups during this period.
+Among them, 15 countries endured at least 10 coups, and 10 countries witnessed more than 6 successful coups, reinforcing the analysis discussed above.
+Based on these insights, I propose the following hypothesis:
 
 ```{r eval=FALSE, include=FALSE}
 library(tidyverse)
