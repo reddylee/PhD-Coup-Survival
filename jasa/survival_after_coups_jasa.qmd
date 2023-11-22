@@ -17,7 +17,7 @@ author:
         department: Department of Government
   
 abstract: |
- This paper delves into the durations of political leaders' tenures, examining two distinct categories: coup-entry leaders and those who exceed their designated term limits. It argues that the longevity of political leadership is shaped not solely by their governance or policies but also by the methods through which they assume power. Through the utilization of a survival model, this study demonstrates that leaders who enter through coups tend to have shorter tenures compared to those who extend their stay beyond constitutional limits. The research aims to uncover the underlying rationale behind these divergent durations, shedding light on the factors contributing to such differences in survival within political leadership.
+ This paper delves into the duration of political leaders' tenures, focusing on two specific categories: leaders who come into power through coups and those who exceed their designated term limits. It argues that the length of political leadership tenures is not solely determined by their governing strategies but also by the means through which they ascend to power. By employing a survival model, this study demonstrates that leaders entering through coups generally have shorter tenures compared to those who surpass their term limits. The primary objective of this research is to determine, on average, the extended survival duration of overstaying leaders in power in comparison to coup-entry leaders, aiming to uncover the underlying factors contributing to these divergent tenures.
 
 bibliography: survival.bib
 mainfont: Times New Roman
@@ -30,6 +30,39 @@ execute:
 
 The query of what drives certain leaders to endure in power for decades, in stark contrast to others whose leadership abruptly ends within short spans of time, has been a focal point of political science.
 This compelling inquiry has garnered extensive attention and analysis across various scholarly works, as elaborated upon in Chapter 2.
+
+Previous research on the survival of political leaders shows two noteworthy gaps.
+Firstly, scholars have predominantly focused on generalized frameworks, which either encompass all types of regimes or include all forms of autocracies.
+However, the survival dynamics significantly differ not just between democracies and autocracies but also among various types of autocratic rule.
+Secondly, existing studies have primarily centered on analyzing the likelihood of events causing irregular leader exits, such as coups, occurring within a country-year and the factors influencing these events.
+However, there remains a dearth of discussion concerning the average duration of survival, whether longer or shorter, for specific types of leaders compared to others.
+
+This paper delves into a comparative analysis between two distinct categories of political leaders: those who ascend to power through coups and those who extend their designated term limits.
+Existing research has consistently shown that the duration of political leaders' tenures can be profoundly influenced by unforeseen occurrences such as coups.
+Paradoxically, these unexpected events that usher in new leaders can subsequently become determinants for further unforeseen developments.
+It's plausible that leaders who assume power through regular and constitutional transitions are more prone to periodic shifts in leadership, while those seizing power through unconstitutional means face higher risks of unanticipated removal from office.
+
+I propose that the means by which political leaders acquire power significantly impacts the duration of their leadership.
+The examination of irregular-entry or overstaying leaders' tenures holds particular significance for two reasons.
+Firstly, the tenures of irregular-entry leaders exhibit substantial variability compared to those of regular-entry leaders, ranging from brief periods to several decades.
+Secondly, forecasting the tenures of irregular-entry leaders presents a challenge.
+A seemingly robust and stable regime might unexpectedly collapse overnight, while an apparently fragile one might endure for decades.
+
+Employing a survival model, I provide empirical evidence suggesting that leaders who surpass their term limits generally enjoy longer tenures compared to those entering through coups.
+Coup-entry leaders, in contrast to overstaying leaders, grapple with more significant challenges related to legitimacy, uncertainty, instability, and power-sharing.
+These factors potentially curtail the duration of survival for coup-entry leaders.
+
+This study could offer contributions on two fronts.
+Firstly, it underscores that the duration of survival and unforeseen exits isn't solely determined by leaders' actions post-assuming power but is inherently influenced by their method of ascension to power.
+Secondly, it provides empirical measurements for comparing the tenure duration of different types of leaders.
+
+After the introduction, the second section encompasses a comprehensive literature review on political survival and highlighting the contributions of this paper might offer.
+The third chapter delves into the examination of factors influencing the survival of leaders who have ascended to power through unconstitutional means.
+Chapter 4 provides an account of the methodology and data employed, utilizing a survival model for a comprehensive analysis of the determinants of leaders' survival.
+Chapter 5 presents the findings of this analysis, facilitating an in-depth discussion of the results.
+Finally, in Chapter 6, the paper concludes by synthesizing these findings and exploring their broader implications.
+
+## Literature review: The dynamics of leadership survival in different scenarios
 
 , as evidenced by notable contributions such as those by @clinton1975politics and @buenodemesquita2003.
 
@@ -47,28 +80,6 @@ The second dimension delves into the strategies employed by leaders in enacting 
 
 Unsurprisingly, a substantial portion of the existing research on political survival predominantly centers on coups, as they represent the most common pathways to the exit of authoritarian leaders [@svolik2008; @frantz2016].
 Previous literature has primarily delved into the survival of leadership in terms of strategies aimed at preventing coups [@powell2017; @sudduth2017; @debruin2020], or how leaders can extend their tenures after surviving failed coup attempts [@easton2018].
-
-However, on one hand, the duration of political leaders' tenures can be significantly influenced by unforeseen events like coups.
-On the other hand, these very unexpected events that usher in new leaders can also become the catalyst for the subsequent cycle of unexpected developments.
-It is conceivable that leaders who come to power through regular and constitutional transitions are more likely to undergo periodic shifts in leadership, while those who seize power through unconstitutional means face a higher risk of unanticipated removal from office.
-Unfortunately, there has been a limited emphasis on the study of leadership survival in the context of successful coups.
-A similar research gap exists in the examination of incumbents who overstay their terms in power, which forms the central focus of this paper.
-
-The analysis of unregular-entry or overstaying leaders' tenures holds particular significance for two reasons.
-Firstly, the duration of these leaders' tenures exhibits considerable variation, ranging from mere months to several decades.
-Secondly, predicting the tenures of such leaders proves challenging.
-A seemingly robust and stable regime can collapse suddenly overnight, while an apparently fragile one might persist for decades.
-The substantial disparities in these tenures remain inadequately explained, posing a perplexing challenge that has piqued the interest of numerous political scientists.
-
-Expanding on the discourse surrounding coup-entry leaders and overstaying leaders, this paper delves into the variations in survival duration between these two types leaders, while also shedding light on the underlying factors contributing to these distinctions.
-
-After the introduction, the second section encompasses a comprehensive literature review on political survival and highlighting the contributions of this paper might offer.
-The third chapter delves into the examination of factors influencing the survival of leaders who have ascended to power through unconstitutional means.
-Chapter 4 provides an account of the methodology and data employed, utilizing a survival model for a comprehensive analysis of the determinants of leaders' survival.
-Chapter 5 presents the findings of this analysis, facilitating an in-depth discussion of the results.
-Finally, in Chapter 6, the paper concludes by synthesizing these findings and exploring their broader implications.
-
-## Literature review: The dynamics of leadership survival in different scenarios
 
 Many scholars, like @buenodemesquita2003 set out in their ambitious work, try to provide a comprehensive explanation for the logic of political leadership survival within a universal framework.
 However, it is essential to notice that the dynamics of leadership survival differ significantly across various types of regimes.
