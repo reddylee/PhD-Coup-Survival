@@ -64,47 +64,50 @@ Finally, in Chapter 6, the paper concludes by synthesizing these findings and ex
 
 ## Literature review: The dynamics of leadership survival in different scenarios
 
-, as evidenced by notable contributions such as those by @clinton1975politics and @buenodemesquita2003.
-
-In their seminal work, Bueno de Mesquita and his colleagues undertake a comprehensive examination of leaders across a diverse political landscape, encompassing democracies and autocracies, parliamentary and presidential systems, and both civilian and military contexts.
-However, it is worth noting that a significant number of political leaders, especially in democratic countries, adhere to regular and predictable tenures.
-An illustrative example can be found in the United States, where presidents may serve up to eight years if they secure a second term, even in cases of sub-optimal performance.
-Similarly, in autocratic Mexico from 1919 to 2000, each president served a fixed six-year term without facing overthrows or overstays.
-In such contexts, the investigation of tenure length is of marginal significance, as power transitions between leaders typically occur within the established framework of constitutional rules or unwritten conventions.
-
-Given the distinctive nature of political leader survival in different regimes, scholars have increasingly focused on the unexpected tenures, namely those leaders who do not complete their original terms or those who overstay their terms.
-This shift in focus stems from the fact that some leaders are toppled by coups, uprisings, rebellions, civil wars, or revolutions, while others successfully survive lawful or unlawful challenges.
-Previous research on the longevity of political leaders predominantly centers on two primary dimensions.
-The first dimension encompasses the contextual conditions and resources available to leaders (**objective conditions**), including factors such as their personal competence [@yu2016], the stability of their society [@arriola2009], economic performance [@palmer1999, @williams2011], access to natural resources [@smith2004; @quirozflores2012], and external support networks [@licht2009; @wright2008, @thyne2017].
-The second dimension delves into the strategies employed by leaders in enacting their political and economic policies (**subjective actions**) [@gandhi2007; @morrison2009], as well as their responses to challenges and dissent within their regimes [@escribà-folch2013; @davenport2021].
-
-Unsurprisingly, a substantial portion of the existing research on political survival predominantly centers on coups, as they represent the most common pathways to the exit of authoritarian leaders [@svolik2008; @frantz2016].
-Previous literature has primarily delved into the survival of leadership in terms of strategies aimed at preventing coups [@powell2017; @sudduth2017; @debruin2020], or how leaders can extend their tenures after surviving failed coup attempts [@easton2018].
-
-Many scholars, like @buenodemesquita2003 set out in their ambitious work, try to provide a comprehensive explanation for the logic of political leadership survival within a universal framework.
+In their seminal work, @buenodemesquita2003 undertake a comprehensive examination of leaders across a diverse political landscape, encompassing democracies and autocracies, parliamentary and presidential systems, and both civilian and military contexts.
+They try to provide a comprehensive explanation for the logic of political leadership survival within a universal framework.
 However, it is essential to notice that the dynamics of leadership survival differ significantly across various types of regimes.
 
 In democratic systems, distinctions emerge between parliamentary and presidential regimes.
 For instance, in parliamentary countries such as the UK and Japan, political parties may maintain power for extended periods, even as prime ministers change frequently.
 A contemporary example is the United Kingdom in 2022, which saw three different prime ministers while the Conservative Party retained its grip on power.
 In contrast, in presidential countries like the United States, leaders are subject to fixed terms, making power transitions more regular and predictable.
+Also, there are even more different types of autocratic regimes, each with its distinct characteristics, including civilian autocracy, personnel autocracy, military regimes, party dominance, and monarchies.
+There are strictly periodically power transition cases.
+An illustrative example can be found in autocratic Mexico from 1919 to 2000, each president served a fixed six-year term without facing overthrows or overstays \*\*\*.
+There are many dictators who rule for life and even pass power to their sons as in Syria and North Korea, or brothers as in Cuba.
+Of course, there are more rulers ousted unexpectedly.
 
-Moreover, the concept of dividing the residents into different coalitions or groups may not be as relevant in democracies.
-While those who support and vote for incumbents may witness their preferred policies enacted, those who vote against them still experience the same policies.
-For instance, a candidate who advocates lower taxe wins the election.
+Moreover, the concept of dividing the residents into different coalitions or groups may not be as relevant in democracies compared to autocracies.
+In democracies, while those who support and vote for incumbents may witness their preferred policies enacted, those who vote against them still experience the same policies.
+For instance, a candidate who advocates lower tax wins the election.
 This doesn't result in lower taxes for supporters of this candidate and higher taxes for their opponents; rather, both groups encounter identical tax levels.
-Consequently, it becomes challenging to argue that supporting groups of incumbents inherently gain a significant advantage over the opponent groups in democratic systems.
+Things are different in autocracies where different groups, depending on their status, relationships with the rulers, do benefit differently.
 
-On the other hand, there are types of autocratic regimes, each with its distinct characteristics, including civilian autocracy, personnel autocracy, military regimes, party dominance, and monarchies.
+Furthermore, the rules of power transitions in democracies and autocracies are very different.
 In most autocratic regimes, the process of leadership selection remains veiled in secrecy.
 For instance, in countries like China, the mechanisms for appointing leaders often resemble a black box, concealing the rules and procedures from outsiders.
 Expressing dissenting views, whether as potential challengers or supporters of challengers, can be perilous.
 In Russia, despite the presence of general elections, challengers frequently face severe consequences such as assassination, poisoning, imprisonment, or exile.
-As a result of the absence of transparent and fair conventional procedures for power transitions, leaders in autocratic regimes are more vulnerable to being deposed through coups or other unconventional means than democratic ones.
+As a result of the absence of transparent and fair conventional procedures for power transitions, it is difficult to measure who are more powerful or who have more supporters.
+It is possible that a dictator could survive a quite long tenure with a very weak supporting, because no one know the balance of power is not in the dictator's favour.
+It is also possible a powerful ruler was ousted by a small number of guards, because the army or other supporters of the ruler hesitate to fight for him due to the lack of information that they are actually in predominant status in balance of power.
+So it is impossible to accurately calculate the selectorates or coalitions, like @buenodemesquita2003 did in their research.
+In democracies, the challengers could publicly run for leadership without any fear.
+It is easy to find out their supporting rates.
+They could try to gain more supporters through public speeches, TV or news paper advertisements, or assemblies.
+If the supporting rates are not good enough to challenge the incumbents, different groups could try to cooperate.
+So the power transitions could happen with a tiny more supports.
 
-Beyond distinctions among various regimes, the endurance of leaders can fluctuate even within the confines of a single regime, contingent on the circumstances they encounter.
-It stands to reason that leaders ascending through conventional means may experience a different survival trajectory compared to those ushered in by coups or those who overstay their terms.
-Additionally, leaders operating in favorable economic, social, and international contexts are likely to have a more prolonged tenure compared to their counterparts navigating challenging conditions.
+Given the distinctive nature of political leader survival in different regimes, more scholars have focused on logic of survival of specific types of regimes, delving into democracies (Svolik 2014 Which Democracies Will Last?) or autocracies (Davenport, RezaeeDaryakenari, and Wood 2021 Tenure Through Tyranny? Repression, Dissent, and Leader Removal in Africa and Latin America).
+Of course, the unexpected tenures, namely those leaders who do not complete their original terms or those who overstay their terms, gain more academic attention.
+
+Previous research on the longevity of political leaders predominantly centers on two primary dimensions.
+The first dimension encompasses the contextual conditions and resources available to leaders (**objective conditions**), including factors such as their personal competence [@yu2016], the stability of the society [@arriola2009], economic development level [@palmer1999, @williams2011], natural resources [@smith2004; @quirozflores2012], and external support networks [@licht2009; @wright2008, @thyne2017].
+The second dimension delves into the strategies employed by leaders in enacting their political and economic policies (**subjective actions**) [@gandhi2007; @morrison2009], as well as their responses to challengers and dissent within their regimes [@escribà-folch2013; @davenport2021].
+
+Unsurprisingly, a substantial portion of these studies predominantly centers on coups, as they represent the most common pathways to the exit of authoritarian leaders [@svolik2008; @frantz2016].
+Previous literature has primarily delved into the survival of leadership in terms of strategies aimed at preventing coups [@powell2017; @sudduth2017; @debruin2020], or how leaders can extend their tenures after surviving failed coup attempts [@easton2018].
 
 Considering the factors discussed earlier, a substantial portion of existing literature seeks to unravel the underlying principles governing political survival in non-democratic regimes.
 Notably, scholarly attention has gravitated towards the examination of coup-proofing strategies, given that coups emerge as a primary driver of irregular exits in autocracies [@quinlivan1999; @powell2014; @sudduth2017; @tang2021].
