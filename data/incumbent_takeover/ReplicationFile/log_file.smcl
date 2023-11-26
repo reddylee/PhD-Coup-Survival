@@ -1,0 +1,2174 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/alexbaturo/Desktop/jpr/ReplicationFile/log_file.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 2 Jul 2021, 13:09:09
+
+{com}. do "/var/folders/h1/2snwzn456fn65_lntc_1khf80000gn/T//SD00411.000000"
+{txt}
+{com}. 
+. ******************************************************************************************************
+. ******************************************************************************************************
+. *            Alexander Baturo and Jakob Tolstrup - Incumbent Takeovers                     *       
+. *                    Journal of Peace Research         STATA 12.1                          *                                                                             *
+. ******************************************************************************************************
+. ******************************************************************************************************
+. 
+. 
+. clear
+{txt}
+{com}.  
+. /*************************************************/
+. /*************************************************/
+. /* Figure 2 reasons for Freedom House downgrades */
+. /*************************************************/
+. /*************************************************/
+. 
+. 
+. /* this do-file categorizes FH downgrades and makes fh_cats dataset for Figure 2 */
+. 
+. do Figure2/dembreak_list2020.do
+{txt}
+{com}. /*************************************************/
+. /*************************************************/
+. /* Coding reasons for Freedom House downgrades */
+. /*************************************************/
+. /*************************************************/
+. 
+. clear
+{txt}
+{com}. 
+. /* count of transitions from PF to NF */
+. use Figure2/freedomhouse2020.dta
+{txt}
+{com}. 
+. gen lagmean=mean[_n-1] if country==country[_n-1]
+{txt}(1352 missing values generated)
+
+{com}. gen lagpr=pr[_n-1] if country==country[_n-1]
+{txt}(1352 missing values generated)
+
+{com}. gen lagcl=cl[_n-1] if country==country[_n-1]
+{txt}(1352 missing values generated)
+
+{com}. gen lagstatus=status[_n-1] if country==country[_n-1]
+{txt}(1352 missing values generated)
+
+{com}. keep  if status=="Not Free" & status[_n-1]!="Not Free" & mean[_n-1]!=. & country==country[_n-1]
+{txt}(9649 observations deleted)
+
+{com}. drop inverse_pr inverse_cl inverse_mean sum inverse_sum min max inverse_min inverse_max
+{txt}
+{com}. gen change="F/PF to NF"
+{txt}
+{com}. 
+. save Figure2/fh_dembreak2020, replace
+{txt}file Figure2/fh_dembreak2020.dta saved
+
+{com}. 
+. clear
+{txt}
+{com}. use Figure2/freedomhouse2020.dta
+{txt}
+{com}. sort ccode year
+{txt}
+{com}. gen lagmean=mean[_n-1] if country==country[_n-1]
+{txt}(1456 missing values generated)
+
+{com}. gen lagpr=pr[_n-1] if country==country[_n-1]
+{txt}(1456 missing values generated)
+
+{com}. gen lagcl=cl[_n-1] if country==country[_n-1]
+{txt}(1456 missing values generated)
+
+{com}. gen lagstatus=status[_n-1] if country==country[_n-1]
+{txt}(1456 missing values generated)
+
+{com}. keep  if status=="Partly Free" & status[_n-1]=="Free" & mean[_n-1]!=. & country==country[_n-1]
+{txt}(9710 observations deleted)
+
+{com}. drop inverse_pr inverse_cl inverse_mean sum inverse_sum min max inverse_min inverse_max
+{txt}
+{com}. gen change="F to PF"
+{txt}
+{com}. save Figure2/fh_partlybreak2020, replace
+{txt}file Figure2/fh_partlybreak2020.dta saved
+
+{com}. 
+. clear
+{txt}
+{com}. use Figure2/fh_dembreak2020
+{txt}
+{com}. append using Figure2/fh_partlybreak2020
+{txt}
+{com}. save Figure2/fhallbreaks2020, replace
+{txt}file Figure2/fhallbreaks2020.dta saved
+
+{com}. 
+. 
+. sort ccode year
+{txt}
+{com}. merge ccode year using Figure2/leaders, nokeep
+{txt}{p}
+(note: you are using old
+{bf:merge} syntax; see
+{bf:{help merge:[D] merge}} for new syntax)
+{p_end}
+{p 0 4 2}
+variable{txt}s{txt} ccode
+year
+do not uniquely identify observations in
+Figure2/leaders.dta
+{p_end}
+
+{com}. drop _merge
+{txt}
+{com}. /* drop repeated leaders per year */
+. drop if leader=="Mohammad Musa Shafiq"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Benjedid"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Boudiaf"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Peron, Isabel"
+{txt}(2 observations deleted)
+
+{com}. drop if leader=="Ramon Puerta"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="de la Rua"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Abulfaz Elchibey"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="H. Aliyev" & year==2003
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Sheikh Mujib Rahman"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Moshtaque Ahmed"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Gueiler Tejada"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Carlos Mesa"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Zerbo"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Sankara"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Ndadaye"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Ngueze"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Patasse"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Francois Bozize" & year==2013
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Allende"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Ngouabi" & year==1977
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Lissouba"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Houphouet-Boigny" & year==1993
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Makarios"
+{txt}(2 observations deleted)
+
+{com}. drop if leader=="Sampson"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Duran Ballen"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Mahuad"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Mohamed Morsy"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Laar"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Savisaar"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Selassie"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Banti"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Mara"
+{txt}(2 observations deleted)
+
+{com}. drop if leader=="Bavadra"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Chaudhry"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Ratu Josefa Iloilo"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Laisenia Qarase"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Bongo"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Rose Francine Rogombe"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Jawara" & year==1994
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Rawlings"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Arana Osorio"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Raimundo Pereira"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Manuel Serifo Nhamadjo"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Malam Bacai Sanh‡"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Manigat"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Avril"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Namphy" & startdate=="07/02/1986"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Pascal-Troillet"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Cedras"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Rao"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Phomivan"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Aoun"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Tolbert"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Amadou Toure"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Amadou Haya Sanogo"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Sidi Mohamed Ould Cheikh Abdallahi"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Ousmane"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Babangida"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Shonekan"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Sharif"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Kania"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Momoh"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Kabbah"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Al-Mirghani"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Iskandrov"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Nabiyev"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Seni Pramoj"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Kukrot Pramoj"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Sangad"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Choonhavan"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Surayud Chulanont"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Thaksin Shinawatra" & year==2006
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Yingluck Shinawatra"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Niwattumrong Boonsongpaisan"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Manning"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Demirel"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Viktor Yuschenko"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Mendez Manfredini"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Demichelli"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Caldera Rodriguez"
+{txt}(1 observation deleted)
+
+{com}. drop if leader=="Minh"
+{txt}(1 observation deleted)
+
+{com}. 
+. 
+. /* add leaders not in archigos */
+. replace leader="Aristides Pereira" if country=="Cape Verde"
+{txt}(2 real changes made)
+
+{com}. replace startdate="08/07/1975" if leader=="Aristides Pereira"
+{txt}(2 real changes made)
+
+{com}. replace enddate="22/03/1991" if leader=="Aristides Pereira"
+{txt}(2 real changes made)
+
+{com}. replace leader="Hassanal Bolkiah" if country=="Brunei"
+{txt}(1 real change made)
+
+{com}. replace startdate="04/10/1967" if country=="Brunei"
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2015" if country=="Brunei"
+{txt}(1 real change made)
+
+{com}. replace leader="Danilo Medina" if country=="Dominican Republic" & year==2015
+{txt}(1 real change made)
+
+{com}. replace startdate="16/08/2012" if leader=="Danilo Medina"
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2015" if leader=="Danilo Medina"
+{txt}(1 real change made)
+
+{com}. replace leader="Mosisili" if country=="Lesotho" & year==2015
+{txt}(1 real change made)
+
+{com}. replace startdate="17/03/2015" if country=="Lesotho" & year==2015
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2015" if country=="Lesotho" & year==2015
+{txt}(1 real change made)
+
+{com}. replace leader="Ibrahim Nasir" if country=="Maldives" & year==1973
+{txt}(1 real change made)
+
+{com}. replace startdate="11/11/1968" if leader=="Ibrahim Nasir"
+{txt}(1 real change made)
+
+{com}. replace enddate="11/11/1978" if leader=="Ibrahim Nasir"
+{txt}(1 real change made)
+
+{com}. replace leader="Maumoon Abdul Gayoom" if country=="Maldives" & year==1988
+{txt}(1 real change made)
+
+{com}. replace startdate="11/11/1978" if leader=="Maumoon Abdul Gayoom"
+{txt}(1 real change made)
+
+{com}. replace enddate="11/11/2008" if leader=="Maumoon Abdul Gayoom"
+{txt}(1 real change made)
+
+{com}. replace leader="Dom Mintoff" if country=="Malta"
+{txt}(1 real change made)
+
+{com}. replace startdate="05/03/1962" if country=="Malta"
+{txt}(1 real change made)
+
+{com}. replace enddate="22/12/1984" if country=="Malta"
+{txt}(1 real change made)
+
+{com}. replace leader="Milo Dukanovic" if country=="Montenegro"
+{txt}(1 real change made)
+
+{com}. replace startdate="04/12/2012" if country=="Montenegro"
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2015" if country=="Montenegro"
+{txt}(1 real change made)
+
+{com}. replace leader="Manuel Pinto da Costa" if country=="Sao Tome & Principe"
+{txt}(0 real changes made)
+
+{com}. replace startdate="12/07/1975" if country=="Sao Tome & Principe"
+{txt}(0 real changes made)
+
+{com}. replace enddate="04/03/1991" if country=="Sao Tome & Principe"
+{txt}(0 real changes made)
+
+{com}. replace leader="France-Albert Rene" if country=="Seychelles"
+{txt}(2 real changes made)
+
+{com}. replace startdate="05/06/1977" if country=="Seychelles"
+{txt}(2 real changes made)
+
+{com}. replace enddate="16/04/2004" if country=="Seychelles"
+{txt}(2 real changes made)
+
+{com}. replace leader="Sogavare" if country=="Solomon Islands"
+{txt}(1 real change made)
+
+{com}. replace startdate="30/06/2000" if country=="Solomon Islands"
+{txt}(1 real change made)
+
+{com}. replace enddate="17/12/2001"  if country=="Solomon Islands"
+{txt}(1 real change made)
+
+{com}. replace leader="Bouterse" if country=="Suriname" 
+{txt}(2 real changes made)
+
+{com}. replace startdate="25/02/1980" if country=="Suriname" 
+{txt}(2 real changes made)
+
+{com}. replace enddate="23/12/1990" if country=="Suriname"
+{txt}(2 real changes made)
+
+{com}. replace leader="Walter Lini" if country=="Vanuatu"
+{txt}(1 real change made)
+
+{com}. replace startdate="30/07/1980" if country=="Vanuatu"
+{txt}(1 real change made)
+
+{com}. replace enddate="06/09/1991" if country=="Vanuatu"
+{txt}(1 real change made)
+
+{com}. replace leader="Saleh" if country=="Yemen"
+{txt}(2 real changes made)
+
+{com}. replace startdate="22/05/1992" if country=="Yemen"
+{txt}(2 real changes made)
+
+{com}. replace enddate="27/02/2012" if country=="Yemen"
+{txt}(2 real changes made)
+
+{com}. replace leader="Maurice Bishop" if country=="Grenada" 
+{txt}(2 real changes made)
+
+{com}. replace startdate="13/03/1979" if country=="Grenada" 
+{txt}(2 real changes made)
+
+{com}. replace enddate="13/10/1983" if country=="Grenada"
+{txt}(2 real changes made)
+
+{com}. replace leader="Vere Bird" if country=="Antigua & Barbuda"
+{txt}(0 real changes made)
+
+{com}. replace startdate="01/11/1981" if country=="Antigua & Barbuda"
+{txt}(0 real changes made)
+
+{com}. replace enddate="09/03/1994" if country=="Antigua & Barbuda"
+{txt}(0 real changes made)
+
+{com}. replace leader="Ahmed Abdallah" if country=="Comoros" & year==1985
+{txt}(1 real change made)
+
+{com}. replace leader="King Gyanendra" if country=="Nepal" & year==2005
+{txt}(1 real change made)
+
+{com}. replace startdate="04/07/2001" if country=="Nepal" & year==2005
+{txt}(1 real change made)
+
+{com}. replace enddate="28/05/2008" if country=="Nepal" & year==2005
+{txt}(1 real change made)
+
+{com}. 
+. replace leader="Vere Bird" if country=="Antigua and Barbuda" & year==1991
+{txt}(1 real change made)
+
+{com}. replace startdate="01/11/1981" if country=="Antigua and Barbuda" & year==1991
+{txt}(1 real change made)
+
+{com}. replace enddate="09/03/1994" if country=="Antigua and Barbuda" & year==1991
+{txt}(1 real change made)
+
+{com}. replace leader="Orban" if country=="Hungary" & year==2018
+{txt}(1 real change made)
+
+{com}. replace startdate="29/05/2010" if country=="Hungary" & year==2018
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Hungary" & year==2018
+{txt}(1 real change made)
+
+{com}. replace leader="Nayib Bukele" if country=="El Salvador" & year==2019
+{txt}(1 real change made)
+
+{com}. replace startdate="01/06/2019" if country=="El Salvador" & year==2019
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="El Salvador" & year==2019
+{txt}(1 real change made)
+
+{com}. replace leader="Daniel Ortega" if country=="Nicaragua" & year==2018
+{txt}(1 real change made)
+
+{com}. replace startdate="10/01/2007" if country=="Nicaragua" & year==2018
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Nicaragua" & year==2018
+{txt}(1 real change made)
+
+{com}. replace leader="Maduro" if country=="Venezuela" & year==2016
+{txt}(1 real change made)
+
+{com}. replace startdate="05/03/2013" if country=="Venezuela" & year==2016
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Venezuela" & year==2016
+{txt}(1 real change made)
+
+{com}. 
+. replace leader="Vucic" if country=="Serbia" & year==2018
+{txt}(1 real change made)
+
+{com}. replace startdate="31/05/2017" if country=="Serbia" & year==2018
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Serbia" & year==2018
+{txt}(1 real change made)
+
+{com}. replace leader="Pinto da Costa" if country=="Sao Tome and Principe" & year==1977
+{txt}(1 real change made)
+
+{com}. replace startdate="12/07/1975" if country=="Sao Tome and Principe" & year==1977
+{txt}(1 real change made)
+
+{com}. replace enddate="04/06/1991" if country=="Sao Tome and Principe" & year==1977
+{txt}(1 real change made)
+
+{com}. replace leader="Sall" if country=="Senegal" & year==2019
+{txt}(1 real change made)
+
+{com}. replace startdate="02/04/2012" if country=="Senegal" & year==2019
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Senegal" & year==2019
+{txt}(1 real change made)
+
+{com}. replace leader="Talon" if country=="Benin" & year==2019
+{txt}(1 real change made)
+
+{com}. replace startdate="06/04/2016" if country=="Benin" & year==2019
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Benin" & year==2019
+{txt}(1 real change made)
+
+{com}. replace leader="Museveni" if country=="Uganda" & year==2018
+{txt}(1 real change made)
+
+{com}. replace startdate="21/01/1986" if country=="Uganda" & year==2018
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if leader=="Museveni"
+{txt}(3 real changes made)
+
+{com}. replace leader="Mnangagwa" if country=="Zimbabwe" & year==2017
+{txt}(1 real change made)
+
+{com}. replace startdate="24/11/2017" if country=="Zimbabwe" & year==2017
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Zimbabwe" & year==2017
+{txt}(1 real change made)
+
+{com}. replace enddate="21/11/2017" if leader=="Mugabe"
+{txt}(1 real change made)
+
+{com}. replace leader="Erdogan" if country=="Turkey" & year==2017
+{txt}(1 real change made)
+
+{com}. replace startdate="14/03/2003" if country=="Turkey" & year==2017
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Turkey" & year==2017
+{txt}(1 real change made)
+
+{com}. replace leader="Win Myint" if country=="Myanmar" & year==2019
+{txt}(1 real change made)
+
+{com}. replace startdate="30/03/2018" if country=="Myanmar" & year==2019
+{txt}(1 real change made)
+
+{com}. replace enddate="31/12/2019" if country=="Myanmar" & year==2019
+{txt}(1 real change made)
+
+{com}. 
+. /* dates */
+. gen sdate=date(startdate,"DMY")
+{txt}
+{com}. format sdate %td
+{txt}
+{com}. generate starty=year(sdate)
+{txt}
+{com}. gen edate=date(enddate,"DMY")
+{txt}
+{com}. format edate %td
+{txt}
+{com}. generate endy=year(edate)
+{txt}
+{com}. gen timeto=year-starty
+{txt}
+{com}. 
+. 
+. save Figure2/fh2020, replace
+{txt}file Figure2/fh2020.dta saved
+
+{com}. 
+. 
+. 
+. ren leader ruler
+{res}{txt}
+{com}. 
+. /* categorize democratic breakdown */ 
+. 
+. gen reason=""
+{txt}(201 missing values generated)
+
+{com}. 
+. replace reason="parliament dismissed" if ruler=="Preval"
+{txt}reason was {res}str1{txt} now {res}str20
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if ruler=="Balaguer" & year==1974
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if ruler=="Balaguer" & year==1993
+{txt}(1 real change made)
+
+{com}. replace reason="term limits" if country=="Dominican Republic" & year==2015
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if country=="Trinidad & Tobago" & year==2001
+{txt}(0 real changes made)
+
+{com}. replace reason="came in coup" if ruler=="Maurice Bishop" & year==1979 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="constitution suspended" if ruler=="Maurice Bishop" & year==1980
+{txt}reason was {res}str20{txt} now {res}str22
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if country=="Antigua & Barbuda"  /* not takeover */
+{txt}(0 real changes made)
+
+{com}. replace reason="violence and crime" if country=="Mexico" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if ruler=="Laugerud Garcia" 
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Lucas Garcia" /* not takeover */
+{txt}reason was {res}str22{txt} now {res}str23
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Suazo Cordova" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if ruler=="Callejas" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="coup attempts" if ruler=="Flores Facusse" /* not takeover: due to military challenges to civilian rule  */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Molina" /* not certain but probably left violence and govt repression */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Noriega" /* report lists various violations */
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if ruler=="Vargas" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="coup attempts" if ruler=="Andres Perez" /* not takeover: "Perez barely survived an attempted */
+{txt}(1 real change made)
+
+{com}. /* coup by mid-level military officers in February 1992" */
+. replace reason="concentration of power" if ruler=="Hugo Chavez"
+{txt}(1 real change made)
+
+{com}. /* due  to  the  decision  of President Hugo Chavez, ratified in  a national referendum, to abolish congress */
+. /* and the judiciary, and  by  his  creation  of a parallel  government of military cronies */
+. 
+. 
+. replace reason="disputed election" if ruler=="Burnham"  & year==1973
+{txt}(1 real change made)
+
+{com}. replace reason="one party state" if ruler=="Burnham"  & year==1974
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if country=="Guyana"  & year==2005 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if ruler=="Bucaram Ortiz"  /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="coup attempts" if ruler=="Gustavo Noboa" /* not takeover: due to a partially successful military coup in January 2000 that succeeded in overthrowing the elected president */
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if ruler=="Garcia Perez" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if ruler=="Franco, Itamar" /* not takeover: the result of a growing climate of lawlessness and insecurity related to escalating criminal violence  */
+{txt}(1 real change made)
+
+{com}. replace reason="constitution suspended" if ruler=="Banzer Suarez" & year==1974
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if ruler=="Garcia Meza Tejada" & year==1980 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="constitution manipulated" if ruler=="Gonzalo Sanchez de Lozada" & year==1995 
+{txt}reason was {res}str23{txt} now {res}str24
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if ruler=="Gonzalo Sanchez de Lozada" & year==2003 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if ruler=="Stroessner" & year==1976 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if ruler=="Stroessner" & year==1988 /* not takeover */
+{txt}(1 real change made)
+
+{com}.  replace reason="came in coup" if ruler=="Pinochet" & year==1973 /* not takeover */
+{txt}(1 real change made)
+
+{com}.  replace reason="rights abuses, various" if ruler=="Peron" & year==1974 /* not certain, but probably rights abuses and violence in 74 */
+{txt}(1 real change made)
+
+{com}.   replace reason="came in coup" if ruler=="Videla" & year==1976 /* not takeover */
+{txt}(1 real change made)
+
+{com}.  replace reason="violence and crime" if ruler=="Adolfo Rodriguez Saa"  /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="constitution manipulated" if ruler=="Bordaberry" 
+{txt}(1 real change made)
+
+{com}.  replace reason="came in coup" if ruler=="Jaruzelski"  /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Meciar" /* because of government pressure on freedom of expression and minority rights.*/ 
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if ruler=="Dom Mintoff" 
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Montenegro" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Milosevic" & year==1991 /*  Serbia's  Communist  regime  took  steps  to  takeover  the  Yugoslav  government */
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Milosevic" & year==1993 /*various, emphasis on increased restrictions on the opposition.*/
+{txt}(1 real change made)
+
+{com}.  
+. replace reason="insurgence and conflict" if ruler=="Clerides" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Putin" /* due  to  the  virtual  elimination  of influential  political  opposition  parties  within  
+> the  country  and  the  further  concentration  of executive power */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Vahi" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Godmanis" /* not takeover */
+{txt}(1 real change made)
+
+{com}.   
+. replace reason="concentration of power" if ruler=="Viktor Yanukovych" /* due to deteriorating media freedom,  secret service pressure on universities  */
+{txt}(1 real change made)
+
+{com}.  /*...  government hostility toward  opposition  gatherings  and  foreign  nongovernmental  organizations,  and  an  increase  in  */
+.  /* presidential  influence  over the judiciary */
+. replace reason="concentration of power" if ruler=="Lukashenko" /* "president's constitutional draft would give him virtual  dictatorial control of the government with?out parliamentary  checks. */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="H. Aliyev" /* not takeover */  
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if ruler=="Ilhma Aliyev"  
+{txt}(1 real change made)
+
+{com}.  replace reason="one party state" if ruler=="Aristides Pereira"  & year==1976 
+{txt}(1 real change made)
+
+{com}.   replace reason="2nd change" if ruler=="Aristides Pereira"  & year==1988 /* not takeover */  
+{txt}(1 real change made)
+
+{com}.    replace reason="one party state" if ruler=="Manuel Pinto da Costa"  
+{txt}(0 real changes made)
+
+{com}. replace reason="removed or ousted" if ruler=="Mamadu TurŽ Kuruma" /* not takeover */   
+{txt}(1 real change made)
+
+{com}.  replace reason="coup attempts" if ruler=="Jawara" & year==1981 /* not takeover */  
+{txt}(1 real change made)
+
+{com}.   replace reason="came in coup" if ruler=="Jammeh" & year==1994  /* not takeover */  
+{txt}(1 real change made)
+
+{com}.   replace reason="disputed election" if ruler=="Jammeh" & year==2011 /* due to President Yayha Jammeh's severe suppression of the opposition, media, and civil society in the run-up to the November presidential election */
+{txt}(1 real change made)
+
+{com}.   replace reason="insurgence and conflict" if ruler=="Konare"  /* not takeover */ 
+{txt}(1 real change made)
+
+{com}.     replace reason="came in coup" if ruler=="Dioncounda TraorŽ"   /* not takeover */   
+{txt}(1 real change made)
+
+{com}.   replace reason="concentration of power" if ruler=="Abdoulaye Wade" /* due to the growing authoritarian power of the presi?dent  and  ruling  party  as  well  as  the  increasing  marginalization  of the  opposition */ 
+{txt}(1 real change made)
+
+{com}.  replace reason="disputed election" if ruler=="Sidi Ahmed Taya"   /* not takeover */  
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Cote d'Ivoire" & year==2002
+{txt}(1 real change made)
+
+{com}.   replace reason="removed or ousted" if ruler=="Lamizana" /* not takeover */    
+{txt}(1 real change made)
+
+{com}.   replace reason="rights abuses, various" if ruler=="Taylor" & year==2001 /*because of further attempts to muzzle opposition voices,  including the press,  university  students,  and  attorneys */
+{txt}(1 real change made)
+
+{com}.   replace reason="violence and crime" if ruler=="Ernest Bai Koroma"  /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if ruler=="Limann" /* not takeover */   
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Museveni"  & year==1991 /* mentions power but also "became more repressive. Counter-insurgency efforts begun last year in the eastern and western parts */
+{txt}(1 real change made)
+
+{com}.    
+.    
+. replace reason="2nd change" if ruler=="Museveni"  & year==2014  /* not takeover */   
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Moi"  & year==1987 /* not certain but "In  this  increasingly  dictatorial  state   both   parliament   and   judiciary   have   become   subservient   to   the   president" */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Pierre Nkurunziza"  /* "government increased its crackdown on opposition parties and restricted freedom of assembly in 2014*/
+{txt}(1 real change made)
+
+{com}.  replace reason="one party state" if ruler=="Gouled Aptidon"  & year==1981 /* one party state and elected unopposed */
+{txt}(1 real change made)
+
+{com}.  
+.  replace reason="rights abuses, various" if ruler=="Gouled Aptidon"  & year==1985 /* not takeover, "There   have   recently   been   prisoners  of  conscience  and  torture" */ 
+{txt}(1 real change made)
+
+{com}.  replace reason="term limits" if ruler=="Guelleh"  & year==2010
+{txt}(1 real change made)
+
+{com}.  replace reason="various" if ruler=="Meles Zenawi"  & year==1993 /* not takeover */
+{txt}(1 real change made)
+
+{com}.  replace reason="disputed election" if ruler=="Meles Zenawi"  & year==2010 
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Mugabe"  & year==2001 /*very critical of 2000 election. Also, "due to numerous and repeated actions taken by the government  to  limit the  ability  of citizens  to  organize  and  to  express  themselves */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Botha" /* not takeover */  
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if ruler=="Mosisili"  & year==2009
+{txt}(1 real change made)
+
+{com}. /* Lesotho: due to unresolved disputes over legislative seats from the 2007 and 2008 elections and a breakdown in internationally mediated negotiations */
+. replace reason="2nd change" if ruler=="Mosisili"  & year==2015 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Mswati"  & year==1993 
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Ratsiraka"  & year==1976 /* elected for 7-year term in referendum, new socialist constitution */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Ratsiraka"  & year==1978  /* not takeover, protests suppressed */ 
+{txt}(1 real change made)
+
+{com}.    replace reason="concentration of power" if ruler=="Ahmed Abdallah"     /*FH lists "election  was  an  uncontested  99%  event.    The  posi-tion   of   Prime   Minister   was   subsequently   abolished  and  autocratic  rule   enhanced. */        
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Ramgoolam"  & year==1978  /* FH lists various HR problems */        
+{txt}(1 real change made)
+
+{com}.     replace reason="came in coup" if ruler=="France-Albert Rene"  & year==1977  /* not takeover */             
+{txt}(1 real change made)
+
+{com}.   replace reason="one party state" if ruler=="France-Albert Rene"  & year==1979 /* one party state and runs unopposed */
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Zine Al-Abidine Ben Ali"  & year==1993  
+{txt}(1 real change made)
+
+{com}. replace reason="2nd change" if ruler=="Zine Al-Abidine Ben Ali"  & year==1998  /* not takeover */   
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Libya" 
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Ayatollah Khomeini"  & year==1981 /* purge of supporters: following terror attack, purge against leftist islamists to consolidate power */
+{txt}(1 real change made)
+
+{com}.      replace reason="came in coup" if ruler=="Evren"  & year==1980  /* not takeover */  
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Mubarak"  & year==1993 /*increasing terrorist violence and corresponding government crackdowns */
+{txt}(1 real change made)
+
+{com}. 
+. 
+. replace reason="insurgence and conflict" if ruler=="Franjieh"
+{txt}(1 real change made)
+
+{com}.  replace reason="insurgence and conflict" if ruler=="Gemayel, Amin"
+{txt}(1 real change made)
+
+{com}.  replace reason="parliament dismissed" if ruler=="Abdullah Ibn Hussein El-Hashimi"  & year==2009
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if ruler=="Al-Hamadi" /* not takeover */  
+{txt}(1 real change made)
+
+{com}. replace reason="foreign occupation" if ruler=="Jabir As-Sabah" /* not takeover */
+{txt}(1 real change made)
+
+{com}. 
+.   
+. replace reason="concentration of power" if ruler=="Niyazov"  /* "Rejecting calls for greater political democratization */
+{txt}(1 real change made)
+
+{com}. /* and market-style economic reforms, Niyazov concentrated power in his office and, in many ways, had become as powerful as the Khan */
+. replace reason="concentration of power" if ruler=="Akayev" & year==2000 
+{txt}(1 real change made)
+
+{com}. /* Akaev: due to the holding  of parliamentary  and presi?dential  elections  that were  neither free  nor fair,  and  the further consolidation  of power by  the  country's  president.*/
+. 
+. replace reason="concentration of power" if ruler=="Kurmanbek Bakiyev" & year==2009 /*due to a flawed presidential election, the concentration of power in the executive branch*/
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Karimov"  & year==1992
+{txt}(1 real change made)
+
+{com}. /* Shortly after his inauguration, President Karimov consolidated his power by */
+. /*abolishing the office of vice president held by rival Shukrulla Mirsaidov, who was */
+. /*accused of ties with organized crime and inciting the student riots to destabilize the */
+. /*government Mirsaidov was named a "state secretary," and Karimov created the office */
+. /*of prime minister, appointing Abdulkhashim Mutalov, his former deputy */
+. 
+. replace reason="concentration of power" if ruler=="Nazarbaev" /* also disputed election but mostly "President Nazarbayev's increasing dominance of the country.*/
+{txt}(1 real change made)
+
+{com}. replace reason="rule by decree" if ruler=="Gandhi, I." 
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Wangchuck, Jigme Singye" /* not certain, probably abuses of nepalese minority */
+{txt}(1 real change made)
+
+{com}. replace reason="parliament dismissed" if ruler=="Zia"  /* elected president, parliament dismissed, predecessor executed */
+{txt}(1 real change made)
+
+{com}. /* PM manipulates and postpones elections */
+. replace reason="delayed election" if ruler=="Bandaranaike, S" 
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Ibrahim Nasir" /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if ruler=="Maumoon Abdul Gayoom" & year==1988
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="King Gyanendra" /*as  a result of a February 2005  "palace coup"  in which King  Gyanendra  dissolved  parliament,  assumed  direct rule*/
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if ruler=="Panyarachun" & year==1991 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Ranariddh" /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. /* PM is replaced by a single party regime */ 
+. replace reason="insurgence and conflict" if ruler=="Souvanna Phouma" /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. /* right-wing unity coalition and concentration of power */
+.   replace reason="rights abuses, various" if ruler=="Razak"  & year==1974 /* various events in 1974, UMNO wins big, also crackdown on students */
+{txt}(1 real change made)
+
+{com}.  replace reason="parliament dismissed" if ruler=="Aquino"  & year==1990
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Bambang Yudhoyono" /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Sogavare" /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if ruler=="Rabuka" & year==1987 /* not takeover */
+{txt}(1 real change made)
+
+{com}.  replace reason="removed or ousted" if ruler=="Bainimarama" /* not takeover */   
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if ruler=="Buhari" & year==1984 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Chiluba" & year==1993 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Muluzi" & year==1999 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="various" if ruler=="Shekhar" & year==1991 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if ruler=="Khaleda Zia" & year==1993 /* not takeover */
+{txt}(1 real change made)
+
+{com}. 
+. /* Sri lanka : empowering referendum, election cancelled, other: the   government used its   then current popularity to */
+. /* guarantee a six-year extension of   its    rule.  */
+. /* The  referendum on   this issue was    held under a state of   emergency restricting opposition campaigning */
+. 
+. replace reason="concentration of power" if ruler=="Jayewardene" & year==1983 
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Girija Prasad Koirala" /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. 
+. 
+. replace reason="removed or ousted" if ruler=="Thaksin Shinawatra" /* not takeover */ 
+{txt}(1 real change made)
+
+{com}.  replace reason="disputed election" if ruler=="Gloria Macapagal-Arroyo" 
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if ruler=="Wingti" /* not takeover */  
+{txt}(1 real change made)
+
+{com}.  replace reason="violence and crime" if ruler=="Somare"  /* not takeover */      
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if ruler=="Walter Lini" /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="foreign occupation" if ruler=="Van Thieu" /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. 
+.  replace reason="came in coup" if ruler=="Sardar Mohammad Daud Khan"  & year==1973  /* not takeover */  
+{txt}(1 real change made)
+
+{com}.  replace reason="delayed election" if ruler=="Dos Santos" & year==1992
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if ruler=="Hamid Karzai" & year==2008 /* Not Free due to rising insecurity and increasing corruption and inefficiency in government */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Algeria" & year==1992
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Bahrain" & year==1993 /* apparently, violent street protests */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Bahrain" & year==2009 /* arrests of several Haq Movement leaders */
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if country=="Bangladesh" & year==1975 /* president killed, instability follows */
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if country=="Benin" & year==2019 /* exclusion of all opposition parties from the parliamentary elections */
+{txt}(1 real change made)
+
+{com}. /* could not find what happened in Antigua in 1988, missing */
+. replace reason="not clear" if country=="Antigua and Barbuda" & year==1991
+{txt}(1 real change made)
+
+{com}. /* could not find what happened in Brunei in 1988, missing */
+. replace reason="not clear" if country=="Brunei" & year==1988
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if country=="Burundi" & year==1993 /* not relevant, newly elected leader Ndadaye in October 1993 */
+{txt}(2 real changes made)
+
+{com}. drop if ruler=="Kinigi" /* error, drop a duplicate for the same year */
+{txt}(1 observation deleted)
+
+{com}. replace reason="one party state" if country=="Cameroon" & year==1976 /* takeover, all parties are banned in 1976 */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Central African Republic" & year==2003 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if country=="Central African Republic" & year==2013 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if country=="Congo (Brazzaville)" & year==1977 /* president assassinated */ 
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Congo (Brazzaville)" & year==1997 /* took power in civil war win */
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if country=="Congo (Brazzaville)" & year==2006 /* for corruption, "decreased openness and transparency in government" */
+{txt}(1 real change made)
+
+{com}. /* could not find what happened in Cote d Ivoire in 1988, missing */
+. replace reason="not clear" if country=="Cote d'Ivoire" & year==1988
+{txt}(1 real change made)
+
+{com}. /* Cote d Ivoire in 1993 is messy succession, Houphou‘t-Boigny dies in Dec, missing. Not takeover */
+. replace reason="various" if country=="Cote d'Ivoire" & year==1993 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Egypt" & year==2013 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="violence and crime" if country=="El Salvador" & year==2019 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="delayed election" if country=="Eritrea" & year==1999 /* takeoever?  */
+{txt}(1 real change made)
+
+{com}. /*Eritrea 1999 NF due the government's hostile attitude towards the development of civil society and multi-party politics */
+. replace reason="came in coup" if country=="Ethiopia" & year==1974 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="various" if country=="Ethiopia" & year==1993 /* transition period, Ethiopia and Eritrea split, not takeover */
+{txt}(0 real changes made)
+
+{com}. replace reason="disputed election" if country=="Gabon" & year==2009 /* increased restrictions on the media in the period of the presidential election as well as a crackdown on postelection protesters */
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if country=="Guinea" & year==1993 
+{txt}(1 real change made)
+
+{com}. replace reason="removed or ousted" if country=="Haiti" & year==1988 /* Namphy ousted in a coup */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Ethiopia" & year==1974 /* not takeover */ 
+{txt}(0 real changes made)
+
+{com}. replace reason="came in coup" if country=="Haiti" & year==1991 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Orban" /*due to sustained attacks on the countryÕs democratic institutions by Prime Minister */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Indonesia" & year==1993 /* 1993 Suharto re-elected unopposed but the report refers to various HR deficiences */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Iran" & year==1988 /* execution and abuses of 1000s of leftists but they were outsome of the regime, so perhaps not a purge */
+{txt}(1 real change made)
+
+{com}. replace reason="not clear" if country=="Jordan" & year==1988 /* 1988 austerity and economic crisis but not clear FH the reason */
+{txt}(1 real change made)
+
+{com}. replace reason="parliament dismissed" if country=="Jordan" & year==2009 /*due to King Abdullah's dismissal of the parliament and his announcement that elections would not be held until the end of 2010*/
+{txt}(0 real changes made)
+
+{com}. 
+. 
+. /* Kenya in 1993 disputed election and suspended parliament after election */
+. replace reason="parliament suspended" if country=="Kenya" & year==1993 /*rising violence and the government's disregard for the legitimacy of opposition parlies and parliamentary power */
+{txt}(1 real change made)
+
+{com}. replace reason="parliament suspended" if country=="Kuwait" & year==1976 /* Emir suspended parliament for 4 years */
+{txt}(1 real change made)
+
+{com}. replace reason="term limits" if country=="Lebanon" & year==1995 
+{txt}(1 real change made)
+
+{com}. /* "because parliament arbitrarily amended the constitution to extend the president's term and */
+. /*the government is  increasingly  marginalizing  the  Christian community */
+. 
+. replace reason="not clear" if country=="Lesotho" & year==1988 
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Lesotho" & year==2015 /* due to continued instability */
+{txt}(1 real change made)
+
+{com}. replace reason="came in a coup" if country=="Liberia" & year==1980 
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Liberia" & year==1989  /* civil war begins */
+{txt}(1 real change made)
+
+{com}. replace reason="came in a coup" if country=="Mauritania" & year==2008  /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Mozambique" & year==1993  /* not takeover, intensified human rights violations by both the government and RENAMO forces and a delay in the democratic transition */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Niger" & year==1996 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Nigeria" & year==1993 /* not takeover */ 
+{txt}(1 real change made)
+
+{com}. replace reason="not clear" if country=="Oman" & year==1993 /* not takeover, change as a result of change in methodology */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Pakistan" & year==1999 /* not takeover,  */
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if country=="Qatar" & year==1989 /* not certain but reorganisation of power and ministerial reshuffle */
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if country=="Sao Tome and Principe" & year==1977 /* not certain but 77-78 purge of elites, then attempted coup in 1978 and further purges */
+{txt}(1 real change made)
+
+{com}. /* NB Stewart Lloyd-Jones, Ant—nio Costa Pinto: The last empire: thirty years of Portuguese decolonization */
+. replace reason="disputed election" if country=="Senegal" & year==2019 
+{txt}(1 real change made)
+
+{com}. /*Sen 2019 presidential election was marred by the exclusion of two major opposition figures who had been convicted in politically fraught corruption cases */
+. replace reason="concentration of power" if country=="Serbia" & year==2018
+{txt}(1 real change made)
+
+{com}. /* also - President Aleksandar Vu?i?Õs de facto accumulation of executive powers that conflict with his constitutional role */
+. replace reason="came in coup" if country=="Sierra Leone" & year==1992 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Sierra Leone" & year==1997 /* not takeover */
+{txt}(1 real change made)
+
+{com}. 
+. 
+. replace reason="came in coup" if country=="Sudan" & year==1989 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Sudan" & year==1984 /* declared martial law but civil war so not takeoever */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Suriname" & year==1980 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Suriname" & year==1989 /* not takeover: not clear but probably civil conflict and continuing military ifluence */
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if country=="Swaziland" & year==1993 /*because of a disappointing election  and  increased human  rights  abuses */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Syria" & year==1980 /* rebellion in Aleppo */
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Tajikistan" & year==1992 /* not takeover */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Tanzania" & year==1993 /* because of communal tensions and restrictions on the oppostion. */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Thailand" & year==1976 /* students massacre, coup, military makes him PM */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Thailand" & year==2006 
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if country=="Thailand" & year==2014 /*due to the May military coup, whose leaders abolished the 2007 constitution and imposed severe restrictions */
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if country=="Togo" & year==2002 /*due to the holding of legislative elections that were neither free nor fair */
+{txt}(1 real change made)
+
+{com}. replace reason="disputed election" if country=="Trinidad and Tobago" & year==2001 /* due to a virtual breakdown in the parliamentary system as a result of two disputed national elections, growing corruption, and continued problems with the police*/
+{txt}(1 real change made)
+
+{com}. replace reason="not clear" if country=="Tunisia" & year==1993 /* not takeover, change as a result of change in methodology */
+{txt}(1 real change made)
+
+{com}. replace reason="not clear" if country=="Tunisia" & year==1998 /* not takeover, report does not mention specifics, lots of things */
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Uganda" & year==2014  /* not takeover */
+{txt}(1 real change made)
+
+{com}. /* Uganda 2014 due to increased violations of individual rights and the freedoms of expression, assembly, and association, particularly */
+. /* for opposition supporters, civil society groups, women, and the LGBT community */
+. replace reason="not clear" if country=="United Arab Emirates" & year==1993 /* not takeover, change as a result of change in methodology */
+{txt}(1 real change made)
+
+{com}. replace reason="not clear" if country=="United Arab Emirates" & year==1989 /* not clear, nothing specific */
+{txt}(1 real change made)
+
+{com}. replace reason="delayed election" if country=="Yemen" & year==2009 /* due to the two-year postponement of parliamentary elections, the renewal of fighting between central authorities and al-Houthi rebels in the north, and an escalation in violence*/
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Yemen" & year==1994 /* because of civil war */
+{txt}(1 real change made)
+
+{com}. replace reason="parliament dismissed" if ruler=="Maduro"  & year==2016
+{txt}(1 real change made)
+
+{com}. replace reason="concentration of power" if ruler=="Erdogan" /* "due to a deeply flawed constitutional referendum that centralized power in the presidency" */
+{txt}(1 real change made)
+
+{com}. replace reason="came in coup" if ruler=="Mnangagwa"
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Nicaragua" & year==2018
+{txt}(1 real change made)
+
+{com}. replace reason="rights abuses, various" if country=="Uganda" & year==2018
+{txt}(1 real change made)
+
+{com}. replace reason="insurgence and conflict" if country=="Myanmar" & year==2019
+{txt}(1 real change made)
+
+{com}. replace reason="not clear" if country=="Cape Verde" & year==1988 /* description of a single party state, not clear */
+{txt}(1 real change made)
+
+{com}. 
+. gen oldreason=reason
+{txt}
+{com}. replace reason="coup d'etat" if reason=="came in a coup" | reason=="came in coup" | reason=="coup attempts"
+{txt}(36 real changes made)
+
+{com}. replace reason="delayed/disputed election" if reason=="delayed election" | reason=="disputed election"
+{txt}reason was {res}str24{txt} now {res}str25
+{txt}(23 real changes made)
+
+{com}. replace reason="constitution suspended/violated" if reason=="constitution manipulated" | reason=="constitution suspended"
+{txt}reason was {res}str25{txt} now {res}str31
+{txt}(4 real changes made)
+
+{com}. replace reason="numerous reasons" if reason=="not clear" | reason=="various"
+{txt}(14 real changes made)
+
+{com}. replace reason="coup d'etat" if country=="Congo (Brazzaville)" & year==1977
+{txt}(1 real change made)
+
+{com}. 
+. 
+. gen reason2=""
+{txt}(200 missing values generated)
+
+{com}. 
+. replace reason2="coup d'etat" if reason=="removed or ousted" | reason=="coup d'etat"
+{txt}reason2 was {res}str1{txt} now {res}str11
+{txt}(49 real changes made)
+
+{com}. replace reason2="insurgency and conflict" if  reason=="foreign occupation" | reason=="insurgence and conflict"
+{txt}reason2 was {res}str11{txt} now {res}str23
+{txt}(31 real changes made)
+
+{com}. replace reason2="delayed/disputed election" if reason=="delayed/disputed election"
+{txt}reason2 was {res}str23{txt} now {res}str25
+{txt}(23 real changes made)
+
+{com}. replace reason2="crime and corruption" if reason=="violence and crime"
+{txt}(14 real changes made)
+
+{com}. replace reason2="numerous reasons" if reason=="numerous reasons"
+{txt}(14 real changes made)
+
+{com}. replace reason2="rights abuses, various" if reason=="rights abuses, various"
+{txt}(27 real changes made)
+
+{com}. replace reason2="concentration of power" if reason2==""
+{txt}(42 real changes made)
+
+{com}. 
+. 
+. save Figure2/fh2020, replace
+{txt}file Figure2/fh2020.dta saved
+
+{com}. 
+. 
+. 
+. 
+. 
+. 
+. /* Figure of Status Changes */
+. 
+. tab reason2
+
+                  {txt}reason2 {c |}      Freq.     Percent        Cum.
+{hline 26}{c +}{hline 35}
+   concentration of power {c |}{res}         42       21.00       21.00
+              {txt}coup d'etat {c |}{res}         49       24.50       45.50
+     {txt}crime and corruption {c |}{res}         14        7.00       52.50
+{txt}delayed/disputed election {c |}{res}         23       11.50       64.00
+  {txt}insurgency and conflict {c |}{res}         31       15.50       79.50
+         {txt}numerous reasons {c |}{res}         14        7.00       86.50
+   {txt}rights abuses, various {c |}{res}         27       13.50      100.00
+{txt}{hline 26}{c +}{hline 35}
+                    Total {c |}{res}        200      100.00
+{txt}
+{com}. tab reason2 if change=="F to PF"
+
+                  {txt}reason2 {c |}      Freq.     Percent        Cum.
+{hline 26}{c +}{hline 35}
+   concentration of power {c |}{res}         10       14.29       14.29
+              {txt}coup d'etat {c |}{res}         14       20.00       34.29
+     {txt}crime and corruption {c |}{res}         11       15.71       50.00
+{txt}delayed/disputed election {c |}{res}         11       15.71       65.71
+  {txt}insurgency and conflict {c |}{res}         11       15.71       81.43
+         {txt}numerous reasons {c |}{res}          2        2.86       84.29
+   {txt}rights abuses, various {c |}{res}         11       15.71      100.00
+{txt}{hline 26}{c +}{hline 35}
+                    Total {c |}{res}         70      100.00
+{txt}
+{com}. tab reason2 if change=="F/PF to NF"
+
+                  {txt}reason2 {c |}      Freq.     Percent        Cum.
+{hline 26}{c +}{hline 35}
+   concentration of power {c |}{res}         32       24.62       24.62
+              {txt}coup d'etat {c |}{res}         35       26.92       51.54
+     {txt}crime and corruption {c |}{res}          3        2.31       53.85
+{txt}delayed/disputed election {c |}{res}         12        9.23       63.08
+  {txt}insurgency and conflict {c |}{res}         20       15.38       78.46
+         {txt}numerous reasons {c |}{res}         12        9.23       87.69
+   {txt}rights abuses, various {c |}{res}         16       12.31      100.00
+{txt}{hline 26}{c +}{hline 35}
+                    Total {c |}{res}        130      100.00
+{txt}
+{com}. 
+. tab reason2, sort gen(cats)
+
+                  {txt}reason2 {c |}      Freq.     Percent        Cum.
+{hline 26}{c +}{hline 35}
+              coup d'etat {c |}{res}         49       24.50       24.50
+   {txt}concentration of power {c |}{res}         42       21.00       45.50
+  {txt}insurgency and conflict {c |}{res}         31       15.50       61.00
+   {txt}rights abuses, various {c |}{res}         27       13.50       74.50
+{txt}delayed/disputed election {c |}{res}         23       11.50       86.00
+     {txt}crime and corruption {c |}{res}         14        7.00       93.00
+         {txt}numerous reasons {c |}{res}         14        7.00      100.00
+{txt}{hline 26}{c +}{hline 35}
+                    Total {c |}{res}        200      100.00
+{txt}
+{com}. replace cats1=. if cats1==0
+{txt}(151 real changes made, 151 to missing)
+
+{com}. replace cats2=. if cats2==0
+{txt}(158 real changes made, 158 to missing)
+
+{com}. replace cats3=. if cats3==0
+{txt}(169 real changes made, 169 to missing)
+
+{com}. replace cats4=. if cats4==0
+{txt}(173 real changes made, 173 to missing)
+
+{com}. replace cats5=. if cats5==0
+{txt}(177 real changes made, 177 to missing)
+
+{com}. replace cats6=. if cats6==0
+{txt}(186 real changes made, 186 to missing)
+
+{com}. replace cats7=. if cats7==0
+{txt}(186 real changes made, 186 to missing)
+
+{com}. ren cats1 coup 
+{res}{txt}
+{com}. ren cats2 power
+{res}{txt}
+{com}. ren cats3 conflict
+{res}{txt}
+{com}. ren cats4 rights 
+{res}{txt}
+{com}. ren cats5 election
+{res}{txt}
+{com}. ren cats6 crime
+{res}{txt}
+{com}. ren cats7 various
+{res}{txt}
+{com}. 
+. collapse (count) coup power conflict rights election crime various, by(change) 
+{txt}
+{com}. /* transpose in excel*/
+. clear
+{txt}
+{com}. 
+. 
+. 
+. /* use fh_cats
+> label define changecats 1 "coup d'etat" 2 "concentration of power" 3 "insurgency and conflict" ///
+> 4 "civil rights violations" 5 "delayed/disputed election" 6 "crime or corruption"  7 "numerous reasons"
+> label values changecats changecats
+> 
+> 
+> gen depvar0=fpftonf
+> gen depvar1=ftopf
+> 
+> gen depvar2 = -depvar1
+> graph hbar (asis) depvar0 depvar2,  ///
+>      over(changecats,  label(labsize(small))) ///
+>      ylabel(   -20 "20" -10 "10" 0 "0" ///
+>             10 "10" 20 "20" 30 "30", labsize(vsmall)) ///
+>              bargap(-100)  ysize(4) xsize(5) scheme(s1mono) bar(1,color(black)) ///
+>              legend(order(2 1) label(1 "from PF/F to NF") label(2 "from F to PF") ///
+>              size(small) region(lstyle(none))) 
+> graph save fh_takeovers/freedomhouse_cats.pdf, replace */
+. 
+. 
+. clear
+{txt}
+{com}. use Figure2/fh2020
+{txt}
+{com}. 
+. gen takeover=.
+{txt}(200 missing values generated)
+
+{com}. replace takeover=1 if reason2=="concentration of power"
+{txt}(42 real changes made)
+
+{com}. keep if takeover==1
+{txt}(158 observations deleted)
+
+{com}. save Figure2/fh_takeovers, replace
+{txt}file Figure2/fh_takeovers.dta saved
+
+{com}. 
+. keep if takeover==1
+{txt}(0 observations deleted)
+
+{com}. save Figure2/fh_takeovers, replace
+{txt}file Figure2/fh_takeovers.dta saved
+
+{com}. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+{txt}end of do-file
+
+{com}. 
+. use Figure2/fh_cats
+{txt}
+{com}. 
+. label define changecats 1 "coup d'etat" 2 "concentration of power" 3 "insurgency and conflict" ///
+> 4 "civil rights violations" 5 "delayed/disputed election" 6 "crime or corruption"  7 "numerous reasons"
+{txt}
+{com}. label values changecats changecats
+{txt}
+{com}. 
+. 
+. gen depvar0=fpftonf
+{txt}
+{com}. gen depvar1=ftopf
+{txt}
+{com}. 
+. gen depvar2 = -depvar1
+{txt}
+{com}. graph hbar (asis) depvar0 depvar2,  ///
+>      over(changecats,  label(labsize(small))) ///
+>      ylabel(   -20 "20" -10 "10" 0 "0" ///
+>             10 "10" 20 "20" 30 "30", labsize(vsmall)) ///
+>              bargap(-100)  ysize(4) xsize(5) scheme(s1mono) bar(1,color(black)) ///
+>              legend(order(2 1) label(1 "from PF/F to NF") label(2 "from F to PF") ///
+>              size(small) region(lstyle(none))) 
+{res}{txt}
+{com}. graph export Figure2/freedomhouse_cats.pdf, replace
+{txt}(file /Users/alexbaturo/Desktop/jpr/ReplicationFile/Figure2/freedomhouse_cats.pdf written in PDF format)
+
+{com}. 
+. clear
+{txt}
+{com}. 
+. 
+. /*************************************************************************************/
+. /* create estimation_file with time to takeover and interval indicators per leader */
+. /*************************************************************************************/
+. 
+. 
+. use rulers_takeovers
+{txt}
+{com}. 
+. /* use baturo ptl year if same ptl change */
+. gen neldaonly= neldaterm if neldaterm!=. & baturo==.
+{txt}(268 missing values generated)
+
+{com}. /* use gwf or dd_incumb if not from entry into office */
+. gen gwfdiff=gwf if gwf!=starty
+{txt}(194 missing values generated)
+
+{com}. gen dd_diff=dd_incumb1 if dd_incumb1!=starty
+{txt}(262 missing values generated)
+
+{com}. 
+. egen minyear=rowmin(neldaonly baturo pacl autocoups_pipe agcoup_marshall inc_svolik autogolpe_powell haggard fh vdem gwfdiff dd_diff prw1) 
+{txt}(13 missing values generated)
+
+{com}. /* add first year of gwf spell if no other indicartor is available */
+. replace minyear=gwf if minyear==. & gwf!=. 
+{txt}(13 real changes made)
+
+{com}. 
+. /* replace minyear to gwf as ptl changes only occur after cold war, long spells */
+. replace minyear=1986 if ruler=="Museveni"
+{txt}(1 real change made)
+
+{com}. replace minyear=1978 if ruler=="Saleh"
+{txt}(1 real change made)
+
+{com}. replace minyear=1972 if ruler=="Kerekou"
+{txt}(1 real change made)
+
+{com}. 
+. /* gen timeto=minyear-starty */
+. replace timeto=minyear-starty  
+{txt}(0 real changes made)
+
+{com}. egen maxyear=rowmax(neldaonly baturo baturo2 pacl autocoups_pipe agcoup_marshall inc_svolik autogolpe_powell haggard fh vdem dd_incumb2  gwf prw2)
+{txt}(19 missing values generated)
+
+{com}. 
+. /* difference in estimates when there are at least 2 sources per leader, excl over 16 years */
+. /* e.g., (SSA leaders who did takeoevers twice, before and after 1991 */
+. /* gen diff=maxyear-minyear */
+. replace diff=maxyear-minyear
+{txt}(1 real change made)
+
+{com}. 
+. /* 2008 is endpoint in CGV, recode to 1992 */
+. replace maxyear=1992 if ruler=="Dos Santos"
+{txt}(1 real change made)
+
+{com}. /* 2008 is the last year in CGV, meaningful to refer to tl removal */
+. replace maxyear=2004 if ruler=="Lukashenko"
+{txt}(1 real change made)
+
+{com}. /* 2008 is tl after cold war, replace to first gwf year */
+. replace maxyear=1983 if ruler=="Biya"
+{txt}(1 real change made)
+
+{com}. /* 1952 is tl change via placeholder, no events prior */
+. replace maxyear=1930 if ruler=="Trujillo"
+{txt}(1 real change made)
+
+{com}. /* 1992 is tl change, takeover is accomplished prior */
+. replace maxyear=1982 if ruler=="Gouled"
+{txt}(1 real change made)
+
+{com}. /* 2005 tl change, 1968 is from vdem */
+. replace maxyear=1968 if ruler=="Bongo"
+{txt}(1 real change made)
+
+{com}. /* 2006 tl change, 1995 is from cgv */
+. replace maxyear=1995 if ruler=="Conte"
+{txt}(1 real change made)
+
+{com}. /* 1962 is end of regime spell after ruler's tenure */
+. replace maxyear=1950 if ruler=="Magloire"
+{txt}(1 real change made)
+
+{com}. /* 1948 is nelda election, 1936 vdem */
+. replace maxyear=1936 if ruler=="Carias"
+{txt}(1 real change made)
+
+{com}. /* 2008 is endpoint in CGV, recode to 1998 tl change */
+. replace maxyear=1998 if ruler=="Nazarbaev"
+{txt}(1 real change made)
+
+{com}. /* 1984 is endpoint in CGV, recode to 1970 when all agree */
+. replace maxyear=1970 if ruler=="Jonathan"
+{txt}(1 real change made)
+
+{com}. /* 1977 is 2nd tl change, revert to 1967 tl change */
+. replace maxyear=1967 if ruler=="Stroessner"
+{txt}(1 real change made)
+
+{com}. /* 2008 is endpoint in CGV, recode to 1987 takeover */
+. replace maxyear=1987 if ruler=="Mugabe"
+{txt}(1 real change made)
+
+{com}. /* 2006 is late tl change, in control from 1986, no other indicator */
+. replace maxyear=1986 if ruler=="Museveni"
+{txt}(1 real change made)
+
+{com}. /* 2001 is late tl change, in control from 1978, no other indicator */
+. replace maxyear=1978 if ruler=="Saleh"
+{txt}(1 real change made)
+
+{com}. /* 1983 is nelda election, 1973 from pacl */
+. replace maxyear=1973 if ruler=="Kaunda"
+{txt}(1 real change made)
+
+{com}. /* 2005 is 2nd tl change, refer to 1998 first tl */
+. replace maxyear=1998 if ruler=="Campaore"
+{txt}(1 real change made)
+
+{com}. replace maxyear= prw2 if prw2==. & maxyear==.
+{txt}(0 real changes made)
+
+{com}. replace year2= prw2 if prw2!=.
+{txt}(0 real changes made)
+
+{com}. replace maxyear=prw1 if  prw2==. & maxyear==.
+{txt}(19 real changes made)
+
+{com}. replace diff=maxyear-minyear
+{txt}(36 real changes made)
+
+{com}. /* number of events per leader */
+. egen num_indicator=rownonmiss(neldaterm baturo pacl autocoups_pipe agcoup_marshall inc_svolik autogolpe_powell haggard fh vdem gwf dd_incumb1 prw1)
+{txt}
+{com}. 
+. drop dd_diff gwfdiff neldaonly
+{txt}
+{com}. replace year1=minyear
+{txt}(1 real change made)
+
+{com}. replace year2=maxyear
+{txt}(5 real changes made)
+
+{com}. 
+. save estimation_file, replace
+{txt}file estimation_file.dta saved
+
+{com}. 
+. 
+. /*******************************************/
+. /* more and less democratic at entry      */
+. /*******************************************/
+. 
+. gen entrydem=.
+{txt}(279 missing values generated)
+
+{com}. replace entrydem=0 if entrypolity<0 & entrypolity!=.
+{txt}(165 real changes made)
+
+{com}. replace entrydem=1 if entrypolity>=0 & entrypolity!=.
+{txt}(108 real changes made)
+
+{com}. /* use polity score of +1 for 1992 for H. Aliev as he entered office in transitional period */
+. replace entrydem=1 if ruler=="H. Aliyev" 
+{txt}(1 real change made)
+
+{com}. /* Comoros score is +5 in 1975 when Abdallah enters office before coup */
+. replace entrydem=1 if ruler=="Ahmed Abdallah" 
+{txt}(1 real change made)
+
+{com}. /* no polity scores available but FH scores are partly free for these: */
+. replace entrydem=1 if ruler=="Maurice Bishop"
+{txt}(1 real change made)
+
+{com}. replace entrydem=1 if ruler=="Pinto da Costa"
+{txt}(1 real change made)
+
+{com}. replace entrydem=1 if ruler=="Rene"
+{txt}(1 real change made)
+
+{com}. /* Germany is democracy in 1932 */
+. replace entrypolity=6 if country=="Germany" & ruler=="Adolf Hitler"
+{txt}(0 real changes made)
+
+{com}. /* Ioannis Metaxas  enters in democratic office first */
+. replace entrypolity=8 if country=="Greece" & ruler=="Metaxas"
+{txt}(0 real changes made)
+
+{com}. /* Bordaberry came in democratic election in 1971 when polity is 3 */
+. replace entrypolity=3 if country=="Uruguay" & ruler=="Bordaberry"
+{txt}(0 real changes made)
+
+{com}. /* Ngo Dinh Diem and Karzai entered transitional civilian governments */
+. replace entrydem=1 if ruler=="Ngo Dinh Diem"
+{txt}(1 real change made)
+
+{com}. replace entrydem=1 if ruler=="Hamid Karzai"
+{txt}(1 real change made)
+
+{com}. /* seized after civil war */
+. replace entrydem=0 if ruler=="Habre"
+{txt}(1 real change made)
+
+{com}. replace entrydem=0 if ruler=="Laurent Kabila"
+{txt}(1 real change made)
+
+{com}. /* foreign installed */
+. replace entrydem=0 if ruler=="Taraki"
+{txt}(1 real change made)
+
+{com}. /* after Shah was deposed */
+. replace entrydem=0 if ruler=="Khomeini"
+{txt}(1 real change made)
+
+{com}. /* seized power */
+. replace entrydem=0 if ruler=="Fidel Castro"
+{txt}(1 real change made)
+
+{com}. /* seized power in countercoup */
+. replace entrydem=0 if ruler=="J. Kabila"
+{txt}(1 real change made)
+
+{com}. /* became president after a coup */
+. replace entrydem=0 if ruler=="Smetona"
+{txt}(1 real change made)
+
+{com}. replace entrydem=0 if ruler=="Batista"
+{txt}(1 real change made)
+
+{com}. /* Mengistu entered in nondemocracy at -7 */
+. replace entrydem=0 if ruler=="Mengistu"
+{txt}(0 real changes made)
+
+{com}. replace entrypolity=-7 if ruler=="Mengistu"
+{txt}(0 real changes made)
+
+{com}. replace entrydem=0 if ruler=="Daniel Ortega" & year1==1981
+{txt}(0 real changes made)
+
+{com}. replace entrypolity=-5 if ruler=="Daniel Ortega" & year1==1981
+{txt}(0 real changes made)
+
+{com}. replace entrydem=0 if ruler=="AL-Sallal" & year1==1965
+{txt}(0 real changes made)
+
+{com}. replace entrypolity=-3 if ruler=="AL-Sallal" & year1==1965
+{txt}(0 real changes made)
+
+{com}. replace entrypolity=5 if ruler=="Chaudhri M. Ali"
+{txt}(0 real changes made)
+
+{com}. replace entrydem=0 if ruler=="Chiang Kai-shek"
+{txt}(1 real change made)
+
+{com}. replace entrydem=0 if ruler=="Hun Sen"
+{txt}(0 real changes made)
+
+{com}. 
+. save estimation_file, replace
+{txt}file estimation_file.dta saved
+
+{com}. 
+. 
+. 
+. /*******************************************************/
+. /* Figure 4:  Incumbent takeovers (total number of onsets)  */
+. /*******************************************************/
+. /* Code in Figure4/map.R to produce Figure 4 */
+. 
+. 
+. /*************************************************/
+. /*************************************************/
+. /* Figure 5: Time from entry into office to onset */
+. /*************************************************/
+. /*************************************************/
+. 
+. /* create categories for the distribution of timeto in democract and nondemocracy at entry, percent */
+. use estimation_file
+{txt}
+{com}. gen timeto2=1 if timeto==0
+{txt}(232 missing values generated)
+
+{com}. replace timeto2=2 if timeto==1
+{txt}(60 real changes made)
+
+{com}. replace timeto2=3 if timeto==2
+{txt}(46 real changes made)
+
+{com}. replace timeto2=4 if timeto==3 | timeto==4
+{txt}(48 real changes made)
+
+{com}. replace timeto2=5 if timeto==5 | timeto==6
+{txt}(24 real changes made)
+
+{com}. replace timeto2=6 if timeto==7 | timeto==8 
+{txt}(26 real changes made)
+
+{com}. replace timeto2=7 if timeto==9 | timeto==10 | timeto==11
+{txt}(14 real changes made)
+
+{com}. replace timeto2=8 if timeto>11 & timeto!=.
+{txt}(14 real changes made)
+
+{com}. 
+. 
+. tab timeto2, gen(timeto_)
+
+    {txt}timeto2 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         47       16.85       16.85
+{txt}          2 {c |}{res}         60       21.51       38.35
+{txt}          3 {c |}{res}         46       16.49       54.84
+{txt}          4 {c |}{res}         48       17.20       72.04
+{txt}          5 {c |}{res}         24        8.60       80.65
+{txt}          6 {c |}{res}         26        9.32       89.96
+{txt}          7 {c |}{res}         14        5.02       94.98
+{txt}          8 {c |}{res}         14        5.02      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        279      100.00
+{txt}
+{com}. collapse (mean) timeto_1 timeto_2 timeto_3 timeto_4 timeto_5 timeto_6 timeto_7 timeto_8 , by(entrydem)
+{txt}
+{com}. /*transpose in excel, save timeto_demnodem */
+. clear
+{txt}
+{com}. 
+. use Figure5_6/timeto_demnodem
+{txt}
+{com}. 
+. label define timeto 1 "1st year" 2 "2nd" 3 "3rd" 4 "4-5th" 5 "6-7th" 6 "8-9th" 7 "10-12th" 8 "Over 12"
+{txt}
+{com}. label values timeto timeto
+{txt}
+{com}. 
+. replace entrydem0= entrydem0*100
+{txt}(8 real changes made)
+
+{com}. replace entrydem1= entrydem1*100
+{txt}(8 real changes made)
+
+{com}. 
+. gen entrydem00 = -entrydem0
+{txt}
+{com}. 
+. graph hbar (asis) entrydem00 entrydem1,  ///
+>      over(timeto,  gap(10) label(labsize(small))) ///
+>      ylabel(   -20 "20" -10 "10" 0 "0" ///
+>             10 "10" 20 "20" 30 "30", labsize(vsmall)) ///
+>              bargap(-100)  ysize(4) xsize(4) scheme(s1mono) bar(1,color(black)) ///
+>              legend(order(1 2) label(1 "Nondemocratic") label(2 "More democratic at entry") ///
+>              size(small) region(lstyle(none))) 
+{res}{txt}
+{com}.               
+. graph export Figure5_6/timeto_demnodem_perc.pdf, replace
+{txt}(file /Users/alexbaturo/Desktop/jpr/ReplicationFile/Figure5_6/timeto_demnodem_perc.pdf written in PDF format)
+
+{com}. 
+. clear
+{txt}
+{com}. 
+. 
+. /*************************************************/
+. /*************************************************/
+. /* Figure 6: Incumbent takeovers over time  */
+. /*************************************************/
+. /*************************************************/
+. 
+. 
+. use estimation_file
+{txt}
+{com}. 
+. /* Takeoevers over time in more and less democratic */
+. gen takeoverdem=1 if entrydem==1
+{txt}(172 missing values generated)
+
+{com}. gen takeovernodem=1 if entrydem==0
+{txt}(107 missing values generated)
+
+{com}. bysort year1: egen numeventsdem=sum(takeoverdem)
+{txt}
+{com}. bysort year1: egen numeventsnodem=sum(takeovernodem)
+{txt}
+{com}. 
+. 
+.              
+. 
+. graph twoway  lowess numeventsnodem year1,  lpattern(solid) lcolor(black) ///
+> || lowess numeventsdem year1, lpattern(dash)  lwidth(thin) lcolor(black) ///
+> || line numeventsnodem year1, lpattern(solid)  lwidth(vthin) lcolor(gs12)  ///
+> || line numeventsdem year1, lpattern(dash)  lwidth(vthin)  lcolor(gs12) ///
+> xlabel(1920(10)2020, valuelabel angle(45)) ///
+> ylabel(0(2)8, valuelabel angle(360)) ///
+> plotregion(margin(r+1 t+0.5))  xsize(8) ysize(5) ///
+> xtitle("Year") ytitle("Number of events")   scheme(s1mono) legend(order(1 2) ///
+>  label(1 "Nondemocratic")  label(2 "More democratic at entry") ///
+>              size(small) region(lstyle(none)))
+{res}{txt}
+{com}. 
+. graph export Figure5_6/timeline_dem_nodem.pdf, replace
+{txt}(file /Users/alexbaturo/Desktop/jpr/ReplicationFile/Figure5_6/timeline_dem_nodem.pdf written in PDF format)
+
+{com}. 
+. 
+. /**************************************************/
+. ///***     summary stats for discussion in text   ***///
+> /*******************************************************/
+. 
+. gen takeover=1
+{txt}
+{com}. recode year1 (1920/1929=1920) (1930/1939=1930) (1940/1949=1940) (1950/1959=1950) (1960/1969=1960) (1970/1979=1970) (1980/1989=1980) (1990/1999=1990) (2000/2009=2000) (2010/2019=2010), gen(decade)
+{txt}(245 differences between year1 and decade)
+
+{com}. tabstat takeover, by(decade) stats(n)
+
+{txt}Summary for variables: takeover
+{col 6}by categories of: decade (RECODE of year1 (year1))
+
+{ralign 8:decade} {...}
+{c |}         N
+{hline 9}{c +}{hline 10}
+{ralign 8:1919} {...}
+{c |}{...}
+ {res}        2
+{txt}{ralign 8:1920} {...}
+{c |}{...}
+ {res}       15
+{txt}{ralign 8:1930} {...}
+{c |}{...}
+ {res}       22
+{txt}{ralign 8:1940} {...}
+{c |}{...}
+ {res}       16
+{txt}{ralign 8:1950} {...}
+{c |}{...}
+ {res}       34
+{txt}{ralign 8:1960} {...}
+{c |}{...}
+ {res}       43
+{txt}{ralign 8:1970} {...}
+{c |}{...}
+ {res}       43
+{txt}{ralign 8:1980} {...}
+{c |}{...}
+ {res}       26
+{txt}{ralign 8:1990} {...}
+{c |}{...}
+ {res}       39
+{txt}{ralign 8:2000} {...}
+{c |}{...}
+ {res}       23
+{txt}{ralign 8:2010} {...}
+{c |}{...}
+ {res}       16
+{txt}{hline 9}{c +}{hline 10}
+{ralign 8:Total} {...}
+{c |}{...}
+ {res}      279
+{txt}{hline 9}{c BT}{hline 10}
+
+{com}. 
+. bysort year: egen yeartakeover=sum(takeover)
+{txt}
+{com}. tabstat yeartakeover, stats(mean median n)
+
+{txt}{ralign 12:variable} {...}
+{c |}      mean       p50         N
+{hline 13}{c +}{hline 30}
+{ralign 12:yeartakeover} {...}
+{c |}{...}
+ {res} 4.283154         4       279
+{txt}{hline 13}{c BT}{hline 30}
+
+{com}. 
+. tabstat takeover if entrydem==1, by(decade) stats(n)
+
+{txt}Summary for variables: takeover
+{col 6}by categories of: decade (RECODE of year1 (year1))
+
+{ralign 8:decade} {...}
+{c |}         N
+{hline 9}{c +}{hline 10}
+{ralign 8:1919} {...}
+{c |}{...}
+ {res}        1
+{txt}{ralign 8:1920} {...}
+{c |}{...}
+ {res}        5
+{txt}{ralign 8:1930} {...}
+{c |}{...}
+ {res}       10
+{txt}{ralign 8:1940} {...}
+{c |}{...}
+ {res}        4
+{txt}{ralign 8:1950} {...}
+{c |}{...}
+ {res}        7
+{txt}{ralign 8:1960} {...}
+{c |}{...}
+ {res}        9
+{txt}{ralign 8:1970} {...}
+{c |}{...}
+ {res}       14
+{txt}{ralign 8:1980} {...}
+{c |}{...}
+ {res}        5
+{txt}{ralign 8:1990} {...}
+{c |}{...}
+ {res}       26
+{txt}{ralign 8:2000} {...}
+{c |}{...}
+ {res}       14
+{txt}{ralign 8:2010} {...}
+{c |}{...}
+ {res}       12
+{txt}{hline 9}{c +}{hline 10}
+{ralign 8:Total} {...}
+{c |}{...}
+ {res}      107
+{txt}{hline 9}{c BT}{hline 10}
+
+{com}. 
+. 
+. clear
+{txt}
+{com}. 
+. 
+. 
+{txt}end of do-file
+
+{com}. 

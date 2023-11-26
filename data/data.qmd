@@ -1,0 +1,90 @@
+```{r}
+library(tidyverse)
+library(readxl)
+library(haven)
+library(data.table)
+library(vdemdata)
+library(democracyData)
+```
+
+```{r}
+coups <- read_delim("powell_thyne_coups_final.txt",delim = "\t") 
+#coup_leader <- read_dta("coup_leaders/Coup_leader.dta") 
+overstays <- read_excel("self_coup_Reddy.xlsx") 
+leaders <- fread("Archigos.txt",encoding = "Latin-1") 
+leaders_reign <- read.csv("leader_reign.csv") 
+```
+
+```{r}
+leader <- leaders_reign %>% 
+  mutate(tenures=ym(paste(eyear, emonth))-ymd(paste(syear, smonth,sdate))) %>% 
+  filter(syear>1944,
+         tenures>182) %>% 
+  select(stateabb,ccode,leader, syear) %>% 
+  left_join(leader2,by=c("ccode","syear")) %>% 
+  filter(leader.x!=leader.y) %>% 
+  view()
+
+
+```
+
+```{r}
+leader2 <- leaders %>% 
+  mutate(tenure_days=as.Date(enddate)-as.Date(startdate),
+         syear=year(startdate)) %>% 
+  filter(as.Date(startdate) > as.Date("1940-01-01"),
+         tenure_days>182) %>% 
+  select(3:5,syear,6:10,tenure_days) %>% 
+  view()
+
+overstays2 <- overstays %>% 
+  filter(Success==1) %>% 
+  select(ccode,ruler,starty,endy,overstay_year=year) %>% 
+  view()
+
+coups2 <- coups %>% 
+  filter(coup==2) %>% 
+  select(-c(3,4,9))
+```
+
+```{r}
+mydata <- leader2 %>% 
+  left_join(overstays2,by=c("ccode","syear"="starty")) %>% 
+  left_join(coups2,by=c("ccode","syear"="year")) %>% 
+  distinct(ccode,leader,.keep_all = T) 
+```
+```{r}
+mydata2 <- mydata %>% 
+  filter(!(is.na(coup)&is.na(overstay_year))) %>% 
+  select(1:3,ruler,everything()) 
+  
+```
+
+```{r}
+mydata5 <- mydata4 %>% 
+  mutate(group=case_when(!is.na(overstay_year)~"A",
+                         .default = "B"),
+         survival_time=case_when(group=="A"~endy-overstay_year,
+                                 .default = year(as.Date(enddate))-syear)) 
+  
+
+table(mydata3$group)
+```
+```{r}
+mydata4 <- mydata3 
+  
+
+mydata4$enddate[mydata4$leader=="Petro Poroshenko"] <- "2019-5-20"
+mydata4$enddate[mydata4$leader=="Jammeh"] <- "2011-1-19"
+mydata4$enddate[mydata4$leader=="Faure Gnassingbe"] <- "2023-11-24"
+mydata4$enddate[mydata4$leader=="Qabus Bin Said"] <- "2020-1-10"
+mydata4$enddate[mydata4$leader=="Prayuth Chan-ocha"] <- "2023-8-22"
+mydata4$endy[mydata4$leader=="Nguema Mbasogo"] <- 2023
+```
+```{r}
+mydata5 %>% 
+  summarise(avg=mean(survival_time),.by = group)
+```
+
+
+
