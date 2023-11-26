@@ -5,85 +5,194 @@ library(haven)
 library(data.table)
 library(vdemdata)
 library(democracyData)
+
+library(survival)
+library(survminer)
 ```
 
 ```{r}
-coups <- read_delim("powell_thyne_coups_final.txt",delim = "\t") 
-#coup_leader <- read_dta("coup_leaders/Coup_leader.dta") 
-overstays <- read_excel("self_coup_Reddy.xlsx") 
-leaders <- fread("Archigos.txt",encoding = "Latin-1") 
-leaders_reign <- read.csv("leader_reign.csv") 
-```
-
-```{r}
-leader <- leaders_reign %>% 
-  mutate(tenures=ym(paste(eyear, emonth))-ymd(paste(syear, smonth,sdate))) %>% 
-  filter(syear>1944,
-         tenures>182) %>% 
-  select(stateabb,ccode,leader, syear) %>% 
-  left_join(leader2,by=c("ccode","syear")) %>% 
-  filter(leader.x!=leader.y) %>% 
-  view()
-
-
-```
-
-```{r}
-leader2 <- leaders %>% 
-  mutate(tenure_days=as.Date(enddate)-as.Date(startdate),
-         syear=year(startdate)) %>% 
-  filter(as.Date(startdate) > as.Date("1940-01-01"),
-         tenure_days>182) %>% 
-  select(3:5,syear,6:10,tenure_days) %>% 
-  view()
-
-overstays2 <- overstays %>% 
-  filter(Success==1) %>% 
-  select(ccode,ruler,starty,endy,overstay_year=year) %>% 
-  view()
-
-coups2 <- coups %>% 
+coups <- fread("powell_thyne_coups_final.txt") %>% 
   filter(coup==2) %>% 
+  mutate(startdate=ymd(paste(year,month,day)),
+         joindate=interval(startdate - days(1), startdate + days(1))
+) %>% 
   select(-c(3,4,9))
+
+overstays <- read_excel("self_coup_Reddy.xlsx") %>% 
+  filter(Success==1) %>% 
+  select(ccode,ruler,starty,endy,overstay_year=year) 
+```
+```{r}
+leaders <- fread("Archigos.txt",encoding = "Latin-1") 
+
+# update "still in office"
+leaders$enddate[leaders$leader=="Nguema Mbasogo"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Rakhmonov"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Erdogan"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Afeworki"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Guelleh"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Paul Kagame"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Xi Jinping"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Museveni"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Nguesso"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Biya"] <- "2023-11-27"
+
+leaders$endy[leaders$leader=="Nguema Mbasogo"] <- "2023-11-27"
+
+
+leaders$enddate[leaders$leader=="Ilhma Aliyev"] <- "2023-11-27"
+
+
+leaders$enddate[leaders$leader=="Lukashenko"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Putin"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Daniel Ortega"] <- "2023-11-27"
+
+leaders$enddate[leaders$leader=="Faure Gnassingbe"] <- "2023-11-27"
+
+
+## Update step down after 2015-12-31
+leaders$enddate[leaders$leader=="Nazarbayev"] <- "2019-3-20"
+leaders$exit[leaders$leader=="Nazarbayev"] <- "Regular"
+
+
+leaders$enddate[leaders$leader=="Karimov"] <- "2016-9-2"
+leaders$exit[leaders$leader=="Karimov"] <- "Regular"
+
+leaders$enddate[leaders$leader=="Qabus Bin Said"] <- "2020-1-10"
+leaders$exit[leaders$leader=="Qabus Bin Said"] <- "Regular"
+
+leaders$enddate[leaders$leader=="Dos Santos"] <- "2017-9-25"
+leaders$exit[leaders$leader=="Dos Santos"] <- "Regular"
+
+leaders$enddate[leaders$leader=="Al-Bashir"] <- "2019-4-11"
+leaders$exit[leaders$leader=="Al-Bashir"] <- "Irregular"
+
+leaders$enddate[leaders$leader=="Bouteflika"] <- "2019-4-2"
+leaders$exit[leaders$leader=="Bouteflika"] <- "Irregular"
+
+leaders$enddate[leaders$leader=="Mugabe"] <- "2017-11-21"
+leaders$exit[leaders$leader=="Mugabe"] <- "Irregular"
+
+leaders$enddate[leaders$leader=="Nkurunziza"] <- "2022-6-8"
+leaders$exit[leaders$leader=="Nkurunziza"] <- "Regular"
+
+leaders$enddate[leaders$leader=="Joseph Kabila"] <- "2019-1-24"
+leaders$exit[leaders$leader=="Joseph Kabila"] <- "Regular"
+
+
+
+leaders$enddate[leaders$leader=="Deby"] <- "2021-4-20"
+leaders$exit[leaders$leader=="Deby"] <- "Irregular"
+
+
+
+leaders$enddate[leaders$leader=="Conde"] <- "2021-9-5"
+leaders$exit[leaders$leader=="Conde"] <- "Irregular"
+
+leaders$enddate[leaders$leader=="Jammeh"] <- "2011-1-19"
+leaders$exit[leaders$leader=="Jammeh"] <- "Irregular"
+
+
+leaders$enddate[leaders$leader=="Petro Poroshenko"] <- "2019-5-20"
+leaders$exit[leaders$leader=="Petro Poroshenko"] <- "Regular"
+
+
+leaders$enddate[leaders$leader=="Juan Morales"] <- "2019-11-10"
+leaders$exit[leaders$leader=="Juan Morales"] <- "Irregular"
+
+leaders$enddate[leaders$leader=="Medina"] <- "2020-8-16"
+leaders$exit[leaders$leader=="Medina"] <- "Regular"
+
+leaders$enddate[leaders$leader=="Hernández"] <- "2022-1-27"
+leaders$exit[leaders$leader=="Hernández"] <- "Regular"
+
+
+
+leaders$enddate[leaders$leader=="Rafael Correa"] <- "2017-5-24"
+leaders$exit[leaders$leader=="Rafael Correa"] <- "Regular"
+
+
+
+
+leaders$enddate[leaders$leader=="Prayuth Chan-ocha"] <- "2023-8-22"
+leaders$exit[leaders$leader=="Prayuth Chan-ocha"] <- "Regular"
+
+leaders$enddate[leaders$leader=="Hun Sen"] <- "2023-8-22"
+leaders$exit[leaders$leader=="Hun Sen"] <- "Regular"
+
+leaders1 <- leaders %>%
+  mutate(syear=year(startdate),
+         eyear=year(enddate)) %>% 
+  filter(eyear > 1945) %>% 
+  select(3:5,syear,eyear,6:10)
+
+leaders2 <- leaders1 %>% 
+  mutate(coup_exit=ifelse(exitcode %in% c("Removed by Military, without Foreign Support","Removed by Rebels, without Foreign Support","Removed by Other Government Actors, without Foreign Support"),1,0)) %>% 
+  mutate(coup_entry=ifelse(lag(coup_exit==1),1,0),.by = ccode)
+
 ```
 
-```{r}
-mydata <- leader2 %>% 
-  left_join(overstays2,by=c("ccode","syear"="starty")) %>% 
-  left_join(coups2,by=c("ccode","syear"="year")) %>% 
-  distinct(ccode,leader,.keep_all = T) 
-```
-```{r}
-mydata2 <- mydata %>% 
-  filter(!(is.na(coup)&is.na(overstay_year))) %>% 
-  select(1:3,ruler,everything()) 
-  
-```
 
 ```{r}
-mydata5 <- mydata4 %>% 
+mydata <- leaders2 %>% 
+  left_join(overstays,by=c("ccode","syear"="starty","eyear"="endy")) %>% 
+  filter(!(is.na(ruler)&coup_entry==0)) %>% 
+  select(leader,ruler,everything()) %>%
+  view()
+
+```
+
+
+```{r}
+mydata1 <- mydata%>% 
   mutate(group=case_when(!is.na(overstay_year)~"A",
                          .default = "B"),
-         survival_time=case_when(group=="A"~endy-overstay_year,
-                                 .default = year(as.Date(enddate))-syear)) 
+         survival_time=case_when(group=="A"~year(enddate)-overstay_year,
+                                 .default = year(enddate)-syear)) %>% 
+  mutate(status=case_when(exit %in% c("Regular","Natural Death","Still in Office","Retired Due to Ill Health")~1,
+                          .default = 0))
   
 
-table(mydata3$group)
+table(mydata1$group)
+table(mydata1$exit)
+table(mydata1$status)
 ```
 ```{r}
-mydata4 <- mydata3 
-  
-
-mydata4$enddate[mydata4$leader=="Petro Poroshenko"] <- "2019-5-20"
-mydata4$enddate[mydata4$leader=="Jammeh"] <- "2011-1-19"
-mydata4$enddate[mydata4$leader=="Faure Gnassingbe"] <- "2023-11-24"
-mydata4$enddate[mydata4$leader=="Qabus Bin Said"] <- "2020-1-10"
-mydata4$enddate[mydata4$leader=="Prayuth Chan-ocha"] <- "2023-8-22"
-mydata4$endy[mydata4$leader=="Nguema Mbasogo"] <- 2023
-```
-```{r}
-mydata5 %>% 
+mydata1 %>% 
   summarise(avg=mean(survival_time),.by = group)
+```
+```{r}
+write.csv(mydata1,"mydata.csv")
+```
+
+
+```{r}
+
+result <- survdiff(Surv(survival_time, status) ~ group, data = Mydata)
+
+summary(result)
+```
+```{r}
+# Assuming 'result' is the object from survdiff()
+p_value <- result$pvalue
+chisq_statistic <- result$chisq
+
+# Display the p-value and the test statistic (chisq)
+print(p_value)
+print(chisq_statistic)
+
+
 ```
 
 

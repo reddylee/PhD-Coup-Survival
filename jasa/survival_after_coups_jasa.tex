@@ -157,7 +157,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\date{November 23, 2023}
+\date{November 26, 2023}
 \title{\bf Political Leadership Survival in the Aftermath of Coups or
 Overstays: From Illegitimate Ascent to Unexpected Exit}
 \author{
@@ -189,7 +189,7 @@ divergent tenures.
 
 \newpage
 \spacingset{1.9} % DON'T change the spacing!
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, breakable, interior hidden, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, boxrule=0pt, enhanced, sharp corners, borderline west={3pt}{0pt}{shadecolor}, breakable, interior hidden]}{\end{tcolorbox}}\fi
 
 \setstretch{1.75}
 \hypertarget{introduction}{%
@@ -567,12 +567,40 @@ tenures for overstaying regimes. Analyzing a comprehensive coup dataset
 \citep{powell2011} spanning from 1950 to 2023, it's evident that 97
 countries experienced coups during this period. Among them, 15 countries
 endured at least 10 coups, and 10 countries witnessed more than 6
-successful coups, reinforcing the analysis discussed above. Based on
-these insights, I propose the following hypothesis:
+successful coups, reinforcing the analysis discussed above.
+
+Based on a log-rank test in survival analysis, see
+Figure~\ref{fig-logrank} using the leaders dataset \citep{goemans2009}
+in conjunction with the author's incumbent overstay dataset, a clear
+trend emerges: leaders who overstay their incumbency exhibit
+significantly longer survival rates compared to those who enter through
+coups. Specifically, the average survival time \textbf{after}
+overstaying, discounting their original term time, is approximately 10.1
+years. In contrast, coup-entry leaders tend to have an average survival
+time of 4.1 years.
+
+\begin{figure}
+
+{\centering \includegraphics{survival_after_coups_jasa_files/figure-pdf/fig-logrank-1.pdf}
+
+}
+
+\caption{\label{fig-logrank}Kaplan-Meier plot}
+
+\end{figure}
+
+Based on these insights, I propose the following hypothesis:
 
 \textbf{Hypothesis:} Political leaders who successfully extend their
 time in power are more likely to have prolonged survival compared to
 leaders who assume power through coups.
+
+In the upcoming section, I'll outline the research methodology employed
+in this paper. The goal is to delve deeply into understanding the
+factors influencing the survival duration of incumbent overstaying
+leaders and coup-entry leaders. This investigation aims to elucidate the
+extent to which these identified factors impact the survival durations
+of these distinct groups.
 
 \hypertarget{method-and-data}{%
 \section{Method and data}\label{method-and-data}}

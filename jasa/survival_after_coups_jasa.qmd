@@ -24,6 +24,9 @@ mainfont: Times New Roman
 fontsize: 12pt
 execute: 
   freeze: auto
+  echo: false
+  warning: false
+  message: false
 ---
 
 ## Introduction
@@ -213,31 +216,46 @@ However, adopting a hardline stance internally could not only weaken themselves 
 These factors collectively contribute to a shorter expected lifespan of regimes following coups [@dahl2023], compared to relatively longer tenures for overstaying regimes.
 Analyzing a comprehensive coup dataset [@powell2011] spanning from 1950 to 2023, it's evident that 97 countries experienced coups during this period.
 Among them, 15 countries endured at least 10 coups, and 10 countries witnessed more than 6 successful coups, reinforcing the analysis discussed above.
+
+Based on a log-rank test in survival analysis, see @fig-logrank using the leaders dataset [@goemans2009] in conjunction with the author's incumbent overstay dataset, a clear trend emerges: leaders who overstay their incumbency exhibit significantly longer survival rates compared to those who enter through coups.
+Specifically, the average survival time **after** overstaying, discounting their original term time, is approximately 10.1 years.
+In contrast, coup-entry leaders tend to have an average survival time of 4.1 years.
+
+```{r}
+library(tidyverse)
+library(data.table)
+library(survival)
+library(survminer)
+```
+
+```{r}
+#| label: fig-logrank
+#| fig-width: 7
+#| fig-height: 6
+#| fig-align: center
+#| fig-cap: Kaplan-Meier plot
+
+Mydata <- read.csv("../data/mydata.csv")
+
+# Fit survival curves
+fit <- survfit(Surv(survival_time, status) ~ group, data = Mydata)
+# Create log-rank plot (Kaplan-Meier plot)
+ggsurvplot(fit, 
+           data = Mydata, 
+           risk.table = TRUE, 
+           risk.table.height = 0.3, 
+           pval = TRUE,
+           legend.labs = c("overstayers", "coup-entry leaders"),
+           xlab = "Survival Years",
+           title = "Survival Curves of overstayers and coup-entry leaders",
+           font.title = 14)
+```
+
 Based on these insights, I propose the following hypothesis:
 
-```{r eval=FALSE, include=FALSE}
-library(tidyverse)
-coups <- read.csv("https://www.uky.edu/~clthyn2/coup_data/powell_thyne_coups_final.txt",sep = "\t")
-
-attempts <- coups %>% 
-  select(country) %>% 
-  summarise(count=n(),.by = country) %>% 
-  arrange(-count) 
-
-success <- coups %>% 
-  filter(coup==2) %>% 
-  select(country) %>% 
-  summarise(count=n(),.by = country) %>% 
-  arrange(-count) 
-
-sum(Sum$count[1:10])
-```
-
-```{r eval=FALSE, include=FALSE}
-table(coups$coup)
-```
-
 **Hypothesis:** Political leaders who successfully extend their time in power are more likely to have prolonged survival compared to leaders who assume power through coups.
+
+In the upcoming section, I'll outline the research methodology employed in this paper. The goal is to delve deeply into understanding the factors influencing the survival duration of incumbent overstaying leaders and coup-entry leaders. This investigation aims to elucidate the extent to which these identified factors impact the survival durations of these distinct groups.
 
 ## Method and data
 
