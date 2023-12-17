@@ -148,6 +148,13 @@ leaders2 |>
 
 leaders2 |> 
   tabyl(entry,exit)
+
+leaders |> 
+  filter(entry == "Irregular",
+         exit == "Irregular",
+         year(startdate) > 1945) |> 
+  mutate(tenure = ymd(enddate) - ymd(startdate)) |> 
+  view()
 ```
 ```{r}
 215+31

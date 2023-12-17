@@ -34,11 +34,11 @@ execute:
 The investigation into the enduring tenure of certain leaders compared to those with briefer terms has remained a focal point within the realm of political science.
 This probing inquiry has garnered extensive attention and undergone thorough analysis across numerous scholarly works, as highlighted in Chapter 2.
 
-Previous research exploring the longevity of political leaders has revealed two major areas of emphasis.
-Primarily, scholars have predominantly focused on general frameworks encompassing all regime types or various autocracies, with fewer delving into specific leader profiles.
-Secondly, existing studies have primarily centered around analyzing the likelihood of unforeseen leader exits using country-year data, creating a gap in discussions concerning the duration of leadership tenures based on comprehensive duration data.
+Prior research examining the longevity of political leaders has highlighted two prominent features.
+Firstly, scholars have primarily concentrated on general frameworks that encompass either all regime types or all autocracies, dedicating less attention to the exploration of specific leader profiles.
+Secondly, existing studies have predominantly revolved around analyzing the probability of irregular leader exits using country-year data, leaving a void in discussions regarding the duration of leadership tenures based on comprehensive duration data.
 
-Due to these significant gaps, this paper aims to conduct a comparative analysis between two distinct categories of political leaders: those who rise to power through coups and those who exceed their designated term limits.
+Due to these significant gaps, this paper aims to conduct a comparative analysis between two specific types of political leaders: those who rise to power through coups and those who exceed their designated term limits.
 Examining the tenures of these two irregularly ascended leaders holds particular significance for two reasons.
 
 Firstly, irregularly ascended leaders constitute the majority of irregular exits from power.
@@ -49,17 +49,18 @@ As per [@goemans2009], out of 374 leaders who exited irregularly, 246 were ouste
 Accordingly, there are 246 coup-entry leaders.
 Moreover, between 1945 and 2020, there were 106 attempts to overstay in power, of which 86 were successful.
 This overstaying, detailed in "Determinants of Incumbent Overstay Attempts and Outcomes," can be perceived as a form of self-coup, as incumbents orchestrate tactics to prolong their rule, effectively staging coups against potential future leaders.
-Hence, it becomes both relevant and enlightening to delve into and compare the tenures of survival between leaders who entered through coups and those who engaged in overstaying (self-coup) maneuvers.
+Hence, it becomes both relevant and enlightening to delve into and compare the tenures of survival between coup-entry leaders and overstaying (self-coup) leaders.
 
-However, while existing research extensively discusses factors leading to coups or overstays, there is a need for more attention to what happens after these irregular ascents.
-Specifically, how do leaders' entry manners affect their subsequent tenures?
-This study proposes that the means by which political leaders acquire power significantly impacts their duration of leadership.
-Utilizing a survival model, empirical evidence suggests that leaders who exceed their term limits generally enjoy longer tenures compared to those who enter through coups.
-Unlike overstaying leaders, coup-entry leaders grapple with more significant challenges related to legitimacy, uncertainty, instability, and power-sharing, potentially curtailing their survival duration.
+However, while existing research extensively delves into the factors leading to coups or overstays, there remains a crucial need for more attention directed towards what occurs after these irregular ascents.
+Specifically, how do leaders' methods of entering power affect not only their subsequent tenures but also their departures from power?
+This study proposes that the manner in which leaders ascend to power significantly impacts the duration of their leadership tenure.
+Unlike leaders who overstay, those who enter through coups face more substantial challenges concerning legitimacy, uncertainty, instability, and power-sharing, potentially diminishing their survival duration.
+Employing a survival model, this paper suggests that leaders who overstay their term limits generally enjoy longer tenures compared to those who gain power through coups.
 
-This study could make dual contributions.
-Firstly, it underscores that the duration of survival and unforeseen exits isn't solely determined by leaders' actions post-assuming power but is inherently influenced by their means of ascension to power.
-Secondly, it provides empirical measurements for comparing the tenure duration of two irregularly ascended leaders, shedding light on their respective impacts on leadership longevity.
+This study could offer dual contributions.
+First, it emphasizes that the duration of survival and unexpected exits is not solely dictated by leaders' conduct after assuming power but is fundamentally shaped by their methods of gaining power.
+It accentuates a significant difference in tenures between overstaying leaders and coup-entry leaders.
+Second, it provides empirical measurements to compare the tenure duration of these two irregularly ascended leaders, offering insights into their distinct impacts on the longevity of leadership.
 
 After the introduction, the second section encompasses a comprehensive literature review on political survival and highlighting the contributions of this paper might offer.
 The third chapter delves into the examination of factors influencing the survival of leaders who have ascended to power through unconstitutional means.
@@ -71,21 +72,10 @@ Finally, in Chapter 6, the paper concludes by synthesizing these findings and ex
 
 In their seminal work, @buenodemesquita2003 conducted a comprehensive examination of leaders spanning diverse political landscapes, encompassing democracies and autocracies, as well as parliamentary and presidential systems, while accounting for both civilian and military contexts.
 Their aim was to provide an general explanation for the dynamics of political leadership survival within a universal framework.
-However, it's crucial to recognize that the dynamics of leadership survival differ significantly across various regime types.
+Proposing a universal theoretical framework regarding the political survival is highly intriguing.
+However, it is crucial to acknowledge the challenges that must be addressed in order to provide a more general theory of leadership survival across all types of regimes.
 
-Within democratic systems, distinctions arise between parliamentary and presidential regimes.
-For example, in parliamentary countries like the UK and Japan, political parties may retain power for extended periods despite frequent changes in prime ministership.
-An instance of this occurred in the United Kingdom in 2022, witnessing three different prime ministers while the Conservative Party remained in power.
-Conversely, in presidential countries such as the United States, leaders serve fixed terms, resulting in more regular and predictable power transitions.
-The spectrum of autocratic regimes is even more diverse, each characterized by distinct features, including civilian autocracy, personnel autocracy, military regimes, party dominance, and monarchies.
-Some regimes strictly adhere to periodic power transitions, as seen in autocratic Mexico from 1919 to 2000, where each president served a fixed six-year term without facing overthrows or overstays [@a"perfe2021]. Additionally, there are instances where dictators rule indefinitely, passing power to their sons, such as in Syria and North Korea, or to brothers, as observed in Cuba. However, there are also numerous cases where rulers are ousted unexpectedly.
-
-Furthermore, the division of residents into different coalitions or groups may not hold as much relevance in democracies when compared to autocracies.
-In democratic systems, while those who support and vote for incumbents may witness their advocated policies enacted, those opposing them still experience the same policies.
-For instance, if a candidate advocating for lower taxes wins an election, it doesn't lead to lower taxes for the candidate's supporters and higher taxes for their opponents; both groups encounter identical tax levels.
-This dynamic differs significantly in autocratic regimes, where distinct groups benefit unequally based on their status and relationships with the rulers.
-
-Moreover, the rules governing power transitions differ drastically between democracies and autocracies.
+First of all, the rules governing power transitions differ drastically between democracies and autocracies.
 In most autocratic regimes, the process of leadership selection remains shrouded in secrecy.
 Expressing dissenting views, whether as potential challengers or supporters of challengers, can be perilous.
 In Russia, despite the presence of general elections, challengers frequently face severe consequences such as assassination, poisoning, imprisonment, or exile.
@@ -96,6 +86,24 @@ Thus, accurately calculating selectorates or coalitions, as @buenodemesquita2003
 In contrast, in democracies, challengers can openly vie for leadership without fear.
 Their support rates are easily discernible, and they can seek to gain more supporters through public speeches, TV or newspaper advertisements, or assemblies.
 If their support rates are not adequate to challenge the incumbents, different groups can try to collaborate, facilitating power transitions with a slightly higher level of support.
+
+Secondly, the division of residents into different coalitions or groups may not hold as much relevance in democracies when compared to autocracies.
+In democratic systems, while those who support and vote for incumbents may witness their advocated policies enacted, those opposing them still experience the same policies.
+For instance, if a candidate advocating for lower taxes wins an election, it doesn't lead to lower taxes for the elected leaders' supporters and higher taxes for their opponents; both groups encounter identical tax levels.
+This dynamic differs significantly in autocratic regimes, where distinct groups benefit unequally based on their status and relationships with the rulers.
+
+Furthermore, our interest in analyzing political survival stems from irregular and unforeseen power transitions.
+Discussing regular and expected leadership tenures is neither necessary nor pertinent in this context.
+As previously mentioned, over 85% of leaders entering power through regular means also exited in a regular manner [@goemans2009].
+Many political leaders, especially in democracies and some autocracies, experience predictable and routine tenures.
+Consider the case of the United States, where presidents can serve up to eight years if re-elected for a second term, or at least complete a full four-year term despite underperformance.
+Similarly, in autocratic Mexico from 1919 to 2000, each president served a fixed six-year term without facing overthrows or overstays, as noted by [@klesner2019].
+Analyzing the survival of such leaders might seem futile as their power transitions typically occur within the bounds of constitutional rules.
+
+On the other hand, leaders who come into power through irregular means paint a more intricate and unpredictable picture.
+Take, for instance, Henri Namphy, who assumed the presidency of Haiti following a coup in June 1988, only to be ousted by another coup a mere three months later in September of the same year.
+However, Qaddafi, the dictator of Libya, seized power in a coup in 1969 and ruled for over 40 years before being killed in 2011 by NATO-backed rebel forces [@goemans2009].
+Certain dictators maintain an indefinite grip on power until their death, subsequently transferring authority to family members, such as sons in the cases of Syria and North Korea or brothers in the context of Cuba.
 
 Given the distinct nature of political leadership survival in various regimes, scholars have increasingly focused on understanding the survival dynamics specific to certain regime types, such as democracies [@svolik2014] and autocracies [@davenport2021].
 Notably, considerable academic attention has been drawn towards unexpected tenures, particularly those leaders who either fail to complete their original terms or overstay their terms.
@@ -119,7 +127,7 @@ Scholars have extensively scrutinized the resilience of political leaders across
 Interestingly, there has been limited discourse concerning the survival dynamics of leaders who manage to maintain power following successful coups or prolonged incumbency.
 This study endeavors to bridge this gap by specifically scrutinizing and delineating the survival duration between these two categories of leaders.
 
-## The logic of political leader survival in irregular ascensions
+## The logic of political survival in irregular ascent leaders
 
 Engaging in a discourse on the survival strategies of political leaders within non-democratic regimes presents a significant challenge.
 The complexity stems from the lack of a universal pattern that encapsulates the rules or conventions dictating power transitions in autocratic systems.
