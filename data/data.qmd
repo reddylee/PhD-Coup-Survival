@@ -139,27 +139,11 @@ leaders1 <- leaders %>%
   select(3:5,syear,eyear,6:10)
 
 leaders2 <- leaders1 %>% 
-  mutate(coup_exit=ifelse(exitcode %in% c("Removed by Military, without Foreign Support","Removed by Other Government Actors, without Foreign Support"),1,0)) %>% 
+  mutate(coup_exit=ifelse(exitcode %in% c("Removed by Military, without Foreign Support","Removed by Other Government Actors, without Foreign Support"),1,0),
+         tenure = ymd(enddate) - ymd(startdate)) %>% 
   mutate(coup_entry=ifelse(lag(coup_exit==1),1,0),.by = ccode)
-
-leaders2 |> 
-  filter(exit == "Irregular") |> 
-  tabyl(exitcode)
-
-leaders2 |> 
-  tabyl(entry,exit)
-
-leaders |> 
-  filter(entry == "Irregular",
-         exit == "Irregular",
-         year(startdate) > 1945) |> 
-  mutate(tenure = ymd(enddate) - ymd(startdate)) |> 
-  view()
 ```
-```{r}
-215+31
-246/374
-```
+
 
 
 ```{r}
@@ -167,8 +151,7 @@ mydata <- leaders2 %>%
   left_join(overstays,by=c("ccode","syear"="starty","eyear"="endy")) %>% 
   filter(!(is.na(ruler)&coup_entry==0)) %>% 
   select(leader,ruler,everything()) %>%
-  view()
-
+  mutate(overstaydate = as.Date(paste(overstay_year, substr(startdate, 6, 10), sep = "-"))) 
 ```
 
 
@@ -176,8 +159,8 @@ mydata <- leaders2 %>%
 mydata1 <- mydata%>% 
   mutate(group=case_when(!is.na(overstay_year)~"A",
                          .default = "B"),
-         survival_time=case_when(group=="A"~year(enddate)-overstay_year,
-                                 .default = year(enddate)-syear)) %>% 
+         survival_time=case_when(group=="A"~ymd(enddate)-overstaydate,
+                                 .default = ymd(enddate)-ymd(startdate))) %>% 
   mutate(status=case_when(exit %in% c("Regular","Natural Death","Still in Office","Retired Due to Ill Health")~1,
                           .default = 0))
   
@@ -188,7 +171,8 @@ table(mydata1$status)
 ```
 ```{r}
 mydata1 %>% 
-  summarise(avg=mean(survival_time),.by = group)
+  filter(survival_time > 7) |> 
+  summarise(avg=mean(survival_time/365),.by = group)
 ```
 ```{r}
 write.csv(mydata1,"mydata.csv")
@@ -197,7 +181,7 @@ write.csv(mydata1,"mydata.csv")
 
 ```{r}
 
-result <- survdiff(Surv(survival_time, status) ~ group, data = Mydata)
+result <- survdiff(Surv(survival_time, status) ~ group, data = mydata1)
 
 summary(result)
 ```

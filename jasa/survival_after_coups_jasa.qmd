@@ -119,15 +119,59 @@ For instance, @sudduth2017a, while primarily focused on purge strategies, examin
 The central argument suggests that leaders ascending through coups experience a temporary surge in influence compared to elites immediately following the coups, making them less prone to subsequent ousting by coup attempts.
 This argument challenges the traditional notion that new leaders are generally in a weak position at the start of their tenure [@roessler2011].
 Despite this distinction, both Sudduth and prior scholars concur that new leaders tend to purge rival elite groups to consolidate their power.
-However, Sudduth argues that dictators undertake purges when they can do so without significant risk, while traditional views suggest purges occur when dictators perceive imminent threats.
+Sudduth argues that dictators undertake purges when they can do so without significant risk, while traditional views suggest purges occur when dictators perceive imminent threats.
 However, it's imperative to acknowledge that new leaders, particularly those ascending through unconventional means, don't adhere to a universal pattern of inherent weakness or strength.
 Leadership transitions unfold in varied contexts, presenting leaders with diverse challenges.
 
-Scholars have extensively scrutinized the resilience of political leaders across diverse realms, encompassing universal frameworks, autocratic regimes, and the aftermath of failed challenges, such as coup attempts.
-Interestingly, there has been limited discourse concerning the survival dynamics of leaders who manage to maintain power following successful coups or prolonged incumbency.
-This study endeavors to bridge this gap by specifically scrutinizing and delineating the survival duration between these two categories of leaders.
+Scholars have extensively analyzed the endurance of political leaders across various spheres, examining universal frameworks, autocratic regimes, and the aftermath of failed challenges, including coup attempts.
+However, there remains a notable gap in discussions surrounding the survival dynamics of leaders who consolidate power after successful coups or prolonged incumbency.
+Specifically, there has been limited exploration and comparison of the survival tenures between overstay leaders and coup-entry leaders.
+This study seeks to address this gap by scrutinizing and outlining the duration of survival among these two distinct categories of leaders.
 
-## The logic of political survival in irregular ascent leaders
+## Political survival dynamics of overstay and coup-entry leaders
+
+Here, I maintain the definition of "overstay" as elaborated in my previous paper, "Determinants of Incumbent Overstay Attempts and Outcomes," wherein it refers to the scenario where incumbent political leaders endeavor to exceed the maximum time allowed by constitutional norms or unwritten customs.
+A successful overstay is identified as the extension of power for at least one additional year or longer.
+
+For the definition of "coup," I'll adopt the definition by Powell and Thyne: coups are "illegal and overt attempts by the military or other elites within the state apparatus to unseat the sitting executive" [@powell2011, p252].
+They classify a coup attempt as successful if the perpetrators seize and maintain power for at least seven days.
+To align with the successful overstays discussed in this paper, my focus will narrow down to instances where the seizure of power is sustained for at least one year.
+
+Based on a log-rank test in survival analysis, see @fig-logrank using the leaders dataset [@goemans2009] in conjunction with the author's incumbent overstay dataset, a clear trend emerges: leaders who overstay their incumbency exhibit significantly longer survival rates compared to those who enter through coups.
+Specifically, the average survival time **after** overstaying, discounting their original term time, is approximately 10.1 years.
+In contrast, coup-entry leaders tend to have an average survival time of 4.1 years.
+
+```{r}
+library(tidyverse)
+library(data.table)
+library(survival)
+library(survminer)
+```
+
+```{r}
+#| label: fig-logrank
+#| fig-width: 7
+#| fig-height: 6
+#| fig-align: center
+#| fig-cap: Kaplan-Meier plot
+
+Mydata <- read.csv("../data/mydata.csv") |> 
+  filter(survival_time > 180, survival_time < 18000) |> 
+  mutate(survival_year = survival_time / 365)
+
+# Fit survival curves
+fit <- survfit(Surv(survival_year, status) ~ group, data = Mydata)
+# Create log-rank plot (Kaplan-Meier plot)
+ggsurvplot(fit, 
+           data = Mydata, 
+           risk.table = TRUE, 
+           risk.table.height = 0.3, 
+           pval = TRUE,
+           legend.labs = c("overstayers", "coup-entry leaders"),
+           xlab = "Survival Years",
+           title = "Survival Curves of overstayers and coup-entry leaders",
+           font.title = 14)
+```
 
 Engaging in a discourse on the survival strategies of political leaders within non-democratic regimes presents a significant challenge.
 The complexity stems from the lack of a universal pattern that encapsulates the rules or conventions dictating power transitions in autocratic systems.
@@ -226,40 +270,6 @@ However, adopting a hardline stance internally could not only weaken themselves 
 These factors collectively contribute to a shorter expected lifespan of regimes following coups [@dahl2023], compared to relatively longer tenures for overstaying regimes.
 Analyzing a comprehensive coup dataset [@powell2011] spanning from 1950 to 2023, it's evident that 97 countries experienced coups during this period.
 Among them, 15 countries endured at least 10 coups, and 10 countries witnessed more than 6 successful coups, reinforcing the analysis discussed above.
-
-Based on a log-rank test in survival analysis, see @fig-logrank using the leaders dataset [@goemans2009] in conjunction with the author's incumbent overstay dataset, a clear trend emerges: leaders who overstay their incumbency exhibit significantly longer survival rates compared to those who enter through coups.
-Specifically, the average survival time **after** overstaying, discounting their original term time, is approximately 10.1 years.
-In contrast, coup-entry leaders tend to have an average survival time of 4.1 years.
-
-```{r}
-library(tidyverse)
-library(data.table)
-library(survival)
-library(survminer)
-```
-
-```{r}
-#| label: fig-logrank
-#| fig-width: 7
-#| fig-height: 6
-#| fig-align: center
-#| fig-cap: Kaplan-Meier plot
-
-Mydata <- read.csv("../data/mydata.csv")
-
-# Fit survival curves
-fit <- survfit(Surv(survival_time, status) ~ group, data = Mydata)
-# Create log-rank plot (Kaplan-Meier plot)
-ggsurvplot(fit, 
-           data = Mydata, 
-           risk.table = TRUE, 
-           risk.table.height = 0.3, 
-           pval = TRUE,
-           legend.labs = c("overstayers", "coup-entry leaders"),
-           xlab = "Survival Years",
-           title = "Survival Curves of overstayers and coup-entry leaders",
-           font.title = 14)
-```
 
 Based on these insights, I propose the following hypothesis:
 
