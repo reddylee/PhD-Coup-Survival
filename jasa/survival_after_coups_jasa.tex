@@ -185,7 +185,7 @@ compared to those entering through coups.
 
 \newpage
 \spacingset{1.9} % DON'T change the spacing!
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, frame hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, sharp corners, boxrule=0pt, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, boxrule=0pt, interior hidden, frame hidden, breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
 
 \setstretch{1.75}
 \hypertarget{introduction}{%
@@ -242,9 +242,29 @@ significantly impacts the duration of their leadership tenure. Unlike
 leaders who overstay, those who enter through coups face more
 substantial challenges concerning legitimacy, uncertainty, instability,
 and power-sharing, potentially diminishing their survival duration.
-Employing a survival model, this paper suggests that leaders who
-overstay their term limits generally enjoy longer tenures compared to
-those who gain power through coups.
+
+\begin{figure}
+
+{\centering \includegraphics{survival_after_coups_jasa_files/figure-pdf/fig-logrank-1.pdf}
+
+}
+
+\caption{\label{fig-logrank}Kaplan-Meier plot}
+
+\end{figure}
+
+Utilizing a survival model, this paper suggests that leaders who surpass
+their term limits generally enjoy longer tenures compared to those who
+come into power through coups. Conducting a log-rank test in survival
+analysis on the leaders dataset \citep{goemans2009} and the author's
+incumbent overstay dataset reveals a distinct contrast: overstay leaders
+demonstrate notably extended survival rates in comparison to coup-entry
+leaders. Specifically, according to Figure~\ref{fig-logrank}, the
+average survival time post-overstay, excluding their original term
+duration, is approximately 10.3 years. In contrast, leaders who gain
+power via coups tend to have an average survival time of 5.3 years,
+representing an average shortfall of 5 years in their tenure
+\footnote{The data excluded leaders who survived less than 180 days.}.
 
 This study could offer dual contributions. First, it emphasizes that the
 duration of survival and unexpected exits is not solely dictated by
@@ -406,41 +426,21 @@ these two distinct categories of leaders.
 \section{Political survival dynamics of overstay and coup-entry
 leaders}\label{political-survival-dynamics-of-overstay-and-coup-entry-leaders}}
 
-Here, I maintain the definition of ``overstay'' as elaborated in my
-previous paper, ``Determinants of Incumbent Overstay Attempts and
-Outcomes,'' wherein it refers to the scenario where incumbent political
-leaders endeavor to exceed the maximum time allowed by constitutional
-norms or unwritten customs. A successful overstay is identified as the
-extension of power for at least one additional year or longer.
+In this paper, I maintain the definition of ``overstay'' as delineated
+in my earlier paper, ``Determinants of Incumbent Overstay Attempts and
+Outcomes'', referring to situations where incumbent political leaders
+strive to exceed the maximum time permitted by constitutional norms or
+unwritten customs. A successful overstay is determined by an extension
+of power lasting at least six months or longer.
 
-For the definition of ``coup,'' I'll adopt the definition by Powell and
-Thyne: coups are ``illegal and overt attempts by the military or other
-elites within the state apparatus to unseat the sitting executive''
-\citep[p252]{powell2011}. They classify a coup attempt as successful if
-the perpetrators seize and maintain power for at least seven days. To
-align with the successful overstays discussed in this paper, my focus
-will narrow down to instances where the seizure of power is sustained
-for at least one year.
-
-Based on a log-rank test in survival analysis, see
-Figure~\ref{fig-logrank} using the leaders dataset \citep{goemans2009}
-in conjunction with the author's incumbent overstay dataset, a clear
-trend emerges: leaders who overstay their incumbency exhibit
-significantly longer survival rates compared to those who enter through
-coups. Specifically, the average survival time \textbf{after}
-overstaying, discounting their original term time, is approximately 10.1
-years. In contrast, coup-entry leaders tend to have an average survival
-time of 4.1 years.
-
-\begin{figure}
-
-{\centering \includegraphics{survival_after_coups_jasa_files/figure-pdf/fig-logrank-1.pdf}
-
-}
-
-\caption{\label{fig-logrank}Kaplan-Meier plot}
-
-\end{figure}
+Regarding the definition of a ``coup'', I will adopt the definition
+outlined by Powell and Thyne: coups are characterized as ``illegal and
+overt attempts by the military or other elites within the state
+apparatus to unseat the sitting executive'' \citep[p252]{powell2011}.
+They categorize a coup attempt as successful if the perpetrators seize
+and retain power for a minimum of seven days. To align with the
+successful overstays discussed in this paper, I will focus on instances
+where the usurpation of power endures for at least six months.
 
 Engaging in a discourse on the survival strategies of political leaders
 within non-democratic regimes presents a significant challenge. The
