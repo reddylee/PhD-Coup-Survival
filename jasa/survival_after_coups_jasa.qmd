@@ -183,12 +183,13 @@ Regarding the definition of a "coup", I will adopt the definition outlined by Po
 They categorize a coup attempt as successful if the perpetrators seize and retain power for a minimum of seven days.
 To align with the successful overstays discussed in this paper, I will focus on instances where the usurpation of power endures for at least six months.
 
-Engaging in a discourse on the survival strategies of political leaders within non-democratic regimes presents a significant challenge.
-The complexity stems from the lack of a universal pattern that encapsulates the rules or conventions dictating power transitions in autocratic systems.
-For instance, even in Middle Eastern monarchies, the transfer of power doesn't rigidly adhere to a father-to-son lineage.
-However, this doesn't imply that analyzing survival strategies in autocracies is unattainable.
-Despite substantial differences, they share certain commonalities.
-Most autocratic regimes, especially those characterized by irregular ascensions, exhibit three prevalent situations.
+Engaging in discussions on the survival strategies employed by political leaders in non-democratic systems presents a considerable challenge.
+This challenge is rooted in the intricate nature of power transitions within autocratic regimes, which lack a consistent and universally applicable pattern or set of conventions.
+In specific instances, such as Middle Eastern monarchies, the transfer of power doesn't strictly adhere to a hereditary father-to-son lineage, further complicating the landscape.
+Moreover, even if there are established rules governing power transitions, they are often flouted by incumbents or coup leaders.
+
+Nevertheless, amidst the diversity in regime types and leadership styles, leaders who prolong their rule through self-coups and those who seize power through coups exhibit certain similarities.
+Understanding these shared tactics provides insight into their strategies for survival.
 
 The first aspect concerns the issue of legitimacy.
 Leaders who ascend through coups lack legitimacy as they seize power through force or other unconventional means.
@@ -213,13 +214,21 @@ This elucidates why dictatorships curtail free expression, assembly, and associa
 The absence of free public expression and association renders the power balance unclear.
 Consequently, rulers maintain relative power advantages over not only the elites but also the subjects.
 
-The trifecta of illegitimacy, uncertainty, and the equilibrium of power profoundly impact the longevity of a regime.
+The trifecta of illegitimacy, uncertainty, and the equilibrium of power, as showed in @tbl-aspects, profoundly impact the longevity of a regime.
 Yet, compared to leaders who gain power through coups, those who overstay their terms find themselves in a comparatively advantageous position concerning these three aspects.
+
+| **Aspect**                       | **Overstay (Self-coup) Leaders**                                                                                    | **Coup-Entry Leaders**                                                                                                                                               |
+|------------------|----------------------------|--------------------------------|
+| Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
+| Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
+| Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
+
+: Key Distinctions in Survival Tenures: Overstay versus Coup-Entry Leaders {#tbl-aspects .striped}
 
 ### Legitimacy
 
-As per Powell and Thyne's definition, coups constitute "illegal and overt attempts by the military or other elites within the state apparatus to unseat the sitting executive." [@powell2011, p.252].
-While it is undeniable that a few coups have been justified by resolving crises and leading to improved outcomes, they remain illegal means to remove incumbents.
+Although coups are "illegal", it is undeniable that a few coups have been justified by resolving crises and leading to improved outcomes.
+they remain illegal means to remove incumbents.
 These unlawful methods open Pandora's box, publicly suggesting alternatives to constitutional procedures for seizing power, particularly in the case of successful coups.
 Such actions inevitably prompt imitators to launch new coups.
 As society becomes accustomed to coups, subsequent ones may not elicit significant backlash, given that the incumbents themselves ascended to power through similar means.
