@@ -75,6 +75,11 @@
 \addtolength{\textwidth}{1in}%
 \addtolength{\textheight}{1.7in}%
 \addtolength{\topmargin}{-1in}%
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
 \makeatletter
 \makeatother
 \makeatletter
@@ -185,7 +190,7 @@ compared to those entering through coups.
 
 \newpage
 \spacingset{1.9} % DON'T change the spacing!
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, breakable, boxrule=0pt, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, breakable, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners]}{\end{tcolorbox}}\fi
 
 \setstretch{1.75}
 \hypertarget{introduction}{%
@@ -496,17 +501,17 @@ expression and association renders the power balance unclear.
 Consequently, rulers maintain relative power advantages over not only
 the elites but also the subjects.
 
-The trifecta of illegitimacy, uncertainty, and the equilibrium of power,
-as showed in Table~\ref{tbl-aspects}, profoundly impact the longevity of
-a regime. Yet, compared to leaders who gain power through coups, those
-who overstay their terms find themselves in a comparatively advantageous
-position concerning these three aspects.
+The convergence of illegitimacy, uncertainty, and power equilibrium, as
+highlighted in Table~\ref{tbl-aspects}, significantly influences the
+lifespan of a regime. However, when juxtaposed with leaders who seize
+power through coups, those who overextend their terms enjoy a relatively
+favorable position across these three facets.
 
 \hypertarget{tbl-aspects}{}
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2361}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3889}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3750}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2308}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3590}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4103}}@{}}
 \caption{\label{tbl-aspects}Key Distinctions in Survival Tenures:
 Overstay versus Coup-Entry Leaders}\tabularnewline
 \toprule\noalign{}
@@ -547,20 +552,57 @@ are unmet. \\
 \hypertarget{legitimacy}{%
 \subsection{Legitimacy}\label{legitimacy}}
 
-As per Powell and Thyne's definition, coups constitute ``illegal and
-overt attempts by the military or other elites within the state
-apparatus to unseat the sitting executive.'' \citep[p.252]{powell2011}.
-While it is undeniable that a few coups have been justified by resolving
-crises and leading to improved outcomes, they remain illegal means to
-remove incumbents. These unlawful methods open Pandora's box, publicly
-suggesting alternatives to constitutional procedures for seizing power,
-particularly in the case of successful coups. Such actions inevitably
-prompt imitators to launch new coups. As society becomes accustomed to
-coups, subsequent ones may not elicit significant backlash, given that
-the incumbents themselves ascended to power through similar means.
-Furthermore, coups not only invite further coups but also embolden
-external challengers, including uprisings, revolutions, and civil wars
-\citep{dahl2023}.
+The essence of a coup inherently lacks legitimacy, categorized as
+``illegal'' due to its abrupt and unconstitutional nature. Successful
+coups act as a catalyst, publicly showcasing alternative,
+non-constitutional pathways to seize power. This visibility
+inadvertently fuels emulation, especially among those less likely to
+ascend through lawful means, leading to a surge in illegitimate power
+grabs. Henri Namphy's leadership in Haiti's 1988 coup stands as a
+typical example, swiftly followed by his own ousting through another
+coup. As reflected in Table~\ref{tbl-coups}, 15 countries have
+encountered at least 10 coups since 1950, with most surpassing 5
+successful attempts \citep{powell2011}. Societal desensitization to
+coups might mitigate potential power challengers, particularly when
+incumbent leaders themselves ascended via similar unlawful routes.
+Recent instances in Burkina Faso (2022) and Niger (2023) demonstrate
+this familiarity, where people openly rallied in support of coups,
+showcasing an alarming normalization. In countries like Haiti and
+Burkina Faso, coups have become more frequent than constitutionally
+guided transitions of power.
+
+Moreover, coups not only breed subsequent coups but also embolden
+external challengers, fostering uprisings, revolutions, and civil wars,
+as highlighted by \citet{dahl2023}.
+
+\hypertarget{tbl-coups}{}
+\begin{longtable}{lrr}
+\caption{\label{tbl-coups}Frequency of Coups by Country (1950--2023) }\tabularnewline
+
+\toprule
+country & coup\_attempts & coup\_succeed \\ 
+\midrule\addlinespace[2.5pt]
+Bolivia & 23 & 11 \\ 
+Argentina & 20 & 7 \\ 
+Sudan & 17 & 6 \\ 
+Haiti & 13 & 9 \\ 
+Venezuela & 13 & 0 \\ 
+Iraq & 12 & 4 \\ 
+Syria & 12 & 8 \\ 
+Thailand & 12 & 8 \\ 
+Ecuador & 11 & 5 \\ 
+Burundi & 11 & 5 \\ 
+Guatemala & 10 & 5 \\ 
+Honduras & 10 & 6 \\ 
+Burkina Faso & 10 & 9 \\ 
+Sierra Leone & 10 & 5 \\ 
+Ghana & 10 & 5 \\ 
+\bottomrule
+\end{longtable}
+
+it is undeniable that a few coups have been justified by resolving
+crises and leading to improved outcomes. they remain illegal means to
+remove incumbents.
 
 On the other hand, leaders who overstay their tenures may lack
 legitimacy but often manage to maintain power through a facade of
@@ -681,26 +723,6 @@ of these distinct groups.
 
 \hypertarget{method-and-data}{%
 \section{Method and data}\label{method-and-data}}
-
-\hypertarget{tbl-letters}{}
-\begin{longtable}[]{@{}lll@{}}
-\caption{\label{tbl-letters}My Caption}\tabularnewline
-\toprule\noalign{}
-Col1 & Col2 & Col3 \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-Col1 & Col2 & Col3 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-A & B & C \\
-E & F & G \\
-A & G & G \\
-\end{longtable}
-
-See Table~\ref{tbl-letters}.
 
 \newpage
 

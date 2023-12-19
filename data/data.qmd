@@ -6,6 +6,7 @@ library(data.table)
 library(vdemdata)
 library(democracyData)
 library(janitor)
+library(gtsummary)
 
 library(survival)
 library(survminer)
@@ -195,6 +196,12 @@ print(p_value)
 print(chisq_statistic)
 
 
+```
+```{r}
+coups |> 
+  summarise(number_of_coups = n(), .by = country) |> 
+  arrange(-number_of_coups) |> 
+  
 ```
 
 

@@ -29,6 +29,17 @@ execute:
   message: false
 ---
 
+```{r}
+#| label: setup
+library(tidyverse)
+library(data.table)
+library(survival)
+library(survminer)
+library(janitor)
+library(gt)
+```
+
+
 ## Introduction
 
 The investigation into the enduring tenure of certain leaders compared to those with briefer terms has remained a focal point within the realm of political science.
@@ -56,15 +67,10 @@ Specifically, how do leaders' methods of entering power affect not only their su
 This study proposes that the manner in which leaders ascend to power significantly impacts the duration of their leadership tenure.
 Unlike leaders who overstay, those who enter through coups face more substantial challenges concerning legitimacy, uncertainty, instability, and power-sharing, potentially diminishing their survival duration.
 
-```{r}
-library(tidyverse)
-library(data.table)
-library(survival)
-library(survminer)
-library(janitor)
-```
+
 
 ```{r}
+#| label: data
 Mydata <- read.csv("../data/mydata.csv") |> 
   filter(survival_time > 180, survival_time < 18000) |> 
   mutate(survival_year = survival_time / 365)
@@ -214,8 +220,8 @@ This elucidates why dictatorships curtail free expression, assembly, and associa
 The absence of free public expression and association renders the power balance unclear.
 Consequently, rulers maintain relative power advantages over not only the elites but also the subjects.
 
-The trifecta of illegitimacy, uncertainty, and the equilibrium of power, as showed in @tbl-aspects, profoundly impact the longevity of a regime.
-Yet, compared to leaders who gain power through coups, those who overstay their terms find themselves in a comparatively advantageous position concerning these three aspects.
+The convergence of illegitimacy, uncertainty, and power equilibrium, as highlighted in @tbl-aspects, significantly influences the lifespan of a regime.
+However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favorable position across these three facets.
 
 | **Aspect**                       | **Overstay (Self-coup) Leaders**                                                                                    | **Coup-Entry Leaders**                                                                                                                                               |
 |------------------|----------------------------|--------------------------------|
@@ -227,12 +233,33 @@ Yet, compared to leaders who gain power through coups, those who overstay their 
 
 ### Legitimacy
 
-Although coups are "illegal", it is undeniable that a few coups have been justified by resolving crises and leading to improved outcomes.
+The essence of a coup inherently lacks legitimacy, categorized as "illegal" due to its abrupt and unconstitutional nature.
+Successful coups act as a catalyst, publicly showcasing alternative, non-constitutional pathways to seize power.
+This visibility inadvertently fuels emulation, especially among those less likely to ascend through lawful means, leading to a surge in illegitimate power grabs.
+Henri Namphy's leadership in Haiti's 1988 coup stands as a typical example, swiftly followed by his own ousting through another coup.
+As reflected in @tbl-coups, 15 countries have encountered at least 10 coups since 1950, with most surpassing 5 successful attempts [@powell2011].
+Societal desensitization to coups might mitigate potential power challengers, particularly when incumbent leaders themselves ascended via similar unlawful routes.
+Recent instances in Burkina Faso (2022) and Niger (2023) demonstrate this familiarity, where people openly rallied in support of coups, showcasing an alarming normalization.
+In countries like Haiti and Burkina Faso, coups have become more frequent than constitutionally guided transitions of power.
+
+Moreover, coups not only breed subsequent coups but also embolden external challengers, fostering uprisings, revolutions, and civil wars, as highlighted by @dahl2023.
+
+```{r}
+#| label: tbl-coups
+#| tbl-cap: "Frequency of Coups by Country (1950–2023)"
+
+coups <- fread("../data/powell_thyne_coups_final.txt") 
+coups|> 
+  summarise(coup_attempts = n(), 
+            coup_succeed = sum(coup == 2),
+            .by = country) |> 
+  arrange(-coup_attempts) |> 
+  head(15) |> 
+  gt() 
+```
+
+it is undeniable that a few coups have been justified by resolving crises and leading to improved outcomes.
 they remain illegal means to remove incumbents.
-These unlawful methods open Pandora's box, publicly suggesting alternatives to constitutional procedures for seizing power, particularly in the case of successful coups.
-Such actions inevitably prompt imitators to launch new coups.
-As society becomes accustomed to coups, subsequent ones may not elicit significant backlash, given that the incumbents themselves ascended to power through similar means.
-Furthermore, coups not only invite further coups but also embolden external challengers, including uprisings, revolutions, and civil wars [@dahl2023].
 
 On the other hand, leaders who overstay their tenures may lack legitimacy but often manage to maintain power through a facade of legitimacy.
 They don't blatantly seize power via military force but rather cling to power through parliamentary or congressional processes, the Supreme Court, and even nationwide referendums.
