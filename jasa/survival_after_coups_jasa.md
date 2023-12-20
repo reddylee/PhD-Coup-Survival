@@ -30,17 +30,11 @@ execute:
   message: false
 ---
 
-```{r}
-#| label: setup
 
-library(tidyverse)
-library(data.table)
-library(survival)
-library(survminer)
-library(janitor)
-library(glue)
-library(gt)
-```
+::: {.cell}
+
+:::
+
 
 
 ## Introduction
@@ -72,38 +66,17 @@ Unlike leaders who overstay, those who enter through coups face more substantial
 
 
 
-```{r}
-#| label: data
-Mydata <- read.csv("../data/mydata.csv") |> 
-  filter(survival_time > 180, survival_time < 18000) |> 
-  mutate(survival_year = survival_time / 365)
 
-# Mydata |> 
-#   summarise(avg=mean(survival_year),.by = group)
+::: {.cell}
 
-```
+:::
 
-```{r}
-#| label: fig-logrank
-#| fig-width: 7
-#| fig-height: 5
-#| fig-align: center
-#| fig-cap: Kaplan-Meier plot
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![Kaplan-Meier plot](survival_after_coups_jasa_files/figure-pdf/fig-logrank-1.pdf){#fig-logrank fig-align='center'}
+:::
+:::
 
-# Fit survival curves
-fit <- survfit(Surv(survival_year, status) ~ group, data = Mydata)
-# Create log-rank plot (Kaplan-Meier plot)
-ggsurvplot(fit, 
-           data = Mydata, 
-           risk.table = TRUE, 
-           risk.table.height = 0.3, 
-           pval = TRUE,
-           break.x.by = 5, 
-           legend.labs = c("overstayers", "coup-entryers"),
-           xlab = "Survival Years",
-           title = "Survival Curves of overstay and coup-entry leaders",
-           font.title = 14)
-```
 
 Utilizing a survival model, this paper suggests that leaders who surpass their term limits generally enjoy longer tenures compared to those who come into power through coups.
 Conducting a log-rank test in survival analysis on the leaders dataset [@goemans2009] and the author's incumbent overstay dataset reveals a distinct contrast: overstay leaders demonstrate notably extended survival rates in comparison to coup-entry leaders.
@@ -247,25 +220,37 @@ In countries like Haiti and Burkina Faso, coups have become more frequent than c
 
 Moreover, coups not only breed subsequent coups but also embolden external challengers, fostering uprisings, revolutions, and civil wars, as highlighted by @dahl2023.
 
-```{r}
-#| label: tbl-coups
-#| tbl-cap: "Frequency of Coups by Country (1950–2023)"
 
-coups <- fread("../data/powell_thyne_coups_final.txt") 
-coups|> 
-  summarise(coup_attempts = n(), 
-            coup_succeed = sum(coup == 2),
-            .by = country) |> 
-  arrange(-coup_attempts) |> 
-  head(15) |> 
-  gt() |> 
-  cols_label(
-    country = md("**Country**"),
-    coup_attempts = md("**Coup_attempts**"),
-    coup_succeed = md("**Coup_succeed**")
-  ) |> 
-  tab_source_note(source_note = md("&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; *Data Source: Powell & Thyne (2011)*")) 
-```
+::: {#tbl-coups .cell tbl-cap='Frequency of Coups by Country (1950–2023)'}
+::: {.cell-output-display}
+\setlength{\LTpost}{0mm}
+\begin{longtable}{lrr}
+\toprule
+\textbf{Country} & \textbf{Coup\_attempts} & \textbf{Coup\_succeed} \\ 
+\midrule\addlinespace[2.5pt]
+Bolivia & 23 & 11 \\ 
+Argentina & 20 & 7 \\ 
+Sudan & 17 & 6 \\ 
+Haiti & 13 & 9 \\ 
+Venezuela & 13 & 0 \\ 
+Iraq & 12 & 4 \\ 
+Syria & 12 & 8 \\ 
+Thailand & 12 & 8 \\ 
+Ecuador & 11 & 5 \\ 
+Burundi & 11 & 5 \\ 
+Guatemala & 10 & 5 \\ 
+Honduras & 10 & 6 \\ 
+Burkina Faso & 10 & 9 \\ 
+Sierra Leone & 10 & 5 \\ 
+Ghana & 10 & 5 \\ 
+\bottomrule
+\end{longtable}
+\begin{minipage}{\linewidth}
+            \emph{Data Source: Powell \& Thyne (2011)}\\
+\end{minipage}
+:::
+:::
+
 
 it is undeniable that a few coups have been justified by resolving crises and leading to improved outcomes.
 they remain illegal means to remove incumbents.

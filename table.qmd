@@ -1,0 +1,11 @@
+---
+format: pdf
+keep-tex: true
+---
+
+```{r}
+library(gt)
+gt(head(iris)) |> 
+  tab_source_note(source_note = md("Data Source: Powell & Thyne (2011)"))
+  
+```
