@@ -247,8 +247,10 @@ Recent occurrences in Burkina Faso (2022) and Niger (2023) demonstrate this fami
 
 Moreover, coups not only breed subsequent coups but also embolden external challengers, fostering uprisings, revolutions, and civil wars, as highlighted by @dahl2023.
 
+::: {#tbl}
 ```{r}
 #| label: tbl-coups
+#| tbl-colwidths: [30,30,30]
 #| tbl-cap: "Frequency of Coups by Country (1950–2023)"
 
 coups <- fread("../data/powell_thyne_coups_final.txt")
@@ -260,18 +262,16 @@ coups |>
   ) |>
   arrange(-coup_attempts) |>
   head(15) |>
-  gt() |>
-  cols_label(
-    country = md("**Country**"),
-    coup_attempts = md("**Coup attempts**"),
-    coup_succeed = md("**Successful coups**")
-  ) |>
-  tab_source_note(
-    source_note = md(
-      "&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; *Data Source: Powell & Thyne (2011)*"
-    )
-  )
+  knitr::kable(col.names = c(
+      country = md("**Country**"),
+      coup_attempts = md("**Coup attempts**"),
+      coup_succeed = md("**Successful coups**"))
+      )
 ```
+*Data Source: @powell2011*
+:::
+
+\
 
 For leaders surpassing their designated terms, the situation diverges.
 As incumbents, they abuse their power to manipulate the power transition dynamics.

@@ -36,7 +36,6 @@ execute:
 :::
 
 
-
 ## Introduction
 
 The investigation into the enduring tenure of certain leaders compared to those with briefer terms has remained a focal point within the realm of political science.
@@ -63,8 +62,6 @@ However, while existing research extensively delves into the factors leading to 
 Specifically, how do leaders' methods of entering power affect not only their subsequent tenures but also their departures from power?
 This study proposes that the manner in which leaders ascend to power significantly impacts the duration of their leadership tenure.
 Unlike leaders who overstay, those who enter through coups face more substantial challenges concerning legitimacy, uncertainty, instability, and power-sharing, potentially diminishing their survival duration.
-
-
 
 
 ::: {.cell}
@@ -200,7 +197,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favorable position across these three facets.
 
 | **Aspect**                       | **Overstay (Self-coup) Leaders**                                                                                    | **Coup-Entry Leaders**                                                                                                                                               |
-|------------------|----------------------------|--------------------------------|
+|------------------|-------------------------|-----------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -209,57 +206,64 @@ However, when juxtaposed with leaders who seize power through coups, those who o
 
 ### Legitimacy
 
-The essence of a coup inherently lacks legitimacy, categorized as "illegal" due to its abrupt and unconstitutional nature.
-Successful coups act as a catalyst, publicly showcasing alternative, non-constitutional pathways to seize power.
-This visibility inadvertently fuels emulation, especially among those less likely to ascend through lawful means, leading to a surge in illegitimate power grabs.
-Henri Namphy's leadership in Haiti's 1988 coup stands as a typical example, swiftly followed by his own ousting through another coup.
-As reflected in @tbl-coups, 15 countries have encountered at least 10 coups since 1950, with most surpassing 5 successful attempts [@powell2011].
-Societal desensitization to coups might mitigate potential power challengers, particularly when incumbent leaders themselves ascended via similar unlawful routes.
-Recent instances in Burkina Faso (2022) and Niger (2023) demonstrate this familiarity, where people openly rallied in support of coups, showcasing an alarming normalization.
-In countries like Haiti and Burkina Faso, coups have become more frequent than constitutionally guided transitions of power.
+The core of a coup inherently lacks legitimacy, being deemed "illegal" due to its sudden and unconstitutional nature.
+Successful coups serve as a catalyst, publicly spotlighting alternate, non-constitutional paths to seize power.
+This visibility inadvertently encourages imitation, especially among those less inclined to ascend to power through lawful channels, leading to a surge in illegitimate power seizures.
+Henri Namphy's leadership during Haiti's 1988 coup serves as an typical example, swiftly followed by his own removal through another coup.
+Haiti's history records instances of multiple coups within a single year—such as 3 in 1957, and 2 each in 1988, 1989, and 1991—a narrative echoed in numerous other coup-prone nations.
+Notable examples post-2000 include 2 coups in 2001 in Burundi, 2 in 2021 in Sudan, and 2 in 2022 in Burkina Faso [@powell2011].
+As reflected in @tbl-coups, 15 countries have weathered at least 10 coups since 1950, with most exceeding 5 successful attempts [@powell2011].
+These 15 nations collectively accounted for 40% of total coup attempts and 38% of successful coups.
+In these frequent-coup countries, coups have even surpassed constitutionally guided power transitions in frequency.
+Both ruling groups and the populace have grown accustomed to coups, perceiving them as an acceptable means of power transition.
+Recent occurrences in Burkina Faso (2022) and Niger (2023) demonstrate this familiarity, where some individuals treated these events more akin to festive celebrations rather than coups.
 
 Moreover, coups not only breed subsequent coups but also embolden external challengers, fostering uprisings, revolutions, and civil wars, as highlighted by @dahl2023.
 
+::: {#tbl}
 
-::: {#tbl-coups .cell tbl-cap='Frequency of Coups by Country (1950–2023)'}
+::: {#tbl-coups .cell tbl-colwidths='[30,30,30]' tbl-cap='Frequency of Coups by Country (1950–2023)'}
 ::: {.cell-output-display}
-\setlength{\LTpost}{0mm}
-\begin{longtable}{lrr}
-\toprule
-\textbf{Country} & \textbf{Coup\_attempts} & \textbf{Coup\_succeed} \\ 
-\midrule\addlinespace[2.5pt]
-Bolivia & 23 & 11 \\ 
-Argentina & 20 & 7 \\ 
-Sudan & 17 & 6 \\ 
-Haiti & 13 & 9 \\ 
-Venezuela & 13 & 0 \\ 
-Iraq & 12 & 4 \\ 
-Syria & 12 & 8 \\ 
-Thailand & 12 & 8 \\ 
-Ecuador & 11 & 5 \\ 
-Burundi & 11 & 5 \\ 
-Guatemala & 10 & 5 \\ 
-Honduras & 10 & 6 \\ 
-Burkina Faso & 10 & 9 \\ 
-Sierra Leone & 10 & 5 \\ 
-Ghana & 10 & 5 \\ 
-\bottomrule
-\end{longtable}
-\begin{minipage}{\linewidth}
-            \emph{Data Source: Powell \& Thyne (2011)}\\
-\end{minipage}
+|**Country**  | **Coup attempts**| **Successful coups**|
+|:------------|-----------------:|--------------------:|
+|Bolivia      |                23|                   11|
+|Argentina    |                20|                    7|
+|Sudan        |                17|                    6|
+|Haiti        |                13|                    9|
+|Venezuela    |                13|                    0|
+|Iraq         |                12|                    4|
+|Syria        |                12|                    8|
+|Thailand     |                12|                    8|
+|Ecuador      |                11|                    5|
+|Burundi      |                11|                    5|
+|Guatemala    |                10|                    5|
+|Honduras     |                10|                    6|
+|Burkina Faso |                10|                    9|
+|Sierra Leone |                10|                    5|
+|Ghana        |                10|                    5|
 :::
 :::
 
+*Data Source: @powell2011*
+:::
 
-it is undeniable that a few coups have been justified by resolving crises and leading to improved outcomes.
-they remain illegal means to remove incumbents.
+\
 
-On the other hand, leaders who overstay their tenures may lack legitimacy but often manage to maintain power through a facade of legitimacy.
-They don't blatantly seize power via military force but rather cling to power through parliamentary or congressional processes, the Supreme Court, and even nationwide referendums.
-The opposition usually chooses to confront these leaders using legal means, engaging in legislative debates or legal proceedings, and sometimes by advocating for another referendum.
-Attempts to overthrow leaders who overstay their terms through coups would be even less legitimate and might struggle to garner support.
-However, removing such leaders within the boundaries of the law presents an arduous challenge, if not a near-impossible task.
+For leaders surpassing their designated terms, the situation diverges.
+As incumbents, they abuse their power to manipulate the power transition dynamics.
+They might reinterpret or amend the constitution, utilizing avenues like parliamentary votes, supreme court decisions, or referendums, with aspirations for prolonged or even lifelong tenure.
+Yet fundamentally, most instances of overstaying lack authentic legitimacy as such leaders often exploit their authority, resorting at times to illegal measures like arresting, expelling, or even assassinating opposition figures.
+Consequently, these alterations in leadership tenure and power transitions do not genuinely reflect the populace's will.
+Nonetheless, it's notable that, on the surface, the methods employed by overstay leaders carry a semblance of legitimacy compared to coups.
+Even if contesting their legitimacy, challengers are normally constrained to adopt lawful means.
+
+Moreover, overstaying might attract imitators, but emulating overstaying differs from emulating coups.
+While coups can occur at any juncture, overstaying necessitates a prerequisite—those aiming to overstay must initially hold leadership positions.
+Individuals outside of power cannot imitate overstaying.
+Even if challengers openly reject legitimacy and endeavor to use similarly illegitimate means, like staging coups to depose overstay leaders, it is much more challenging as they require substantial strength or adequate support.
+However, in terms of power, a oversty leader inherently holds an advantageous position.
+
+Hence, from the legitimacy standpoint, while both overstaying leaders and coup-entry leaders lack genuine legitimacy, the former retain an edge in superficial legitimacy and are more powerful, potentially leading to longer-lasting regimes than those initiated by coup-entry leaders.
 
 ### Uncertainty
 

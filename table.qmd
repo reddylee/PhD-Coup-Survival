@@ -4,8 +4,49 @@ keep-tex: true
 ---
 
 ```{r}
+library(tidyverse)
 library(gt)
+#library(knitr)
+#library(kableExtra)
+#library(gtExtras)
+
+```
+
+```{r}
 gt(head(iris)) |> 
   tab_source_note(source_note = md("Data Source: Powell & Thyne (2011)"))
   
 ```
+
+```{r}
+mtcars |> 
+  gt() |>  
+  cols_label(mpg = "miles per gal",
+             cyl = "Number of cylinders",
+             disp = "Displacement (cu.in.)",
+             hp = "Gross horsepower"
+             ) 
+
+# |> 
+#   as_latex()
+  
+```
+```{r}
+#| label: tbl-1
+#| tbl-cap: mtcars
+#| tbl-colwidths: [20,35,35]
+mtcars %>% 
+  select(1:2) |> 
+  knitr::kable(col.names = c("miles per gal", "Number of cylinders"),
+               )
+```
+
+```{r}
+#| label: tbl-2
+#| tbl-colwidths: [20,30,30]
+mtcars |> 
+  select(1:2) |> 
+  knitr::kable()
+
+```
+

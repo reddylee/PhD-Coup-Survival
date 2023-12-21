@@ -75,11 +75,6 @@
 \addtolength{\textwidth}{1in}%
 \addtolength{\textheight}{1.7in}%
 \addtolength{\topmargin}{-1in}%
-\usepackage{booktabs}
-\usepackage{caption}
-\usepackage{longtable}
-\usepackage{colortbl}
-\usepackage{array}
 \makeatletter
 \makeatother
 \makeatletter
@@ -162,7 +157,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\date{December 20, 2023}
+\date{December 21, 2023}
 \title{\bf Political Leadership Survival in the Aftermath of Coups and
 Overstays: From Illegitimate Ascent to Unexpected Exit}
 \author{
@@ -190,7 +185,7 @@ compared to those entering through coups.
 
 \newpage
 \spacingset{1.9} % DON'T change the spacing!
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, interior hidden, boxrule=0pt, frame hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, sharp corners, borderline west={3pt}{0pt}{shadecolor}, breakable, enhanced, frame hidden]}{\end{tcolorbox}}\fi
 
 \setstretch{1.75}
 \hypertarget{introduction}{%
@@ -509,9 +504,9 @@ favorable position across these three facets.
 
 \hypertarget{tbl-aspects}{}
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2308}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3590}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4103}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3472}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4028}}@{}}
 \caption{\label{tbl-aspects}Key Distinctions in Survival Tenures:
 Overstay versus Coup-Entry Leaders}\tabularnewline
 \toprule\noalign{}
@@ -552,73 +547,115 @@ are unmet. \\
 \hypertarget{legitimacy}{%
 \subsection{Legitimacy}\label{legitimacy}}
 
-The essence of a coup inherently lacks legitimacy, categorized as
-``illegal'' due to its abrupt and unconstitutional nature. Successful
-coups act as a catalyst, publicly showcasing alternative,
-non-constitutional pathways to seize power. This visibility
-inadvertently fuels emulation, especially among those less likely to
-ascend through lawful means, leading to a surge in illegitimate power
-grabs. Henri Namphy's leadership in Haiti's 1988 coup stands as a
-typical example, swiftly followed by his own ousting through another
-coup. As reflected in Table~\ref{tbl-coups}, 15 countries have
-encountered at least 10 coups since 1950, with most surpassing 5
-successful attempts \citep{powell2011}. Societal desensitization to
-coups might mitigate potential power challengers, particularly when
-incumbent leaders themselves ascended via similar unlawful routes.
-Recent instances in Burkina Faso (2022) and Niger (2023) demonstrate
-this familiarity, where people openly rallied in support of coups,
-showcasing an alarming normalization. In countries like Haiti and
-Burkina Faso, coups have become more frequent than constitutionally
-guided transitions of power.
+The core of a coup inherently lacks legitimacy, being deemed ``illegal''
+due to its sudden and unconstitutional nature. Successful coups serve as
+a catalyst, publicly spotlighting alternate, non-constitutional paths to
+seize power. This visibility inadvertently encourages imitation,
+especially among those less inclined to ascend to power through lawful
+channels, leading to a surge in illegitimate power seizures. Henri
+Namphy's leadership during Haiti's 1988 coup serves as an typical
+example, swiftly followed by his own removal through another coup.
+Haiti's history records instances of multiple coups within a single
+year---such as 3 in 1957, and 2 each in 1988, 1989, and 1991---a
+narrative echoed in numerous other coup-prone nations. Notable examples
+post-2000 include 2 coups in 2001 in Burundi, 2 in 2021 in Sudan, and 2
+in 2022 in Burkina Faso \citep{powell2011}. As reflected in
+Table~\ref{tbl-coups}, 15 countries have weathered at least 10 coups
+since 1950, with most exceeding 5 successful attempts
+\citep{powell2011}. These 15 nations collectively accounted for 40\% of
+total coup attempts and 38\% of successful coups. In these frequent-coup
+countries, coups have even surpassed constitutionally guided power
+transitions in frequency. Both ruling groups and the populace have grown
+accustomed to coups, perceiving them as an acceptable means of power
+transition. Recent occurrences in Burkina Faso (2022) and Niger (2023)
+demonstrate this familiarity, where some individuals treated these
+events more akin to festive celebrations rather than coups.
 
 Moreover, coups not only breed subsequent coups but also embolden
 external challengers, fostering uprisings, revolutions, and civil wars,
 as highlighted by \citet{dahl2023}.
 
+\hypertarget{tbl}{}
 \hypertarget{tbl-coups}{}
-\setlength{\LTpost}{0mm}
-\begin{longtable}{lrr}
-\caption{\label{tbl-coups}Frequency of Coups by Country (1950--2023) }\tabularnewline
-
-\toprule
-\textbf{Country} & \textbf{Coup\_attempts} & \textbf{Coup\_succeed} \\ 
-\midrule\addlinespace[2.5pt]
-Bolivia & 23 & 11 \\ 
-Argentina & 20 & 7 \\ 
-Sudan & 17 & 6 \\ 
-Haiti & 13 & 9 \\ 
-Venezuela & 13 & 0 \\ 
-Iraq & 12 & 4 \\ 
-Syria & 12 & 8 \\ 
-Thailand & 12 & 8 \\ 
-Ecuador & 11 & 5 \\ 
-Burundi & 11 & 5 \\ 
-Guatemala & 10 & 5 \\ 
-Honduras & 10 & 6 \\ 
-Burkina Faso & 10 & 9 \\ 
-Sierra Leone & 10 & 5 \\ 
-Ghana & 10 & 5 \\ 
-\bottomrule
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3000}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3000}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3000}}@{}}
+\caption{\label{tbl-coups}Frequency of Coups by Country
+(1950--2023)}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Country}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{Coup attempts}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{Successful coups}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Country}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{Coup attempts}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{Successful coups}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Bolivia & 23 & 11 \\
+Argentina & 20 & 7 \\
+Sudan & 17 & 6 \\
+Haiti & 13 & 9 \\
+Venezuela & 13 & 0 \\
+Iraq & 12 & 4 \\
+Syria & 12 & 8 \\
+Thailand & 12 & 8 \\
+Ecuador & 11 & 5 \\
+Burundi & 11 & 5 \\
+Guatemala & 10 & 5 \\
+Honduras & 10 & 6 \\
+Burkina Faso & 10 & 9 \\
+Sierra Leone & 10 & 5 \\
+Ghana & 10 & 5 \\
 \end{longtable}
-\begin{minipage}{\linewidth}
-            \emph{Data Source: Powell \& Thyne (2011)}\\
-\end{minipage}
 
-it is undeniable that a few coups have been justified by resolving
-crises and leading to improved outcomes. they remain illegal means to
-remove incumbents.
+\emph{Data Source: \citet{powell2011}}
 
-On the other hand, leaders who overstay their tenures may lack
-legitimacy but often manage to maintain power through a facade of
-legitimacy. They don't blatantly seize power via military force but
-rather cling to power through parliamentary or congressional processes,
-the Supreme Court, and even nationwide referendums. The opposition
-usually chooses to confront these leaders using legal means, engaging in
-legislative debates or legal proceedings, and sometimes by advocating
-for another referendum. Attempts to overthrow leaders who overstay their
-terms through coups would be even less legitimate and might struggle to
-garner support. However, removing such leaders within the boundaries of
-the law presents an arduous challenge, if not a near-impossible task.
+\hfill\break
+
+For leaders surpassing their designated terms, the situation diverges.
+As incumbents, they abuse their power to manipulate the power transition
+dynamics. They might reinterpret or amend the constitution, utilizing
+avenues like parliamentary votes, supreme court decisions, or
+referendums, with aspirations for prolonged or even lifelong tenure. Yet
+fundamentally, most instances of overstaying lack authentic legitimacy
+as such leaders often exploit their authority, resorting at times to
+illegal measures like arresting, expelling, or even assassinating
+opposition figures. Consequently, these alterations in leadership tenure
+and power transitions do not genuinely reflect the populace's will.
+Nonetheless, it's notable that, on the surface, the methods employed by
+overstay leaders carry a semblance of legitimacy compared to coups. Even
+if contesting their legitimacy, challengers are normally constrained to
+adopt lawful means.
+
+Moreover, overstaying might attract imitators, but emulating overstaying
+differs from emulating coups. While coups can occur at any juncture,
+overstaying necessitates a prerequisite---those aiming to overstay must
+initially hold leadership positions. Individuals outside of power cannot
+imitate overstaying. Even if challengers openly reject legitimacy and
+endeavor to use similarly illegitimate means, like staging coups to
+depose overstay leaders, it is much more challenging as they require
+substantial strength or adequate support. However, in terms of power, a
+oversty leader inherently holds an advantageous position.
+
+Hence, from the legitimacy standpoint, while both overstaying leaders
+and coup-entry leaders lack genuine legitimacy, the former retain an
+edge in superficial legitimacy and are more powerful, potentially
+leading to longer-lasting regimes than those initiated by coup-entry
+leaders.
 
 \hypertarget{uncertainty}{%
 \subsection{Uncertainty}\label{uncertainty}}
