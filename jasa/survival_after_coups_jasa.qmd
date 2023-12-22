@@ -40,6 +40,7 @@ library(survminer)
 library(janitor)
 library(glue)
 library(gt)
+library(kableExtra)
 ```
 
 ## Introduction
@@ -246,12 +247,10 @@ Both ruling groups and the populace have grown accustomed to coups, perceiving t
 Recent occurrences in Burkina Faso (2022) and Niger (2023) demonstrate this familiarity, where some individuals treated these events more akin to festive celebrations rather than coups.
 
 Moreover, coups not only breed subsequent coups but also embolden external challengers, fostering uprisings, revolutions, and civil wars, as highlighted by @dahl2023.
-
-::: {#tbl}
+\
 ```{r}
 #| label: tbl-coups
-#| tbl-colwidths: [30,30,30]
-#| tbl-cap: "Frequency of Coups by Country (1950–2023)"
+#| tbl-cap: Frequency of Coups by Country (1950–2023)
 
 coups <- fread("../data/powell_thyne_coups_final.txt")
 coups |>
@@ -262,16 +261,24 @@ coups |>
   ) |>
   arrange(-coup_attempts) |>
   head(15) |>
-  knitr::kable(col.names = c(
-      country = md("**Country**"),
-      coup_attempts = md("**Coup attempts**"),
-      coup_succeed = md("**Successful coups**"))
-      )
+  kable(
+    "latex",
+    booktabs = T,
+    col.names = c(
+      country = "Country",
+      coup_attempts = "Coup attempts",
+      coup_succeed = "Successful coups"
+    ),
+    align = c("l", "c", "r")
+  ) |>
+  kable_styling(latex_options = "striped",
+                position = "center",) |>
+  column_spec(column = 1:3, width = "4.5cm") |>
+  collapse_rows(latex_hline = "linespace") |>
+  row_spec(0, bold = TRUE) |>
+  footnote(general = "",
+           general_title = "Data source: Powell & Thyne(2011)")
 ```
-*Data Source: @powell2011*
-:::
-
-\
 
 For leaders surpassing their designated terms, the situation diverges.
 As incumbents, they abuse their power to manipulate the power transition dynamics.

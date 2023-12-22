@@ -1,5 +1,8 @@
 ---
-format: pdf
+format: 
+  pdf: 
+    includes:
+      in_header: 'gt_packages.sty'
 keep-tex: true
 ---
 
@@ -37,8 +40,7 @@ mtcars |>
 #| tbl-colwidths: [20,35,35]
 mtcars %>% 
   select(1:2) |> 
-  knitr::kable(col.names = c("miles per gal", "Number of cylinders"),
-               )
+  knitr::kable(col.names = c("miles per gal", "Number of cylinders"))
 ```
 
 ```{r}
@@ -48,5 +50,51 @@ mtcars |>
   select(1:2) |> 
   knitr::kable()
 
+```
+
+```{r}
+#| label: tbl-gtcars
+#| tbl-colwidths: [30,30,30]
+gtcars |>
+  select(mfr, model, msrp) |>
+  slice(1:5) |>
+  gt()
+```
+
+```{r}
+#| label: tbl-islands
+#| tbl-cap: "This is a caption of islands"
+#| tbl-colwidths: [50,50]
+#| fig-width: 7
+#| gt_html_to_pdf: TRUE
+
+islands_tbl <- 
+  tibble(
+    name = names(islands),
+    size = islands
+  ) %>%
+  arrange(desc(size)) %>%
+  slice(1:10)
+
+
+gt(islands_tbl) %>% 
+  gtsave('islands.png')
+
+knitr::include_graphics('islands.png')
+```
+
+```{r}
+#| label: tbl-7
+#| tbl-cap: "This is a kable table"
+
+library(kableExtra)
+mtcars[1:8,1:3] |> 
+  kable("latex", booktabs = T) %>%
+  kable_styling(latex_options = "striped") |> 
+  collapse_rows(latex_hline = "linespace",
+                longtable_clean_cut = T) |> 
+  column_spec(column = 1:4,width = "3cm") |> 
+  footnote(general = "",
+           general_title = "test")
 ```
 

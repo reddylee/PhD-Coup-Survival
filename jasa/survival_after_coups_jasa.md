@@ -219,35 +219,53 @@ Both ruling groups and the populace have grown accustomed to coups, perceiving t
 Recent occurrences in Burkina Faso (2022) and Niger (2023) demonstrate this familiarity, where some individuals treated these events more akin to festive celebrations rather than coups.
 
 Moreover, coups not only breed subsequent coups but also embolden external challengers, fostering uprisings, revolutions, and civil wars, as highlighted by @dahl2023.
-
-::: {#tbl}
-
-::: {#tbl-coups .cell tbl-colwidths='[30,30,30]' tbl-cap='Frequency of Coups by Country (1950–2023)'}
-::: {.cell-output-display}
-|**Country**  | **Coup attempts**| **Successful coups**|
-|:------------|-----------------:|--------------------:|
-|Bolivia      |                23|                   11|
-|Argentina    |                20|                    7|
-|Sudan        |                17|                    6|
-|Haiti        |                13|                    9|
-|Venezuela    |                13|                    0|
-|Iraq         |                12|                    4|
-|Syria        |                12|                    8|
-|Thailand     |                12|                    8|
-|Ecuador      |                11|                    5|
-|Burundi      |                11|                    5|
-|Guatemala    |                10|                    5|
-|Honduras     |                10|                    6|
-|Burkina Faso |                10|                    9|
-|Sierra Leone |                10|                    5|
-|Ghana        |                10|                    5|
-:::
-:::
-
-*Data Source: @powell2011*
-:::
-
 \
+
+::: {#tbl-coups .cell tbl-cap='Frequency of Coups by Country (1950–2023)'}
+::: {.cell-output-display}
+\begin{table}
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.5cm}>{\centering\arraybackslash}p{4.5cm}>{\raggedleft\arraybackslash}p{4.5cm}}
+\toprule
+\textbf{Country} & \textbf{Coup attempts} & \textbf{Successful coups}\\
+\midrule
+\cellcolor{gray!6}{Bolivia} & \cellcolor{gray!6}{23} & \cellcolor{gray!6}{11}\\
+\addlinespace
+Argentina & 20 & 7\\
+\addlinespace
+\cellcolor{gray!6}{Sudan} & \cellcolor{gray!6}{17} & \cellcolor{gray!6}{6}\\
+\addlinespace
+Haiti & 13 & 9\\
+\addlinespace
+\cellcolor{gray!6}{Venezuela} & \cellcolor{gray!6}{13} & \cellcolor{gray!6}{0}\\
+\addlinespace
+Iraq & 12 & 4\\
+\addlinespace
+\cellcolor{gray!6}{Syria} & \cellcolor{gray!6}{12} & \cellcolor{gray!6}{8}\\
+\addlinespace
+Thailand & 12 & 8\\
+\addlinespace
+\cellcolor{gray!6}{Ecuador} & \cellcolor{gray!6}{11} & \cellcolor{gray!6}{5}\\
+\addlinespace
+Burundi & 11 & 5\\
+\addlinespace
+\cellcolor{gray!6}{Guatemala} & \cellcolor{gray!6}{10} & \cellcolor{gray!6}{5}\\
+\addlinespace
+Honduras & 10 & 6\\
+\addlinespace
+\cellcolor{gray!6}{Burkina Faso} & \cellcolor{gray!6}{10} & \cellcolor{gray!6}{9}\\
+\addlinespace
+Sierra Leone & 10 & 5\\
+\addlinespace
+\cellcolor{gray!6}{Ghana} & \cellcolor{gray!6}{10} & \cellcolor{gray!6}{5}\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}\textit{Data source: Powell \& Thyne(2011)}}\\
+\multicolumn{3}{l}{\rule{0pt}{1em}}\\
+\end{tabular}
+\end{table}
+:::
+:::
+
 
 For leaders surpassing their designated terms, the situation diverges.
 As incumbents, they abuse their power to manipulate the power transition dynamics.

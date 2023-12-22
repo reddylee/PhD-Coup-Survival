@@ -123,6 +123,16 @@
 \usepackage{longtable}
 \usepackage{colortbl}
 \usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \makeatother
@@ -195,7 +205,7 @@
 \date{}
 
 \begin{document}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, breakable, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, interior hidden, boxrule=0pt, sharp corners, enhanced, borderline west={3pt}{0pt}{shadecolor}, breakable]}{\end{tcolorbox}}\fi
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -311,8 +321,7 @@ miles per gal & Number of cylinders & Displacement (cu.in.) & Gross horsepower &
 \begin{Highlighting}[]
 \NormalTok{mtcars }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{select}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
-\NormalTok{  knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"miles per gal"}\NormalTok{, }\StringTok{"Number of cylinders"}\NormalTok{),}
-\NormalTok{               )}
+\NormalTok{  knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"miles per gal"}\NormalTok{, }\StringTok{"Number of cylinders"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -443,6 +452,146 @@ Volvo 142E & 21.4 & 4 \\
 
 \end{minipage}%
 
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gtcars }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(mfr, model, msrp) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{slice}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{gt}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tbl-gtcars}\textbf{?(caption)}}\begin{minipage}[t]{\linewidth}
+\subcaption{\label{tbl-gtcars-1}}
+
+{\centering 
+
+\begin{longtable*}{llr}
+\toprule
+mfr & model & msrp \\ 
+\midrule\addlinespace[2.5pt]
+Ford & GT & 447000 \\ 
+Ferrari & 458 Speciale & 291744 \\ 
+Ferrari & 458 Spider & 263553 \\ 
+Ferrari & 458 Italia & 233509 \\ 
+Ferrari & 488 GTB & 245400 \\ 
+\bottomrule
+\end{longtable*}
+
+}
+
+\end{minipage}%
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{islands\_tbl }\OtherTok{\textless{}{-}} 
+  \FunctionTok{tibble}\NormalTok{(}
+    \AttributeTok{name =} \FunctionTok{names}\NormalTok{(islands),}
+    \AttributeTok{size =}\NormalTok{ islands}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(size)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{)}
+
+
+\FunctionTok{gt}\NormalTok{(islands\_tbl) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{gtsave}\NormalTok{(}\StringTok{\textquotesingle{}islands.png\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}islands.png\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\textbf{?(caption)}}\begin{minipage}[t]{\linewidth}
+
+{\centering 
+
+\raisebox{-\height}{
+
+\includegraphics[width=1.23in,height=\textheight]{islands.png}
+
+}
+
+}
+
+\end{minipage}%
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(kableExtra)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Registered S3 method overwritten by 'webshot':
+  method        from    
+  print.webshot webshot2
+\end{verbatim}
+
+\begin{verbatim}
+
+Attaching package: 'kableExtra'
+\end{verbatim}
+
+\begin{verbatim}
+The following object is masked from 'package:dplyr':
+
+    group_rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{] }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{kable}\NormalTok{(}\StringTok{"latex"}\NormalTok{, }\AttributeTok{booktabs =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{latex\_options =} \StringTok{"striped"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{collapse\_rows}\NormalTok{(}\AttributeTok{latex\_hline =} \StringTok{"linespace"}\NormalTok{,}
+                \AttributeTok{longtable\_clean\_cut =}\NormalTok{ T) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{column\_spec}\NormalTok{(}\AttributeTok{column =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}\AttributeTok{width =} \StringTok{"3cm"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{footnote}\NormalTok{(}\AttributeTok{general =} \StringTok{""}\NormalTok{,}
+           \AttributeTok{general\_title =} \StringTok{"test"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result. 
+\end{verbatim}
+
+\hypertarget{tbl-7}{}
+\begin{table}
+\caption{\label{tbl-7}This is a kable table }\tabularnewline
+
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}}
+\toprule
+  & mpg & cyl & disp\\
+\midrule
+\cellcolor{gray!6}{Mazda RX4} & \cellcolor{gray!6}{21.0} & \cellcolor{gray!6}{6} & \cellcolor{gray!6}{160.0}\\
+\addlinespace
+Mazda RX4 Wag & 21.0 & 6 & 160.0\\
+\addlinespace
+\cellcolor{gray!6}{Datsun 710} & \cellcolor{gray!6}{22.8} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{108.0}\\
+\addlinespace
+Hornet 4 Drive & 21.4 & 6 & 258.0\\
+\addlinespace
+\cellcolor{gray!6}{Hornet Sportabout} & \cellcolor{gray!6}{18.7} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{360.0}\\
+\addlinespace
+Valiant & 18.1 & 6 & 225.0\\
+\addlinespace
+\cellcolor{gray!6}{Duster 360} & \cellcolor{gray!6}{14.3} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{360.0}\\
+\addlinespace
+Merc 240D & 24.4 & 4 & 146.7\\
+\bottomrule
+\multicolumn{4}{l}{\rule{0pt}{1em}\textit{test}}\\
+\multicolumn{4}{l}{\rule{0pt}{1em}}\\
+\end{tabular}
 \end{table}
 
 
