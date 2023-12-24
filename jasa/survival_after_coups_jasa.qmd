@@ -225,7 +225,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favorable position across these three facets.
 
 | **Aspect**                       | **Overstay (Self-coup) Leaders**                                                                                    | **Coup-Entry Leaders**                                                                                                                                               |
-|------------------|-------------------------|-----------------------------|
+|-------------------|-------------------------|----------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -247,7 +247,7 @@ Both ruling groups and the populace have grown accustomed to coups, perceiving t
 Recent occurrences in Burkina Faso (2022) and Niger (2023) demonstrate this familiarity, where some individuals treated these events more akin to festive celebrations rather than coups.
 
 Moreover, coups not only breed subsequent coups but also embolden external challengers, fostering uprisings, revolutions, and civil wars, as highlighted by @dahl2023.
-\
+
 ```{r}
 #| label: tbl-coups
 #| tbl-cap: Frequency of Coups by Country (1950–2023)
@@ -283,42 +283,61 @@ coups |>
 For leaders surpassing their designated terms, the situation diverges.
 As incumbents, they abuse their power to manipulate the power transition dynamics.
 They might reinterpret or amend the constitution, utilizing avenues like parliamentary votes, supreme court decisions, or referendums, with aspirations for prolonged or even lifelong tenure.
-Yet fundamentally, most instances of overstaying lack authentic legitimacy as such leaders often exploit their authority, resorting at times to illegal measures like arresting, expelling, or even assassinating opposition figures.
+Yet fundamentally, most instances of overstaying lack authentic legitimacy as such leaders often exploit their authority, resorting at times to illegal measures like arresting, expelling, or even assassinating opposition figures[^2].
 Consequently, these alterations in leadership tenure and power transitions do not genuinely reflect the populace's will.
 Nonetheless, it's notable that, on the surface, the methods employed by overstay leaders carry a semblance of legitimacy compared to coups.
 Even if contesting their legitimacy, challengers are normally constrained to adopt lawful means.
 
-Moreover, overstaying might attract imitators, but emulating overstaying differs from emulating coups.
-While coups can occur at any juncture, overstaying necessitates a prerequisite—those aiming to overstay must initially hold leadership positions.
-Individuals outside of power cannot imitate overstaying.
-Even if challengers openly reject legitimacy and endeavor to use similarly illegitimate means, like staging coups to depose overstay leaders, it is much more challenging as they require substantial strength or adequate support.
-However, in terms of power, a oversty leader inherently holds an advantageous position.
+[^2]: <https://www.france24.com/en/live-news/20221123-vladimir-putin-s-critics-dead-jailed-exiled>: Vladimir Putin's critics: dead, jailed, exiled.
+    Accessed on Dec 23, 2023.
+
+Additionally, overstaying might attract imitators, yet replicating overstaying differs significantly from replicating coups.
+While coups can happen at any moment, overstaying requires a prerequisite—those seeking to overstay must initially occupy leadership positions.
+Even if challengers openly reject legitimacy and attempt to employ similarly illegitimate methods, such as orchestrating coups to oust overstay leaders, it presents a far greater challenge, as it demands considerable strength or substantial support.
+Conversely, an overstay leader inherently possesses a position of advantage in terms of power.
+For instance, in 2018, China's National People's Congress sanctioned the removal of the two-term limit on the presidency—only two delegates opposed the change, and three abstained out of 2,964 votes—effectively granting Xi Jinping the potential to remain in power for life[^3].
+Similarly, in Russia's 2020 constitutional referendum, 79% of valid votes supported changes to the constitution enabling Putin to potentially rule until 2036[^4]
+. While these figures may not accurately reflect genuine support from ruling groups or the populace, they do underscore the consolidation of power by the incumbents
+.
+
+[^3]: <https://www.bbc.co.uk/news/world-asia-china-43361276>: China's Xi allowed to remain 'president for life' as term limits removed.
+    Accessed on Dec 23, 2023.
+
+[^4]: <https://www.ucl.ac.uk/news/2020/jul/analysis-vladimir-putin-secures-constitutional-changes-allowing-him-rule-until-2036>: Analysis: Vladimir Putin secures constitutional changes allowing him to rule until 2036.
+    Accessed on Dec 23, 2023.
 
 Hence, from the legitimacy standpoint, while both overstaying leaders and coup-entry leaders lack genuine legitimacy, the former retain an edge in superficial legitimacy and are more powerful, potentially leading to longer-lasting regimes than those initiated by coup-entry leaders.
 
 ### Uncertainty
 
-As previously discussed, both leaders who assume power through coups and those who extend their terms contribute to uncertainties within their regimes.
-However, regimes led by overstaying rulers generally demonstrate lesser overall uncertainty.
+As discussed earlier, both leaders who overstay their terms and those who come to power through coups contribute to uncertainty within their regimes.
+However, regimes led by overstay rulers generally exhibit comparatively lower levels of overall uncertainty.
 
-Primarily, following coups, regimes face uncertainty regarding four potential outcomes: democracies initially overthrown by coups may either persist as democracies (I) or transition into autocracies (II), while autocracies overthrown by coups may either endure as autocracies (III) or evolve into democracies (IV).
-In contrast, regimes with leaders overstaying their terms, with only rare exceptions, typically persist as autocracies.
+In the aftermath of coups, uncertainty arises concerning the identity of the leader and the duration of their tenure.
+The majority of coup leaders have retained power since their coups, such as Gamal Abdel Nasser in Egypt since the 1954 coup, Muammar Gaddafi in Libya following the 1969 coup, and Idi Amin in Uganda after the 1971 coup [@geddes2018].
+Some coup leaders have claimed to intend to transfer power to constitutionally elected leaders but failed to honor their commitments, as seen in the case of the military junta in Myanmar after the 2021 coup.
+Despite promising a new election after a year-long state of emergency, the military junta extended the emergency multiple times and retained power until the end of 2023[^5].
+Moreover, within military juntas themselves, uncertainties persist.
+For instance, following the Chilean Coup in 1973, a military junta initially planned to rotate the presidency among the commanders-in-chief of the four military branches.
+However, General Pinochet consolidated his control and retained power in Chile until 1990 [@svolik2012].
 
-Secondly, the anticipated duration of future ruling tenures tends to be longer for overstaying rulers than for coup-entry leaders.
-Most overstaying leaders endeavor to prolong their tenures for as long as possible.
-For example, figures like Putin in Russia and Xi Jinping in China are less inclined to voluntarily step down unless forcibly removed from power.
-Conversely, coup-entry leaders face greater uncertainty.
-Coups are often justified through diverse excuses or claims.
-Some assert their actions as defending democratic order, exemplified by President Manuel Zelaya's ousting in Honduras in 2009.
-Others claim to protect the constitution, such as President Mamadou Tandja's overthrow in Niger in 2010.
-The complexity arises when certain coup leaders honor their promises by transferring power to a constitutional successor.
-For instance, following the 2010 coup in Niger, a new constitution restored civilian power and reinstated a strict two-term limit on the presidency in the same year [@ginsburg2019].
-However, numerous others refuse to step down and retain power, as observed in the 1973 coup in Chile [@ökten2022].
+[^5]: <https://thediplomat.com/2023/08/myanmar-junta-extends-state-of-emergency-for-fourth-time/>: Myanmar Junta Extends State of Emergency for Fourth Time.
+    Accessed on Dec 24, 2023.
 
-Thirdly, uncertainties abound regarding policy changes and power reshuffling.
-Comparatively, coup-entry leaders need to restructure top officials and justify their actions by implementing noticeable differences after overthrowing the incumbents.
-In contrast, overstaying leaders face fewer issues as their regimes experience minimal dramatic changes.
-There is no rush to dismantle the old ruling paradigm and establish a new order.
+Notably, some coup leaders have honored their promises and restored power to constitutional civilian governments.
+For instance, after the 2010 coup in Niger, a new constitution reinstated civilian rule and implemented a strict two-term limit on the presidency within the same year [@ginsburg2019].
+
+In contrast, situations involving overstaying leaders offer more straightforward answers regarding who will rule and for how long.
+Overstayed incumbents remain in power for extended periods, often aiming to prolong their tenures as much as possible.
+For instance, leaders like Putin in Russia and Xi Jinping in China are less inclined to voluntarily relinquish power unless forcibly removed.
+Even in cases like President Menem of Argentina, who successfully overstayed his term until 1993 but failed in his attempt for another term in 1999, his extended tenure still lasted for a full five-year term [@llanos2019].
+
+Moreover, uncertainties not only revolve around who leads and for how long but also concerning the leadership style and governance approach.
+Coup-entry leaders face the need to restructure top officials and substantiate their actions by implementing substantial changes after toppling incumbents.
+In contrast, overstaying leaders encounter fewer obstacles, as their regimes experience fewer abrupt changes.
+They are less pressured to dismantle the existing ruling paradigm and establish a new order.
+
+Hence, comparatively, the rule of overstaying leaders tends to be less uncertain than that of coup-entry leaders, aiding overstaying leaders in stabilizing their governance and increasing their likelihood of enduring longer than coup-entry leaders.
 
 ### Equilibrium of power
 
