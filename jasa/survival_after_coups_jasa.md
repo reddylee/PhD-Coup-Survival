@@ -328,37 +328,41 @@ Hence, comparatively, the rule of overstaying leaders tends to be less uncertain
 
 ### Equilibrium of power
 
-Rulers in autocracies face a challenging dilemma in managing powerful elites.
-They require a strong force to counter potential external threats while constantly grappling with the fear of being replaced by competent and ambitious subordinates.
-Therefore, maintaining a delicate balance of power becomes a sophisticated skill.
-It's apparent that sustaining equilibrium is easier than restoring it once disrupted.
+Autocratic rulers often grapple with a predicament known as the "Guardianship dilemma" in maintaining their authority.
+They find themselves in need of loyal subordinates while also requiring competent followers to manage intricate challenges and suppress opposition.
+However, these capable supporters might eventually pose a threat to their rule [@wintrobe2012; @mcmahon2015; @geddes2018].
+More often than not, heightened competence coincides with increased ambition.
+Hence, the art of establishing and preserving a delicate power balance becomes an intricate skill.
+Comparatively, leaders who come to power through coups face even more daunting challenges in navigating the perilous game of power equilibrium.
+They must establish a stable power equilibrium initially, whereas entrenched leaders only need to maintain an existing balance.
+Nonetheless, restoring a disrupted balance of power is significantly more challenging than sustaining an already established equilibrium.
 
-In regimes with leaders overstaying their terms, there exists, at least temporarily, a superficial equilibrium of power.
-Successful overstays demonstrate the incumbents' firm grip on power, effectively deterring both internal dissent and external challenges.
-Consequently, this contributes to the overall stability of the governing structure and society.
+Leaders who seize power through coups inevitably disrupt the existing balance of power, necessitating the establishment of a new equilibrium, even in seemingly peaceful scenarios.
+The removal of previous rulers mandates the dismantling of the established governing structure and a reshuffling of high-ranking officers and officials.
+These actions inherently sow unrest and create adversaries for the new leadership, making the restoration of order and the establishment of a balanced power structure notably challenging.
+In order to establish consolidate power, coup-leaders often have to comprise to internal or external power challengers.
+However, more often than not, these comprises are not stable and easy to break.
+For instance, consider Jean-Bertrand Aristide, the president of Haiti, who was ousted in a 1991 coup and forced into exile.
+Despite this, his supporters retained significant political influence, ultimately facilitating Aristide's return to power in 1994 [@bermeo2016].
 
-Conversely, leaders who come to power through coups invariably disrupt the balance of power and must establish a new equilibrium, even in relatively peaceful coup scenarios.
-The overthrow of previous rulers necessitates the dismantling of the existing ruling framework and a reshuffling of top officers and officials.
-These actions inevitably breed turbulence and adversaries for the new rulers, making the restoration of order and the balance of power considerably more challenging.
+Navigating internal power dynamics among coup leaders presents significant challenges.
+For instance, after the Chilean coup in 1973, a fleeting balance prevailed among the four branches of the military junta.
+However, this fragile equilibrium was short-lived as Pinochet consolidated absolute power in 1974 [@geddes2018].
+However, taking an uncompromising stance within the leadership does not always proceed seamlessly, as seen in Pinochet's case.
+Such actions may provoke backlash even from close allies.
+In Uganda, President Obote's attempt to undermine the army commander-in-chief, Idi Amin, resulted in Amin garnering the support of the majority of the army and ultimately ousting Obote in a military coup in 1971.
+Similarly, in Pakistan in 1999, shortly after Prime Minister Sharif dismissed powerful army chief General Pervez Musharraf, Sharif himself was ousted in a coup orchestrated by Musharraf and his military supporters [@sudduth2017].
+The situation becomes even more intricate when there is a risk of civil war.
+According to @roessler2011, leaders may endeavor to diminish the probability of subsequent coups, potentially increasing the likelihood of societal rebellions and civil wars.
 
-Internal conflicts among elites, as highlighted by numerous scholars, pose a significant threat to the stability of those in power.
-Hence, they are often compelled to negotiate and compromise among external factions.
-As noted by @roessler2011, these rulers might attempt to reduce the likelihood of subsequent coups, albeit at the expense of increasing the risk of societal rebellions and civil wars.
-This strategy resonates with the approach adopted by Chinese leader Chiang Kai-shek in the 1930s.
-He pursued a strategy of compromise with both Japan and the Soviet Union to eliminate the internal threat posed by the Chinese Communist Party, prioritizing "Domestic stability takes precedence over resisting foreign invasion" during that period [@chu1999chiang].
-However, adopting a hardline stance internally could not only weaken themselves by purging elites, but also incite backlash from close allies, as witnessed in instances like Idi Amin's coup in 1971 in Uganda and Pervez Musharraf's coup in 1999 in Pakistan [@sudduth2017a].
+The combination of these factors contributes to a shorter expected lifespan of coup-entry leaders [@dahl2023] compared to the relatively longer tenures of overstaying leaders.
+As previously mentioned, the average survival period following an overstay is approximately five years longer than that of leaders entering power through coups (@fig-logrank).
+Building upon these observations, I would like to propose the following hypothesis:
 
-These factors collectively contribute to a shorter expected lifespan of regimes following coups [@dahl2023], compared to relatively longer tenures for overstaying regimes.
-Analyzing a comprehensive coup dataset [@powell2011] spanning from 1950 to 2023, it's evident that 97 countries experienced coups during this period.
-Among them, 15 countries endured at least 10 coups, and 10 countries witnessed more than 6 successful coups, reinforcing the analysis discussed above.
+**Hypothesis:** Political leaders who successfully prolong their tenure in power are more likely to experience extended regime survival compared to leaders who come to power through coups.
 
-Based on these insights, I propose the following hypothesis:
-
-**Hypothesis:** Political leaders who successfully extend their time in power are more likely to have prolonged survival compared to leaders who assume power through coups.
-
-In the upcoming section, I'll outline the research methodology employed in this paper.
-The goal is to delve deeply into understanding the factors influencing the survival duration of incumbent overstaying leaders and coup-entry leaders.
-This investigation aims to elucidate the extent to which these identified factors impact the survival durations of these distinct groups.
+In the subsequent section, I will outline the research methodology utilized in this paper.
+I intend to introduce several control variables to determine if the hypothesis remains persistent and robust.
 
 ## Method and data
 
