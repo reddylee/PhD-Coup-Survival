@@ -341,7 +341,10 @@ Hence, comparatively, the rule of overstaying leaders tends to be less uncertain
 
 ### Equilibrium of power
 
-Rulers in autocracies face a challenging dilemma in managing powerful elites.
+Autocratic rulers grapple with a complex predicament known as the "Guardianship dilemma" when handling powerful elites.
+Their primary need is for loyal supporters.
+Yet, they face a paradoxical requirement regarding these supporters: they require them to possess enough competence to defend against both internal and external adversaries, but they fear that excessive competence might lead these supporters to aspire to replace the rulers themselves [@wintrobe2012; @mcmahon2015; @geddes2018].
+
 They require a strong force to counter potential external threats while constantly grappling with the fear of being replaced by competent and ambitious subordinates.
 Therefore, maintaining a delicate balance of power becomes a sophisticated skill.
 It's apparent that sustaining equilibrium is easier than restoring it once disrupted.
