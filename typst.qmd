@@ -1,0 +1,30 @@
+---
+title: typst tutorial
+format: typst
+code:
+  highlight: tango
+  theme: solarized-light
+  code-copy: true
+fontsize: 14pt
+---
+
+This is a tutorial for the typst format for writing papers in Quarto. It is a good replace for LaTeX, and is much easier to use.
+
+:::{}
+```{=typst}
+#set text(font:(
+"papyrus",
+"Noto Sans Heiti TC"
+))
+```
+
+关雎
+
+《诗经·周南》
+
+汉字
+
+This is blue.
+:::
+
+

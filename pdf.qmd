@@ -1,0 +1,102 @@
+---
+title: "My Document"
+author:
+  - "Achuan-2"
+date: "2022.11.19"
+date-format: "YYYY.MM.DD"
+toc: true
+number-sections: true
+shift-heading-level-by: -1
+mainfont: "Times New Roman"
+crossref:
+  chapters: true
+  # fig-title: 图    # (default is "Figure")
+  # tbl-title: 表     # (default is "Table")
+  # title-delim: "-"  # (default is ":"), not for pdf
+  # fig-prefix: 图  # (default is "Figure")
+  # tbl-prefix: 表    # (default is "Table")
+format: 
+  pdf:
+    # toc
+    toc-depth: 3
+    toc-title: Contents
+    # cite
+    cite-method: biblatex # biblatex,citeproc
+    bibliography: references.bib
+    biblio-title: References
+    # output
+    documentclass: article # scrartcl，article, report or book
+    papersize: a4 # a4, letter
+    colorlinks: true
+    #classoption: [twocolumn,landscape] 
+    keep-tex: true
+    fig-pos: 'H'
+    tbl-cap-location: top
+    fig-cap-location: bottom
+    listings: false
+    code-block-bg: '#f6f8fa'
+    highlight-style: github
+    code-block-border-left: false
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+    include-in-header:
+      text: |
+        \usepackage{ctex}    % CJK 包
+        \usepackage[backend=biber,style=gb7714-2015,gbnamefmt=lowercase]{biblatex}
+        \usepackage[dvipsnames]{xcolor}
+        \setCJKmainfont[AutoFakeBold = {2.25}]{宋体}
+        \setmainfont{Times New Roman} %英文字體調整
+        \usepackage{caption}
+        \captionsetup[figure]{labelformat=simple, labelsep=period}
+        \captionsetup[table]{labelformat=simple, labelsep=period}
+
+---
+
+This is a tutorial for the typst format for writing papers in Quarto. It is a good replace for LaTeX, and is much easier to use.
+
+:::{}
+```{=typst}
+#set text(font:(
+"Yahei TC"
+))
+```
+
+关雎
+
+《诗经·周南》
+
+汉字
+:::
+
+```{r}
+library(gt)
+gtcars |> 
+  head(10) |> 
+  gt()
+```
+
+```{r}
+library(knitr)
+kable(head(mtcars),caption = "Table of mtcars")
+```
+```{r}
+reg <- lm(data = mtcars,mpg~hp+drat)
+stargazer::stargazer(reg,header = F,type = 'latex')
+correlation.matrix <- cor(attitude)
+stargazer::stargazer(correlation.matrix, type="latex",header = F)
+```
+```{r}
+lm1 <- lm(mpg ~ cyl, mtcars)
+lm2 <- lm(mpg ~ hp, mtcars)
+lm3 <- lm(mpg ~ cyl + hp, mtcars)
+library(huxtable)
+huxreg(lm1, lm2, lm3)
+```
+```{r}
+
+library(kableExtra)
+dt <- mtcars[1:5, 1:6]
+kbl(dt, booktabs = T)
+```
