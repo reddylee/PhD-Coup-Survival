@@ -9,9 +9,6 @@ format:
     number-sections: true
     keywords: [Political survival, Coups, Overstays]
     keep-md: true
-    preview:
-      port: 7327
-      browser: false
 
 date: last-modified
 author:
@@ -266,6 +263,8 @@ Sierra Leone & 10 & 5\\
 \multicolumn{3}{l}{\rule{0pt}{1em}}\\
 \end{tabular}
 \end{table}
+
+
 :::
 :::
 

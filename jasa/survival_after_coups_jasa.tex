@@ -90,10 +90,6 @@
 \usepackage{makecell}
 \usepackage{xcolor}
 \makeatletter
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
 \ifdefined\contentsname
@@ -129,25 +125,18 @@
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \makeatother
 \makeatletter
+\makeatother
+\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-\makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
-\makeatother
-\makeatletter
-\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
 \makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{agsm}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
@@ -171,7 +160,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\date{December 26, 2023}
+\date{January 6, 2024}
 \title{\bf Political Leadership Survival in the Aftermath of Coups and
 Overstays: From Illegitimate Ascent to Unexpected Exit}
 \author{
@@ -199,11 +188,9 @@ compared to those entering through coups.
 
 \newpage
 \spacingset{1.9} % DON'T change the spacing!
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, enhanced, interior hidden, breakable, sharp corners, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
 
 \setstretch{1.75}
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\section{Introduction}\label{introduction}
 
 The investigation into the enduring tenure of certain leaders compared
 to those with briefer terms has remained a focal point within the realm
@@ -259,13 +246,15 @@ and power-sharing, potentially diminishing their survival duration.
 
 \begin{figure}
 
-{\centering \includegraphics{survival_after_coups_jasa_files/figure-pdf/fig-logrank-1.pdf}
+\centering{
+
+\includegraphics{survival_after_coups_jasa_files/figure-pdf/fig-logrank-1.pdf}
 
 }
 
 \caption{\label{fig-logrank}Kaplan-Meier plot}
 
-\end{figure}
+\end{figure}%
 
 Utilizing a survival model, this paper suggests that leaders who surpass
 their term limits generally enjoy longer tenures compared to those who
@@ -301,10 +290,9 @@ in-depth discussion of the results. Finally, in Chapter 6, the paper
 concludes by synthesizing these findings and exploring their broader
 implications.
 
-\hypertarget{literature-review-the-dynamics-of-leadership-survival-in-different-scenarios}{%
 \section{Literature review: The dynamics of leadership survival in
 different
-scenarios}\label{literature-review-the-dynamics-of-leadership-survival-in-different-scenarios}}
+scenarios}\label{literature-review-the-dynamics-of-leadership-survival-in-different-scenarios}
 
 In their seminal work, \citet{buenodemesquita2003} conducted a
 comprehensive examination of leaders spanning diverse political
@@ -436,9 +424,8 @@ overstay leaders and coup-entry leaders. This study seeks to address
 this gap by scrutinizing and outlining the duration of survival among
 these two distinct categories of leaders.
 
-\hypertarget{political-survival-dynamics-of-overstay-and-coup-entry-leaders}{%
 \section{Political survival dynamics of overstay and coup-entry
-leaders}\label{political-survival-dynamics-of-overstay-and-coup-entry-leaders}}
+leaders}\label{political-survival-dynamics-of-overstay-and-coup-entry-leaders}
 
 In this paper, I maintain the definition of ``overstay'' as delineated
 in my earlier paper, ``Determinants of Incumbent Overstay Attempts and
@@ -516,13 +503,12 @@ lifespan of a regime. However, when juxtaposed with leaders who seize
 power through coups, those who overextend their terms enjoy a relatively
 favorable position across these three facets.
 
-\hypertarget{tbl-aspects}{}
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2639}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3472}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3889}}@{}}
-\caption{\label{tbl-aspects}Key Distinctions in Survival Tenures:
-Overstay versus Coup-Entry Leaders}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1073}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3691}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5237}}@{}}
+\caption{Key Distinctions in Survival Tenures: Overstay versus
+Coup-Entry Leaders}\label{tbl-aspects}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Aspect}
@@ -558,8 +544,7 @@ potentially triggering dissatisfaction among supporters if agreements
 are unmet. \\
 \end{longtable}
 
-\hypertarget{legitimacy}{%
-\subsection{Legitimacy}\label{legitimacy}}
+\subsection{Legitimacy}\label{legitimacy}
 
 The core of a coup inherently lacks legitimacy, being deemed ``illegal''
 due to its sudden and unconstitutional nature. Successful coups serve as
@@ -589,9 +574,11 @@ Moreover, coups not only breed subsequent coups but also embolden
 external challengers, fostering uprisings, revolutions, and civil wars,
 as highlighted by \citet{dahl2023}.
 
-\hypertarget{tbl-coups}{}
 \begin{table}
-\caption{\label{tbl-coups}Frequency of Coups by Country (1950--2023) }\tabularnewline
+
+\caption{\label{tbl-coups}Frequency of Coups by Country (1950--2023)}
+
+\centering{
 
 \centering
 \begin{tabular}{>{\raggedright\arraybackslash}p{4.5cm}>{\centering\arraybackslash}p{4.5cm}>{\raggedleft\arraybackslash}p{4.5cm}}
@@ -631,7 +618,10 @@ Sierra Leone & 10 & 5\\
 \multicolumn{3}{l}{\rule{0pt}{1em}\textit{Data source: Powell \& Thyne(2011)}}\\
 \multicolumn{3}{l}{\rule{0pt}{1em}}\\
 \end{tabular}
-\end{table}
+
+}
+
+\end{table}%
 
 For leaders surpassing their designated terms, the situation diverges.
 As incumbents, they abuse their power to manipulate the power transition
@@ -680,8 +670,7 @@ edge in superficial legitimacy and are more powerful, potentially
 leading to longer-lasting regimes than those initiated by coup-entry
 leaders.
 
-\hypertarget{uncertainty}{%
-\subsection{Uncertainty}\label{uncertainty}}
+\subsection{Uncertainty}\label{uncertainty}
 
 As discussed earlier, both leaders who overstay their terms and those
 who come to power through coups contribute to uncertainty within their
@@ -737,8 +726,7 @@ uncertain than that of coup-entry leaders, aiding overstaying leaders in
 stabilizing their governance and increasing their likelihood of enduring
 longer than coup-entry leaders.
 
-\hypertarget{equilibrium-of-power}{%
-\subsection{Equilibrium of power}\label{equilibrium-of-power}}
+\subsection{Equilibrium of power}\label{equilibrium-of-power}
 
 Autocratic rulers often grapple with a predicament known as the
 ``Guardianship dilemma'' in maintaining their authority. They find
@@ -808,8 +796,76 @@ In the subsequent section, I will outline the research methodology
 utilized in this paper. I intend to introduce several control variables
 to determine if the hypothesis remains persistent and robust.
 
-\hypertarget{method-and-data}{%
-\section{Method and data}\label{method-and-data}}
+\section{Data and method}\label{data-and-method}
+
+This study aims to utilize the Cox proportional hazards model (referred
+to as the Cox model) to assess proportional hazards concerning
+coup-entry leaders and overstaying leaders. Unlike the Kaplan-Meier
+model, the Cox model enables the estimation of the impacts of multiple
+factors. Although it does not directly estimate the duration of tenure
+in office, it evaluates the hazard rate associated with being ousted
+from power, which essentially represents different facets of the same
+phenomenon. As a leader's cumulative hazard of being ousted increases,
+their probability of survival in office decreases.
+
+\subsection{Data}\label{data}
+
+The main variables are as follows.
+
+\subsubsection{Dependent variables}\label{dependent-variables}
+
+\begin{itemize}
+\item
+  \textbf{Survival time:} the duration of leaders' tenure in days. For
+  coup-entry leaders, this time span initiates on the day they assume
+  power, while overstaying leaders' tenure begins on the expiration date
+  of their initial term. For instance, considering Xi Jinping's case, he
+  assumed power in 2013, successfully removing term limits in 2018.
+  However, his initial two-term tenure was due to end in 2023. Hence,
+  his survival time commences from 2023 rather than 2013, signifying the
+  start of his original tenure. The survival time concludes on the day
+  the leader exits office, applying to both coup-entry and overstaying
+  leaders.
+\item
+  \textbf{End point status:} 0 = censored, 1 = ousted. I categorized
+  ousting by force as 1, even in cases where some leaders
+  ``voluntarily'' resigned under pressure. Other methods of leaving
+  office are considered censored, which can encompass situations where
+  leaders appoint their successors, opt for democratic means of
+  overturn, face health-related issues, or encounter natural death.
+\end{itemize}
+
+\subsection{Independent variables}\label{independent-variables}
+
+\begin{itemize}
+\item
+  \textbf{Economic Influence Indicators:} For assessing economic
+  influence, two key indicators are utilized: GDP growth and GDP per
+  capita (GDP and GDPpc). These metrics are derived by calculating the
+  3-year moving average three years before the leader's entry or
+  overstaying year. The dataset utilized for these metrics is sourced
+  from V-Dem Data.
+\item
+  \textbf{Degree of Democracy:} The level of democracy is gauged using
+  Polity 5 scores at the entry year for each respective country. This
+  measurement serves as an assessment tool to ascertain the degree of
+  democracy prevalent in each nation.
+\item
+  \textbf{Population Size:} Accounting for its potential impact on
+  leaders' tenures, the log population size is considered. This data is
+  obtained from the V-Dem Data and is evaluated in relation to its
+  influence on leadership survival.
+\item
+  \textbf{Political Stability:} The stability of the political landscape
+  is crucial in evaluating the survival tenures of leaders. To quantify
+  this aspect, the Major Episodes of Political Violence Variables
+  dataset by \citep{goldstone2009} is utilized to measure political
+  stability at the leader's entry year.
+\item
+  \textbf{Leader's Age:} The age of the leader at the entry year serves
+  as an additional variable in the analysis, providing insight into
+  potential correlations with leadership survival.
+\end{itemize}
 
 \newpage
 

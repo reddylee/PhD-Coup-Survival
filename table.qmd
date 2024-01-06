@@ -52,6 +52,7 @@ mtcars |>
 
 ```
 
+
 ```{r}
 #| label: tbl-gtcars
 #| tbl-colwidths: [30,30,30]
@@ -96,5 +97,29 @@ mtcars[1:8,1:3] |>
   column_spec(column = 1:4,width = "3cm") |> 
   footnote(general = "",
            general_title = "test")
+```
+
+```{r}
+library(survival)
+library(survminer)
+View(lung)
+```
+
+```{r}
+library(vdemdata)
+View(codebook)
+vdem |> 
+  select(ccode = COWcode, country_name, year, e_wb_pop, e_pop ) |>
+  filter(year >= 1950) |>
+  view()
+```
+
+```{r}
+democracyData::wgi |> 
+  view()
+```
+
+```{r}
+data.table::fread("~/Downloads/API_SP.POP.TOTL_DS2_en_csv_v2_6298256/Metadata_Country_API_SP.POP.TOTL_DS2_en_csv_v2_6298256.csv",header = T)
 ```
 

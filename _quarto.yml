@@ -1,0 +1,9 @@
+project: 
+  type: website
+  title: Political Leadership Survival
+  preview:
+      port: 7327
+      browser: false
+
+website:
+  title: Political Leadership Survival

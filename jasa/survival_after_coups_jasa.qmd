@@ -225,7 +225,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favorable position across these three facets.
 
 | **Aspect**                       | **Overstay (Self-coup) Leaders**                                                                                    | **Coup-Entry Leaders**                                                                                                                                               |
-|---------------|-----------------------|----------------------------------|
+|------------------|----------------------|---------------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -384,22 +384,39 @@ Unlike the Kaplan-Meier model, the Cox model enables the estimation of the impac
 Although it does not directly estimate the duration of tenure in office, it evaluates the hazard rate associated with being ousted from power, which essentially represents different facets of the same phenomenon.
 As a leader's cumulative hazard of being ousted increases, their probability of survival in office decreases.
 
-The main variables are as follows.
-
 ### Data
 
--   survival_time: the duration of leaders' tenure in days.
+The main variables are as follows.
+
+#### Dependent variables
+
+-   **Survival time:** the duration of leaders' tenure in days.
     For coup-entry leaders, this time span initiates on the day they assume power, while overstaying leaders' tenure begins on the expiration date of their initial term.
     For instance, considering Xi Jinping's case, he assumed power in 2013, successfully removing term limits in 2018.
     However, his initial two-term tenure was due to end in 2023.
     Hence, his survival time commences from 2023 rather than 2013, signifying the start of his original tenure.
     The survival time concludes on the day the leader exits office, applying to both coup-entry and overstaying leaders.
 
--   status: 0 = censored, 1 = ousted.
+-   **End point status:** 0 = censored, 1 = ousted.
     I categorized ousting by force as 1, even in cases where some leaders "voluntarily" resigned under pressure.
     Other methods of leaving office are considered censored, which can encompass situations where leaders appoint their successors, opt for democratic means of overturn, face health-related issues, or encounter natural death.
 
--   
+### Independent variables
+
+-   **Economic Influence Indicators:** For assessing economic influence, two key indicators are utilized: GDP growth and GDP per capita (GDP and GDPpc).
+    These metrics are derived by calculating the 3-year moving average three years before the leader's entry or overstaying year.
+    The dataset utilized for these metrics is sourced from V-Dem Data.
+
+-   **Degree of Democracy:** The level of democracy is gauged using Polity 5 scores at the entry year for each respective country.
+    This measurement serves as an assessment tool to ascertain the degree of democracy prevalent in each nation.
+
+-   **Population Size:** Accounting for its potential impact on leaders' tenures, the log population size is considered.
+    This data is obtained from the V-Dem Data and is evaluated in relation to its influence on leadership survival.
+
+-   **Political Stability:** The stability of the political landscape is crucial in evaluating the survival tenures of leaders.
+    To quantify this aspect, the Major Episodes of Political Violence Variables dataset by [@goldstone2009] is utilized to measure political stability at the leader's entry year.
+
+-   **Leader's Age:** The age of the leader at the entry year serves as an additional variable in the analysis, providing insight into potential correlations with leadership survival.
 
 \newpage
 
