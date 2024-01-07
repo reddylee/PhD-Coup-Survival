@@ -1,4 +1,7 @@
+## Setup
+
 ```{r}
+#| label: setup
 library(tidyverse)
 library(readxl)
 library(haven)
@@ -11,6 +14,7 @@ library(gtsummary)
 library(survival)
 library(survminer)
 ```
+## overstays
 
 ```{r}
 coups <- fread("powell_thyne_coups_final.txt") %>% 
@@ -24,6 +28,9 @@ overstays <- read_excel("self_coup_Reddy.xlsx") %>%
   filter(Success==1) %>% 
   select(ccode,ruler,starty,endy,overstay_year=year) 
 ```
+
+## leaders
+
 ```{r}
 leaders <- fread("Archigos.txt",encoding = "Latin-1") 
 
@@ -120,11 +127,8 @@ leaders$enddate[leaders$leader=="Hernández"] <- "2022-1-27"
 leaders$exit[leaders$leader=="Hernández"] <- "Regular"
 
 
-
 leaders$enddate[leaders$leader=="Rafael Correa"] <- "2017-5-24"
 leaders$exit[leaders$leader=="Rafael Correa"] <- "Regular"
-
-
 
 
 leaders$enddate[leaders$leader=="Prayuth Chan-ocha"] <- "2023-8-22"
@@ -145,8 +149,7 @@ leaders2 <- leaders1 %>%
   mutate(coup_entry=ifelse(lag(coup_exit==1),1,0),.by = ccode)
 ```
 
-
-
+## leaders + overstays
 ```{r}
 mydata <- leaders2 %>% 
   left_join(overstays,by=c("ccode","syear"="starty","eyear"="endy")) %>% 
@@ -170,6 +173,29 @@ table(mydata1$group)
 table(mydata1$exit)
 table(mydata1$status)
 ```
+## GDP
+
+```{r}
+
+```
+
+```{r}
+getwd()
+library(data.table)
+fread("Metadata_IFS_panel.csv") |> 
+  view()
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+
 ```{r}
 mydata1 %>% 
   filter(survival_time > 7) |> 

@@ -225,7 +225,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favorable position across these three facets.
 
 | **Aspect**                       | **Overstay (Self-coup) Leaders**                                                                                    | **Coup-Entry Leaders**                                                                                                                                               |
-|------------------|----------------------|---------------------------------|
+|------------------|----------------------|--------------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -401,7 +401,7 @@ The main variables are as follows.
     I categorized ousting by force as 1, even in cases where some leaders "voluntarily" resigned under pressure.
     Other methods of leaving office are considered censored, which can encompass situations where leaders appoint their successors, opt for democratic means of overturn, face health-related issues, or encounter natural death.
 
-### Independent variables
+#### Independent variables
 
 -   **Economic Influence Indicators:** For assessing economic influence, two key indicators are utilized: GDP growth and GDP per capita (GDP and GDPpc).
     These metrics are derived by calculating the 3-year moving average three years before the leader's entry or overstaying year.
