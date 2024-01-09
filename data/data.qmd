@@ -173,26 +173,15 @@ table(mydata1$group)
 table(mydata1$exit)
 table(mydata1$status)
 ```
-## GDP
+## GDP & population
 
 ```{r}
-
-```
-
-```{r}
-getwd()
-library(data.table)
-fread("Metadata_IFS_panel.csv") |> 
+codebook |> 
   view()
-```
-
-```{r}
-```
-
-```{r}
-```
-
-```{r}
+vdem |> 
+  select(ccode = COWcode, country = country_name, year, GDP = e_gdp, GDP_pc = e_gdp, population = e_pop) |>
+  filter(year >= 1945) |>
+  view()
 ```
 
 
