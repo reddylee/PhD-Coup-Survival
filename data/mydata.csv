@@ -1,307 +1,292 @@
-"","leader","ruler","ccode","idacr","syear","eyear","startdate","enddate","entry","exit","exitcode","coup_exit","tenure","coup_entry","overstay_year","overstaydate","group","survival_time","status"
-"1","Batista","Batista",40,"CUB",1952,1959,1952-03-10,1959-01-01,"Irregular","Irregular","Removed by Rebels, without Foreign Support",0,2488,1,1954,1954-03-10,"A",1758,0
-"2","Lavaud",NA,41,"HAI",1946,1946,1946-01-11,1946-08-16,"Irregular","Regular","Regular",0,217,1,NA,NA,"B",217,1
-"3","Magloire",NA,41,"HAI",1950,1956,1950-05-10,1956-12-12,"Regular","Irregular","Removed by Military, without Foreign Support",1,2408,1,NA,NA,"B",2408,0
-"4","Pierre-Louis",NA,41,"HAI",1956,1957,1956-12-12,1957-02-03,"Regular","Irregular","Removed by Military, without Foreign Support",1,53,1,NA,NA,"B",53,0
-"5","Sylvain",NA,41,"HAI",1957,1957,1957-02-07,1957-04-02,"Regular","Irregular","Removed by Military, without Foreign Support",1,54,1,NA,NA,"B",54,0
-"6","Cantave",NA,41,"HAI",1957,1957,1957-04-02,1957-04-06,"Irregular","Regular","Regular",0,4,1,NA,NA,"B",4,1
-"7","Fignole",NA,41,"HAI",1957,1957,1957-05-26,1957-06-14,"Irregular","Irregular","Removed by Military, without Foreign Support",1,19,1,NA,NA,"B",19,0
-"8","Kebreau",NA,41,"HAI",1957,1957,1957-06-14,1957-10-15,"Irregular","Regular","Regular",0,123,1,NA,NA,"B",123,1
-"9","Duvalier, Francois","F. Duvalier",41,"HAI",1957,1971,1957-10-15,1971-04-22,"Regular","Natural Death","Regular",0,4937,0,1961,1961-10-15,"A",3476,1
-"10","Namphy",NA,41,"HAI",1986,1988,1986-02-07,1988-02-07,"Irregular","Regular","Regular",0,730,1,NA,NA,"B",730,1
-"11","Namphy",NA,41,"HAI",1988,1988,1988-06-20,1988-09-17,"Irregular","Irregular","Removed by Military, without Foreign Support",1,89,1,NA,NA,"B",89,0
-"12","Avril",NA,41,"HAI",1988,1990,1988-09-17,1990-03-10,"Irregular","Irregular","Popular Protest, without Foreign Support",0,539,1,NA,NA,"B",539,0
-"13","Cedras",NA,41,"HAI",1991,1994,1991-09-30,1994-10-14,"Irregular","Foreign","Removed through Threat of Foreign Force",0,1110,1,NA,NA,"B",1110,0
-"14","Rafel Trujillo","Trujillo",42,"DOM",1930,1961,1930-08-16,1961-05-30,"Regular","Irregular","Removed by Military, without Foreign Support",1,11245,NA,1952,1952-08-16,"A",3209,0
-"15","Balaguer",NA,42,"DOM",1961,1962,1961-05-30,1962-01-17,"Irregular","Irregular","Removed by Military, without Foreign Support",1,232,1,NA,NA,"B",232,0
-"16","Echavarria",NA,42,"DOM",1962,1962,1962-01-17,1962-01-19,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2,1,NA,NA,"B",2,0
-"17","Filiberto Bonnelly",NA,42,"DOM",1962,1963,1962-01-19,1963-02-27,"Regular","Regular","Regular",0,404,1,NA,NA,"B",404,1
-"18","de los Santos",NA,42,"DOM",1963,1963,1963-09-26,1963-12-22,"Irregular","Regular","Regular",0,87,1,NA,NA,"B",87,1
-"19","Molina Urena",NA,42,"DOM",1965,1965,1965-04-25,1965-04-27,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2,1,NA,NA,"B",2,0
-"20","Bartolome Benoit",NA,42,"DOM",1965,1965,1965-04-27,1965-05-07,"Irregular","Regular","Regular",0,10,1,NA,NA,"B",10,1
-"21","Medina","Medina",42,"DOM",2012,2020,2012-08-16,2020-08-16,"Regular","Regular","Still in Office",0,2922,0,2016,2016-08-16,"A",1461,1
-"22","Monzon",NA,90,"GUA",1954,1954,1954-06-29,1954-07-08,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,9,1,NA,NA,"B",9,0
-"23","Mendoza Azurdia",NA,90,"GUA",1957,1957,1957-10-24,1957-10-27,"Irregular","Irregular","Removed by Military, with Foreign Support",0,3,1,NA,NA,"B",3,0
-"24","Peralta Azurdia",NA,90,"GUA",1963,1966,1963-03-31,1966-07-01,"Irregular","Regular","Regular",0,1188,1,NA,NA,"B",1188,1
-"25","Rios Montt",NA,90,"GUA",1982,1983,1982-03-23,1983-08-08,"Irregular","Irregular","Removed by Military, without Foreign Support",1,503,1,NA,NA,"B",503,0
-"26","Mejia Victores",NA,90,"GUA",1983,1986,1983-08-08,1986-01-14,"Irregular","Regular","Regular",0,890,1,NA,NA,"B",890,1
-"27","Espina Salguero",NA,90,"GUA",1993,1993,1993-05-31,1993-06-01,"Regular","Regular","Regular",0,1,1,NA,NA,"B",1,1
-"28","Hector Caraccioli",NA,91,"HON",1956,1957,1956-10-21,1957-12-21,"Irregular","Regular","Regular",0,426,1,NA,NA,"B",426,1
-"29","Lopez Arellano",NA,91,"HON",1963,1971,1963-10-03,1971-06-06,"Irregular","Regular","Regular",0,2803,1,NA,NA,"B",2803,1
-"30","Lopez Arellano",NA,91,"HON",1972,1975,1972-12-04,1975-04-22,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,869,1,NA,NA,"B",869,0
-"31","Micheletti",NA,91,"HON",2009,2010,2009-06-28,2010-01-27,"Irregular","Regular","Regular",0,213,1,NA,NA,"B",213,1
-"32","Hernández","Hernandez",91,"HON",2014,2022,2014-01-27,2022-01-27,"Regular","Regular","Still in Office",0,2922,0,2018,2018-01-27,"A",1461,1
-"33","Cordova",NA,92,"SAL",1948,1949,1948-12-15,1949-01-04,"Irregular","Regular","Regular",0,20,1,NA,NA,"B",20,1
-"34","Castillo",NA,92,"SAL",1960,1961,1960-10-26,1961-01-25,"Irregular","Irregular","Removed by Military, without Foreign Support",1,91,1,NA,NA,"B",91,0
-"35","Portillo",NA,92,"SAL",1961,1962,1961-01-25,1962-01-25,"Irregular","Regular","Regular",0,365,1,NA,NA,"B",365,1
-"36","Majano Ramos",NA,92,"SAL",1979,1980,1979-10-15,1980-12-07,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,419,1,NA,NA,"B",419,0
-"37","Anastasio Somoza Garcia","Anastasio Somoza García",93,"NIC",1947,1956,1947-05-26,1956-09-29,"Irregular","Irregular","Assassination by Unsupported Individual",0,3414,1,1955,1955-05-26,"A",492,0
-"38","Anastasio Somoza Debayle","Somoza Debayle",93,"NIC",1967,1979,1967-05-01,1979-07-17,"Regular","Irregular","Removed by Rebels, with Foreign Support",0,4460,0,1973,1973-05-01,"A",2268,0
-"39","Daniel Ortega","Ortega",93,"NIC",2007,2023,2007-01-10,2023-11-27,"Regular","Still in Office","Still in Office",0,6165,0,2012,2012-01-10,"A",4339,1
-"40","Diaz Arosomena",NA,95,"PAN",1948,1949,1948-10-01,1949-07-28,"Irregular","Retired Due to Ill Health","Regular",0,300,1,NA,NA,"B",300,1
-"41","Chiari, Roberto",NA,95,"PAN",1949,1949,1949-11-20,1949-11-25,"Regular","Regular","Regular",0,5,1,NA,NA,"B",5,1
-"42","Torrijos Herrera","Torrijos",95,"PAN",1968,1981,1968-10-12,1981-07-31,"Irregular","Natural Death","Regular",0,4675,1,1978,1978-10-12,"A",1023,1
-"43","Rojas Pinillia",NA,100,"COL",1953,1957,1953-06-13,1957-05-10,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,1427,1,NA,NA,"B",1427,0
-"44","Alvaro Uribe Velez","Uribe",100,"COL",2002,2010,2002-08-08,2010-08-07,"Regular","Regular","Regular",0,2921,0,2006,2006-08-08,"A",1460,1
-"45","Delgado Chalbaud",NA,101,"VEN",1948,1950,1948-11-24,1950-11-13,"Irregular","Irregular","Removed by Rebels, without Foreign Support",0,719,1,NA,NA,"B",719,0
-"46","Perez Jimenez","Marcos Pérez Jiménez",101,"VEN",1950,1958,1950-11-13,1958-01-23,"Regular","Irregular","Popular Protest, without Foreign Support",0,2628,0,1953,1953-11-13,"A",1532,0
-"47","Hugo Chavez","Chavez",101,"VEN",1999,2012,1999-02-02,2012-03-05,"Regular","Natural Death","Regular",0,4780,0,2009,2009-02-02,"A",1127,1
-"48","Bouterse",NA,115,"SUR",1980,1988,1980-08-13,1988-01-25,"Irregular","Regular","Regular",0,2721,1,NA,NA,"B",2721,1
-"49","Graanoogst",NA,115,"SUR",1990,1990,1990-12-24,1990-12-29,"Irregular","Regular","Regular",0,5,1,NA,NA,"B",5,1
-"50","Mancheno",NA,130,"ECU",1947,1947,1947-08-24,1947-09-03,"Irregular","Irregular","Removed by Military, without Foreign Support",1,10,1,NA,NA,"B",10,0
-"51","Suarez",NA,130,"ECU",1947,1947,1947-09-03,1947-09-17,"Irregular","Regular","Regular",0,14,1,NA,NA,"B",14,1
-"52","Arosemena Monroy",NA,130,"ECU",1961,1963,1961-11-07,1963-07-11,"Irregular","Irregular","Removed by Military, without Foreign Support",1,611,1,NA,NA,"B",611,0
-"53","Castro",NA,130,"ECU",1963,1966,1963-07-11,1966-03-29,"Irregular","Irregular","Popular Protest, without Foreign Support",0,992,1,NA,NA,"B",992,0
-"54","Rodriguez Lara",NA,130,"ECU",1972,1976,1972-02-15,1976-01-11,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1426,1,NA,NA,"B",1426,0
-"55","Poveda Burbano",NA,130,"ECU",1976,1979,1976-01-11,1979-08-10,"Irregular","Regular","Regular",0,1307,1,NA,NA,"B",1307,1
-"56","Rafael Correa","Correa",130,"ECU",2007,2017,2007-01-15,2017-05-24,"Regular","Regular","Still in Office",0,3782,0,2011,2011-01-15,"A",2321,1
-"57","Odria",NA,135,"PER",1948,1950,1948-10-29,1950-06-01,"Irregular","Regular","Regular",0,580,1,NA,NA,"B",580,1
-"58","Perez Godoy",NA,135,"PER",1962,1963,1962-07-19,1963-03-03,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,227,1,NA,NA,"B",227,0
-"59","Velasco Alvarado",NA,135,"PER",1968,1975,1968-10-03,1975-08-29,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2521,1,NA,NA,"B",2521,0
-"60","Morales Bermudez",NA,135,"PER",1975,1980,1975-08-30,1980-07-28,"Irregular","Regular","Regular",0,1794,1,NA,NA,"B",1794,1
-"61","Fujimori","Fujimori",135,"PER",1990,2000,1990-07-28,2000-11-22,"Regular","Regular","Regular",0,3770,0,1995,1995-07-28,"A",1944,1
-"62","Cafe Filho",NA,140,"BRA",1954,1955,1954-08-24,1955-11-08,"Regular","Retired Due to Ill Health","Regular",0,441,1,NA,NA,"B",441,1
-"63","Oliveria Ramos",NA,140,"BRA",1955,1956,1955-11-11,1956-01-31,"Regular","Regular","Regular",0,81,1,NA,NA,"B",81,1
-"64","Ranieri Mazzilli",NA,140,"BRA",1964,1964,1964-04-02,1964-04-15,"Regular","Regular","Regular",0,13,1,NA,NA,"B",13,1
-"65","Cardoso","Fernando Cardoso",140,"BRA",1995,2003,1995-01-01,2003-01-01,"Regular","Regular","Regular",0,2922,0,2000,2000-01-01,"A",1096,1
-"66","Ballivian Rojas",NA,145,"BOL",1951,1952,1951-05-16,1952-04-11,"Irregular","Irregular","Removed by Rebels, without Foreign Support",0,331,1,NA,NA,"B",331,0
-"67","Barrientos Ortuna",NA,145,"BOL",1964,1966,1964-11-06,1966-01-05,"Irregular","Regular","Regular",0,425,1,NA,NA,"B",425,1
-"68","Ovando Candia",NA,145,"BOL",1969,1970,1969-09-26,1970-10-06,"Irregular","Irregular","Removed by Military, without Foreign Support",1,375,1,NA,NA,"B",375,0
-"69","Torres",NA,145,"BOL",1970,1971,1970-10-07,1971-08-22,"Irregular","Irregular","Removed by Military, without Foreign Support",1,319,1,NA,NA,"B",319,0
-"70","Banzer Suarez",NA,145,"BOL",1971,1978,1971-08-22,1978-07-21,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2525,1,NA,NA,"B",2525,0
-"71","Pereda Asbun",NA,145,"BOL",1978,1978,1978-07-21,1978-11-24,"Irregular","Irregular","Removed by Military, without Foreign Support",1,126,1,NA,NA,"B",126,0
-"72","Padilla Aranciba",NA,145,"BOL",1978,1979,1978-11-24,1979-08-08,"Irregular","Regular","Regular",0,257,1,NA,NA,"B",257,1
-"73","Natusch Busch",NA,145,"BOL",1979,1979,1979-11-01,1979-11-16,"Irregular","Regular","Regular",0,15,1,NA,NA,"B",15,1
-"74","Torrelio Villa",NA,145,"BOL",1981,1982,1981-08-05,1982-07-19,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,348,1,NA,NA,"B",348,0
-"75","Juan Morales","Morales",145,"BOL",2006,2019,2006-01-22,2019-11-10,"Regular","Irregular","Still in Office",0,5040,0,2011,2011-01-22,"A",3214,0
-"76","Frutos",NA,150,"PAR",1948,1948,1948-06-03,1948-08-15,"Irregular","Regular","Regular",0,73,1,NA,NA,"B",73,1
-"77","Rolon",NA,150,"PAR",1949,1949,1949-01-30,1949-02-26,"Irregular","Irregular","Removed by Other Government Actors, without Foreign Support",1,27,1,NA,NA,"B",27,0
-"78","Molas Lopez",NA,150,"PAR",1949,1949,1949-02-26,1949-09-10,"Irregular","Irregular","Removed by Other Government Actors, without Foreign Support",1,196,1,NA,NA,"B",196,0
-"79","Chavez",NA,150,"PAR",1949,1954,1949-09-10,1954-05-06,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1699,1,NA,NA,"B",1699,0
-"80","Pareira",NA,150,"PAR",1954,1954,1954-05-06,1954-07-11,"Regular","Regular","Regular",0,66,1,NA,NA,"B",66,1
-"81","Stroessner","Stroessner",150,"PAR",1954,1989,1954-07-11,1989-02-03,"Irregular","Irregular","Removed by Military, without Foreign Support",1,12626,0,1967,1967-07-11,"A",7878,0
-"82","Rodriguez Pedotti",NA,150,"PAR",1989,1993,1989-02-03,1993-08-15,"Irregular","Regular","Regular",0,1654,1,NA,NA,"B",1654,1
-"83","Pinochet","Pinochet",155,"CHL",1973,1990,1973-09-11,1990-03-11,"Irregular","Regular","Regular",0,6025,1,1980,1980-09-11,"A",3468,1
-"84","Peron","Juan Peron",160,"ARG",1946,1955,1946-06-04,1955-09-20,"Regular","Irregular","Removed by Military, without Foreign Support",1,3395,0,1952,1952-06-04,"A",1203,0
-"85","Lonardi",NA,160,"ARG",1955,1955,1955-09-20,1955-11-13,"Irregular","Irregular","Removed by Military, without Foreign Support",1,54,1,NA,NA,"B",54,0
-"86","Aramburu",NA,160,"ARG",1955,1958,1955-11-13,1958-05-01,"Irregular","Regular","Regular",0,900,1,NA,NA,"B",900,1
-"87","Guido",NA,160,"ARG",1962,1963,1962-03-29,1963-10-12,"Regular","Regular","Regular",0,562,1,NA,NA,"B",562,1
-"88","Ongania",NA,160,"ARG",1966,1970,1966-06-28,1970-06-08,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1441,1,NA,NA,"B",1441,0
-"89","Lanusse",NA,160,"ARG",1970,1970,1970-06-08,1970-06-18,"Irregular","Regular","Regular",0,10,1,NA,NA,"B",10,1
-"90","Videla",NA,160,"ARG",1976,1981,1976-03-29,1981-03-29,"Irregular","Regular","Regular",0,1826,1,NA,NA,"B",1826,1
-"91","Menem","Menem",160,"ARG",1989,1999,1989-07-08,1999-12-10,"Regular","Regular","Regular",0,3807,0,1995,1995-07-08,"A",1616,1
-"92","Demichelli",NA,165,"URU",1976,1976,1976-06-12,1976-09-01,"Irregular","Irregular","Removed by Military, without Foreign Support",1,81,1,NA,NA,"B",81,0
-"93","Mendez Manfredini",NA,165,"URU",1976,1981,1976-09-01,1981-09-01,"Irregular","Regular","Regular",0,1826,1,NA,NA,"B",1826,1
-"94","Spinola",NA,235,"POR",1974,1974,1974-04-25,1974-09-30,"Irregular","Regular","Regular",0,158,1,NA,NA,"B",158,1
-"95","Gero",NA,310,"HUN",1956,1956,1956-07-18,1956-10-25,"Irregular","Irregular","Popular Protest, without Foreign Support",0,99,1,NA,NA,"B",99,0
-"96","Tito","Tito",345,"YUG",1945,1980,1945-03-06,1980-05-04,"Irregular","Natural Death","Regular",0,12843,NA,1974,1974-03-06,"A",2251,1
-"97","Athaniadis-Novas",NA,350,"GRC",1965,1965,1965-07-15,1965-08-05,"Irregular","Regular","Regular",0,21,1,NA,NA,"B",21,1
-"98","Kollias",NA,350,"GRC",1967,1967,1967-04-21,1967-12-13,"Irregular","Irregular","Removed by Military, without Foreign Support",1,236,1,NA,NA,"B",236,0
-"99","Papadopoulos",NA,350,"GRC",1967,1973,1967-12-13,1973-11-25,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2174,1,NA,NA,"B",2174,0
-"100","Ionannides",NA,350,"GRC",1973,1974,1973-11-25,1974-07-24,"Irregular","Regular","Regular",0,241,1,NA,NA,"B",241,1
-"101","Yeltsin",NA,365,"RUS",1991,1999,1991-08-21,1999-12-31,"Regular","Regular","Regular",0,3054,1,NA,NA,"B",3054,1
-"102","Putin","Putin",365,"RUS",2000,2023,2000-01-01,2023-11-27,"Regular","Still in Office","Still in Office",0,8731,0,2008,2008-01-01,"A",5809,1
-"103","Lukashenko","Lukashenko",370,"BLR",1994,2023,1994-07-20,2023-11-27,"Regular","Still in Office","Still in Office",0,10722,0,2004,2004-07-20,"A",7069,1
-"104","H. Aliyev","H. Aliyev",373,"AZE",1993,2003,1993-06-24,2003-08-04,"Regular","Retired Due to Ill Health","Regular",0,3693,0,2003,2003-06-24,"A",41,1
-"105","Ilhma Aliyev","I. Aliyev",373,"AZE",2003,2023,2003-08-04,2023-11-27,"Regular","Still in Office","Still in Office",0,7420,0,2013,2013-08-04,"A",3767,1
-"106","Kekkonen","Kekkonen",375,"FIN",1956,1981,1956-03-01,1981-09-11,"Regular","Retired Due to Ill Health","Regular",0,9325,0,1973,1973-03-01,"A",3116,1
-"107","Vieira","Vieira",404,"GNB",1980,1999,1980-11-14,1999-05-07,"Irregular","Irregular","Removed by Military, without Foreign Support",1,6748,1,1993,1993-11-14,"A",2000,0
-"108","Mane",NA,404,"GNB",1999,1999,1999-05-07,1999-05-14,"Irregular","Regular","Regular",0,7,1,NA,NA,"B",7,1
-"109","Correia Seabra",NA,404,"GNB",2003,2003,2003-09-14,2003-09-28,"Irregular","Regular","Regular",0,14,1,NA,NA,"B",14,1
-"110","Raimundo Perreira",NA,404,"GNB",2009,2009,2009-03-02,2009-09-08,"Regular","Regular","Regular",0,190,1,NA,NA,"B",190,1
-"111","Mamadu Ture Kuruma",NA,404,"GNB",2012,2012,2012-04-12,2012-05-11,"Irregular","Regular","Regular",0,29,1,NA,NA,"B",29,1
-"112","Macias Nguema","Macias Nguema",411,"EQG",1968,1979,1968-10-12,1979-08-03,"Regular","Irregular","Removed by Military, without Foreign Support",1,3947,0,1972,1972-10-12,"A",2486,0
-"113","Nguema Mbasogo","Teodoro Obiang",411,"EQG",1979,2023,1979-08-03,2023-11-27,"Irregular","Still in Office","Still in Office",0,16187,1,1996,1996-08-03,"A",9977,1
-"114","Jammeh",NA,420,"GAM",1994,2011,1994-07-22,2011-01-19,"Irregular","Irregular","Still in Office",0,6025,1,NA,NA,"B",6025,0
-"115","Traore","Traore",432,"MLI",1968,1991,1968-11-19,1991-03-26,"Irregular","Irregular","Removed by Military, without Foreign Support",1,8162,1,1985,1985-11-19,"A",1953,0
-"116","Amadou Toure",NA,432,"MLI",1991,1992,1991-03-26,1992-06-06,"Irregular","Regular","Regular",0,438,1,NA,NA,"B",438,1
-"117","Amadou Sanogo",NA,432,"MLI",2012,2012,2012-03-22,2012-04-12,"Irregular","Regular","Regular",0,21,1,NA,NA,"B",21,1
-"118","Soglo",NA,434,"BEN",1963,1964,1963-10-28,1964-01-19,"Irregular","Regular","Regular",0,83,1,NA,NA,"B",83,1
-"119","Congacou",NA,434,"BEN",1965,1965,1965-11-29,1965-12-22,"Irregular","Irregular","Removed by Military, without Foreign Support",1,23,1,NA,NA,"B",23,0
-"120","Soglo",NA,434,"BEN",1965,1967,1965-12-22,1967-12-17,"Irregular","Irregular","Removed by Military, without Foreign Support",1,725,1,NA,NA,"B",725,0
-"121","Alley",NA,434,"BEN",1967,1968,1967-12-17,1968-08-01,"Irregular","Regular","Regular",0,228,1,NA,NA,"B",228,1
-"122","Kouandete",NA,434,"BEN",1969,1969,1969-12-10,1969-12-13,"Irregular","Regular","Regular",0,3,1,NA,NA,"B",3,1
-"123","Kerekou","Kerekou",434,"BEN",1972,1991,1972-10-27,1991-04-04,"Irregular","Regular","Regular",0,6733,1,1983,1983-10-27,"A",2716,1
-"124","Ould Mohamed Salek",NA,435,"MAA",1978,1979,1978-07-10,1979-04-06,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,270,1,NA,NA,"B",270,0
-"125","Sidi Ahmed Taya",NA,435,"MAA",1984,2005,1984-12-12,2005-08-03,"Irregular","Irregular","Removed by Military, without Foreign Support",1,7539,1,NA,NA,"B",7539,0
-"126","Ould Mohamed Vall",NA,435,"MAA",2005,2007,2005-08-03,2007-04-19,"Irregular","Regular","Regular",0,624,1,NA,NA,"B",624,1
-"127","Ould Abdel Aziz",NA,435,"MAA",2008,2009,2008-08-06,2009-04-15,"Irregular","Regular","Regular",0,252,1,NA,NA,"B",252,1
-"128","Kountche",NA,436,"NIR",1974,1987,1974-04-17,1987-11-10,"Irregular","Natural Death","Regular",0,4955,1,NA,NA,"B",4955,1
-"129","Mainassara",NA,436,"NIR",1996,1999,1996-01-27,1999-04-11,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1170,1,NA,NA,"B",1170,0
-"130","Wanke",NA,436,"NIR",1999,1999,1999-04-11,1999-12-22,"Irregular","Regular","Regular",0,255,1,NA,NA,"B",255,1
-"131","Djibo",NA,436,"NIR",2010,2011,2010-02-08,2011-04-07,"Irregular","Regular","Regular",0,423,1,NA,NA,"B",423,1
-"132","Guei",NA,437,"CDI",1999,2000,1999-12-25,2000-10-25,"Irregular","Irregular","Popular Protest, without Foreign Support",0,305,1,NA,NA,"B",305,0
-"133","Laurent Gbagbo","Gbagbo",437,"CDI",2000,2011,2000-10-26,2011-04-11,"Irregular","Irregular","Removed by Military, with Foreign Support",0,3819,0,2005,2005-10-26,"A",1993,0
-"134","Conte","Conte",438,"GUI",1984,2008,1984-04-03,2008-12-22,"Irregular","Natural Death","Regular",0,9029,1,2001,2001-04-03,"A",2820,1
-"135","Sekouba Konate",NA,438,"GUI",2009,2010,2009-12-05,2010-12-21,"Irregular","Regular","Regular",0,381,1,NA,NA,"B",381,1
-"136","Conde","Alpha Condé",438,"GUI",2010,2021,2010-12-21,2021-09-05,"Regular","Irregular","Still in Office",0,3911,0,2020,2020-12-21,"A",258,0
-"137","Lamizana",NA,439,"BFO",1966,1971,1966-01-03,1971-01-13,"Irregular","Regular","Regular",0,1836,1,NA,NA,"B",1836,1
-"138","Lamizana","Lamizana",439,"BFO",1974,1980,1974-02-08,1980-11-25,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2482,1,1978,1978-02-08,"A",1021,0
-"139","Zerbo",NA,439,"BFO",1980,1982,1980-11-25,1982-11-07,"Irregular","Irregular","Removed by Military, without Foreign Support",1,712,1,NA,NA,"B",712,0
-"140","J. P. Ouedraogo",NA,439,"BFO",1982,1983,1982-11-07,1983-08-04,"Irregular","Irregular","Removed by Military, without Foreign Support",1,270,1,NA,NA,"B",270,0
-"141","Sankara",NA,439,"BFO",1983,1987,1983-08-04,1987-10-15,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1533,1,NA,NA,"B",1533,0
-"142","Campaore","Campaore",439,"BFO",1987,2014,1987-10-15,2014-10-31,"Irregular","Regular","Regular",0,9878,1,1997,1997-10-15,"A",6225,1
-"143","Tubman","William Tubman",450,"LBR",1944,1971,1944-01-01,1971-07-23,"Regular","Natural Death","Regular",0,10065,NA,1949,1949-01-01,"A",8238,1
-"144","Doe",NA,450,"LBR",1980,1990,1980-04-12,1990-09-09,"Irregular","Irregular","Removed by Rebels, without Foreign Support",0,3802,1,NA,NA,"B",3802,0
-"145","Stevens","Stevens",451,"SIE",1968,1985,1968-04-19,1985-11-28,"Irregular","Regular","Regular",0,6432,1,1978,1978-04-19,"A",2780,1
-"146","Strasser",NA,451,"SIE",1992,1996,1992-05-01,1996-01-17,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1356,1,NA,NA,"B",1356,0
-"147","Bio",NA,451,"SIE",1996,1996,1996-01-17,1996-03-29,"Irregular","Regular","Regular",0,72,1,NA,NA,"B",72,1
-"148","Koroma",NA,451,"SIE",1997,1998,1997-05-25,1998-02-12,"Irregular","Foreign","Removed through Threat of Foreign Force",0,263,1,NA,NA,"B",263,0
-"149","Nkrumah","Nkrumah",452,"GHA",1952,1966,1952-03-21,1966-02-24,"Regular","Irregular","Removed by Military, without Foreign Support",1,5088,NA,1964,1964-03-21,"A",705,0
-"150","Ankrah",NA,452,"GHA",1966,1969,1966-02-24,1969-04-03,"Irregular","Regular","Regular",0,1134,1,NA,NA,"B",1134,1
-"151","Acheampong",NA,452,"GHA",1972,1978,1972-01-13,1978-07-05,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,2365,1,NA,NA,"B",2365,0
-"152","Rawlings",NA,452,"GHA",1979,1979,1979-06-05,1979-09-24,"Irregular","Regular","Regular",0,111,1,NA,NA,"B",111,1
-"153","Rawlings",NA,452,"GHA",1981,2001,1981-12-31,2001-01-07,"Irregular","Regular","Regular",0,6947,1,NA,NA,"B",6947,1
-"154","Grunitzky",NA,461,"TOG",1963,1967,1963-01-16,1967-01-13,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1458,1,NA,NA,"B",1458,0
-"155","Dadjo",NA,461,"TOG",1967,1967,1967-01-13,1967-04-14,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,91,1,NA,NA,"B",91,0
-"156","Eyadema","Eyadema",461,"TOG",1967,2005,1967-04-14,2005-02-05,"Irregular","Natural Death","Regular",0,13812,0,1977,1977-04-14,"A",10159,1
-"157","Biya","Biya",471,"CAO",1982,2023,1982-11-06,2023-11-27,"Regular","Still in Office","Still in Office",0,14996,0,1996,1996-11-06,"A",9882,1
-"158","Ironsi",NA,475,"NIG",1966,1966,1966-01-15,1966-07-29,"Irregular","Irregular","Removed by Military, without Foreign Support",1,195,1,NA,NA,"B",195,0
-"159","Gowon",NA,475,"NIG",1966,1975,1966-07-29,1975-07-29,"Irregular","Irregular","Removed by Military, without Foreign Support",1,3287,1,NA,NA,"B",3287,0
-"160","Ramat Mohammed",NA,475,"NIG",1975,1976,1975-07-29,1976-02-13,"Irregular","Irregular","Removed by Military, without Foreign Support",1,199,1,NA,NA,"B",199,0
-"161","Obasanjo",NA,475,"NIG",1976,1979,1976-02-13,1979-10-01,"Irregular","Regular","Regular",0,1326,1,NA,NA,"B",1326,1
-"162","Buhari",NA,475,"NIG",1983,1985,1983-12-31,1985-08-27,"Irregular","Irregular","Removed by Military, without Foreign Support",1,605,1,NA,NA,"B",605,0
-"163","Babangida",NA,475,"NIG",1985,1993,1985-08-27,1993-08-26,"Irregular","Regular","Regular",0,2921,1,NA,NA,"B",2921,1
-"164","Abacha",NA,475,"NIG",1993,1998,1993-11-17,1998-06-08,"Irregular","Natural Death","Regular",0,1664,1,NA,NA,"B",1664,1
-"165","Aubaume",NA,481,"GAB",1964,1964,1964-02-17,1964-02-19,"Irregular","Foreign","Removed through Threat of Foreign Force",0,2,1,NA,NA,"B",2,0
-"166","Bongo","Bongo",481,"GAB",1967,2009,1967-11-28,2009-06-08,"Regular","Natural Death","Regular",0,15168,0,1996,1996-11-28,"A",4575,1
-"167","Bokassa","Bokassa",482,"CEN",1966,1979,1966-01-01,1979-09-21,"Irregular","Foreign","Removed through Threat of Foreign Force",0,5011,1,1972,1972-01-01,"A",2820,0
-"168","Kolingba",NA,482,"CEN",1981,1993,1981-09-01,1993-10-22,"Irregular","Regular","Regular",0,4434,1,NA,NA,"B",4434,1
-"169","Tombalbaye","Tombalbaye",483,"CHA",1960,1975,1960-08-11,1975-04-13,"Regular","Irregular","Removed by Military, without Foreign Support",1,5358,NA,1961,1961-08-11,"A",4993,0
-"170","Malloum",NA,483,"CHA",1975,1979,1975-04-15,1979-03-23,"Irregular","Irregular","Removed by Rebels, with Foreign Support",0,1438,1,NA,NA,"B",1438,0
-"171","Deby","Deby",483,"CHA",1990,2021,1990-12-04,2021-04-20,"Irregular","Irregular","Still in Office",0,11095,0,2005,2005-12-04,"A",5616,0
-"172","Raoul",NA,484,"CON",1968,1969,1968-09-04,1969-01-01,"Irregular","Regular","Regular",0,119,1,NA,NA,"B",119,1
-"173","Opango",NA,484,"CON",1977,1979,1977-03-18,1979-02-05,"Regular","Irregular","Removed in Military Power Struggle Short of Coup",0,689,1,NA,NA,"B",689,0
-"174","Nguesso","Nguesso",484,"CON",1997,2023,1997-10-15,2023-11-27,"Irregular","Still in Office","Still in Office",0,9539,0,2007,2007-10-15,"A",5887,1
-"175","Mobutu",NA,490,"DRC",1960,1960,1960-09-14,1960-09-20,"Irregular","Regular","Regular",0,6,1,NA,NA,"B",6,1
-"176","Mobutu","Mobutu",490,"DRC",1965,1997,1965-11-25,1997-05-16,"Irregular","Irregular","Removed by Rebels, without Foreign Support",0,11495,1,1975,1975-11-25,"A",7843,0
-"177","Joseph Kabila","J. Kabila",490,"DRC",2001,2019,2001-01-17,2019-01-24,"Regular","Regular","Still in Office",0,6581,1,2016,2016-01-17,"A",1103,1
-"178","Amin","Amin",500,"UGA",1971,1979,1971-01-25,1979-04-11,"Irregular","Foreign","Removed through Threat of Foreign Force",0,2998,1,1976,1976-01-25,"A",1172,0
-"179","Paulo Muwanga",NA,500,"UGA",1980,1980,1980-05-18,1980-12-17,"Irregular","Regular","Regular",0,213,1,NA,NA,"B",213,1
-"180","Okello",NA,500,"UGA",1985,1986,1985-07-29,1986-01-29,"Irregular","Irregular","Removed by Rebels, without Foreign Support",0,184,1,NA,NA,"B",184,0
-"181","Museveni","Museveni",500,"UGA",1986,2023,1986-01-29,2023-11-27,"Irregular","Still in Office","Still in Office",0,13816,0,2005,2005-01-29,"A",6876,1
-"182","Ntare",NA,516,"BUI",1966,1966,1966-07-08,1966-11-28,"Irregular","Irregular","Removed by Military, without Foreign Support",1,143,1,NA,NA,"B",143,0
-"183","Micombero",NA,516,"BUI",1966,1976,1966-11-28,1976-11-01,"Irregular","Irregular","Removed by Military, without Foreign Support",1,3626,1,NA,NA,"B",3626,0
-"184","Bagaza",NA,516,"BUI",1976,1987,1976-11-09,1987-09-03,"Irregular","Irregular","Removed by Military, without Foreign Support",1,3950,1,NA,NA,"B",3950,0
-"185","Buyoya",NA,516,"BUI",1987,1993,1987-09-03,1993-07-10,"Irregular","Regular","Regular",0,2137,1,NA,NA,"B",2137,1
-"186","Ngueze",NA,516,"BUI",1993,1993,1993-10-21,1993-10-27,"Irregular","Regular","Regular",0,6,1,NA,NA,"B",6,1
-"187","Buyoya",NA,516,"BUI",1996,2003,1996-07-25,2003-04-30,"Irregular","Regular","Regular",0,2470,1,NA,NA,"B",2470,1
-"188","Habyarimana","Habyarimana",517,"RWA",1973,1994,1973-07-05,1994-04-06,"Irregular","Irregular","Irregular, Other",0,7580,1,1988,1988-07-05,"A",2101,0
-"189","Paul Kagame","Paul Kagame",517,"RWA",1994,2023,1994-07-19,2023-11-27,"Regular","Still in Office","Still in Office",0,10723,0,2008,2008-07-19,"A",5609,1
-"190","Gouled Aptidon","Gouled",522,"DJI",1977,1999,1977-06-27,1999-05-08,"Regular","Regular","Regular",0,7985,NA,1989,1989-06-27,"A",3602,1
-"191","Guelleh","Guelleh",522,"DJI",1999,2023,1999-05-08,2023-11-27,"Regular","Still in Office","Still in Office",0,8969,0,2010,2010-05-08,"A",4951,1
-"192","Andom",NA,530,"ETH",1974,1974,1974-09-12,1974-11-23,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,72,1,NA,NA,"B",72,0
-"193","Mengistu Marriam",NA,530,"ETH",1977,1991,1977-02-11,1991-05-21,"Regular","Irregular","Removed by Rebels, without Foreign Support",0,5212,1,NA,NA,"B",5212,0
-"194","Afeworki","Afeworki",531,"ERI",1993,2023,1993-05-24,2023-11-27,"Regular","Still in Office","Still in Office",0,11144,NA,2003,2003-05-24,"A",7492,1
-"195","Dos Santos","Dos Santos",540,"ANG",1979,2017,1979-09-10,2017-09-25,"Regular","Regular","Still in Office",0,13895,0,1992,1992-09-10,"A",9146,1
-"196","Mugabe","Mugabe",552,"ZIM",1980,2017,1980-03-04,2017-11-21,"Regular","Irregular","Still in Office",0,13776,0,1987,1987-03-04,"A",11220,0
-"197","Banda","Banda",553,"MAW",1964,1994,1964-07-06,1994-05-21,"Regular","Regular","Regular",0,10911,NA,1971,1971-07-06,"A",8355,1
-"198","Nujoma","Nujoma",565,"NAM",1990,2005,1990-03-21,2005-03-21,"Regular","Regular","Regular",0,5479,NA,2000,2000-03-21,"A",1826,1
-"199","Lekhanya",NA,570,"LES",1986,1991,1986-01-24,1991-05-02,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1924,1,NA,NA,"B",1924,0
-"200","Ramaema",NA,570,"LES",1991,1993,1991-05-02,1993-04-02,"Irregular","Regular","Regular",0,701,1,NA,NA,"B",701,1
-"201","Letsie III",NA,570,"LES",1994,1994,1994-08-17,1994-09-14,"Irregular","Regular","Regular",0,28,1,NA,NA,"B",28,1
-"202","Ntombe Thwala",NA,572,"SWA",1983,1986,1983-08-10,1986-04-25,"Regular","Regular","Regular",0,989,1,NA,NA,"B",989,1
-"203","Gilles Andriamahazo",NA,580,"MAG",1975,1975,1975-02-11,1975-06-15,"Irregular","Regular","Regular",0,124,1,NA,NA,"B",124,1
-"204","Marc Ravalomanana",NA,580,"MAG",2002,2009,2002-07-06,2009-03-17,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2446,1,NA,NA,"B",2446,0
-"205","Rajoelina",NA,580,"MAG",2009,2014,2009-03-17,2014-01-25,"Irregular","Regular","Regular",0,1775,1,NA,NA,"B",1775,1
-"206","Bob Denard",NA,581,"COM",1978,1989,1978-05-13,1989-12-18,"Irregular","Irregular","Removed by Other Government Actors, with Foreign Support",0,4237,1,NA,NA,"B",4237,0
-"207","Azali Assoumani",NA,581,"COM",1999,2002,1999-04-30,2002-01-21,"Irregular","Regular","Regular",0,997,1,NA,NA,"B",997,1
-"208","Sambi","Sambi",581,"COM",2006,2011,2006-05-26,2011-05-26,"Regular","Regular","Regular",0,1826,0,2010,2010-05-26,"A",365,1
-"209","Boumedienne",NA,615,"ALG",1965,1978,1965-06-19,1978-12-27,"Irregular","Natural Death","Regular",0,4939,1,NA,NA,"B",4939,1
-"210","Boudiaf",NA,615,"ALG",1992,1992,1992-01-14,1992-06-29,"Irregular","Irregular","Removed by Rebels, without Foreign Support",0,167,1,NA,NA,"B",167,0
-"211","Bouteflika","Bouteflika",615,"ALG",1999,2019,1999-04-27,2019-04-02,"Regular","Irregular","Still in Office",0,7280,0,2009,2009-04-27,"A",3627,0
-"212","Ben Ali Bourguiba","Bourguiba",616,"TUN",1957,1987,1957-07-25,1987-11-07,"Irregular","Irregular","Removed by Other Government Actors, without Foreign Support",1,11062,1,1975,1975-07-25,"A",4488,0
-"213","Zine Al-Abidine Ben Ali","Ben Ali",616,"TUN",1987,2011,1987-11-07,2011-01-14,"Irregular","Irregular","Popular Protest, without Foreign Support",0,8469,1,1997,1997-11-07,"A",4816,0
-"214","Qaddafi",NA,620,"LIB",1969,2011,1969-09-01,2011-08-23,"Irregular","Irregular","Removed by Rebels, with Foreign Support",0,15331,1,NA,NA,"B",15331,0
-"215","Abboud",NA,625,"SUD",1958,1964,1958-11-18,1964-11-01,"Irregular","Irregular","Popular Protest, without Foreign Support",0,2175,1,NA,NA,"B",2175,0
-"216","Nimeiri",NA,625,"SUD",1969,1971,1969-05-25,1971-07-19,"Irregular","Irregular","Removed by Military, without Foreign Support",1,785,1,NA,NA,"B",785,0
-"217","Osman",NA,625,"SUD",1971,1971,1971-07-19,1971-07-22,"Irregular","Irregular","Removed by Military, without Foreign Support",1,3,1,NA,NA,"B",3,0
-"218","Nimeiri",NA,625,"SUD",1971,1985,1971-07-22,1985-04-06,"Irregular","Irregular","Removed by Military, without Foreign Support",1,5007,1,NA,NA,"B",5007,0
-"219","Abdul Rahman Swaredahab",NA,625,"SUD",1985,1986,1985-04-06,1986-05-06,"Irregular","Regular","Regular",0,395,1,NA,NA,"B",395,1
-"220","Al-Bashir","Al-Bashir",625,"SUD",1989,2019,1989-06-30,2019-04-11,"Irregular","Irregular","Still in Office",0,10877,1,1999,1999-06-30,"A",7225,0
-"221","Mohammad Mossadeg",NA,630,"IRN",1951,1953,1951-04-30,1953-08-19,"Irregular","Irregular","Removed by Other Government Actors, without Foreign Support",1,842,1,NA,NA,"B",842,0
-"222","Mohammad Reza",NA,630,"IRN",1953,1979,1953-08-19,1979-01-16,"Irregular","Irregular","Popular Protest, without Foreign Support",0,9281,1,NA,NA,"B",9281,0
-"223","Gursel",NA,640,"TUR",1960,1961,1960-05-27,1961-11-10,"Irregular","Regular","Regular",0,532,1,NA,NA,"B",532,1
-"224","Erim",NA,640,"TUR",1971,1972,1971-03-19,1972-04-17,"Irregular","Regular","Regular",0,395,1,NA,NA,"B",395,1
-"225","Evren",NA,640,"TUR",1980,1983,1980-09-20,1983-11-23,"Irregular","Regular","Regular",0,1159,1,NA,NA,"B",1159,1
-"226","Yilmaz",NA,640,"TUR",1997,1999,1997-06-30,1999-01-11,"Irregular","Regular","Regular",0,560,1,NA,NA,"B",560,1
-"227","Erdogan","Erdogan",640,"TUR",2003,2023,2003-03-14,2023-11-27,"Regular","Still in Office","Still in Office",0,7563,0,2017,2017-03-14,"A",2449,1
-"228","Karrim Kassem",NA,645,"IRQ",1958,1963,1958-07-14,1963-02-08,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1670,1,NA,NA,"B",1670,0
-"229","Salem Aref",NA,645,"IRQ",1963,1966,1963-02-08,1966-04-13,"Irregular","Natural Death","Regular",0,1160,1,NA,NA,"B",1160,1
-"230","Hassan Al-Bakr",NA,645,"IRQ",1968,1979,1968-07-17,1979-07-16,"Irregular","Regular","Regular",0,4016,1,NA,NA,"B",4016,1
-"231","Naguib",NA,651,"EGY",1952,1954,1952-07-23,1954-11-14,"Irregular","Regular","Regular",0,844,1,NA,NA,"B",844,1
-"232","Kuwatli","Kuwatli",652,"SYR",1943,1949,1943-08-17,1949-03-30,"Regular","Irregular","Removed by Military, without Foreign Support",1,2052,NA,1947,1947-08-17,"A",591,0
-"233","Al-Zaim",NA,652,"SYR",1949,1949,1949-03-30,1949-08-13,"Irregular","Irregular","Removed by Military, without Foreign Support",1,136,1,NA,NA,"B",136,0
-"234","Hinnawi",NA,652,"SYR",1949,1949,1949-08-13,1949-12-19,"Irregular","Irregular","Removed by Military, without Foreign Support",1,128,1,NA,NA,"B",128,0
-"235","Shishakli",NA,652,"SYR",1949,1954,1949-12-19,1954-02-28,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1532,1,NA,NA,"B",1532,0
-"236","Atassi, H.",NA,652,"SYR",1954,1955,1954-02-28,1955-09-06,"Irregular","Regular","Regular",0,555,1,NA,NA,"B",555,1
-"237","Al-kuzbari",NA,652,"SYR",1961,1961,1961-09-28,1961-12-01,"Irregular","Regular","Regular",0,64,1,NA,NA,"B",64,1
-"238","Zahreddin",NA,652,"SYR",1962,1962,1962-03-28,1962-04-13,"Irregular","Regular","Regular",0,16,1,NA,NA,"B",16,1
-"239","Atassi, L.",NA,652,"SYR",1963,1963,1963-03-09,1963-07-27,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,140,1,NA,NA,"B",140,0
-"240","El-Atassi, N.",NA,652,"SYR",1966,1970,1966-02-25,1970-11-13,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1722,1,NA,NA,"B",1722,0
-"241","Al-Khatib",NA,652,"SYR",1970,1971,1970-11-18,1971-02-22,"Irregular","Regular","Regular",0,96,1,NA,NA,"B",96,1
-"242","EL Khoury","El Choury",660,"LEB",1943,1952,1943-11-22,1952-09-18,"Regular","Regular","Regular",0,3223,NA,1948,1948-11-22,"A",1396,1
-"243","Elias Hrawi","Elias Hrawi",660,"LEB",1989,1998,1989-11-23,1998-11-24,"Regular","Regular","Regular",0,3288,0,1995,1995-11-23,"A",1097,1
-"244","Emile Lahoud","Émile Lahoud",660,"LEB",1998,2007,1998-11-24,2007-11-23,"Regular","Regular","Regular",0,3286,0,2004,2004-11-24,"A",1094,1
-"245","Suleiman",NA,660,"LEB",2008,2014,2008-05-25,2014-05-24,"Regular","Regular","Regular",0,2190,1,NA,NA,"B",2190,1
-"246","AL-Sallal",NA,678,"YEM",1962,1967,1962-09-27,1967-11-05,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1865,1,NA,NA,"B",1865,0
-"247","Al-Iryani",NA,678,"YEM",1967,1974,1967-11-05,1974-06-13,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2412,1,NA,NA,"B",2412,0
-"248","Al-Hamadi",NA,678,"YEM",1974,1977,1974-06-13,1977-10-11,"Irregular","Irregular","Irregular, Other",0,1216,1,NA,NA,"B",1216,0
-"249","Saleh al-Hashidi","Saleh",678,"YEM",1978,2012,1978-07-17,2012-02-27,"Regular","Regular","Regular",0,12278,0,2001,2001-07-17,"A",3877,1
-"250","Ali Rubayyi",NA,680,"YPR",1969,1978,1969-06-24,1978-06-26,"Regular","Irregular","Removed by Rebels, with Foreign Support",0,3289,1,NA,NA,"B",3289,0
-"251","Attas",NA,680,"YPR",1986,1990,1986-01-24,1990-05-22,"Irregular","Regular","Regular",0,1579,1,NA,NA,"B",1579,1
-"252","Khalifah Ath-Thani",NA,694,"QAT",1972,1995,1972-02-22,1995-06-27,"Irregular","Irregular","Removed by Other Government Actors, without Foreign Support",1,8526,1,NA,NA,"B",8526,0
-"253","Hamad ibn Khalifah Al Thani",NA,694,"QAT",1995,2013,1995-06-27,2013-06-25,"Irregular","Regular","Regular",0,6573,1,NA,NA,"B",6573,1
-"254","Qabus Bin Said",NA,698,"OMA",1970,2020,1970-07-23,2020-01-10,"Irregular","Regular","Still in Office",0,18068,1,NA,NA,"B",18068,1
-"255","Sardar Mohammad Daud Khan",NA,700,"AFG",1953,1963,1953-09-07,1963-03-10,"Irregular","Regular","Regular",0,3471,1,NA,NA,"B",3471,1
-"256","Sardar Mohammad Daud Khan",NA,700,"AFG",1973,1978,1973-07-17,1978-04-27,"Irregular","Irregular","Removed by Military, without Foreign Support",1,1745,1,NA,NA,"B",1745,0
-"257","Taraki",NA,700,"AFG",1978,1979,1978-04-30,1979-03-27,"Irregular","Irregular","Removed by Other Government Actors, without Foreign Support",1,331,1,NA,NA,"B",331,0
-"258","Amin",NA,700,"AFG",1979,1979,1979-03-27,1979-12-27,"Irregular","Irregular","Removed by Other Government Actors, with Foreign Support",0,275,1,NA,NA,"B",275,0
-"259","Niyazov","Niyazov",701,"TKM",1990,2006,1990-10-27,2006-12-21,"Regular","Natural Death","Regular",0,5899,NA,1999,1999-10-27,"A",2612,1
-"260","Rakhmonov","Rakhmonov",702,"TAJ",1992,2023,1992-11-20,2023-11-27,"Irregular","Still in Office","Still in Office",0,11329,0,2002,2002-11-20,"A",7677,1
-"261","Akayev","Akayev",703,"KYR",1990,2005,1990-10-27,2005-03-25,"Regular","Irregular","Popular Protest, without Foreign Support",0,5263,NA,2000,2000-10-27,"A",1610,0
-"262","Karimov","Karimov",704,"UZB",1990,2016,1990-03-24,2016-09-02,"Regular","Regular","Still in Office",0,9659,NA,2004,2004-03-24,"A",4545,1
-"263","Nazarbayev","Nazarbaev",705,"KZK",1990,2019,1990-04-24,2019-03-20,"Regular","Regular","Still in Office",0,10557,NA,2000,2000-04-24,"A",6904,1
-"264","Xi Jinping","Xi Jinping",710,"CHN",2012,2023,2012-11-15,2023-11-27,"Regular","Still in Office","Still in Office",0,4029,0,2022,2022-11-15,"A",377,1
-"265","Chiang Kai-shek",NA,713,"TAW",1950,1975,1950-03-01,1975-04-05,"Regular","Natural Death","Regular",0,9166,1,NA,NA,"B",9166,1
-"266","Rhee","Syngman Rhee",732,"ROK",1948,1960,1948-08-15,1960-04-27,"Regular","Irregular","Popular Protest, without Foreign Support",0,4273,NA,1952,1952-08-15,"A",2812,0
-"267","Chang Do Yong",NA,732,"ROK",1961,1961,1961-05-18,1961-07-03,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,46,1,NA,NA,"B",46,0
-"268","Hee Park","Hee Park",732,"ROK",1961,1979,1961-07-03,1979-10-26,"Irregular","Irregular","Removed by Other Government Actors, without Foreign Support",1,6689,0,1971,1971-07-03,"A",3037,0
-"269","Choi Kuy Hay",NA,732,"ROK",1979,1980,1979-10-26,1980-08-16,"Regular","Regular","Regular",0,295,1,NA,NA,"B",295,1
-"270","Ayub Khan",NA,770,"PAK",1958,1969,1958-10-07,1969-03-25,"Irregular","Irregular","Popular Protest, without Foreign Support",0,3822,1,NA,NA,"B",3822,0
-"271","Bhutto",NA,770,"PAK",1971,1977,1971-12-20,1977-07-05,"Regular","Irregular","Removed by Military, without Foreign Support",1,2024,1,NA,NA,"B",2024,0
-"272","Zia",NA,770,"PAK",1977,1988,1977-07-05,1988-08-17,"Irregular","Irregular","Irregular, Other",0,4061,1,NA,NA,"B",4061,0
-"273","Mazari",NA,770,"PAK",1993,1993,1993-04-18,1993-05-26,"Irregular","Regular","Regular",0,38,1,NA,NA,"B",38,1
-"274","Khalid",NA,770,"PAK",1996,1997,1996-11-05,1997-02-17,"Irregular","Regular","Regular",0,104,1,NA,NA,"B",104,1
-"275","Musharraf",NA,770,"PAK",1999,2008,1999-10-14,2008-08-18,"Irregular","Regular","Regular",0,3231,1,NA,NA,"B",3231,1
-"276","Moshtaque Ahmed",NA,771,"BNG",1975,1975,1975-08-15,1975-11-06,"Irregular","Irregular","Removed by Military, without Foreign Support",1,83,1,NA,NA,"B",83,0
-"277","Ziaur Rahman",NA,771,"BNG",1975,1981,1975-11-06,1981-05-30,"Irregular","Irregular","Removed by Military, without Foreign Support",1,2032,1,NA,NA,"B",2032,0
-"278","Sattar",NA,771,"BNG",1981,1982,1981-05-30,1982-03-20,"Regular","Irregular","Removed by Military, without Foreign Support",1,294,1,NA,NA,"B",294,0
-"279","Ershad",NA,771,"BNG",1982,1990,1982-03-27,1990-12-06,"Irregular","Irregular","Popular Protest, without Foreign Support",0,3176,1,NA,NA,"B",3176,0
-"280","Ne Win",NA,775,"MYA",1962,1988,1962-03-02,1988-07-25,"Irregular","Regular","Regular",0,9642,1,NA,NA,"B",9642,1
-"281","Saw Maung",NA,775,"MYA",1988,1992,1988-09-18,1992-04-23,"Irregular","Retired Due to Ill Health","Regular",0,1313,1,NA,NA,"B",1313,1
-"282","Tribhuvan",NA,790,"NEP",1951,1955,1951-02-18,1955-03-13,"Irregular","Natural Death","Regular",0,1484,1,NA,NA,"B",1484,1
-"283","Plaek Pibulsongkram",NA,800,"THI",1947,1957,1947-11-08,1957-09-16,"Regular","Irregular","Removed by Military, without Foreign Support",1,3600,1,NA,NA,"B",3600,0
-"284","Pote Sarasin",NA,800,"THI",1957,1957,1957-09-21,1957-12-27,"Irregular","Regular","Regular",0,97,1,NA,NA,"B",97,1
-"285","Sangad",NA,800,"THI",1976,1976,1976-10-06,1976-10-22,"Irregular","Regular","Regular",0,16,1,NA,NA,"B",16,1
-"286","Sangad",NA,800,"THI",1977,1977,1977-10-20,1977-11-12,"Irregular","Regular","Regular",0,23,1,NA,NA,"B",23,1
-"287","Panyarachun",NA,800,"THI",1991,1992,1991-03-07,1992-04-04,"Regular","Regular","Regular",0,394,1,NA,NA,"B",394,1
-"288","Chulanont",NA,800,"THI",2006,2008,2006-09-19,2008-01-29,"Regular","Regular","Regular",0,497,1,NA,NA,"B",497,1
-"289","Prayuth Chan-ocha",NA,800,"THI",2014,2023,2014-05-22,2023-08-22,"Irregular","Regular","Still in Office",0,3379,1,NA,NA,"B",3379,1
-"290","Lon Nol",NA,811,"CAM",1970,1975,1970-03-18,1975-04-10,"Irregular","Irregular","Removed by Rebels, without Foreign Support",0,1849,1,NA,NA,"B",1849,0
-"291","Hun Sen","Hun Sen",811,"CAM",1997,2023,1997-07-06,2023-08-22,"Irregular","Regular","Still in Office",0,9543,1,1997,1997-07-06,"A",9543,1
-"292","Nosavan",NA,812,"LAO",1959,1960,1959-12-31,1960-01-07,"Irregular","Regular","Regular",0,7,1,NA,NA,"B",7,1
-"293","Kong Le",NA,812,"LAO",1960,1960,1960-08-09,1960-08-15,"Irregular","Regular","Regular",0,6,1,NA,NA,"B",6,1
-"294","Boun Oum",NA,812,"LAO",1960,1962,1960-12-13,1962-06-22,"Irregular","Regular","Regular",0,556,1,NA,NA,"B",556,1
-"295","Kouprasith",NA,812,"LAO",1964,1964,1964-04-19,1964-04-20,"Irregular","Regular","Regular",0,1,1,NA,NA,"B",1,1
-"296","Minh",NA,817,"RVN",1963,1964,1963-11-01,1964-01-30,"Irregular","Irregular","Removed by Military, without Foreign Support",1,90,1,NA,NA,"B",90,0
-"297","Khanh",NA,817,"RVN",1964,1964,1964-01-30,1964-11-04,"Irregular","Irregular","Popular Protest, without Foreign Support",0,279,1,NA,NA,"B",279,0
-"298","Khahn",NA,817,"RVN",1965,1965,1965-01-26,1965-02-20,"Irregular","Irregular","Removed in Military Power Struggle Short of Coup",0,25,1,NA,NA,"B",25,0
-"299","Van Thieu",NA,817,"RVN",1965,1975,1965-06-14,1975-04-21,"Irregular","Foreign","Removed through Threat of Foreign Force",0,3598,1,NA,NA,"B",3598,0
-"300","Marcos","Marcos",840,"PHI",1965,1986,1965-12-30,1986-02-25,"Regular","Irregular","Popular Protest, without Foreign Support",0,7362,0,1973,1973-12-30,"A",4440,0
-"301","Sukarno","Sukarno",850,"INS",1949,1966,1949-12-27,1966-03-12,"Regular","Irregular","Removed by Military, without Foreign Support",1,5919,0,1963,1963-12-27,"A",806,0
-"302","Suharto",NA,850,"INS",1966,1998,1966-03-12,1998-05-21,"Irregular","Regular","Regular",0,11758,1,NA,NA,"B",11758,1
-"303","Mamaloni",NA,940,"SOL",1994,1997,1994-10-31,1997-08-27,"Irregular","Regular","Regular",0,1031,1,NA,NA,"B",1031,1
-"304","Rabuka",NA,950,"FJI",1987,1987,1987-05-14,1987-12-05,"Irregular","Regular","Regular",0,205,1,NA,NA,"B",205,1
-"305","Laisenia Qarase",NA,950,"FJI",2000,2006,2000-07-14,2006-12-05,"Regular","Irregular","Removed by Military, without Foreign Support",1,2335,1,NA,NA,"B",2335,0
-"306","Senilagakali",NA,950,"FJI",2006,2007,2006-12-05,2007-01-05,"Regular","Regular","Regular",0,31,1,NA,NA,"B",31,1
+"","ccode","idacr","country","year","leader","group","survival_time","status","GDP_growth_trend","GDP_pc_log"
+"1",40,"CUB","Cuba",1954,"Batista","A",1758,2,0.747739777705548,7.76710987819241
+"2",41,"HAI","Haiti",1950,"Magloire","B",2408,2,0.978687402900876,6.60720138561126
+"3",41,"HAI","Haiti",1956,"Pierre-Louis","B",53,2,1.14376012961911,6.69616967650166
+"4",41,"HAI","Haiti",1957,"Sylvain","B",54,2,-0.503066982536519,6.68890001978596
+"5",41,"HAI","Haiti",1957,"Cantave","B",4,1,-0.503066982536519,6.68890001978596
+"6",41,"HAI","Haiti",1957,"Fignole","B",19,2,-0.503066982536519,6.68890001978596
+"7",41,"HAI","Haiti",1957,"Kebreau","B",123,1,-0.503066982536519,6.68890001978596
+"8",41,"HAI","Haiti",1961,"Duvalier, Francois","A",3476,1,1.02227128213318,6.56441672305165
+"9",41,"HAI","Haiti",1986,"Namphy","B",730,1,1.30615905601405,7.13151703916586
+"10",41,"HAI","Haiti",1988,"Namphy","B",89,2,1.18817305844705,7.13815722430485
+"11",41,"HAI","Haiti",1988,"Avril","B",539,2,1.18817305844705,7.13815722430485
+"12",41,"HAI","Haiti",1991,"Cedras","B",1110,2,0.847103813585773,7.18817177091119
+"13",42,"DOM","Dominican Republic",1952,"Rafel Trujillo","A",3209,2,1.40590601315729,6.3600097598172
+"14",42,"DOM","Dominican Republic",1961,"Balaguer","B",232,2,0.85245016218017,6.78613664682122
+"15",42,"DOM","Dominican Republic",1962,"Echavarria","B",2,2,2.44683437749931,6.89653759537663
+"16",42,"DOM","Dominican Republic",1962,"Filiberto Bonnelly","B",404,1,2.44683437749931,6.89653759537663
+"17",42,"DOM","Dominican Republic",1963,"de los Santos","B",87,1,0.96648858920157,6.96494341460261
+"18",42,"DOM","Dominican Republic",1965,"Molina Urena","B",2,2,-0.413402033116489,6.96564203862498
+"19",42,"DOM","Dominican Republic",1965,"Bartolome Benoit","B",10,1,-0.413402033116489,6.96564203862498
+"20",42,"DOM","Dominican Republic",2016,"Medina","A",1461,1,1.08766198888551,9.65581299900939
+"21",90,"GUA","Guatemala",1954,"Monzon","B",9,2,1.25952890467726,6.88271435573865
+"22",90,"GUA","Guatemala",1957,"Mendoza Azurdia","B",3,2,1.19054694070871,7.01085684513362
+"23",90,"GUA","Guatemala",1963,"Peralta Azurdia","B",1188,1,1.92436359422084,7.28046025271549
+"24",90,"GUA","Guatemala",1982,"Rios Montt","B",503,2,-0.53478174231493,8.16742491288727
+"25",90,"GUA","Guatemala",1983,"Mejia Victores","B",890,1,-0.669952300797563,8.16099670442729
+"26",90,"GUA","Guatemala",1993,"Espina Salguero","B",1,1,0.94515361028429,8.47361678197568
+"27",91,"HON","Honduras",1956,"Hector Caraccioli","B",426,1,4.67158771154581,6.03571107122754
+"28",91,"HON","Honduras",1963,"Lopez Arellano","B",2803,1,1.17071796073968,6.30056191639336
+"29",91,"HON","Honduras",1972,"Lopez Arellano","B",869,2,1.82639304798598,6.69993128177576
+"30",91,"HON","Honduras",2009,"Micheletti","B",213,1,0.249530791403806,8.14283045092096
+"31",91,"HON","Honduras",2018,"Hernández","A",1461,1,0.631981620037648,8.4823934433795
+"32",92,"SAL","El Salvador",1960,"Castillo","B",91,2,1.64557805006009,5.96046653470015
+"33",92,"SAL","El Salvador",1961,"Portillo","B",365,1,1.34784271708417,5.99969805853504
+"34",92,"SAL","El Salvador",1979,"Majano Ramos","B",419,2,-0.439363782906252,6.92773632173388
+"35",93,"NIC","Nicaragua",1955,"Anastasio Somoza Garcia","A",492,2,0.614952325158318,6.43992209262023
+"36",93,"NIC","Nicaragua",1973,"Anastasio Somoza Debayle","A",2268,2,2.15736629747102,7.4116970634003
+"37",93,"NIC","Nicaragua",2012,"Daniel Ortega","A",4339,1,1.66350265494776,7.89984860347219
+"38",95,"PAN","Panama",1949,"Chiari, Roberto","B",5,1,0.628663260744413,5.48033054246416
+"39",95,"PAN","Panama",1978,"Torrijos Herrera","A",1023,1,3.30796324486109,7.1101057446582
+"40",100,"COL","Colombia",1953,"Rojas Pinillia","B",1427,2,1.71086702952711,8.53996063498419
+"41",100,"COL","Colombia",2006,"Alvaro Uribe Velez","A",1460,1,1.43393143035854,10.6967375688463
+"42",101,"VEN","Venezuela",1953,"Perez Jimenez","A",1532,2,0.740683870553256,8.42584230326218
+"43",101,"VEN","Venezuela",2009,"Hugo Chavez","A",1127,1,-0.0682983390096142,10.5910076054684
+"44",115,"SUR","Suriname",1980,"Bouterse","B",2721,1,-0.828652893294532,5.68187763926815
+"45",115,"SUR","Suriname",1990,"Graanoogst","B",5,1,1.14033146310888,5.79814675269101
+"46",130,"ECU","Ecuador",1961,"Arosemena Monroy","B",611,2,0.950082423506393,7.59731302522354
+"47",130,"ECU","Ecuador",1963,"Castro","B",992,2,0.757984620610919,7.67710070982723
+"48",130,"ECU","Ecuador",1972,"Rodriguez Lara","B",1426,2,1.06896173395808,8.12943970244023
+"49",130,"ECU","Ecuador",1976,"Poveda Burbano","B",1307,1,0.843272089536781,8.50380962976505
+"50",130,"ECU","Ecuador",2011,"Rafael Correa","A",2321,1,1.83389525801846,9.6284688928766
+"51",135,"PER","Peru",1962,"Perez Godoy","B",227,2,1.06377695149128,8.3804839547899
+"52",135,"PER","Peru",1968,"Velasco Alvarado","B",2521,2,0.389326852153274,8.70719832048707
+"53",135,"PER","Peru",1975,"Morales Bermudez","B",1794,1,0.557319252259538,9.04095746862767
+"54",135,"PER","Peru",1995,"Fujimori","A",1944,1,1.46946395447897,9.4593090065888
+"55",140,"BRA","Brazil",1954,"Cafe Filho","B",441,1,1.18417365994467,9.53038207795862
+"56",140,"BRA","Brazil",1955,"Oliveria Ramos","B",81,1,0.947387078169936,9.58936040449397
+"57",140,"BRA","Brazil",1964,"Ranieri Mazzilli","B",13,1,0.594885467158627,10.2080403112838
+"58",140,"BRA","Brazil",2000,"Cardoso","A",1096,1,3.12105491098893,12.0158744855827
+"59",145,"BOL","Bolivia",1951,"Ballivian Rojas","B",331,2,-2.7801573105326,6.58849172004155
+"60",145,"BOL","Bolivia",1964,"Barrientos Ortuna","B",425,1,1.05671213190383,6.75328971625113
+"61",145,"BOL","Bolivia",1969,"Ovando Candia","B",375,2,0.784802943997169,6.97721604099124
+"62",145,"BOL","Bolivia",1970,"Torres","B",319,2,1.13605873329623,7.01505151991434
+"63",145,"BOL","Bolivia",1971,"Banzer Suarez","B",2525,2,1.70844831629067,7.06321766956913
+"64",145,"BOL","Bolivia",1978,"Pereda Asbun","B",126,2,0.497168610139952,7.39801547659486
+"65",145,"BOL","Bolivia",1978,"Padilla Aranciba","B",257,1,0.497168610139952,7.39801547659486
+"66",145,"BOL","Bolivia",1979,"Natusch Busch","B",15,1,0.395526302366188,7.412044990129
+"67",145,"BOL","Bolivia",1981,"Torrelio Villa","B",348,2,0.63232010102128,7.43405417188308
+"68",145,"BOL","Bolivia",2011,"Juan Morales","A",3214,2,1.15434336530951,8.53087516488379
+"69",150,"PAR","Paraguay",1949,"Rolon","B",27,2,38.0213489439164,5.7569313796663
+"70",150,"PAR","Paraguay",1949,"Molas Lopez","B",196,2,38.0213489439164,5.7569313796663
+"71",150,"PAR","Paraguay",1949,"Chavez","B",1699,2,38.0213489439164,5.7569313796663
+"72",150,"PAR","Paraguay",1954,"Pareira","B",66,1,2.30201749804734,5.88655670675501
+"73",150,"PAR","Paraguay",1967,"Stroessner","A",7878,2,1.33929126742457,6.37465677936675
+"74",150,"PAR","Paraguay",1989,"Rodriguez Pedotti","B",1654,1,1.56214519076202,7.70195792174091
+"75",155,"CHL","Chile",1980,"Pinochet","A",3468,1,0.899635754328404,9.16783070413612
+"76",160,"ARG","Argentina",1952,"Peron","A",1203,2,0.453121280074886,9.14328530031323
+"77",160,"ARG","Argentina",1955,"Lonardi","B",54,2,12.4304116925328,9.24615548495838
+"78",160,"ARG","Argentina",1955,"Aramburu","B",900,1,12.4304116925328,9.24615548495838
+"79",160,"ARG","Argentina",1962,"Guido","B",562,1,0.225637266716345,9.47778425178697
+"80",160,"ARG","Argentina",1966,"Ongania","B",1441,2,0.684064426572103,9.64881753627619
+"81",160,"ARG","Argentina",1970,"Lanusse","B",10,1,0.878814032337857,9.83880150051641
+"82",160,"ARG","Argentina",1976,"Videla","B",1826,1,0.337266542661291,10.013324837492
+"83",160,"ARG","Argentina",1995,"Menem","A",1616,1,0.472864884334083,10.7052341951991
+"84",165,"URU","Uruguay",1976,"Demichelli","B",81,2,1.80382341199939,7.90381495798391
+"85",165,"URU","Uruguay",1976,"Mendez Manfredini","B",1826,1,1.80382341199939,7.90381495798391
+"86",235,"POR","Portugal",1974,"Spinola","B",158,1,0.393957969112613,9.26616431246918
+"87",310,"HUN","Hungary",1956,"Gero","B",99,2,0.648268024280856,8.51461246420259
+"88",345,"YUG","Serbia",1974,"Tito","A",2251,1,0.622291737332295,9.4546916022547
+"89",350,"GRC","Greece",1965,"Athaniadis-Novas","B",21,1,1.26020730502845,8.87614472196402
+"90",350,"GRC","Greece",1967,"Kollias","B",236,2,0.823192793167432,9.01500494086817
+"91",350,"GRC","Greece",1967,"Papadopoulos","B",2174,2,0.823192793167432,9.01500494086817
+"92",350,"GRC","Greece",1973,"Ionannides","B",241,1,0.627525838124812,9.4759398590014
+"93",365,"RUS","Russia",1991,"Yeltsin","B",3054,1,2.57875334666674,12.5136871052413
+"94",365,"RUS","Russia",2008,"Putin","A",5809,1,0.545925328532256,12.7153514666135
+"95",370,"BLR","Belarus",2004,"Lukashenko","A",7069,1,2.15837856092692,9.40188823520463
+"96",373,"AZE","Azerbaijan",2003,"H. Aliyev","A",41,1,0.925660848499411,8.27248427008738
+"97",373,"AZE","Azerbaijan",2013,"Ilhma Aliyev","A",3767,1,0.283755961683248,9.60958457028725
+"98",375,"FIN","Finland",1973,"Kekkonen","A",3116,1,1.34481073092396,9.09227054519916
+"99",404,"GNB","Guinea-Bissau",1993,"Vieira","A",2000,2,1.40905602862471,5.13053756406993
+"100",404,"GNB","Guinea-Bissau",1999,"Mane","B",7,1,-3.22118224637299,5.21786624215041
+"101",404,"GNB","Guinea-Bissau",2003,"Correia Seabra","B",14,1,0.0375116562797615,5.24584442928692
+"102",404,"GNB","Guinea-Bissau",2009,"Raimundo Perreira","B",190,1,1.43336793561826,5.37804771775106
+"103",404,"GNB","Guinea-Bissau",2012,"Mamadu Ture Kuruma","B",29,1,0.0428855140203203,5.47787260059702
+"104",411,"EQG","Equatorial Guinea",1972,"Macias Nguema","A",2486,2,-424.410900180279,4.18308777205649
+"105",411,"EQG","Equatorial Guinea",1996,"Nguema Mbasogo","A",9977,1,4.10721753610811,5.31384616816566
+"106",420,"GAM","The Gambia",1994,"Jammeh","B",6025,2,0.318598787934647,5.59234054164547
+"107",432,"MLI","Mali",1985,"Traore","A",1953,2,4.28770314640307,6.4987097688776
+"108",432,"MLI","Mali",1991,"Amadou Toure","B",438,1,1.53881594089696,6.79619335203803
+"109",432,"MLI","Mali",2012,"Amadou Sanogo","B",21,1,0.373832292463396,8.06010104902503
+"110",434,"BEN","Benin",1963,"Soglo","B",83,1,1.23879296446391,5.90263879786731
+"111",434,"BEN","Benin",1965,"Congacou","B",23,2,1.80845612567041,6.01327740743312
+"112",434,"BEN","Benin",1965,"Soglo","B",725,2,1.80845612567041,6.01327740743312
+"113",434,"BEN","Benin",1967,"Alley","B",228,1,0.657048066629409,6.08646558822478
+"114",434,"BEN","Benin",1969,"Kouandete","B",3,1,1.12972412561368,6.17520592880668
+"115",434,"BEN","Benin",1983,"Kerekou","A",2716,1,0.0685451730682811,6.54873472911657
+"116",435,"MAA","Mauritania",1978,"Ould Mohamed Salek","B",270,2,-0.650735579389354,6.14003324806703
+"117",435,"MAA","Mauritania",1984,"Sidi Ahmed Taya","B",7539,2,-1.67044583916365,6.1958247914425
+"118",435,"MAA","Mauritania",2005,"Ould Mohamed Vall","B",624,1,2.05096769092279,6.8797836964407
+"119",435,"MAA","Mauritania",2008,"Ould Abdel Aziz","B",252,1,0.180945826582835,7.03991798538285
+"120",436,"NIR","Niger",1974,"Kountche","B",4955,1,-0.559351988105391,6.65426333878488
+"121",436,"NIR","Niger",1996,"Mainassara","B",1170,2,1.11305096272797,6.90303113777819
+"122",436,"NIR","Niger",1999,"Wanke","B",255,1,0.517132591673952,7.01775700752945
+"123",436,"NIR","Niger",2010,"Djibo","B",423,1,1.38205711815913,7.45520883446983
+"124",437,"CDI","Ivory Coast",1999,"Guei","B",305,2,0.350384403268164,8.42776398473981
+"125",437,"CDI","Ivory Coast",2005,"Laurent Gbagbo","A",1993,2,-14.1418246389606,8.41791127469665
+"126",438,"GUI","Guinea",2001,"Conte","A",2820,1,0.525700854745662,7.45686983577526
+"127",438,"GUI","Guinea",2009,"Sekouba Konate","B",381,1,0.114109403562424,7.57364636403521
+"128",439,"BFO","Burkina Faso",1966,"Lamizana","B",1836,1,1.628703371196,6.35042662356401
+"129",439,"BFO","Burkina Faso",1978,"Lamizana","A",1021,2,2.11800555401987,6.67695498951893
+"130",439,"BFO","Burkina Faso",1980,"Zerbo","B",712,2,0.387284815988877,6.73270879455807
+"131",439,"BFO","Burkina Faso",1982,"J. P. Ouedraogo","B",270,2,0.810120966630086,6.79448355205297
+"132",439,"BFO","Burkina Faso",1983,"Sankara","B",1533,2,-0.129794382494222,6.79090455858479
+"133",439,"BFO","Burkina Faso",1997,"Campaore","A",6225,1,1.37741044743339,7.3235600810757
+"134",450,"LBR","Liberia",1949,"Tubman","A",8238,1,-3787.7803795586,4.96972996277025
+"135",450,"LBR","Liberia",1980,"Doe","B",3802,2,-3.80231373044737,6.03860573341279
+"136",451,"SIE","Sierra Leone",1978,"Stevens","A",2780,1,15.7602047507275,6.26670137274045
+"137",451,"SIE","Sierra Leone",1992,"Strasser","B",1356,2,-10.7414092544274,6.46122439664186
+"138",451,"SIE","Sierra Leone",1996,"Bio","B",72,1,5.02770185593856,6.29671697778445
+"139",451,"SIE","Sierra Leone",1997,"Koroma","B",263,2,1.81748165204118,6.19563728507285
+"140",452,"GHA","Ghana",1964,"Nkrumah","A",705,2,1.00005480232867,7.93584066299299
+"141",452,"GHA","Ghana",1966,"Ankrah","B",1134,1,-0.162670891089924,7.93820899089978
+"142",452,"GHA","Ghana",1972,"Acheampong","B",2365,2,-0.387759870639335,8.07881721315915
+"143",452,"GHA","Ghana",1979,"Rawlings","B",111,1,-2.19108910745856,8.09605774234423
+"144",452,"GHA","Ghana",1981,"Rawlings","B",6947,1,68.5425965008596,8.04532702873146
+"145",461,"TOG","Togo",1963,"Grunitzky","B",1458,2,1.1891430672956,5.4421536063853
+"146",461,"TOG","Togo",1967,"Dadjo","B",91,2,0.630895084581921,5.82433205027975
+"147",461,"TOG","Togo",1977,"Eyadema","A",10159,1,4.02368481279194,6.21975682097272
+"148",471,"CAO","Cameroon",1996,"Biya","A",9882,1,4.00691703929702,8.07181942157242
+"149",475,"NIG","Nigeria",1966,"Ironsi","B",195,2,-0.473791589773048,9.28981464119611
+"150",475,"NIG","Nigeria",1966,"Gowon","B",3287,2,-0.473791589773048,9.28981464119611
+"151",475,"NIG","Nigeria",1975,"Ramat Mohammed","B",199,2,0.393103012021591,10.061131950787
+"152",475,"NIG","Nigeria",1976,"Obasanjo","B",1326,1,0.648433271944021,10.1137880639457
+"153",475,"NIG","Nigeria",1983,"Buhari","B",605,2,2.39447018836819,9.99445216767272
+"154",475,"NIG","Nigeria",1985,"Babangida","B",2921,1,-0.285295598020545,9.96386259026787
+"155",475,"NIG","Nigeria",1993,"Abacha","B",1664,1,-2.70336969776857,9.75067734054695
+"156",481,"GAB","Gabon",1964,"Aubaume","B",2,2,0.950769139757643,5.66884935661608
+"157",481,"GAB","Gabon",1996,"Bongo","A",4575,1,1.08812654143443,7.17193788925641
+"158",482,"CEN","Central African Republic",1972,"Bokassa","A",2820,2,-0.187302273197966,5.63756788303023
+"159",482,"CEN","Central African Republic",1981,"Kolingba","B",4434,1,-5.13483418652925,5.72762269154023
+"160",483,"CHA","Chad",1961,"Tombalbaye","A",4993,2,0.892326256779962,6.12952939806388
+"161",483,"CHA","Chad",1975,"Malloum","B",1438,2,11.4550046604159,6.32135085834012
+"162",483,"CHA","Chad",2005,"Deby","A",5616,2,1.03110836131181,7.41014744086731
+"163",484,"CON","Republic of the Congo",1968,"Raoul","B",119,1,1.68203548502639,5.40596027556339
+"164",484,"CON","Republic of the Congo",1977,"Opango","B",689,2,-0.111375592061054,5.90637223662264
+"165",484,"CON","Republic of the Congo",2007,"Nguesso","A",5887,1,-0.124341407500587,7.21283783117658
+"166",490,"DRC","Democratic Republic of the Congo",1960,"Mobutu","B",6,1,0.464294226238699,8.18981321464024
+"167",490,"DRC","Democratic Republic of the Congo",1975,"Mobutu","A",7843,2,-2.53588183184064,8.53952184131556
+"168",490,"DRC","Democratic Republic of the Congo",2016,"Joseph Kabila","A",1103,1,0.650644157692848,8.92840946316634
+"169",500,"UGA","Uganda",1976,"Amin","A",1172,2,5.92484591662357,7.2180646620239
+"170",500,"UGA","Uganda",1980,"Paulo Muwanga","B",213,1,0.902242827505764,7.07444191152766
+"171",500,"UGA","Uganda",1985,"Okello","B",184,2,-0.0299450693205461,7.20745608621849
+"172",500,"UGA","Uganda",2005,"Museveni","A",6876,1,1.2836978096384,8.37109956617666
+"173",516,"BUI","Burundi",1966,"Ntare","B",143,2,1.12951936697537,5.4941637162729
+"174",516,"BUI","Burundi",1966,"Micombero","B",3626,2,1.12951936697537,5.4941637162729
+"175",516,"BUI","Burundi",1976,"Bagaza","B",3950,2,4.22917248996314,5.89812043332862
+"176",516,"BUI","Burundi",1987,"Buyoya","B",2137,1,0.638682372871857,6.32663772603328
+"177",516,"BUI","Burundi",1993,"Ngueze","B",6,1,-1.54004007502121,6.4195860497795
+"178",516,"BUI","Burundi",1996,"Buyoya","B",2470,1,1.47185965192596,6.25727095751107
+"179",517,"RWA","Rwanda",1988,"Habyarimana","A",2101,2,0.984357809017815,6.72865134009917
+"180",517,"RWA","Rwanda",2008,"Paul Kagame","A",5609,1,0.990536957037354,7.31201232434292
+"181",522,"DJI","Djibouti",1989,"Gouled Aptidon","A",3602,1,-0.458013371886148,5.00876020387954
+"182",522,"DJI","Djibouti",2010,"Guelleh","A",4951,1,0.710912575924465,5.57262920443665
+"183",530,"ETH","Ethiopia",1974,"Andom","B",72,2,0.374523005159924,7.87848571011645
+"184",530,"ETH","Ethiopia",1977,"Mengistu Marriam","B",5212,2,0.591228811138323,7.92714685537924
+"185",531,"ERI","Eritrea",2003,"Afeworki","A",7492,1,0.394174159824075,8.79159213239962
+"186",540,"ANG","Angola",1992,"Dos Santos","A",9146,1,-0.853442764962953,8.1491701001339
+"187",552,"ZIM","Zimbabwe",1987,"Mugabe","A",11220,2,1.23201144708825,8.08132042088665
+"188",553,"MAW","Malawi",1971,"Banda","A",8355,1,2.07897870088961,6.31243148112118
+"189",565,"NAM","Namibia",2000,"Nujoma","A",1826,1,0.93674061246072,7.08626457834807
+"190",570,"LES","Lesotho",1986,"Lekhanya","B",1924,2,1.71817329351144,5.39365481870774
+"191",570,"LES","Lesotho",1991,"Ramaema","B",701,1,0.689226724363454,5.67421290569003
+"192",570,"LES","Lesotho",1994,"Letsie III","B",28,1,0.959393779670312,5.82247768674573
+"193",572,"SWA","Eswatini",1983,"Ntombe Thwala","B",989,1,0.550266452577614,5.62781533943191
+"194",580,"MAG","Madagascar",1975,"Gilles Andriamahazo","B",124,1,-0.16228638815388,7.2231607324559
+"195",580,"MAG","Madagascar",2002,"Marc Ravalomanana","B",2446,2,-0.850260489332913,7.61560632590728
+"196",580,"MAG","Madagascar",2009,"Rajoelina","B",1775,1,0.0297331348159939,7.92394962467075
+"197",581,"COM","Comoros",1978,"Bob Denard","B",4237,2,1.19668415710336,4.267555296788
+"198",581,"COM","Comoros",1999,"Azali Assoumani","B",997,1,2.29783543672738,4.85756181166129
+"199",581,"COM","Comoros",2010,"Sambi","A",365,1,3.21710417946289,5.09271899444958
+"200",615,"ALG","Algeria",1965,"Boumedienne","B",4939,1,1.92179004167685,8.76909289283585
+"201",615,"ALG","Algeria",1992,"Boudiaf","B",167,2,1.0867738621935,10.0743515548525
+"202",615,"ALG","Algeria",2009,"Bouteflika","A",3627,2,-0.143633481073977,10.685493899787
+"203",616,"TUN","Tunisia",1975,"Ben Ali Bourguiba","A",4488,2,0.770443558996119,7.7750175182889
+"204",616,"TUN","Tunisia",1997,"Zine Al-Abidine Ben Ali","A",4816,2,0.757952357796095,8.91004076551185
+"205",620,"LIB","Libya",1969,"Qaddafi","B",15331,2,0.695235835432756,8.07978127504843
+"206",625,"SUD","Sudan",1958,"Abboud","B",2175,2,0.969372976421591,7.41586120772816
+"207",625,"SUD","Sudan",1969,"Nimeiri","B",785,2,1.68722310009429,7.61867115705963
+"208",625,"SUD","Sudan",1971,"Osman","B",3,2,1.07083785017765,7.67714009093232
+"209",625,"SUD","Sudan",1971,"Nimeiri","B",5007,2,1.07083785017765,7.67714009093232
+"210",625,"SUD","Sudan",1985,"Abdul Rahman Swaredahab","B",395,1,-0.156910722831434,8.18683268009501
+"211",625,"SUD","Sudan",1999,"Al-Bashir","A",7225,2,0.858627375519549,8.70943092006411
+"212",630,"IRN","Iran",1951,"Mohammad Mossadeg","B",842,2,0.665466486509866,8.53774044337144
+"213",630,"IRN","Iran",1953,"Mohammad Reza","B",9281,2,0.544575554445613,8.55884095689379
+"214",640,"TUR","Turkey",1960,"Gursel","B",532,1,0.493312689945378,9.46507266381241
+"215",640,"TUR","Turkey",1971,"Erim","B",395,1,1.14414793440509,10.0817105968906
+"216",640,"TUR","Turkey",1980,"Evren","B",1159,1,0.4288568154308,10.4697215630709
+"217",640,"TUR","Turkey",1997,"Yilmaz","B",560,1,1.57977348679354,11.276635058734
+"218",640,"TUR","Turkey",2017,"Erdogan","A",2449,1,1.45411478419557,12.1888724618381
+"219",645,"IRQ","Iraq",1958,"Karrim Kassem","B",1670,2,1.14198771071522,8.33846907606341
+"220",645,"IRQ","Iraq",1963,"Salem Aref","B",1160,1,0.587689877548591,8.6967998996749
+"221",645,"IRQ","Iraq",1968,"Hassan Al-Bakr","B",4016,1,-7.84934744699399,8.69183600867208
+"222",651,"EGY","Egypt",1952,"Naguib","B",844,1,1.88690576926674,7.76728897527684
+"223",652,"SYR","Syria",1949,"Al-Zaim","B",136,2,1.34896910890352,6.9369518797143
+"224",652,"SYR","Syria",1949,"Hinnawi","B",128,2,1.34896910890352,6.9369518797143
+"225",652,"SYR","Syria",1949,"Shishakli","B",1532,2,1.34896910890352,6.9369518797143
+"226",652,"SYR","Syria",1954,"Atassi, H.","B",555,1,1.11626214380756,7.27490358528604
+"227",652,"SYR","Syria",1961,"Al-kuzbari","B",64,1,-0.554502654382326,7.22105465831394
+"228",652,"SYR","Syria",1962,"Zahreddin","B",16,1,-3.43886239759978,7.32104304350744
+"229",652,"SYR","Syria",1963,"Atassi, L.","B",140,2,0.744763203895839,7.33420336325223
+"230",652,"SYR","Syria",1966,"El-Atassi, N.","B",1722,2,-0.355001413288017,7.42839023356225
+"231",652,"SYR","Syria",1970,"Al-Khatib","B",96,1,0.864059231952908,7.73262740903023
+"232",660,"LEB","Lebanon",1995,"Elias Hrawi","A",1097,1,0.75544403834902,7.89268100497944
+"233",660,"LEB","Lebanon",2004,"Emile Lahoud","A",1094,1,1.23331716827783,8.42762881283506
+"234",660,"LEB","Lebanon",2008,"Suleiman","B",2190,1,1.48839733560776,8.67576152758633
+"235",678,"YEM","Yemen",1962,"AL-Sallal","B",1865,2,1.70284683186832,6.71410256643496
+"236",678,"YEM","Yemen",1967,"Al-Iryani","B",2412,2,1.41003021859239,6.86470998142098
+"237",678,"YEM","Yemen",1974,"Al-Hamadi","B",1216,2,0.697460075912706,7.47063658644308
+"238",680,"YPR","South Yemen",1986,"Attas","B",1579,1,-0.925588437855732,6.75215705196379
+"239",694,"QAT","Qatar",1972,"Khalifah Ath-Thani","B",8526,2,0.72715295290025,7.1842871685461
+"240",694,"QAT","Qatar",1995,"Hamad ibn Khalifah Al Thani","B",6573,1,1.93251630471816,7.47530862385327
+"241",698,"OMA","Oman",1970,"Qabus Bin Said","B",18068,1,0.46115541796021,6.51168589251434
+"242",700,"AFG","Afghanistan",1953,"Sardar Mohammad Daud Khan","B",3471,1,2.35282968052394,7.49790636864988
+"243",700,"AFG","Afghanistan",1973,"Sardar Mohammad Daud Khan","B",1745,2,-0.250741922826274,7.74959871960189
+"244",700,"AFG","Afghanistan",1978,"Taraki","B",331,2,0.874908057869593,7.83572632956568
+"245",700,"AFG","Afghanistan",1979,"Amin","B",275,2,0.648531278252321,7.84519126583617
+"246",701,"TKM","Turkmenistan",1999,"Niyazov","A",2612,1,14.8204352951265,7.9203506051575
+"247",702,"TAJ","Tajikistan",2002,"Rakhmonov","A",7677,1,2.14023910758584,7.07701017086074
+"248",703,"KYR","Kyrgyzstan",2000,"Akayev","A",1610,2,13.8116522568295,7.24530550579166
+"249",704,"UZB","Uzbekistan",2004,"Karimov","A",4545,1,1.2646898248302,9.55110822634942
+"250",705,"KZK","Kazakhstan",2000,"Nazarbayev","A",6904,1,-27.8513905432595,9.46237780549247
+"251",713,"TAW","Taiwan",1950,"Chiang Kai-shek","B",9166,1,0.384060893490837,7.21190722538981
+"252",732,"ROK","South Korea",1952,"Rhee","A",2812,2,5.36892714412464,7.92325548760241
+"253",732,"ROK","South Korea",1961,"Chang Do Yong","B",46,2,1.52984914981935,8.33027934618845
+"254",732,"ROK","South Korea",1971,"Hee Park","A",3037,2,1.01239878870537,9.22919892632472
+"255",732,"ROK","South Korea",1979,"Choi Kuy Hay","B",295,1,0.529699648186197,10.058542737461
+"256",770,"PAK","Pakistan",1958,"Ayub Khan","B",3822,2,1.14130810225936,8.63353002627263
+"257",770,"PAK","Pakistan",1971,"Bhutto","B",2024,2,0.554516120107925,9.35762758055024
+"258",770,"PAK","Pakistan",1977,"Zia","B",4061,2,1.25939935718526,9.59953780946023
+"259",770,"PAK","Pakistan",1993,"Mazari","B",38,1,0.683969575952681,10.5014211186292
+"260",770,"PAK","Pakistan",1996,"Khalid","B",104,1,0.988032750115636,10.6279526667699
+"261",770,"PAK","Pakistan",1999,"Musharraf","B",3231,1,1.23119125010548,10.7163202024219
+"262",771,"BNG","Bangladesh",1975,"Moshtaque Ahmed","B",83,2,-0.140994982886837,9.03904765334616
+"263",771,"BNG","Bangladesh",1975,"Ziaur Rahman","B",2032,2,-0.140994982886837,9.03904765334616
+"264",771,"BNG","Bangladesh",1981,"Sattar","B",294,2,0.807695939552306,9.2658078124818
+"265",771,"BNG","Bangladesh",1982,"Ershad","B",3176,2,0.862448966612856,9.29269305575324
+"266",775,"MYA","Burma/Myanmar",1962,"Ne Win","B",9642,1,0.0594695031190266,7.53133370798231
+"267",775,"MYA","Burma/Myanmar",1988,"Saw Maung","B",1313,1,4.27828877988833,8.25169913425329
+"268",790,"NEP","Nepal",1951,"Tribhuvan","B",1484,1,6.06151059217969,6.57864964221438
+"269",800,"THI","Thailand",1957,"Pote Sarasin","B",97,1,2.29728394447506,8.0157200300467
+"270",800,"THI","Thailand",1976,"Sangad","B",16,1,1.25017543440637,9.52904272673075
+"271",800,"THI","Thailand",1977,"Sangad","B",23,1,1.44224058116061,9.61792536487332
+"272",800,"THI","Thailand",1991,"Panyarachun","B",394,1,0.845312430400091,10.6181638593309
+"273",800,"THI","Thailand",2006,"Chulanont","B",497,1,0.824350106403859,11.3020975143587
+"274",800,"THI","Thailand",2014,"Prayuth Chan-ocha","B",3379,1,0.344858378842398,11.5850535870851
+"275",811,"CAM","Cambodia",1970,"Lon Nol","B",1849,2,2.31181791736307,6.84526585700618
+"276",811,"CAM","Cambodia",1997,"Hun Sen","A",9543,1,2.69334159124822,7.35578869591575
+"277",812,"LAO","Laos",1959,"Nosavan","B",7,1,0.834717633722217,5.20298968659058
+"278",812,"LAO","Laos",1960,"Kong Le","B",6,1,0.651478364691649,5.21861918285263
+"279",812,"LAO","Laos",1960,"Boun Oum","B",556,1,0.651478364691649,5.21861918285263
+"280",812,"LAO","Laos",1964,"Kouprasith","B",1,1,0.847207107350534,5.33166509822706
+"281",817,"RVN","Republic of Vietnam",1963,"Minh","B",90,2,-0.96419112585131,6.90480593393677
+"282",817,"RVN","Republic of Vietnam",1964,"Khanh","B",279,2,0.888436970752271,6.91289405283808
+"283",817,"RVN","Republic of Vietnam",1965,"Khahn","B",25,2,1.30358369557657,6.92132775481191
+"284",817,"RVN","Republic of Vietnam",1965,"Van Thieu","B",3598,2,1.30358369557657,6.92132775481191
+"285",840,"PHI","Philippines",1973,"Marcos","A",4440,2,1.39953873589373,9.43430726425218
+"286",850,"INS","Indonesia",1963,"Sukarno","A",806,2,0.585232583090151,9.52768046504817
+"287",850,"INS","Indonesia",1966,"Suharto","B",11758,1,0.512384336173924,9.54289085714459
+"288",940,"SOL","Solomon Islands",1994,"Mamaloni","B",1031,1,1.08208008856543,4.54997455052014
+"289",950,"FJI","Fiji",1987,"Rabuka","B",205,1,0.214810142218397,5.9783666428388
+"290",950,"FJI","Fiji",2000,"Laisenia Qarase","B",2335,2,0.158841789399737,6.34513448052178
+"291",950,"FJI","Fiji",2006,"Senilagakali","B",31,1,0.911337939626417,6.45937536294665

@@ -166,7 +166,7 @@ mydata1 <- mydata%>%
          survival_time=case_when(group=="A"~ymd(enddate)-overstaydate,
                                  .default = ymd(enddate)-ymd(startdate))) %>% 
   mutate(status=case_when(exit %in% c("Regular","Natural Death","Still in Office","Retired Due to Ill Health")~1,
-                          .default = 0))
+                          .default = 2))
   
 
 table(mydata1$group)
@@ -178,20 +178,35 @@ table(mydata1$status)
 ```{r}
 codebook |> 
   view()
-vdem |> 
+gdp <- vdem |> 
   select(ccode = COWcode, country = country_name, year, GDP = e_gdp, GDP_pc = e_gdp, population = e_pop) |>
-  filter(year >= 1945) |>
-  view()
+  filter(year >= 1945)|> 
+  mutate(GDP_growth = (GDP - lag(GDP)) / lag(GDP)*100,
+         .by = ccode)
+
+# create a new variable for 3-year moving average of GDP growth
+GDP <- gdp |> 
+  mutate(GDP_growth_3yr = rollmean(GDP_growth, k = 3, fill = NA, align = "right"),
+         .by = ccode) |>
+  mutate(GDP_growth_trend = GDP_growth / lag(GDP_growth_3yr),
+         GDP_pc_log = log(GDP_pc)) |>
+  select(ccode, country, year, GDP_growth_trend, GDP_pc_log) |>
+  drop_na() 
 ```
 
-
 ```{r}
-mydata1 %>% 
-  filter(survival_time > 7) |> 
-  summarise(avg=mean(survival_time/365),.by = group)
+mydata2 <- mydata1 |> 
+  mutate(Year = ifelse(is.na(overstay_year), syear, overstay_year)) |>
+  select(ccode, idacr, Year, leader, group, survival_time, status) |>
+  left_join(GDP, by = c("ccode", "Year" = "year")) |> 
+  drop_na() |> 
+  select(ccode, idacr, country, year = Year, leader, group, survival_time, status, GDP_growth_trend, GDP_pc_log)
+
+table(mydata2$group)
+table(mydata2$status)
 ```
 ```{r}
-write.csv(mydata1,"mydata.csv")
+write.csv(mydata2,"mydata.csv")
 ```
 
 
