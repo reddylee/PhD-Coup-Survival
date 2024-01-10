@@ -77,7 +77,7 @@ Unlike leaders who overstay, those who enter through coups face more substantial
 
 Utilizing a survival model, this paper suggests that leaders who surpass their term limits generally enjoy longer tenures compared to those who come into power through coups.
 Conducting a log-rank test in survival analysis on the leaders dataset [@goemans2009] and the author's incumbent overstay dataset reveals a distinct contrast: overstay leaders demonstrate notably extended survival rates in comparison to coup-entry leaders.
-Specifically, according to @fig-logrank, the average survival time post-overstay, excluding their original term duration, is approximately 10.3 years.
+Specifically, according to @fig-logrank, the average survival time post-overstay, excluding their original term duration, is approximately 10.8 years.
 In contrast, leaders who gain power via coups tend to have an average survival time of 5.3 years, representing an average shortfall of 5 years in their tenure [^1].
 
 [^1]: The data excluded leaders who survived less than 180 days.
@@ -197,7 +197,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favorable position across these three facets.
 
 | **Aspect**                       | **Overstay (Self-coup) Leaders**                                                                                    | **Coup-Entry Leaders**                                                                                                                                               |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------|----------------------|---------------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -390,7 +390,7 @@ The main variables are as follows.
     I categorized ousting by force as 1, even in cases where some leaders "voluntarily" resigned under pressure.
     Other methods of leaving office are considered censored, which can encompass situations where leaders appoint their successors, opt for democratic means of overturn, face health-related issues, or encounter natural death.
 
-### Independent variables
+#### Independent variables
 
 -   **Economic Influence Indicators:** For assessing economic influence, two key indicators are utilized: GDP growth and GDP per capita (GDP and GDPpc).
     These metrics are derived by calculating the 3-year moving average three years before the leader's entry or overstaying year.

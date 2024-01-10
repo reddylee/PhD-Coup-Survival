@@ -10,7 +10,7 @@ library(vdemdata)
 library(democracyData)
 library(janitor)
 library(gtsummary)
-
+library(zoo)
 library(survival)
 library(survminer)
 ```
@@ -176,8 +176,8 @@ table(mydata1$status)
 ## GDP & population
 
 ```{r}
-codebook |> 
-  view()
+# codebook |> 
+#   view()
 gdp <- vdem |> 
   select(ccode = COWcode, country = country_name, year, GDP = e_gdp, GDP_pc = e_gdp, population = e_pop) |>
   filter(year >= 1945)|> 
@@ -185,6 +185,7 @@ gdp <- vdem |>
          .by = ccode)
 
 # create a new variable for 3-year moving average of GDP growth
+
 GDP <- gdp |> 
   mutate(GDP_growth_3yr = rollmean(GDP_growth, k = 3, fill = NA, align = "right"),
          .by = ccode) |>
@@ -194,24 +195,46 @@ GDP <- gdp |>
   drop_na() 
 ```
 
+## Polity 5
+
+```{r}
+polity <- polity5 |> 
+  select(ccode = polity_annual_ccode, year, polity) |>
+  # if polity is less than -10, then replace it with its previous value
+  mutate(polity = ifelse(polity < -10, NA, polity)) |>
+  group_by(ccode) |>
+  fill(polity, .direction = "up") |>
+  ungroup() |>
+  filter(year >= 1945)
+```
+
+
 ```{r}
 mydata2 <- mydata1 |> 
   mutate(Year = ifelse(is.na(overstay_year), syear, overstay_year)) |>
   select(ccode, idacr, Year, leader, group, survival_time, status) |>
+  add_row(ccode = 552, 
+          idacr = "ZIM", 
+          Year = 2017, 
+          leader = "Emmerson Mnangagwa",
+          group = "B",
+          survival_time = ymd(20231127)-ymd(20171124),
+          status = 1) |> # add an observation for a new leader
   left_join(GDP, by = c("ccode", "Year" = "year")) |> 
+  left_join(polity, by = c("ccode", "Year" = "year")) |>
   drop_na() |> 
-  select(ccode, idacr, country, year = Year, leader, group, survival_time, status, GDP_growth_trend, GDP_pc_log)
+  select(ccode, idacr, country, year = Year, leader, group, survival_time, status, GDP_growth_trend, GDP_pc_log, polity) |> 
+  filter(survival_time > 180 & survival_time < 18000)
 
 table(mydata2$group)
 table(mydata2$status)
 ```
 ```{r}
-write.csv(mydata2,"mydata.csv")
+write.csv(mydata2, "mydata.csv")
 ```
 
 
 ```{r}
-
 result <- survdiff(Surv(survival_time, status) ~ group, data = mydata1)
 
 summary(result)
