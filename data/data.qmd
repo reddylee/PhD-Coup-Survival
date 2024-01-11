@@ -141,7 +141,7 @@ leaders1 <- leaders %>%
   mutate(syear=year(startdate),
          eyear=year(enddate)) %>% 
   filter(eyear > 1945) %>% 
-  select(3:5,syear,eyear,6:10)
+  select(3:5,syear,eyear,6:10, yrborn)
 
 leaders2 <- leaders1 %>% 
   mutate(coup_exit=ifelse(exitcode %in% c("Removed by Military, without Foreign Support","Removed by Other Government Actors, without Foreign Support"),1,0),
@@ -172,6 +172,19 @@ mydata1 <- mydata%>%
 table(mydata1$group)
 table(mydata1$exit)
 table(mydata1$status)
+
+mydata2 <- mydata1 |> 
+  mutate(Year = ifelse(is.na(overstay_year), syear, overstay_year),
+         age = ifelse(is.na(overstay_year), syear-yrborn, overstay_year-yrborn)) |>
+  select(ccode, idacr, Year, leader, age, group, survival_time, status) |>
+  add_row(ccode = 552, 
+          idacr = "ZIM", 
+          Year = 2017, 
+          leader = "Emmerson Mnangagwa",
+          age = 75,
+          group = "B",
+          survival_time = ymd(20231127)-ymd(20171124),
+          status = 1)  # add an observation for a new leader
 ```
 ## GDP & population
 
@@ -179,7 +192,7 @@ table(mydata1$status)
 # codebook |> 
 #   view()
 gdp <- vdem |> 
-  select(ccode = COWcode, country = country_name, year, GDP = e_gdp, GDP_pc = e_gdp, population = e_pop) |>
+  select(ccode = COWcode, country = country_name, year, GDP = e_gdp, GDP_pc = e_gdp, pop = e_pop) |>
   filter(year >= 1945)|> 
   mutate(GDP_growth = (GDP - lag(GDP)) / lag(GDP)*100,
          .by = ccode)
@@ -190,8 +203,9 @@ GDP <- gdp |>
   mutate(GDP_growth_3yr = rollmean(GDP_growth, k = 3, fill = NA, align = "right"),
          .by = ccode) |>
   mutate(GDP_growth_trend = GDP_growth / lag(GDP_growth_3yr),
-         GDP_pc_log = log(GDP_pc)) |>
-  select(ccode, country, year, GDP_growth_trend, GDP_pc_log) |>
+         GDP_pc_log = log(GDP_pc),
+         pop_log = log(pop)) |>
+  select(ccode, country, year, GDP_growth_trend, GDP_pc_log, pop_log) |>
   drop_na() 
 ```
 
@@ -201,36 +215,34 @@ GDP <- gdp |>
 polity <- polity5 |> 
   select(ccode = polity_annual_ccode, year, polity) |>
   # if polity is less than -10, then replace it with its previous value
-  mutate(polity = ifelse(polity < -10, NA, polity)) |>
+  mutate(polity5 = ifelse(polity < -10, NA, polity)) |>
   group_by(ccode) |>
-  fill(polity, .direction = "up") |>
+  fill(polity5, .direction = "up") |>
   ungroup() |>
   filter(year >= 1945)
 ```
 
+## Political Stability
+```{r}
+polstab <- read_excel("MEPVv2018.xls") |> 
+  select(ccode, year, polstab= actotal)
+```
+
 
 ```{r}
-mydata2 <- mydata1 |> 
-  mutate(Year = ifelse(is.na(overstay_year), syear, overstay_year)) |>
-  select(ccode, idacr, Year, leader, group, survival_time, status) |>
-  add_row(ccode = 552, 
-          idacr = "ZIM", 
-          Year = 2017, 
-          leader = "Emmerson Mnangagwa",
-          group = "B",
-          survival_time = ymd(20231127)-ymd(20171124),
-          status = 1) |> # add an observation for a new leader
+mydata3 <- mydata2 |> 
   left_join(GDP, by = c("ccode", "Year" = "year")) |> 
   left_join(polity, by = c("ccode", "Year" = "year")) |>
+  left_join(polstab, by = c("ccode", "Year" = "year")) |>
   drop_na() |> 
-  select(ccode, idacr, country, year = Year, leader, group, survival_time, status, GDP_growth_trend, GDP_pc_log, polity) |> 
+  select(ccode, idacr, country, year = Year, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab) |> 
   filter(survival_time > 180 & survival_time < 18000)
 
-table(mydata2$group)
-table(mydata2$status)
+table(mydata3$group)
+table(mydata3$status)
 ```
 ```{r}
-write.csv(mydata2, "mydata.csv")
+write.csv(mydata3, "mydata.csv")
 ```
 
 

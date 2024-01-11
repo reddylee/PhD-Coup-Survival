@@ -160,7 +160,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\date{January 10, 2024}
+\date{January 11, 2024}
 \title{\bf Political Leadership Survival in the Aftermath of Coups and
 Overstays: From Illegitimate Ascent to Unexpected Exit}
 \author{
@@ -504,9 +504,9 @@ power through coups, those who overextend their terms enjoy a relatively
 favorable position across these three facets.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3014}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4521}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3056}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4444}}@{}}
 \caption{Key Distinctions in Survival Tenures: Overstay versus
 Coup-Entry Leaders}\label{tbl-aspects}\tabularnewline
 \toprule\noalign{}
@@ -835,36 +835,54 @@ The main variables are as follows.
   overturn, face health-related issues, or encounter natural death.
 \end{itemize}
 
-\subsubsection{Independent variables}\label{independent-variables}
+\subsubsection{Independent variable}\label{independent-variable}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Leader type:} Group A = overstaying leader, Group B =
+  coup-entry leader. This variable is the primary independent variable
+  of interest, as it serves as the basis for comparison of survival time
+  between the two types of leaders.
+\end{itemize}
+
+The dependent and independent data are sourced from the author's
+incumbent overstay dataset and the leaders dataset by
+\citep{goemans2009}.
+
+\subsubsection{Control variables}\label{control-variables}
 
 \begin{itemize}
 \item
-  \textbf{Economic Influence Indicators:} For assessing economic
-  influence, two key indicators are utilized: GDP growth and GDP per
-  capita (GDP and GDPpc). These metrics are derived by calculating the
-  3-year moving average three years before the leader's entry or
-  overstaying year. The dataset utilized for these metrics is sourced
-  from V-Dem Data.
+  \textbf{Indicators of Economic Influence:} To evaluate economic
+  influence, I rely on two primary indicators: the trend in GDP growth
+  (\texttt{GDP\_growth\_trend}) and the logarithm of GDP per capita
+  (\texttt{GDP\_pc\_log)}. The GDP\_growth\_trend is determined by
+  contrasting the GDP growth in the year of a coup entry or overstaying
+  with the preceding 3-year moving average of the growth rate. The
+  dataset employed for these metrics is sourced from V-Dem Data.
 \item
   \textbf{Degree of Democracy:} The level of democracy is gauged using
-  Polity 5 scores at the entry year for each respective country. This
-  measurement serves as an assessment tool to ascertain the degree of
-  democracy prevalent in each nation.
+  Polity 5 scores (\texttt{polity}) at the entry year for each
+  respective country. This dataset is sourced from the Center for
+  Systemic Peace (CSP)\footnote{Center for Systemic Peace:
+    \url{https://www.systemicpeace.org}. Accessed on Dec 24, 2023.}.
 \item
   \textbf{Population Size:} Accounting for its potential impact on
-  leaders' tenures, the log population size is considered. This data is
-  obtained from the V-Dem Data and is evaluated in relation to its
-  influence on leadership survival.
+  leaders' tenures, the log population size (\texttt{pop\_log}) is
+  considered. This data is obtained from the V-Dem Data and is evaluated
+  in relation to its influence on leadership survival.
 \item
   \textbf{Political Stability:} The stability of the political landscape
   is crucial in evaluating the survival tenures of leaders. To quantify
   this aspect, the Major Episodes of Political Violence Variables
-  dataset by \citep{goldstone2009} is utilized to measure political
-  stability at the leader's entry year.
+  dataset from the CSP is utilized to measure political stability
+  (\texttt{polstab}) at the leader's entry year.
 \item
   \textbf{Leader's Age:} The age of the leader at the entry year serves
   as an additional variable in the analysis, providing insight into
-  potential correlations with leadership survival.
+  potential correlations with leadership survival. This data is sourced
+  from the leaders dataset by \citep{goemans2009}.
 \end{itemize}
 
 \newpage

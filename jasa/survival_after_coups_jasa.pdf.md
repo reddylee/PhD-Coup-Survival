@@ -197,7 +197,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favorable position across these three facets.
 
 | **Aspect**                       | **Overstay (Self-coup) Leaders**                                                                                    | **Coup-Entry Leaders**                                                                                                                                               |
-|------------------|----------------------|---------------------------------|
+|------------------|----------------------|--------------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -390,22 +390,32 @@ The main variables are as follows.
     I categorized ousting by force as 1, even in cases where some leaders "voluntarily" resigned under pressure.
     Other methods of leaving office are considered censored, which can encompass situations where leaders appoint their successors, opt for democratic means of overturn, face health-related issues, or encounter natural death.
 
-#### Independent variables
+#### Independent variable
 
--   **Economic Influence Indicators:** For assessing economic influence, two key indicators are utilized: GDP growth and GDP per capita (GDP and GDPpc).
-    These metrics are derived by calculating the 3-year moving average three years before the leader's entry or overstaying year.
-    The dataset utilized for these metrics is sourced from V-Dem Data.
+-   **Leader type:** Group A = overstaying leader, Group B = coup-entry leader. This variable is the primary independent variable of interest, as it serves as the basis for comparison of survival time between the two types of leaders.
 
--   **Degree of Democracy:** The level of democracy is gauged using Polity 5 scores at the entry year for each respective country.
-    This measurement serves as an assessment tool to ascertain the degree of democracy prevalent in each nation.
+The dependent and independent data are sourced from the author's incumbent overstay dataset and the leaders dataset by [@goemans2009].
 
--   **Population Size:** Accounting for its potential impact on leaders' tenures, the log population size is considered.
+#### Control variables
+
+-   **Indicators of Economic Influence:** To evaluate economic influence, I rely on two primary indicators: the trend in GDP growth (`GDP_growth_trend`) and the logarithm of GDP per capita (`GDP_pc_log)`.
+    The GDP_growth_trend is determined by contrasting the GDP growth in the year of a coup entry or overstaying with the preceding 3-year moving average of the growth rate.
+    The dataset employed for these metrics is sourced from V-Dem Data.
+
+-   **Degree of Democracy:** The level of democracy is gauged using Polity 5 scores (`polity`) at the entry year for each respective country.
+    This dataset is sourced from the Center for Systemic Peace (CSP)[^6].
+
+-   **Population Size:** Accounting for its potential impact on leaders' tenures, the log population size (`pop_log`) is considered.
     This data is obtained from the V-Dem Data and is evaluated in relation to its influence on leadership survival.
 
 -   **Political Stability:** The stability of the political landscape is crucial in evaluating the survival tenures of leaders.
-    To quantify this aspect, the Major Episodes of Political Violence Variables dataset by [@goldstone2009] is utilized to measure political stability at the leader's entry year.
+    To quantify this aspect, the Major Episodes of Political Violence Variables dataset from the CSP is utilized to measure political stability (`polstab`) at the leader's entry year.
 
 -   **Leader's Age:** The age of the leader at the entry year serves as an additional variable in the analysis, providing insight into potential correlations with leadership survival.
+    This data is sourced from the leaders dataset by [@goemans2009].
+
+[^6]: Center for Systemic Peace: <https://www.systemicpeace.org>.
+    Accessed on Dec 24, 2023.
 
 \newpage
 
