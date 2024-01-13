@@ -160,7 +160,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\date{January 11, 2024}
+\date{January 13, 2024}
 \title{\bf Political Leadership Survival in the Aftermath of Coups and
 Overstays: From Illegitimate Ascent to Unexpected Exit}
 \author{
@@ -252,7 +252,8 @@ and power-sharing, potentially diminishing their survival duration.
 
 }
 
-\caption{\label{fig-logrank}Kaplan-Meier plot}
+\caption{\label{fig-logrank}Kaplan-Meier plot for survival curves of
+overstay and coup-entry leaders}
 
 \end{figure}%
 
@@ -513,7 +514,7 @@ Coup-Entry Leaders}\label{tbl-aspects}\tabularnewline
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Aspect}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Overstay (Self-coup) Leaders}
+\textbf{Overstay Leaders}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Coup-Entry Leaders}
 \end{minipage} \\
@@ -523,7 +524,7 @@ Coup-Entry Leaders}\label{tbl-aspects}\tabularnewline
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Aspect}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Overstay (Self-coup) Leaders}
+\textbf{Overstay Leaders}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Coup-Entry Leaders}
 \end{minipage} \\
@@ -581,7 +582,7 @@ as highlighted by \citet{dahl2023}.
 \centering{
 
 \centering
-\begin{tabular}{>{\raggedright\arraybackslash}p{4.5cm}>{\centering\arraybackslash}p{4.5cm}>{\raggedleft\arraybackslash}p{4.5cm}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.5cm}>{\centering\arraybackslash}p{4.5cm}>{\centering\arraybackslash}p{4.5cm}}
 \toprule
 \textbf{Country} & \textbf{Coup attempts} & \textbf{Successful coups}\\
 \midrule
@@ -884,6 +885,66 @@ incumbent overstay dataset and the leaders dataset by
   potential correlations with leadership survival. This data is sourced
   from the leaders dataset by \citep{goemans2009}.
 \end{itemize}
+
+\subsection{Method}\label{method}
+
+Here, I employ Cox proportional hazards models to assess the likelihood
+of leaders being removed from office, essentially examining the hazards
+associated with leadership tenure termination.
+
+\begin{equation}
+\begin{aligned}
+Surv(survival\_time, status) &= group + \\
+&GDP\_growth\_trend + GDP\_pc\_log + \\
+&pop\_log + polity5 + polstab + age
+\end{aligned}
+\end{equation}
+
+\begin{table}[htbp]
+
+\caption{\label{tbl-cox}Cox proportional hazards model for survival time
+of leaders}
+
+\centering{
+
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.5cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{3cm}}
+\toprule
+\textbf{Characteristic} & \textbf{HR} & \textbf{95\% CI} & \textbf{p-value}\\
+\midrule
+\cellcolor{gray!6}{Leader type} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
+\addlinespace
+\hspace{1em}Overstay leaders & 1.00 & — & \\
+\addlinespace
+\cellcolor{gray!6}{\hspace{1em}Coup-entry leaders} & \cellcolor{gray!6}{2.49} & \cellcolor{gray!6}{1.53, 4.07} & \cellcolor{gray!6}{<0.001}\\
+\addlinespace
+GDP growth trend & 1.00 & 1.00, 1.00 & 0.4\\
+\addlinespace
+\cellcolor{gray!6}{Log of GDP per capita} & \cellcolor{gray!6}{0.73} & \cellcolor{gray!6}{0.57, 0.93} & \cellcolor{gray!6}{0.011}\\
+\addlinespace
+Log of population & 1.25 & 0.95, 1.64 & 0.11\\
+\addlinespace
+\cellcolor{gray!6}{Polity5 score} & \cellcolor{gray!6}{1.00} & \cellcolor{gray!6}{0.96, 1.05} & \cellcolor{gray!6}{0.9}\\
+\addlinespace
+Political stability & 1.02 & 0.93, 1.13 & 0.6\\
+\addlinespace
+\cellcolor{gray!6}{Age of leader} & \cellcolor{gray!6}{1.01} & \cellcolor{gray!6}{0.99, 1.03} & \cellcolor{gray!6}{0.4}\\
+\addlinespace
+\midrule
+No. Obs. & 219 &  & \\
+\addlinespace
+\cellcolor{gray!6}{Log-likelihood} & \cellcolor{gray!6}{-447} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
+\addlinespace
+AIC & 908 &  & \\
+\addlinespace
+\cellcolor{gray!6}{BIC} & \cellcolor{gray!6}{926} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
+\bottomrule
+\multicolumn{4}{l}{\rule{0pt}{1em}\textsuperscript{1} HR = Hazard Ratio, CI = Confidence Interval}\\
+\end{tabular}
+
+}
+
+\end{table}%
 
 \newpage
 

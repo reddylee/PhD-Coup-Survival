@@ -13,7 +13,15 @@ library(gtsummary)
 library(zoo)
 library(survival)
 library(survminer)
+library(kableExtra)
 ```
+
+
+$$
+Surv(\text{survival_time}, status) = group + 
+GDP_\text{growth_trend} + GDP_\text{pc_log} + 
+pop_{log} + polity5 + polstab + age$$
+
 ## overstays
 
 ```{r}
