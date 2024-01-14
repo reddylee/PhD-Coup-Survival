@@ -454,31 +454,54 @@ coxplot <- Mydata |>
     data = _
   )
 
-tbl_regression(
-  coxplot,
-  exponentiate = TRUE,
-  add_estimate_to_reference_rows = TRUE,
-  label = list(
-    group ~ "Leader type",
-    GDP_growth_trend ~ "GDP growth trend",
-    GDP_pc_log ~ "Log of GDP per capita",
-    pop_log ~ "Log of population",
-    polity5 ~ "Polity5 score",
-    polstab ~ "Political stability",
-    age ~ "Age of leader"
-  )
-) |>
-  add_glance_table(include = c(nobs, logLik, AIC, BIC)) |>
-  as_kable_extra(
-    format = "latex",
-    booktabs = T
-  ) |> 
+plot1 <- coxplot |>
+  tbl_regression(
+    add_estimate_to_reference_rows = TRUE,
+    label = list(
+      group ~ "Leader type",
+      GDP_growth_trend ~ "GDP growth trend",
+      GDP_pc_log ~ "Log of GDP per capita",
+      pop_log ~ "Log of population",
+      polity5 ~ "Polity5 score",
+      polstab ~ "Political stability",
+      age ~ "Age of leader"
+    )
+  ) |>
+  add_nevent() |>
+  add_significance_stars(hide_se = TRUE) 
+
+plot2 <- coxplot |>
+  tbl_regression(
+    exponentiate = TRUE,
+    add_estimate_to_reference_rows = TRUE,
+    label = list(
+      group ~ "Leader type",
+      GDP_growth_trend ~ "GDP growth trend",
+      GDP_pc_log ~ "Log of GDP per capita",
+      pop_log ~ "Log of population",
+      polity5 ~ "Polity5 score",
+      polstab ~ "Political stability",
+      age ~ "Age of leader"
+    )
+  ) |>
+  bold_p() |>
+  add_glance_table(include = c(nobs, logLik, AIC, BIC)) 
+
+tbl_merge(tbls = list(plot1, plot2)) |>
+  modify_spanning_header(everything() ~ NA_character_) |>
+  as_kable_extra(format = "latex",
+                 booktabs = T) |>
   kable_styling(latex_options = "striped",
                 position = "center") |>
-  column_spec(column = 1:4, width = c("5.5cm","2.5cm","3.5cm","3cm")) |>
+  column_spec(column = 1:6,
+              width = c("4cm", "2cm", "2cm", "1.5cm", "2.5cm","1.5cm")) |>
   collapse_rows(latex_hline = "linespace")
+
 ```
 
+
+
 \newpage
+
 
 ## References
