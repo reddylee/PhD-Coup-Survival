@@ -89,6 +89,7 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
+\usepackage{caption}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -160,7 +161,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\date{January 14, 2024}
+\date{January 15, 2024}
 \title{\bf Political Leadership Survival in the Aftermath of Coups and
 Overstays: From Illegitimate Ascent to Unexpected Exit}
 \author{
@@ -900,6 +901,13 @@ Surv(survival\_time, status) &= group + \\
 \end{aligned}
 \end{equation}
 
+\section{Outcome and discussion}\label{outcome-and-discussion}
+
+Based on the previous discussion, I test my hypothesis that overstaying
+leaders are more likely to experience extended regime survival compared
+to leaders who come to power through coups. The regression outcome of
+cox proportional hazards model is presented in Table~\ref{tbl-cox}.
+
 \begin{table}[htbp]
 
 \caption{\label{tbl-cox}Cox proportional hazards model for survival time
@@ -946,6 +954,35 @@ AIC &  &  & 908 &  & \\
 }
 
 \end{table}%
+
+\begin{longtable*}{lrrrrrr}
+\toprule
+term & estimate & std.error & statistic & p.value & conf.low & conf.high \\ 
+\midrule\addlinespace[2.5pt]
+groupCoup-entry leaders & 2.492642 & 0.2505630981 & 3.6451630 & 0.0002672224 & 1.5253878 & 4.0732369 \\ 
+GDP\_growth\_trend & 1.000689 & 0.0008869125 & 0.7765857 & 0.4374032156 & 0.9989510 & 1.0024300 \\ 
+GDP\_pc\_log & 0.725924 & 0.1258370362 & -2.5454344 & 0.0109141854 & 0.5672552 & 0.9289746 \\ 
+pop\_log & 1.245529 & 0.1391871694 & 1.5774454 & 0.1146930805 & 0.9481508 & 1.6361763 \\ 
+polity5 & 1.004677 & 0.0247493178 & 0.1885380 & 0.8504548914 & 0.9571056 & 1.0546131 \\ 
+polstab & 1.024551 & 0.0502471244 & 0.4827113 & 0.6293007415 & 0.9284603 & 1.1305875 \\ 
+age & 1.008426 & 0.0103036922 & 0.8143645 & 0.4154361610 & 0.9882655 & 1.0289983 \\ 
+\bottomrule
+\end{longtable*}
+
+\includegraphics{survival_after_coups_jasa_files/figure-pdf/unnamed-chunk-7-1.pdf}
+
+The Table~\ref{tbl-cox} underscores the significance of leader type and
+GDP per capita in influencing the hazard ratios associated with leaders'
+ousting. Specifically, the hazard ratio for coup-entry leaders is 2.49,
+signifying that coup-entry leaders are 1.49 times more likely to face
+ousting compared to overstaying leaders, all else being equal.
+Additionally, the hazard ratio associated with the logarithm of GDP per
+capita is 0.73, suggesting that a 1\% increase in GDP per capita is
+correlated with a 27\% reduction in the hazard of being ousted. It is
+noteworthy that the remaining variables did not exhibit statistical
+significance in this analysis.
+
+\section{Conclusion}\label{conclusion}
 
 \newpage
 

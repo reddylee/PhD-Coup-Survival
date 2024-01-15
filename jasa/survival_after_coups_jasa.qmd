@@ -41,6 +41,7 @@ library(glue)
 library(gt)
 library(kableExtra)
 library(gtsummary)
+library(broom)
 ```
 
 ## Introduction
@@ -439,6 +440,10 @@ Surv(survival\_time, status) &= group + \\
 \end{aligned}
 \end{equation}
 
+## Outcome and discussion
+
+Based on the previous discussion, I test my hypothesis that overstaying leaders are more likely to experience extended regime survival compared to leaders who come to power through coups. The regression outcome of cox proportional hazards model is presented in @tbl-cox.
+
 ```{r}
 #| label: tbl-cox
 #| tbl-cap: Cox proportional hazards model for survival time of leaders
@@ -499,7 +504,30 @@ tbl_merge(tbls = list(plot1, plot2)) |>
 
 ```
 
+```{r}
+coxplottidy <- tidy(coxplot, exponentiate=T, conf.int=T)
+coxplottidy |> 
+  gt()
+```
 
+```{r}
+coxplottidy |>
+  ggplot(aes(
+    y = term,
+    x = estimate,
+    xmin = conf.low,
+    xmax = conf.high
+  )) +
+  geom_pointrange() +
+  geom_vline(xintercept = 1, linetype = "dashed", color = "skyblue") +
+  labs(x = "hazard ratio", title = "Hazard ratios and 95% CIs") +
+  theme_bw() 
+```
+
+
+The @tbl-cox underscores the significance of leader type and GDP per capita in influencing the hazard ratios associated with leaders' ousting. Specifically, the hazard ratio for coup-entry leaders is 2.49, signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal. Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73, suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted. It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.
+
+## Conclusion
 
 \newpage
 
