@@ -442,24 +442,23 @@ Surv(survival\_time, status) &= group + \\
 
 ## Outcome and discussion
 
-Based on the previous discussion, I test my hypothesis that overstaying leaders are more likely to experience extended regime survival compared to leaders who come to power through coups. The regression outcome of cox proportional hazards model is presented in @tbl-cox.
-
 ```{r}
-#| label: tbl-cox
-#| tbl-cap: Cox proportional hazards model for survival time of leaders
-#| tbl-width: 7
-#| tbl-height: 5
-#| tbl-align: center
-#| tbl-pos: htbp
-
-coxplot <- Mydata |>
+#| label: model_cox
+model_cox <- Mydata |>
   mutate(group = factor(group, labels = c("Overstay leaders", "Coup-entry leaders"))) |>
   coxph(
     Surv(survival_time, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age,
     data = _
   )
+#summary(model_cox)
+```
 
-plot1 <- coxplot |>
+
+```{r}
+#| label: tbl-cox
+#| tbl-cap: Cox proportional hazards model for survival time of leaders
+
+tbl1 <- model_cox |>
   tbl_regression(
     add_estimate_to_reference_rows = TRUE,
     label = list(
@@ -475,7 +474,7 @@ plot1 <- coxplot |>
   add_nevent() |>
   add_significance_stars(hide_se = TRUE) 
 
-plot2 <- coxplot |>
+tbl2 <- model_cox |>
   tbl_regression(
     exponentiate = TRUE,
     add_estimate_to_reference_rows = TRUE,
@@ -492,25 +491,18 @@ plot2 <- coxplot |>
   bold_p() |>
   add_glance_table(include = c(nobs, logLik, AIC, BIC)) 
 
-tbl_merge(tbls = list(plot1, plot2)) |>
+tbl_merge(tbls = list(tbl1, tbl2)) |> 
   modify_spanning_header(everything() ~ NA_character_) |>
-  as_kable_extra(format = "latex",
-                 booktabs = T) |>
-  kable_styling(latex_options = "striped",
-                position = "center") |>
-  column_spec(column = 1:6,
-              width = c("4cm", "2cm", "2cm", "1.5cm", "2.5cm","1.5cm")) |>
-  collapse_rows(latex_hline = "linespace")
-
+  as_gt()
 ```
+Based on the previous discussion, I test my hypothesis that overstaying leaders are more likely to experience extended regime survival compared to leaders who come to power through coups. The regression outcome of cox proportional hazards model is presented in @tbl-cox. The @tbl-cox underscores the significance of leader type and GDP per capita in influencing the hazard ratios associated with leaders' ousting. Specifically, the hazard ratio for coup-entry leaders is 2.49, signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal. Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73, suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted. It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.
 
 ```{r}
-coxplottidy <- tidy(coxplot, exponentiate=T, conf.int=T)
-coxplottidy |> 
-  gt()
-```
+#| label: fig-coxHR
+#| fig-cap: Hazard ratios and 95% CIs for Leader Ousting
 
-```{r}
+coxplottidy <- tidy(model_cox, exponentiate = T, conf.int = T)
+
 coxplottidy |>
   ggplot(aes(
     y = term,
@@ -519,17 +511,53 @@ coxplottidy |>
     xmax = conf.high
   )) +
   geom_pointrange() +
-  geom_vline(xintercept = 1, linetype = "dashed", color = "skyblue") +
-  labs(x = "hazard ratio", title = "Hazard ratios and 95% CIs") +
+  geom_vline(xintercept = 1,
+             linetype = "dashed",
+             color = "skyblue") +
+  labs(x = "Hazard ratios", y = NULL, title = "") +
   theme_bw() 
 ```
+The @fig-coxHR illustrates the hazard ratios and 95% confidence intervals for the variables in the Cox model. The hazard ratio for coup-entry leaders is 2.49, signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal. Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73, suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted. It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.
 
+```{r}
+#| label: fig-coxSurv
+#| fig-cap: Cox proportional hazards model for survival time of leaders
 
-The @tbl-cox underscores the significance of leader type and GDP per capita in influencing the hazard ratios associated with leaders' ousting. Specifically, the hazard ratio for coup-entry leaders is 2.49, signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal. Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73, suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted. It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.
+plot_data <- data.frame(
+  group = c("Overstay leaders", "Coup-entry leaders"),
+  GDP_growth_trend = mean(Mydata$GDP_growth_trend),
+  GDP_pc_log = mean(Mydata$GDP_pc_log),
+  pop_log = mean(Mydata$pop_log),
+  polity5 = mean(Mydata$polity5),
+  polstab = mean(Mydata$polstab),
+  age = mean(Mydata$age)
+)
 
-## Conclusion
+model_cox |> 
+  survfit(newdata = plot_data) |>
+  ggsurvplot(
+    data = plot_data,
+    #risk.table = TRUE,
+    pval = T,
+    conf.int = TRUE,
+    surv.median.line = "hv",
+    legend.title = "Leader type",
+    legend.labs = c("Overstay leaders", "Coup-entry leaders"),
+    break.time.by = 1000,
+    xlab = "Survival time (days)",
+    ylab = "Survival probability",
+    ggtheme = theme_bw(),
+    break.x.by = 2000
+  ) 
+```
+
+The @fig-coxSurv illustrates the survival curves for overstaying leaders and coup-entry leaders. The survival probability of overstaying leaders is significantly higher than that of coup-entry leaders, as the survival probability of overstaying leaders is 0.85 at 5,000 days, while that of coup-entry leaders is 0.65 at the same time point. This finding is consistent with the results of the Cox model, which indicates that overstaying leaders are more likely to experience extended regime survival compared to leaders who come to power through coups.
 
 \newpage
 
+## Conclusion
+
+
+\newpage
 
 ## References

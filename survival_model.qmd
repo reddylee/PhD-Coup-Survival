@@ -1,0 +1,559 @@
+## Setup
+
+```{r}
+#| label: setup
+library(survival)
+library(survminer)
+library(tidyverse)
+library(data.table)
+library(broom)
+```
+
+
+## Load data
+```{r}
+addicts <- fread("https://web1.sph.emory.edu/dkleinb/allDatasets/surv2datasets/addicts.dat", header = F, sep=" ", skip = 19) |> 
+  rename_with(~ c("ID", "Clinic", "status", "survt", "prison","dose"))
+
+anderson <- fread("https://web1.sph.emory.edu/dkleinb/allDatasets/surv2datasets/anderson.dat") |>
+  mutate(ID = row_number()) |>
+  select(ID, everything()) |> 
+  rename_with(~c("Subj", "Survt", "Relapse", "Sex", "logWBC", "Rx")) |> 
+  mutate(Group = case_when(logWBC <= 2.3 ~ "Low",
+                           logWBC < 3 ~ "Medium",
+                           .default = "High")) 
+anderson|>
+  janitor::tabyl(Group)
+```
+
+```{r}
+# split data
+addicts.cp <- addicts |> 
+  survSplit(cut = survt[status == 1],
+            end = "survt",
+            event = "status",
+            start = "start",
+            id = "id")
+            
+```
+```{r}
+view(veteran)
+vet2 <- survSplit(Surv(time, status) ~., veteran,
+                   cut=c(60, 120), episode ="timegroup")
+
+addicts.cp <- survSplit(addicts,cut=addicts$survt[addicts$status==1],
+                        end="survt", event= "tatus",start="start",id= "id")
+```
+
+```{r}
+testdata <- data.frame(id = 1:3,
+                       syear = c(1945, 1967, 1950),
+                       eyear = c(1950, 1970, 1965),
+                       status = c(1, 1, 2),
+                       age = c(45, 50, 40),
+                       group = c("A", "B", "A"))
+testdata
+```
+
+```{r}
+#survSplit by year, each year is a new row
+survSplit(Surv(syear, eyear, status) ~ ., 
+          testdata, 
+          cut = 1945:1970,
+          event = "status") |>
+  view()
+```
+
+```{r}
+expanded_data <- survSplit(
+  testdata,
+  cut = 1945:1970,
+  end = "eyear",
+  event = "status",
+  start = "syear",
+  episode = "episode"
+)
+
+survSplit
+```
+
+```{r}
+expand_data <- function(data) {
+  new_rows <- list()
+  
+  for (i in 1:nrow(data)) {
+    id <- rep(data$id[i], data$eyear[i] - data$syear[i] + 1)
+    year <- seq(data$syear[i], data$eyear[i])
+    age <- data$age[i] + (year - data$syear[i])
+    status <- ifelse(year == data$eyear[i], data$status[i], 0)
+    group <- rep(data$group[i], length(id))
+    
+    new_rows[[i]] <- data.frame(id, year, age, status, group)
+  }
+  
+  expanded_data <- do.call(rbind, new_rows)
+  return(expanded_data)
+}
+```
+
+
+```{r}
+expand_data <-
+  function(data,
+           id_var,
+           start_var,
+           end_var,
+           increment_var = NULL,
+           status_var = NULL,
+           by = "year",
+           increment = 1,
+           status_code = 0) {
+    new_rows <- list()
+    
+    for (i in 1:nrow(data)) {
+      id <-
+        rep(data[[id_var]][i], (data[[end_var]][i] - data[[start_var]][i]) / increment + 1)
+      
+      if (!is.null(increment_var)) {
+        time_values <-
+          seq(data[[start_var]][i], data[[end_var]][i], by = data[[increment_var]][i])
+      } else {
+        time_values <-
+          seq(data[[start_var]][i], data[[end_var]][i], by = increment)
+      }
+      
+      if (increment == -1) {
+        time_values <- rev(time_values)
+      }
+      
+      age <-
+        data[[start_var]][i] + (time_values - data[[start_var]][i])
+      
+      if (!is.null(status_var)) {
+        status <-
+          ifelse(time_values == data[[end_var]][i], data[[status_var]][i], status_code)
+      } else {
+        status <- rep(status_code, length(id))
+      }
+      
+      other_vars <-
+        setdiff(names(data),
+                c(id_var, start_var, end_var, increment_var, status_var))
+      other_data <-
+        lapply(other_vars, function(var)
+          rep(data[[var]][i], length(id)))
+      
+      new_row <-
+        cbind(
+          id = id,
+          time_values = time_values,
+          age = age,
+          status = status,
+          other_data
+        )
+      new_rows[[i]] <- as.data.frame(new_row)
+    }
+    
+    expanded_data <- do.call(rbind, new_rows)
+    return(expanded_data)
+  }
+
+# Example usage
+testdata |>
+  expand_data(
+    id_var = "id",
+    start_var = "syear",
+    end_var = "eyear",
+    increment_var = "age",
+    status_var = "status",
+    increment = 1,
+    status_code = 0
+  )
+```
+
+```{r}
+expand_dataset <- function(df, start_time_var, end_time_var, by = "year",
+                           add_vars = NULL, add_values = 1,
+                           status_vars = NULL, status_default = 0) {
+  
+  # Expand by time duration
+  time_expanded <- df %>%
+    tidyr::expand(nesting(!!!syms(setdiff(names(.), c(start_time_var, end_time_var)))),
+                  !!sym(start_time_var) := seq(first(!!sym(start_time_var)),
+                                               last(!!sym(end_time_var)),
+                                               by = by))
+  
+  # Add values to specified variables
+  if (!is.null(add_vars)) {
+    time_expanded <- time_expanded %>%
+      group_by(across(-!!sym(start_time_var))) %>%
+      mutate(across(all_of(add_vars), ~ . + seq(add_values * (n() - 1), 0, by = -add_values)))
+  }
+  
+  # Assign status values
+  if (!is.null(status_vars)) {
+    time_expanded <- time_expanded %>%
+      mutate(across(all_of(status_vars), ~ ifelse(!!sym(start_time_var) == last(!!sym(end_time_var)),
+                                                   ., status_default)))
+  }
+  
+  return(time_expanded)
+}
+```
+
+```{r}
+testdata |> 
+  expand_dataset(start_time_var = "syear", end_time_var = "eyear", by = 1, 
+                 add_vars = "age", add_values = 1, status_vars = "status", status_default = 0) |> 
+  view()
+```
+
+```{r}
+group1 <- c(6, 6,6,7,10,
+13, 16,22,23,
+6, 9, 10, 11,
+17, 19, 20, 25,
+32, 32, 34, 35)
+group2 <- c(1, 1, 2, 2,3,
+4,4,5,5,
+8,8,8, 8,
+11, 11, 12,12,
+15, 17, 22, 23)
+
+9/sum(group1)
+21/sum(group2)
+```
+```{r}
+survdat <- read.csv("data/Survival.csv")
+
+survdat <- survdat |> 
+  mutate(censored = ifelse(Turnover == 1, 1, 0))
+
+survdat |> 
+  ggplot(aes(x = LOS)) +
+  geom_histogram(bins = 10, col = "purple", fill = "white")
+```
+```{r}
+survdat |>
+  ggplot(aes(x = LOS)) +
+  geom_histogram(bins = 10, col = "purple", fill = "white") +
+  facet_wrap(~ Turnover)
+```
+### survival datasets
+
+aml (cancer)             Acute Myelogenous Leukemia survival data
+bladder (cancer)         Bladder Cancer Recurrences
+bladder1 (cancer)        Bladder Cancer Recurrences
+bladder2 (cancer)        Bladder Cancer Recurrences
+cancer (lung)            NCCTG Lung Cancer Data
+capacitor (reliability)
+
+```{r}
+aml
+bladder
+bladder1
+bladder2
+cancer
+capacitor
+?lung
+
+```
+
+```{r}
+AIDSsurv <- data.frame(
+  Time = c(2, 3, 6, 6, 7, 10, 15, 15, 16, 27, 30, 32),
+  Death = c(1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1)
+)
+AIDSsurv
+```
+
+
+## Model
+
+### Kaplan-Meier
+```{r}
+kp<- AIDSsurv |> 
+  survfit(Surv(Time, Death) ~ 1, data = _) 
+kp
+summary(kp)
+tidy(kp)
+```
+
+```{r}
+ggsurvplot(kp, data = AIDSsurv, risk.table = TRUE, pval = TRUE, conf.int = TRUE, ggtheme = theme_bw(),surv.median.line = "hv", legend.labs = c("AIDS"))
+```
+
+```{r}
+kp.aml <- aml |> 
+  survfit(Surv(time, status) ~ x, data = _)
+kp.aml
+tidy(kp.aml)
+```
+
+```{r}
+kp.aml |> 
+  ggsurvplot(risk.table = TRUE, pval = TRUE, conf.int = F, ggtheme = theme_bw(),
+             surv.median.line = "hv", legend.labs = c("Maintained", "Non-aintained"), 
+             data = aml)
+```
+
+## Expontential model
+
+```{r}
+
+```
+
+
+```{r}
+survdat |> 
+  survfit(Surv(LOS, censored) ~ 1, data = _) |> 
+  tidy()
+```
+```{r}
+# Load the survival package
+# install.packages("survival")
+# library(survival)
+
+# Fit Cox PH model using the lung dataset
+cox_model <- coxph(Surv(time, status) ~ age + sex + ph.karno, data = lung)
+
+# Generate survival curves
+surv_curve <- survfit(cox_model)
+
+# Print summary of survival curves
+summary(surv_curve)
+
+# Plot the survival curve
+plot(surv_curve, main = "Survival Curve for Lung Cancer Patients", xlab = "Time (Days)", ylab = "Survival Probability")
+
+ggsurvplot(surv_curve, data = lung, risk.table = TRUE, pval = TRUE, conf.int = TRUE, ggtheme = theme_bw())
+lung
+```
+
+```{r}
+# Load the survival package
+# install.packages("survival")
+# library(survival)
+
+# coxph model with lung dataset
+lung |> 
+  coxph(Surv(time, status) ~ age + sex + ph.karno, data = _) |>
+  survfit() |> 
+  ggsurvplot_group_by(data = lung, risk.table = TRUE, pval = TRUE, conf.int = TRUE, group.by = "sex",  ggtheme = theme_bw())
+```
+
+```{r}
+library(survival)
+fit <- survfit(Surv(time, status) ~ sex, data = colon )
+
+# Visualize: grouped by treatment rx
+#:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ggsurv.list1 <- ggsurvplot_group_by(fit, colon, group.by = "rx", risk.table = TRUE,
+                                 pval = TRUE, conf.int = TRUE, palette = "jco")
+names(ggsurv.list)
+
+
+# Visualize: grouped by treatment rx and adhere
+#:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ggsurv.list2 <- ggsurvplot_group_by(fit, colon, group.by = c("rx", "adhere"),
+                                 risk.table = TRUE,
+                                 pval = TRUE, conf.int = TRUE, palette = "jco")
+
+ggsurv.list1; ggsurv.list2
+```
+
+## Cox PH model
+```{r}
+model_anderson <- anderson |> 
+  coxph(Surv(Survt, Relapse) ~ logWBC + Rx + Sex, data = _)
+model_anderson |>
+  summary()
+```
+
+```{r}
+test2 <- data.frame(start=c(1,2,5,2,1,7,3,4,8,8), 
+              stop=c(2,3,6,7,8,9,9,9,14,17), 
+              event=c(1,1,1,1,1,1,1,0,0,0), 
+              x=c(1,0,0,1,0,1,1,1,0,0)) 
+summary(coxph(Surv(start, stop, event) ~ x, test2))
+```
+```{r}
+test1 <- data.frame(time=c(4,3,1,1,2,2,3), 
+              status=c(1,1,1,0,1,1,0), 
+              x=c(0,2,1,1,1,0,0), 
+              sex=c(0,0,0,0,1,1,1))
+coxph(Surv(time, status) ~ x + strata(sex), test1) 
+coxph(Surv(time, status) ~ x + sex, test1) 
+```
+
+```{r}
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx + logWBC, data = _, method = "efron") |> 
+  summary()
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx + logWBC, data = _, method = "breslow") |> 
+  summary()
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx + logWBC, data = _, method = "exact") |> 
+  summary()
+  
+```
+```{r}
+anderson |> 
+  filter(Sex == 0) |> 
+  coxph(Surv(Survt) ~ Rx + logWBC, data = _) |> 
+  summary()
+  
+```
+```{r}
+anderson |> 
+  filter(Sex == 1) |> 
+  coxph(Surv(Survt) ~ Rx + logWBC, data = _) |> 
+  summary()
+  
+```
+
+```{r}
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx + logWBC + Rx:Sex + logWBC:Sex, data = _) |> 
+  summary()
+  
+```
+```{r}
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ logWBC + Rx + Sex, data = _, method = "breslow") |> 
+  summary()
+
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ logWBC + Rx + Sex, data = _, method = "breslow") |> 
+  cox.zph() 
+```
+## Class 16: Cox PH model
+```{r}
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx, data = _, method = "breslow") |> 
+  summary()
+
+mod_anderson2 <- anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx + logWBC, data = _, method = "breslow")
+
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx * logWBC, data = _, method = "breslow") |> 
+  summary()
+```
+```{r}
+# plot survival curves for coxph model, compare by Sex
+mod_anderson2 <- anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx + logWBC + Sex, data = _, method = "breslow")
+
+newdata <- data.frame(Rx = 0:1,
+                      Sex = 0:1,
+                      logWBC = mean(anderson$logWBC))
+
+mod_anderson2 |>
+  survfit(newdata = newdata) |> 
+  ggsurvplot(data = anderson, 
+             censor = F,
+             risk.table = TRUE, 
+             risk.table.y.text.col = TRUE,
+             pval = TRUE, 
+             legend.labs = c("Sex = Male", "Sex = Female"),
+             #legend.labs = c("Rx = New Treatment", "Rx = Standard Treatment"),
+             ggtheme = theme_bw())
+mod_anderson2 |>
+  survfit(newdata = newdata) |> 
+  ggsurvplot(data = anderson, 
+             censor = F,
+             risk.table = TRUE, 
+             risk.table.y.text.col = TRUE,
+             pval = TRUE, 
+             #legend.labs = c("Sex = Male", "Sex = Female"),
+             legend.labs = c("Rx = New Treatment", "Rx = Standard Treatment"),
+             ggtheme = theme_bw())
+```
+
+
+```{r}
+mod1 <- addicts|> 
+  coxph(Surv(survt, status) ~ prison + dose + Clinic, data = _, method = "breslow") |> 
+  summary()
+
+mod2 <- addicts|> 
+  coxph(Surv(survt, status) ~ prison * Clinic + dose * Clinic, data = _, method = "breslow") |> 
+  summary()
+```
+```{r}
+# Create a function to do the likelihood ratio test
+lrt.surv <-  function(mod.reduced, mod.full, df) {
+  lrts <-  (-2) * (mod.reduced$loglik[2] - mod.full$loglik[2])
+  pvalue <-  1 - pchisq(lrts, df)
+  return(pvalue)
+}
+
+lrt.surv(mod1, mod2, 2)
+```
+
+
+```{r}
+model_mtcars <- mtcars |> 
+  lm(mpg ~ wt + cyl, data = _)
+
+names(model_mtcars)
+```
+```{r}
+model_mtcars$call
+```
+## Running a Stratified Cox Model
+```{r}
+addicts |> 
+  coxph(Surv(survt, status) ~ prison + dose + strata(Clinic), data = _, method = "breslow") |> 
+  summary()
+```
+```{r}
+addicts |> 
+  coxph(Surv(survt, status) ~ prison + dose + prison:Clinic + dose:Clinic + strata(Clinic), data = _, method = "breslow") |> 
+  summary()
+```
+
+```{r}
+exp(0.388788 + 2 * -0.035145)
+```
+```{r}
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx * logWBC, data = _, method = "breslow") |> 
+  summary()
+```
+## Example of Cancer Data
+```{r}
+cancer
+```
+```{r}
+cancer <- cancer |> 
+  drop_na()
+model_cancer <- cancer |> 
+  coxph(Surv(time, status) ~ age + ph.karno + pat.karno + meal.cal + wt.loss + sex, data = _, method = "breslow")
+model_cancer|> 
+  summary()
+```
+```{r}
+
+plot_data_cancer <- data.frame(
+  age = mean(cancer$age),
+  ph.karno = mean(cancer$ph.karno),
+  pat.karno = mean(cancer$pat.karno),
+  meal.cal = mean(cancer$meal.cal),
+  wt.loss = mean(cancer$wt.loss),
+  sex = 1:2
+)
+
+model_cancer |> 
+  survfit(newdata = plot_data_cancer) |>
+  ggsurvplot(data = cancer,
+             censor = F,
+             risk.table = F, 
+             pval = TRUE, 
+             legend.labs = c("Sex = Male", "Sex = Female"),
+             ggtheme = theme_bw())
+```
+
+
