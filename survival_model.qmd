@@ -60,12 +60,11 @@ testdata
 survSplit(Surv(syear, eyear, status) ~ ., 
           testdata, 
           cut = 1945:1970,
-          event = "status") |>
-  view()
+          event = "status")
 ```
 
 ```{r}
-expanded_data <- survSplit(
+survSplit(
   testdata,
   cut = 1945:1970,
   end = "eyear",
@@ -73,8 +72,6 @@ expanded_data <- survSplit(
   start = "syear",
   episode = "episode"
 )
-
-survSplit
 ```
 
 ```{r}
@@ -446,41 +443,72 @@ anderson |>
 mod_anderson2 <- anderson |> 
   coxph(Surv(Survt, Relapse) ~ Rx + logWBC + Sex, data = _, method = "breslow")
 
+plotdata <- anderson |> 
+  summarise(logWBC = mean(logWBC),
+            .by = c(Rx, Sex))
+
+mod_anderson2 |> 
+  survfit(newdata = plotdata) |> 
+  ggsurvplot(data = plotdata, 
+             surv.median.line = "hv")
+
 newdata <- data.frame(Rx = 0:1,
                       Sex = 0:1,
-                      logWBC = mean(anderson$logWBC))
+                      logWBC = mean(anderson$logWBC,))
 
 mod_anderson2 |>
   survfit(newdata = newdata) |> 
-  ggsurvplot(data = anderson, 
+  ggsurvplot(data = newdata, 
              censor = F,
              risk.table = TRUE, 
              risk.table.y.text.col = TRUE,
-             pval = TRUE, 
              legend.labs = c("Sex = Male", "Sex = Female"),
              #legend.labs = c("Rx = New Treatment", "Rx = Standard Treatment"),
              ggtheme = theme_bw())
 mod_anderson2 |>
   survfit(newdata = newdata) |> 
-  ggsurvplot(data = anderson, 
+  ggsurvplot(data = newdata, 
              censor = F,
              risk.table = TRUE, 
              risk.table.y.text.col = TRUE,
-             pval = TRUE, 
              #legend.labs = c("Sex = Male", "Sex = Female"),
              legend.labs = c("Rx = New Treatment", "Rx = Standard Treatment"),
              ggtheme = theme_bw())
 ```
 
+```{r}
+mod_anderson2 |> 
+  survfit(newdata = plotdata) |> 
+  ggsurvplot(data = anderson, 
+             surv.median.line = "hv")
+```
+```{r}
+mod_anderson2 |> 
+  survfit(newdata = plotdata) |> 
+  ggsurvplot(data = anderson, 
+             surv.median.line = "hv",
+             legend.labs = c("Rx = 0, Sex = 1",
+                             "Rx = 0, Sex = 0",
+                             "Rx = 1, Sex = 1",
+                             "Rx = 1, Sex = 0"))
+```
+```{r}
+anderson
+```
+```{r}
+fit <- survfit( Surv(time, status) ~ sex, data = colon )
+ggsurvplot_group_by(fit, colon, group.by = "rx",
+                palette = "jco", pval = TRUE)
+```
+
 
 ```{r}
 mod1 <- addicts|> 
-  coxph(Surv(survt, status) ~ prison + dose + Clinic, data = _, method = "breslow") |> 
-  summary()
-
+  coxph(Surv(survt, status) ~ prison + dose + Clinic, data = _, method = "breslow")
+mod1
 mod2 <- addicts|> 
-  coxph(Surv(survt, status) ~ prison * Clinic + dose * Clinic, data = _, method = "breslow") |> 
-  summary()
+  coxph(Surv(survt, status) ~ prison * Clinic + dose * Clinic, data = _, method = "breslow")
+mod2
 ```
 ```{r}
 # Create a function to do the likelihood ratio test
@@ -503,6 +531,7 @@ names(model_mtcars)
 ```{r}
 model_mtcars$call
 ```
+
 ## Running a Stratified Cox Model
 ```{r}
 addicts |> 
@@ -523,6 +552,12 @@ anderson |>
   coxph(Surv(Survt, Relapse) ~ Rx * logWBC, data = _, method = "breslow") |> 
   summary()
 ```
+
+```{r}
+ovarian
+```
+
+
 ## Example of Cancer Data
 ```{r}
 cancer
@@ -556,4 +591,374 @@ model_cancer |>
              ggtheme = theme_bw())
 ```
 
+
+## Class 17: Review Cox PH Model- PH assumption; Checking PH: 3 methods
+
+### Cox PH Model
+```{r}
+anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx * logWBC, data = _, method = "breslow") |> 
+  summary()
+```
+### PH assumption check
+
+```{r}
+addicts |> 
+  head(3)
+kmfit1 <- addicts |> 
+  survfit(Surv(survt, status) ~ 1, data = _)
+
+summary(kmfit1)
+```
+
+```{r}
+kmfit2 <- addicts |> 
+  survfit(Surv(survt, status) ~ Clinic+ strata(prison), data = _) 
+summary(kmfit2)
+```
+
+
+```{r}
+addicts |> 
+  survdiff(Surv(survt, status) ~ Clinic+ strata(prison), data = _)
+addicts |> 
+  survdiff(Surv(survt, status) ~ Clinic+ strata(prison), rho = 1, data = _)
+```
+```{r}
+kmfit2 |> 
+  ggsurvplot(fun = "cloglog")
+```
+
+```{r}
+kmfit3 <- summary(kmfit2)
+kmfit3$strata
+kmfit4 <- data.frame(kmfit3$strata, kmfit3$time, kmfit3$surv) |> 
+  rename_with(~ c("clinic", "time", "survival"))
+```
+
+```{r}
+clinic1 <-  kmfit4 |> 
+  filter(str_detect(clinic, "Clinic=1"))
+clinic2 <- kmfit4 |> 
+  filter(str_detect(clinic, "Clinic=2"))
+```
+
+```{r}
+plot(
+  clinic1$time,
+  log(-log(clinic1$survival)),
+  xlab = "survival time in days",
+  ylab = "log-log survival",
+  xlim = c(0, 800),
+  col = "red",
+  type = 'l',
+  lty = "solid",
+  main = "log-log
+curves by clinic"
+)
+
+par(new = T)
+
+plot(
+  clinic2$time,
+  log(-log(clinic2$survival)),
+  axes = F,
+  xlab = "survival time in days",
+  ylab = "log-log survival",
+  col = "purple",
+  type = 'l',
+  lty = "dashed"
+)
+
+legend(
+  "bottomright",
+  c("Clinic 1", "Clinic 2"),
+  lty = c("solid", "dashed"),
+  col = c
+  ("red", "purple")
+)
+
+par(new = F)
+```
+
+## Assessing the PH Assumption with a stastical test
+```{r}
+mod1 <- addicts |> 
+  coxph(Surv(survt, status) ~ prison + dose + Clinic, data = _, method = "breslow")
+cox.zph(mod1)
+```
+```{r}
+mod.zph <- cox.zph(mod1, transform = rank)
+ggcoxzph(
+  mod.zph,
+  resid = TRUE,
+  se = TRUE,
+  df = 4,
+  nsmo = 40,
+  point.col = "red",
+  point.size = 1,
+  point.shape = 19,
+  point.alpha = 1,
+  ggtheme = theme_survminer()
+)
+```
+
+```{r}
+mod.anderson <- anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx + logWBC + Sex, data = _, method = "breslow")
+
+plotdata1 <- anderson |> 
+  summarise(logWBC = mean(logWBC),
+            Rx = mean(Rx),
+            .by = Sex)
+
+plotdata2 <- data.frame(logWBC = mean(anderson$logWBC),
+                        Rx = 0:1)
+
+mod.anderson |>
+  survfit(newdata = plotdata1) |> 
+  ggsurvplot(data = anderson,
+             fun = "cloglog")
+```
+```{r}
+```
+
+
+## Obtaining cox-adjusted survival curves
+```{r}
+mod1 <- addicts |> 
+  coxph(Surv(survt, status) ~ prison + dose + Clinic, data = _, method = "breslow")
+
+pattern1 <- data.frame(
+  prison = 0,
+  dose = 70,
+  Clinic = 1:2
+)
+pattern1
+summary(survfit(mod1, newdata = pattern1))
+```
+```{r}
+mod1 |> 
+  survfit(newdata = pattern1) |> 
+  ggsurvplot(data = addicts, 
+             conf.int = F,
+             legend.labs = c("Clinic = 1", "Clinic = 2"),
+             surv.median.line = "hv",
+             ggtheme = theme_bw())
+```
+```{r}
+mod3 <- addicts |> 
+  coxph(Surv(survt, status) ~ prison + dose + strata(Clinic), data = _, method = "breslow")
+```
+```{r}
+pattern2 <- data.frame(
+  prison = .46,
+  dose = 60.4,
+  Clinic = 1:2
+)
+pattern2
+summary(survfit(mod3, newdata = pattern2))
+```
+
+### plot 
+```{r}
+mod3 |> 
+  survfit(newdata = pattern2) |>
+  ggsurvplot(data = addicts, 
+             conf.int = F,
+             legend.labs = c("Clinic = 1", "Clinic = 2"),
+             surv.median.line = "hv",
+             ggtheme = theme_bw())
+```
+```{r}
+mod3 |> 
+  survfit(newdata = pattern2) |> 
+  ggsurvplot(fun = "cloglog",
+             data = pattern2,
+             # xlim = c(10, 1000),
+             # ylim = c(-5, 1),
+             ggtheme = theme_bw())
+```
+```{r}
+mod4 <- anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Rx + logWBC, data = _)
+mod5 <- anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Sex + logWBC, data = _)
+mod6 <- anderson |> 
+  coxph(Surv(Survt, Relapse) ~ Sex + logWBC + Rx, data = _)
+```
+```{r}
+plotdata <- data.frame(
+  Rx = 0:1,
+  logWBC = mean(anderson$logWBC)
+)
+plotdata1 <- anderson |> 
+  summarise(logWBC = mean(logWBC), 
+            .by = Rx)
+plotdata2 <- anderson |> 
+  summarise(logWBC = mean(logWBC), 
+            .by = Sex)
+plotdata3 <- anderson |> 
+  summarise(logWBC = mean(logWBC), 
+            .by = c(Sex, Rx))
+mod4 |> 
+  survfit(newdata = plotdata1) |>
+  ggsurvplot(data = anderson,
+             conf.int = F,
+             linetype = 1:2,
+             fun = "cloglog")
+mod5 |> 
+  survfit(newdata = plotdata2) |>
+  ggsurvplot(data = anderson,
+             conf.int = F,
+             linetype = 1:2,
+             fun = "cloglog")
+mod6 |> 
+  survfit(newdata = plotdata3) |>
+  ggsurvplot(data = anderson,
+             conf.int = F,
+             fun = "cloglog")
+mod6 |> 
+  survfit(newdata = plotdata2) |>
+  ggsurvplot(data = anderson,
+             conf.int = F,
+             fun = "cloglog")
+```
+```{r}
+data()
+jasa1 |> 
+  mutate(Over40 = factor(ifelse(age + 48 > 40, 1, 0)),
+         Time = stop - start) |>
+  coxph(Surv(Time, event) ~ Over40, data = _, method = "breslow") |> 
+  summary()
+```
+
+```{r}
+
+```
+## Class 19: Time Dependent Variables; Extended Cox Model
+
+```{r}
+veteran
+```
+```{r}
+veteran |> 
+  coxph(Surv(time, status) ~ trt + celltype + karno + diagtime + age + prior, data = _, method = "breslow") |> 
+  summary()
+```
+### cut data
+
+```{r}
+#survSplit by year, each year is a new row
+survSplit(Surv(syear, eyear, status) ~ ., 
+          testdata, 
+          cut = 1945:1970,
+          event = "status") |>
+  view()
+```
+
+```{r}
+expanded_data <- survSplit(
+  testdata,
+  cut = 1945:1970,
+  end = "eyear",
+  event = "status",
+  start = "syear",
+  episode = "episode"
+)
+addicts
+```
+
+
+
+```{r}
+survSplit(
+  addicts,
+  cut = 0:1,
+  end = "status",
+  event = "status",
+  start = "status"
+)
+```
+```{r}
+addicts.cp <- addicts |> 
+  survSplit(Surv(survt, status) ~ .,
+            data = _,
+            cut = addicts$survt[addicts$status == 1],
+            event = "status",
+            start = "start",
+            end = "survt") |> 
+  mutate(logt_dose = dose * log(survt))
+```
+```{r}
+addicts.cp |> 
+  select(ID, start, survt, status, dose, logt_dose) |>
+  filter(ID == 114)
+```
+```{r}
+addicts.cp |> 
+  coxph(Surv(start, survt, status) ~ prison + dose + Clinic + logt_dose + cluster(ID), data = _, method = "efron") |> 
+  summary()
+```
+```{r}
+addicts |> 
+  mutate(logt_dose = dose * log(survt)) |> 
+  coxph(Surv(survt, status) ~ prison + dose + Clinic + logt_dose, data = _, method = "breslow") |> 
+  summary()
+```
+### heaviside function
+
+```{r}
+addicts.cp365 <- addicts |>
+  survSplit(
+    Surv(survt, status) ~ .,
+    data = _,
+    cut = 365,
+    event = "status",
+    start = "start",
+    end = "survt"
+  ) |>
+  mutate(hv1 = Clinic * (start < 365),
+         hv2 = Clinic * (start >= 365))
+```
+```{r}
+addicts.cp365 |> 
+  coxph(Surv(start, survt, status) ~ prison + dose + hv1 + hv2 + cluster(ID), data = _, method = "breslow") |> 
+  summary()
+```
+```{r}
+vignette("survival")
+vignette("timedep")
+lung |> 
+  mutate(time/30.5,
+         .keep = "used") |> 
+  pmin(12) |> 
+  floor() 
+```
+
+```{r}
+cgd
+```
+```{r}
+cgd |> 
+  coxph(Surv(tstart, tstop, status) ~ treat + inherit + steroids, cluster = id, data = _) |> 
+  summary()
+```
+
+```{r}
+cgd0
+```
+
+```{r}
+jasa1
+```
+
+```{r}
+jasa1 |> 
+  coxph(Surv(start, stop, event) ~ age * transplant + surgery + year, data = _, method = "breslow") |>
+  summary()
+```
+```{r}
+veteran
+```
 

@@ -25,12 +25,12 @@ pop_{log} + polity5 + polstab + age$$
 ## overstays
 
 ```{r}
-coups <- fread("powell_thyne_coups_final.txt") %>% 
-  filter(coup==2) %>% 
-  mutate(startdate=ymd(paste(year,month,day)),
-         joindate=interval(startdate - days(1), startdate + days(1))
-) %>% 
-  select(-c(3,4,9))
+# coups <- fread("powell_thyne_coups_final.txt") %>% 
+#   filter(coup==2) %>% 
+#   mutate(startdate=ymd(paste(year,month,day)),
+#          joindate=interval(startdate - days(1), startdate + days(1))
+# ) %>% 
+#   select(-c(3,4,9))
 
 overstays <- read_excel("self_coup_Reddy.xlsx") %>% 
   filter(Success==1) %>% 
@@ -168,32 +168,61 @@ mydata <- leaders2 %>%
 
 
 ```{r}
-mydata1 <- mydata%>% 
-  mutate(group=case_when(!is.na(overstay_year)~"A",
-                         .default = "B"),
-         survival_time=case_when(group=="A"~ymd(enddate)-overstaydate,
-                                 .default = ymd(enddate)-ymd(startdate))) %>% 
-  mutate(status=case_when(exit %in% c("Regular","Natural Death","Still in Office","Retired Due to Ill Health")~1,
-                          .default = 2))
-  
+mydata1 <- mydata %>%
+  mutate(
+    group = case_when(!is.na(overstay_year) ~ "A",
+                      .default = "B"),
+    survival_time = case_when(
+      group == "A" ~ ymd(enddate) - overstaydate,
+      .default = ymd(enddate) - ymd(startdate)
+    )
+  ) %>%
+  mutate(status = case_when(
+    exit %in% c(
+      "Regular",
+      "Natural Death",
+      "Still in Office",
+      "Retired Due to Ill Health"
+    ) ~ 1,
+    .default = 2
+  ))
+
 
 table(mydata1$group)
 table(mydata1$exit)
 table(mydata1$status)
 
-mydata2 <- mydata1 |> 
-  mutate(Year = ifelse(is.na(overstay_year), syear, overstay_year),
-         age = ifelse(is.na(overstay_year), syear-yrborn, overstay_year-yrborn)) |>
-  select(ccode, idacr, Year, leader, age, group, survival_time, status) |>
-  add_row(ccode = 552, 
-          idacr = "ZIM", 
-          Year = 2017, 
-          leader = "Emmerson Mnangagwa",
-          age = 75,
-          group = "B",
-          survival_time = ymd(20231127)-ymd(20171124),
-          status = 1)  # add an observation for a new leader
+mydata2 <- mydata1 |>
+  mutate(
+    startdate = if_else(group == "A", ymd(overstaydate), ymd(startdate)),
+    enddate = ymd(enddate),
+    age = if_else(group == "B", syear - yrborn, overstay_year -
+                   yrborn)
+  ) |>
+  select(ccode, idacr, startdate, enddate, leader, age, group, survival_time, status) |>
+  add_row(# add an observation for a new leader
+    ccode = 552,
+    idacr = "ZIM",
+    startdate = ymd(20171124),
+    enddate = ymd(20231127),
+    leader = "Emmerson Mnangagwa",
+    age = 75,
+    group = "B",
+    survival_time = enddate - startdate,
+    status = 1
+  )  |> 
+  filter(survival_time > 180 & survival_time < 18000) 
+
+mydata3 <- mydata2 |>
+  survSplit(Surv(year(startdate), year(enddate), status) ~ .,
+            data = _,
+            cut = 1945:2022,
+            id = "id") |>
+  mutate(tstart = if_else(is.na(tstart), tstop, tstart))
 ```
+
+
+
 ## GDP & population
 
 ```{r}
@@ -238,43 +267,56 @@ polstab <- read_excel("MEPVv2018.xls") |>
 
 
 ```{r}
-mydata3 <- mydata2 |> 
-  left_join(GDP, by = c("ccode", "Year" = "year")) |> 
-  left_join(polity, by = c("ccode", "Year" = "year")) |>
-  left_join(polstab, by = c("ccode", "Year" = "year")) |>
+mydata4 <- mydata3 |> 
+  left_join(GDP, by = c("ccode", "tstart" = "year")) |> 
+  left_join(polity, by = c("ccode", "tstart" = "year")) |>
+  left_join(polstab, by = c("ccode", "tstart" = "year")) |>
   drop_na() |> 
-  select(ccode, idacr, country, year = Year, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab) |> 
-  filter(survival_time > 180 & survival_time < 18000)
+  select(id, ccode, idacr, country, tstart, tstop, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
 
-table(mydata3$group)
-table(mydata3$status)
+table(mydata4$group)
+table(mydata4$status)
 ```
 ```{r}
-write.csv(mydata3, "mydata.csv")
+mydata5 <- mydata2 |> 
+  mutate(year = year(startdate)) |> 
+  left_join(GDP, by = c("ccode", "year" = "year")) |> 
+  left_join(polity, by = c("ccode", "year" = "year")) |>
+  left_join(polstab, by = c("ccode", "year" = "year")) |>
+  drop_na() |> 
+  select(ccode, idacr, country, year, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
+
+table(mydata5$group)
+table(mydata5$status)
 ```
 
 
 ```{r}
-result <- survdiff(Surv(survival_time, status) ~ group, data = mydata1)
+mydata6 <- mydata2 |>
+  survSplit(
+    Surv(survival_time, status) ~ .,
+    data = _,
+    cut = 365 * (1:42),
+    id = "id",
+    end = "tstop"
+  ) |>
+  mutate(year = first(year(startdate)) + row_number() - 1,
+         .by = id) |>
+  select(id, ccode, idacr, year, leader, age, group, tstart, tstop, status)
 
-summary(result)
+mydata7 <- mydata6 |>
+  left_join(GDP, by = c("ccode", "year" = "year")) |>
+  left_join(polity, by = c("ccode", "year" = "year")) |>
+  left_join(polstab, by = c("ccode", "year" = "year")) |>
+  drop_na() |>
+  select(id, ccode, idacr, year, leader, age, group, tstart, tstop, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
+
 ```
+
 ```{r}
-# Assuming 'result' is the object from survdiff()
-p_value <- result$pvalue
-chisq_statistic <- result$chisq
-
-# Display the p-value and the test statistic (chisq)
-print(p_value)
-print(chisq_statistic)
-
-
-```
-```{r}
-coups |> 
-  summarise(number_of_coups = n(), .by = country) |> 
-  arrange(-number_of_coups) |> 
-  
+write.csv(mydata5, "mydata1.csv")
+write.csv(mydata4, "mydata2.csv")
+write.csv(mydata7, "mydata3.csv")
 ```
 
 
