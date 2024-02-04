@@ -99,6 +99,7 @@ ggsurvplot(fit,
            risk.table = TRUE, 
            risk.table.height = 0.3, 
            pval = TRUE,
+           surv.median.line = "hv",
            break.x.by = 5, 
            legend.labs = c("overstayers", "coup-entryers"),
            xlab = "Survival Years",
@@ -446,10 +447,11 @@ Surv(survival\_time, status) &= group + \\
 
 ```{r}
 #| label: model_cox
-
+Mydata1 <- read.csv("../data/mydata1.csv")
 model_cox1 <- Mydata1 |> 
   mutate(group = factor(group, 
-                        labels = c("Overstay leaders", "Coup-entry leaders"))) |>
+                        labels = c("Overstay leaders", "Coup-entry leaders")),
+         ) |>
   coxph(
     Surv(survival_time, status) ~ 
       group + GDP_growth_trend + GDP_pc_log + pop_log + 
@@ -457,37 +459,26 @@ model_cox1 <- Mydata1 |>
     data = _
   )
 
-Mydata2 <- read.csv("../data/Mydata2.csv")
+Mydata2 <- read.csv("../data/mydata2.csv")
 model_cox2 <- Mydata2 |>
   mutate(group = factor(group, 
-                        labels = c("Overstay leaders", "Coup-entry leaders"))) |>
+                        labels = c("Overstay leaders", "Coup-entry leaders")),
+         survt = (tstop - tstart) * 365) |>
   coxph(
-    Surv(tstart, tstop, status) ~ 
+    Surv(survt, status) ~ 
       group + GDP_growth_trend + GDP_pc_log + pop_log + 
       polity5 + polstab + age + cluster(id),
     data = _
   )
 
-Mydata3 <- read.csv("../data/Mydata3.csv")
-model_cox3 <- Mydata3 |>
-  mutate(group = factor(group, 
-                        labels = c("Overstay leaders", "Coup-entry leaders"))) |>
-  coxph(
-    Surv(tstart, tstop, status) ~ 
-      group + GDP_growth_trend + GDP_pc_log + pop_log + 
-      polity5 + polstab + age + cluster(id),
-    data = _
-  )
 
 summary(model_cox1)
 summary(model_cox2)
-summary(model_cox3)
 ```
 ```{r}
-export_summs(model_cox1, model_cox2, model_cox3,
-             model.names = c("Cox PH", 
-                             "Time-dependent Cox\nby Year", 
-                             "Time-dependent Cox\nby Days"),
+export_summs(model_cox1, model_cox2,
+             model.names = c("Model 1\nCox PH", 
+                             "Model 2\nTime-dependent Cox"),
              coefs = c("Coup-entry leaders" = "groupCoup-entry leaders",
                       "GDP Growth Trend" = "GDP_growth_trend",
                       "GDP per capita: log" = "GDP_pc_log",
@@ -497,12 +488,13 @@ export_summs(model_cox1, model_cox2, model_cox3,
                       "Age" = "age"),
              statistics = c("events" = "nobs", 
                             "oberservations" = "n",
-                            "logLik", "AIC", "BIC"))
+                            "logLik", "AIC", "BIC")
+             )
 ```
 
 
 ```{r}
-testdata <- Mydata |> 
+testdata1 <- Mydata1 |> 
   summarise(
     .by = group,
     GDP_growth_trend = mean(GDP_growth_trend),
@@ -512,17 +504,42 @@ testdata <- Mydata |>
     polstab = mean(polstab),
     age = mean(age)
   )
-Mydata |>
-  mutate(group = factor(group)) |>
+Mydata1 |>
+  mutate(group = factor(group),
+         survt = tstop - tstart) |>
   coxph(
-    Surv(survival_time, status) ~ strata(group) + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age,
+    Surv(survt, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age,
     data = _
   ) |> 
-  survfit(newdata = testdata) |>
-  ggsurvplot(data = testdata,
+  survfit(newdata = testdata1) |>
+  ggsurvplot(data = testdata1,
+             surv.median.line = "hv",
+             conf.int = TRUE)
+```
+```{r}
+testdata2 <- Mydata2 |> 
+  summarise(
+    .by = group,
+    GDP_growth_trend = mean(GDP_growth_trend),
+    GDP_pc_log = mean(GDP_pc_log),
+    pop_log = mean(pop_log),
+    polity5 = mean(polity5),
+    polstab = mean(polstab),
+    age = mean(age)
+  )
+Mydata2 |>
+  mutate(group = factor(group),
+         survt = tstop - tstart) |>
+  coxph(
+    Surv(tstart, tstop, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age + cluster(id),
+    data = _
+  ) |> 
+  survfit(newdata = testdata2) |>
+  ggsurvplot(data = testdata2,
              surv.median.line = "hv",
              conf.int = TRUE,
-             break.time.by = 2000)
+             xlim = c(1949, 2022),
+             break.x.by = 10)
 ```
 
 

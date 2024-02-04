@@ -191,7 +191,9 @@ mydata1 <- mydata %>%
 table(mydata1$group)
 table(mydata1$exit)
 table(mydata1$status)
+```
 
+```{r}
 mydata2 <- mydata1 |>
   mutate(
     startdate = if_else(group == "A", ymd(overstaydate), ymd(startdate)),
@@ -212,16 +214,35 @@ mydata2 <- mydata1 |>
     status = 1
   )  |> 
   filter(survival_time > 180 & survival_time < 18000) 
+```
 
-mydata3 <- mydata2 |>
+## mydata2A
+```{r}
+mydata2A <- mydata2 |> 
+  mutate(tstart = as.numeric(year(startdate) + (startdate - floor_date(startdate, "year"))/365),
+         tstop = as.numeric(year(enddate) + (enddate - floor_date(enddate, "year"))/365),
+         year = year(startdate),
+         .after = enddate)
+```
+
+## mydata3
+```{r}
+mydata3A <- mydata2 |>
+  mutate(first_year = startdate,
+         last_year = enddate) |>
   survSplit(Surv(year(startdate), year(enddate), status) ~ .,
             data = _,
             cut = 1945:2022,
-            id = "id") |>
-  mutate(tstart = if_else(is.na(tstart), tstop, tstart))
+            id = "id",
+            ) |>
+  mutate(tstart = if_else(is.na(tstart), tstop, tstart)) |> 
+  mutate(T1 = 0,
+         T2 = ifelse(row_number() == 1, ceiling_date(first_year, "year") - first_year, 0),
+         T2 = first(T2) + 365 * (row_number() - 1),
+         T1 = lag(T2, default = 0),
+         T2 = ifelse(row_number() == n(), survival_time, T2),
+         .by = id) 
 ```
-
-
 
 ## GDP & population
 
@@ -265,59 +286,46 @@ polstab <- read_excel("MEPVv2018.xls") |>
   select(ccode, year, polstab= actotal)
 ```
 
-
+## Merge data
 ```{r}
-mydata4 <- mydata3 |> 
-  left_join(GDP, by = c("ccode", "tstart" = "year")) |> 
-  left_join(polity, by = c("ccode", "tstart" = "year")) |>
-  left_join(polstab, by = c("ccode", "tstart" = "year")) |>
-  drop_na() |> 
-  select(id, ccode, idacr, country, tstart, tstop, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
-
-table(mydata4$group)
-table(mydata4$status)
-```
-```{r}
-mydata5 <- mydata2 |> 
+Mydata2A <- mydata2A |> 
   mutate(year = year(startdate)) |> 
   left_join(GDP, by = c("ccode", "year" = "year")) |> 
   left_join(polity, by = c("ccode", "year" = "year")) |>
   left_join(polstab, by = c("ccode", "year" = "year")) |>
   drop_na() |> 
-  select(ccode, idacr, country, year, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
+  select(ccode, idacr, country, year, tstart, tstop, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
 
-table(mydata5$group)
-table(mydata5$status)
+Mydata2A |> 
+  mutate(group = factor(group, 
+                        labels = c("Overstay leaders", "Coup-entry leaders"))) |>
+  coxph(Surv(survival_time, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age, data = _) |>
+  summary()
 ```
 
-
 ```{r}
-mydata6 <- mydata2 |>
-  survSplit(
-    Surv(survival_time, status) ~ .,
-    data = _,
-    cut = 365 * (1:42),
-    id = "id",
-    end = "tstop"
-  ) |>
-  mutate(year = first(year(startdate)) + row_number() - 1,
-         .by = id) |>
-  select(id, ccode, idacr, year, leader, age, group, tstart, tstop, status)
-
-mydata7 <- mydata6 |>
-  left_join(GDP, by = c("ccode", "year" = "year")) |>
-  left_join(polity, by = c("ccode", "year" = "year")) |>
-  left_join(polstab, by = c("ccode", "year" = "year")) |>
+Mydata3A <- mydata3A |>
+  mutate(year = floor(tstart)) |>
+  left_join(GDP, by = c("ccode", "tstart" = "year")) |>
+  left_join(polity, by = c("ccode", "tstart" = "year")) |>
+  left_join(polstab, by = c("ccode", "tstart" = "year")) |>
   drop_na() |>
-  select(id, ccode, idacr, year, leader, age, group, tstart, tstop, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
+  select(id, ccode, idacr, country, tstart, tstop, leader, age, group, survival_time, T1, T2, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
 
+Mydata3A |>
+  mutate(group = factor(group, 
+                        labels = c("Overstay leaders", "Coup-entry leaders"))) |>
+coxph(Surv(T1, T2, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age + cluster(id), data = _) |> 
+  summary()
+```
+
+## Write to csv
+```{r}
+write.csv(Mydata2A, "mydata1.csv")
+write.csv(Mydata3A, "mydata2.csv")
 ```
 
 ```{r}
-write.csv(mydata5, "mydata1.csv")
-write.csv(mydata4, "mydata2.csv")
-write.csv(mydata7, "mydata3.csv")
+export_summs(m1, m2)
 ```
-
-
 
