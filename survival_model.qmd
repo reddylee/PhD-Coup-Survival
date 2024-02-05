@@ -7,6 +7,7 @@ library(survminer)
 library(tidyverse)
 library(data.table)
 library(broom)
+library(jtools)
 ```
 
 
@@ -962,3 +963,169 @@ jasa1 |>
 veteran
 ```
 
+```{r}
+#| label: tbl-cox1
+#| tbl-cap: Cox proportional hazards model for survival time of leaders
+
+# tbl1 <- model_cox |>
+#   tbl_regression(
+#     add_estimate_to_reference_rows = TRUE,
+#     label = list(
+#       group ~ "Leader type",
+#       GDP_growth_trend ~ "GDP growth trend",
+#       GDP_pc_log ~ "Log of GDP per capita",
+#       pop_log ~ "Log of population",
+#       polity5 ~ "Polity5 score",
+#       polstab ~ "Political stability",
+#       age ~ "Age of leader"
+#     )
+#   ) |>
+#   add_nevent() |>
+#   add_significance_stars(hide_se = TRUE) 
+# 
+# tbl2 <- model_cox |>
+#   tbl_regression(
+#     exponentiate = TRUE,
+#     add_estimate_to_reference_rows = TRUE,
+#     label = list(
+#       group ~ "Leader type",
+#       GDP_growth_trend ~ "GDP growth trend",
+#       GDP_pc_log ~ "Log of GDP per capita",
+#       pop_log ~ "Log of population",
+#       polity5 ~ "Polity5 score",
+#       polstab ~ "Political stability",
+#       age ~ "Age of leader"
+#     )
+#   ) |>
+#   bold_p() |>
+#   add_glance_table(include = c(nobs, logLik, AIC, BIC)) 
+# 
+# tbl_merge(tbls = list(tbl1, tbl2)) |> 
+#   modify_spanning_header(everything() ~ NA_character_) |>
+#   as_gt()
+```
+
+```{r}
+#| label: fig-coxSurv1
+#| fig-cap: Survival curves for Cox PH Model
+testdata1 <- Mydata1 |> 
+  summarise(
+    .by = group,
+    GDP_growth_trend = mean(GDP_growth_trend),
+    GDP_pc_log = mean(GDP_pc_log),
+    pop_log = mean(pop_log),
+    polity5 = mean(polity5),
+    polstab = mean(polstab),
+    age = mean(age)
+  )
+Mydata1 |>
+  mutate(group = factor(group),
+         survt = tstop - tstart) |>
+  coxph(
+    Surv(survival_time, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age,
+    data = _
+  ) |> 
+  survfit(newdata = testdata1) |>
+  ggsurvplot(data = testdata1,
+             surv.median.line = "hv",
+             conf.int = TRUE,
+             legend.labs = c("Overstay leaders", "Coup-entry leaders"))
+```
+
+```{r}
+#| label: fig-coxSurv2
+#| fig-cap: Survival curves for Time-dependent Model
+testdata2 <- Mydata2 |> 
+  summarise(
+    .by = group,
+    GDP_growth_trend = mean(GDP_growth_trend),
+    GDP_pc_log = mean(GDP_pc_log),
+    pop_log = mean(pop_log),
+    polity5 = mean(polity5),
+    polstab = mean(polstab),
+    age = mean(age)
+  )
+Mydata2 |>
+  mutate(group = factor(group),
+         survt = tstop - tstart) |>
+  coxph(
+    Surv(T1, T2, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age + cluster(id),
+    data = _
+  ) |> 
+  survfit(newdata = testdata2) |>
+  ggsurvplot(data = testdata2,
+             surv.median.line = "hv",
+             conf.int = TRUE,
+             legend.labs = c("Overstay leaders", "Coup-entry leaders"))
+```
+
+The @fig-coxSurv1 and @fig-coxSurv2 illustrate the survival curves for the two types of leaders.
+The survival curve for coup-entry leaders is significantly lower than that of overstaying leaders, indicating that overstaying leaders leaders are more likely to survive longer compared to overstaying leaders.
+
+```{r}
+#| label: fig-coxHR
+#| fig-cap: Hazard ratios and 95% CIs for Leader Ousting
+
+coxplottidy <- tidy(model_cox1, exponentiate = T, conf.int = T)
+
+coxplottidy |>
+  ggplot(aes(
+    y = term,
+    x = estimate,
+    xmin = conf.low,
+    xmax = conf.high
+  )) +
+  geom_pointrange() +
+  geom_vline(xintercept = 1,
+             linetype = "dashed",
+             color = "skyblue") +
+  labs(x = "Hazard ratios", y = NULL, title = "") +
+  theme_bw() 
+
+coxplottidy <- tidy(model_cox2, exponentiate = T, conf.int = T)
+
+coxplottidy |>
+  ggplot(aes(
+    y = term,
+    x = estimate,
+    xmin = conf.low,
+    xmax = conf.high
+  )) +
+  geom_pointrange() +
+  geom_vline(xintercept = 1,
+             linetype = "dashed",
+             color = "skyblue") +
+  labs(x = "Hazard ratios", y = NULL, title = "") +
+  theme_bw() 
+```
+
+The @fig-coxHR-1 and @fig-coxHR-2 illustrates the hazard ratios and 95% confidence intervals for the variables in the Cox model.
+The hazard ratio for coup-entry leaders is 2.49, signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal.
+Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73, suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted.
+It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.
+
+```{r}
+#| label: tbl-cox
+#| tbl-cap: Cox models for survival time of different types of leaders
+export_summs(model_cox1, model_cox2,
+             model.names = c("Model 1\nCox PH", 
+                             "Model 2\nTime-dependent Cox"),
+             coefs = c("Coup-entry leaders" = "groupCoup-entry leaders",
+                      "GDP Growth Trend" = "GDP_growth_trend",
+                      "GDP per capita: log" = "GDP_pc_log",
+                      "Population: log" = "pop_log",
+                      "Polity5" = "polity5",
+                      "Political stability" = "polstab",
+                      "Age" = "age"),
+             statistics = c("events" = "nobs", 
+                            "oberservations" = "n",
+                            "logLik", "AIC", "BIC")
+             )  
+```
+
+Based on the previous discussion, I test my hypothesis that overstaying leaders are more likely to experience extended regime survival compared to leaders who come to power through coups.
+The regression outcome of Cox model and Time-dependent Cox presented in @tbl-cox.
+We can see that the two models yield similar results, which means except GDP per caipita, the leader type does play a crucial role in leaders' survival time.
+The hazard ratio for coup-entry leaders is 2.41 (exp(0.88)), signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal.
+Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73 (exp)-0.32), suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted, or 1% decrease in GDP per capita is correlated with a 37% reduction in the hazard of being ousted.
+It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.

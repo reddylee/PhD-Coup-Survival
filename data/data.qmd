@@ -14,6 +14,7 @@ library(zoo)
 library(survival)
 library(survminer)
 library(kableExtra)
+library(jtools)
 ```
 
 
@@ -241,6 +242,7 @@ mydata3A <- mydata2 |>
          T2 = first(T2) + 365 * (row_number() - 1),
          T1 = lag(T2, default = 0),
          T2 = ifelse(row_number() == n(), survival_time, T2),
+         age = age + row_number() - 1,
          .by = id) 
 ```
 
@@ -296,10 +298,12 @@ Mydata2A <- mydata2A |>
   drop_na() |> 
   select(ccode, idacr, country, year, tstart, tstop, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
 
-Mydata2A |> 
+m1 <- Mydata2A |> 
   mutate(group = factor(group, 
                         labels = c("Overstay leaders", "Coup-entry leaders"))) |>
-  coxph(Surv(survival_time, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age, data = _) |>
+  coxph(Surv(survival_time, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age, data = _) 
+
+m1|>
   summary()
 ```
 
@@ -312,11 +316,12 @@ Mydata3A <- mydata3A |>
   drop_na() |>
   select(id, ccode, idacr, country, tstart, tstop, leader, age, group, survival_time, T1, T2, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
 
-Mydata3A |>
+m2 <- Mydata3A |>
   mutate(group = factor(group, 
                         labels = c("Overstay leaders", "Coup-entry leaders"))) |>
-coxph(Surv(T1, T2, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age + cluster(id), data = _) |> 
-  summary()
+coxph(Surv(T1, T2, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age + cluster(id), data = _)
+
+summary(m2)
 ```
 
 ## Write to csv
