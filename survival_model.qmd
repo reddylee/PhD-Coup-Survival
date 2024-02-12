@@ -1129,3 +1129,86 @@ We can see that the two models yield similar results, which means except GDP per
 The hazard ratio for coup-entry leaders is 2.41 (exp(0.88)), signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal.
 Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73 (exp)-0.32), suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted, or 1% decrease in GDP per capita is correlated with a 37% reduction in the hazard of being ousted.
 It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.
+
+## ggsurvfit package
+```{r}
+library(tidyverse)
+library(survival)
+library(survminer)
+library(ggsurvfit)
+library(gtsummary)
+```
+
+```{r}
+df_colon |> 
+  select(time, status, surg) |>
+  tbl_summary() |> 
+  bold_labels()
+```
+
+
+```{r}
+sf1 <- df_colon |>
+  survfit(Surv(time, status) ~ surg, data = _)
+p1 <- ggsurvfit(sf1)
+```
+```{r}
+sf2 <- df_colon |>
+  survfit2(Surv(time, status) ~ surg, data = _)
+p2 <- ggsurvfit(sf2) +
+  labs(title = "Survival curve by surgery type",
+           subtitle = c("Colon cancer data", "1978-1983")) 
+```
+
+```{r}
+waldo::compare(sf1, sf2)
+p1 | p2
+```
+
+```{r}
+sf2 |> 
+  ggsurvfit() +
+  add_risktable(risktable_group='risktable_stats') +
+  add_risktable_strata_symbol(symbol = "•")
+```
+```{r}
+p_fit <- fit |> 
+  ggsurvfit(
+    #type = "risk"
+    ) +
+  add_censor_mark() +
+  add_confidence_interval() +
+  add_quantile() +
+  add_risktable() +
+  scale_ggsurvfit() +
+  labs( x = "Survival years", 
+        title = "Survival curve by leader types") +
+  add_legend_title("Leader type") +
+  ggeasy::easy_move_legend("top") 
+
+built_p <- ggsurvfit_build(p_fit) |> 
+  patchwork::wrap_plots()
+
+```
+
+```{r}
+built_p | built_p
+```
+
+```{r}
+p <- survfit2(Surv(time, status) ~ 1, data = df_colon) |> 
+  ggsurvfit() +
+  add_risktable() 
+
+p
+
+build_p <- ggsurvfit_build(p) |> 
+  patchwork::wrap_plots()
+
+p | p
+```
+
+
+
+
+

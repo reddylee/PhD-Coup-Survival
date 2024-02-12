@@ -1,5 +1,8 @@
 ---
 title: "Political Leadership Survival in the Aftermath of Coups and Overstays: From Illegitimate Ascent to Unexpected Exit"
+date: last-modified
+author: Zhu Qi
+
 format:
   jasa-pdf:
     keep-tex: true  
@@ -9,9 +12,6 @@ format:
     number-sections: true
     keywords: [Political survival, Coups, Overstays]
 
-date: last-modified
-author: Zhu Qi
-  
 abstract: |
  This paper delves into the duration of political leaders' tenures, focusing on two specific categories: leaders who come into power through coups and those who exceed their designated term limits. It argues that the length of political leadership tenures is not solely determined by their governing strategies but also by the means through which they ascend to power. By employing a survival model, this study demonstrates that leaders who surpass their term limits generally have longer tenures compared to those entering through coups.
 
@@ -19,7 +19,6 @@ bibliography: survival.bib
 mainfont: Times New Roman
 fontsize: 12pt
 execute: 
-  freeze: auto
   echo: false
   warning: false
   message: false
@@ -32,6 +31,7 @@ library(tidyverse)
 library(data.table)
 library(survival)
 library(survminer)
+library(ggsurvfit)
 library(janitor)
 library(glue)
 library(gt)
@@ -39,7 +39,8 @@ library(kableExtra)
 library(gtsummary)
 library(broom)
 library(jtools)
-library(huxtable)
+#library(huxtable)
+library(flextable)
 ```
 
 ## Introduction
@@ -71,7 +72,7 @@ Unlike leaders who overstay, those who enter through coups face more substantial
 
 ```{r}
 #| label: data
-#| echo: false
+#| include: false
 Mydata1 <- read.csv("../data/mydata1.csv") |> 
   mutate(survival_year = survival_time / 365)
 
@@ -98,9 +99,10 @@ ggsurvplot(fit,
            pval = TRUE,
            surv.median.line = "hv",
            break.x.by = 5, 
+           legend.title = "Leader Type",
            legend.labs = c("overstayers", "coup-entryers"),
            xlab = "Survival Years",
-           title = "Survival Curves of overstay and coup-entry leaders",
+           #title = "Survival Curves of overstay and coup-entry leaders",
            font.title = 14)
 ```
 
@@ -121,6 +123,8 @@ The third chapter delves into the examination of factors influencing the surviva
 Chapter 4 provides an account of the methodology and data employed, utilizing a survival model for a comprehensive analysis of the determinants of leaders' survival.
 Chapter 5 presents the findings of this analysis, facilitating an in-depth discussion of the results.
 Finally, in Chapter 6, the paper concludes by synthesizing these findings and exploring their broader implications.
+
+\newpage
 
 ## Literature review: The dynamics of leadership survival in different scenarios
 
@@ -182,6 +186,8 @@ However, there remains a notable gap in discussions surrounding the survival dyn
 Specifically, there has been limited exploration and comparison of the survival tenures between overstay leaders and coup-entry leaders.
 This study seeks to address this gap by scrutinizing and outlining the duration of survival among these two distinct categories of leaders.
 
+\newpage
+
 ## Political survival dynamics of overstay and coup-entry leaders
 
 In this paper, I maintain the definition of "overstay" as delineated in my earlier paper, "Determinants of Incumbent Overstay Attempts and Outcomes", referring to situations where incumbent political leaders strive to exceed the maximum time permitted by constitutional norms or unwritten customs.
@@ -226,7 +232,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favorable position across these three facets.
 
 | **Aspect**                       | **Overstay Leaders**                                                                                                | **Coup-Entry Leaders**                                                                                                                                               |
-|------------------|----------------------|--------------------------------|
+|---------------|-----------------------|----------------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -275,9 +281,7 @@ coups |>
                 position = "center") |>
   column_spec(column = 1:3, width = "4.5cm") |>
   collapse_rows(latex_hline = "linespace") |>
-  row_spec(row = 0, bold = T) |> 
-  footnote(general = "",
-           general_title = "Data source: Powell & Thyne(2011)")
+  row_spec(row = 0, bold = T)
 ```
 
 For leaders surpassing their designated terms, the situation diverges.
@@ -377,6 +381,8 @@ Building upon these observations, I would like to propose the following hypothes
 In the subsequent section, I will outline the research methodology utilized in this paper.
 I intend to introduce several control variables to determine if the hypothesis remains persistent and robust.
 
+\newpage
+
 ## Data and method
 
 ### Data
@@ -449,10 +455,11 @@ Surv(survival\_time, status) &= group + \\
 
 ## Outcome and discussion
 
+Building on the preceding discussion, I investigated my hypothesis regarding the likelihood of prolonged regime survival among leaders who overstay their terms compared to those who assume power through coups. The regression results of both the Cox PH model and the Time-dependent Cox model are presented in @tbl-cox. 
+
 ```{r}
-#| label: tbl-model1
-#| tbl-cap: Cox PH model
-#| 
+#| label: model
+
 Mydata1 <- read.csv("../data/mydata1.csv")
 model_cox1 <- Mydata1 |> 
   mutate(group = factor(group, 
@@ -463,7 +470,24 @@ model_cox1 <- Mydata1 |>
       group + GDP_growth_trend + GDP_pc_log + pop_log + 
       polity5 + polstab + age,
     data = _
-  )
+  ) 
+
+tbl1 <- model_cox1|> 
+   tbl_regression(exponentiate = T,
+                 conf.int = NULL,
+                 add_estimate_to_reference_rows = T,
+                 label = list(group ~ "Coup-entry leaders",
+                   GDP_growth_trend ~ "GDP Growth Trend",
+                   GDP_pc_log ~ "GDP per capita: log",
+                   pop_log ~ "Population: log",
+                   polity5 ~ "Polity5",
+                   polstab ~ "Political stability",
+                   age ~ "Age")) |> 
+  add_n(location = "level") |> 
+  add_nevent(location = "level") |> 
+  add_significance_stars(hide_p = T, hide_se = F, hide_ci = T) |> 
+  bold_p(t = 0.05) |> 
+  bold_labels() 
 
 Mydata2 <- read.csv("../data/mydata2.csv")
 model_cox2 <- Mydata2 |>
@@ -475,48 +499,50 @@ model_cox2 <- Mydata2 |>
       group + GDP_growth_trend + GDP_pc_log + pop_log + 
       polity5 + polstab + age + cluster(id),
     data = _
-  )
-
-tidy(model_cox1)
+  ) 
+tbl2 <- model_cox2|>
+  tbl_regression(exponentiate = T,
+                 conf.int = NULL,
+                 add_estimate_to_reference_rows = T,
+                 label = list(group ~ "Coup-entry leaders",
+                   GDP_growth_trend ~ "GDP Growth Trend",
+                   GDP_pc_log ~ "GDP per capita: log",
+                   pop_log ~ "Population: log",
+                   polity5 ~ "Polity5",
+                   polstab ~ "Political stability",
+                   age ~ "Age")) |> 
+  add_n(location = "level") |> 
+  add_nevent(location = "level") |> 
+  add_significance_stars(hide_p = T, hide_se = F, hide_ci = T) |> 
+  bold_p(t = 0.05) |> 
+  bold_labels() 
+  
 ```
-```{r}
-#| label: tbl-model2
-#| tbl-cap: Time-dependent Cox model
-tidy(model_cox2)
-```
-
 
 ```{r}
 #| label: tbl-cox
 #| tbl-cap: Cox models for survival time of different types of leaders
-export_summs(model_cox1, model_cox2,
-             model.names = c("Model 1\nCox PH", 
-                             "Model 2\nTime-dependent Cox"),
-             coefs = c("Coup-entry leaders" = "groupCoup-entry leaders",
-                      "GDP Growth Trend" = "GDP_growth_trend",
-                      "GDP per capita: log" = "GDP_pc_log",
-                      "Population: log" = "pop_log",
-                      "Polity5" = "polity5",
-                      "Political stability" = "polstab",
-                      "Age" = "age"),
-             statistics = c("events" = "nobs", 
-                            "oberservations" = "n",
-                            "logLik", "AIC", "BIC")
-             )  
-```
 
-Based on the previous discussion, I test my hypothesis that overstaying leaders are more likely to experience extended regime survival compared to leaders who come to power through coups.
-The regression outcome of Cox model and Time-dependent Cox presented in @tbl-cox.
-We can see that the two models yield similar results, which means except GDP per caipita, the leader type does play a crucial role in leaders' survival time.
-The hazard ratio for coup-entry leaders is 2.41 (exp(0.88)), signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal.
-Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73 (exp)-0.32), suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted, or 1% decrease in GDP per capita is correlated with a 37% reduction in the hazard of being ousted.
+tbl_merge(list(tbl1, tbl2),
+          tab_spanner = c("**Cox PH Model**", "**Time-dependent Cox Model**")) |> 
+  as_gt()
+```
+It is evident from the table that both models produce comparable outcomes, indicating that the type of leader indeed significantly influences the survival duration of their regime, even when controlling for other pertinent factors. Here I use the Time-dependent Cox model to illustrate the results.
+
+The hazard ratio for coup-entry leaders is 2.41, signifying that coup-entry leaders are 1.41 times more likely to face ousting compared to overstaying leaders, all else being equal.
+
+Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73, suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted, or 1% decrease in GDP per capita is correlated with a 37% reduction in the hazard of being ousted.
+
 It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.
 
-\newpage
-
 ```{r}
-#| label: fig-coxSurv1
-#| fig-cap: Survival curves for Cox PH Model
+#| label: fig-coxSurv
+#| fig-cap: Survival curves for Cox Model
+#| fig-subcap: 
+#|  - Cox PH Model
+#|  - Time-dependent Cox Model
+#| layout-ncol: 2
+
 testdata1 <- Mydata1 |> 
   summarise(
     .by = group,
@@ -538,12 +564,9 @@ Mydata1 |>
   ggsurvplot(data = testdata1,
              surv.median.line = "hv",
              conf.int = TRUE,
+             legend.title = "Leader type",
              legend.labs = c("Overstay leaders", "Coup-entry leaders"))
-```
 
-```{r}
-#| label: fig-coxSurv2
-#| fig-cap: Survival curves for Time-dependent Model
 testdata2 <- Mydata2 |> 
   summarise(
     .by = group,
@@ -565,17 +588,28 @@ Mydata2 |>
   ggsurvplot(data = testdata2,
              surv.median.line = "hv",
              conf.int = TRUE,
+             legend.title = "Leader type",
              legend.labs = c("Overstay leaders", "Coup-entry leaders"))
 ```
 
-The @fig-coxSurv1 and @fig-coxSurv2 illustrate the survival curves for the two types of leaders.
-The survival curve for coup-entry leaders is significantly lower than that of overstaying leaders, indicating that overstaying leaders leaders are more likely to survive longer compared to overstaying leaders.
+The survival curves depicted in @fig-coxSurv illustrate the respective survival rates for leaders of both types. Once more, both the Cox proportional hazards (PH) model and the Time-dependent model generate analogous plots. Notably, the survival curve for leaders who enter through coups exhibits a significantly lower trajectory compared to those who overstay their terms. This disparity suggests that overstaying leaders are more inclined to endure for longer durations than their coup-entry counterparts.
 
 ```{r}
 #| label: fig-coxHR
 #| fig-cap: Hazard ratios and 95% CIs for Leader Ousting
+#| fig-subcap: 
+#|  - Cox PH Model
+#|  - Time-dependent Cox Model
+#| layout-ncol: 2
 
-coxplottidy <- tidy(model_cox1, exponentiate = T, conf.int = T)
+coxplottidy <- tidy(model_cox1, exponentiate = T, conf.int = T) |>
+  mutate(term = c("Coup-entry leaders",
+                      "GDP Growth Trend",
+                      "GDP per capita: log",
+                      "Population: log",
+                      "Polity5",
+                      "Political stability",
+                      "Age"))
 
 coxplottidy |>
   ggplot(aes(
@@ -591,7 +625,14 @@ coxplottidy |>
   labs(x = "Hazard ratios", y = NULL, title = "") +
   theme_bw() 
 
-coxplottidy <- tidy(model_cox2, exponentiate = T, conf.int = T)
+coxplottidy <- tidy(model_cox2, exponentiate = T, conf.int = T) |> 
+  mutate(term = c("Coup-entry leaders",
+                      "GDP Growth Trend",
+                      "GDP per capita: log",
+                      "Population: log",
+                      "Polity5",
+                      "Political stability",
+                      "Age"))
 
 coxplottidy |>
   ggplot(aes(
@@ -604,16 +645,11 @@ coxplottidy |>
   geom_vline(xintercept = 1,
              linetype = "dashed",
              color = "skyblue") +
-  labs(x = "Hazard ratios", y = NULL, title = "") +
+  labs(x = "Hazard ratios", y = "", title = "") +
   theme_bw() 
 ```
 
-The @fig-coxHR-1 and @fig-coxHR-2 illustrates the hazard ratios and 95% confidence intervals for the variables in the Cox model.
-The hazard ratio for coup-entry leaders is 2.49, signifying that coup-entry leaders are 1.49 times more likely to face ousting compared to overstaying leaders, all else being equal.
-Additionally, the hazard ratio associated with the logarithm of GDP per capita is 0.73, suggesting that a 1% increase in GDP per capita is correlated with a 27% reduction in the hazard of being ousted.
-It is noteworthy that the remaining variables did not exhibit statistical significance in this analysis.
-
-
+@fig-coxHR displays the hazard ratios and corresponding 95% confidence intervals for the variables incorporated in the Cox model. Both the Cox proportional hazards (PH) model and the Time-dependent model yield nearly identical plots. Notably, the hazard ratio for leaders who assume power through coups and the logarithm of GDP per capita emerge as statistically significant factors.
 
 \newpage
 
