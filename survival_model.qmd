@@ -1207,8 +1207,73 @@ build_p <- ggsurvfit_build(p) |>
 
 p | p
 ```
+## Biostatsquid
 
+```{r}
+df <- rotterdam |> 
+  mutate(
+    time = rtime / 365.25)
+s1 <- df |> 
+  survfit(Surv(time, death) ~ hormon, data = _) 
+summary(s1)
+```
 
+```{r}
+s1 |> 
+  ggsurvplot(risk.table = TRUE, 
+           risk.table.height = 0.3, 
+           pval = TRUE,
+           surv.median.line = "hv",
+           break.x.by = 3, 
+           xlab = "Survival Years",
+           #title = "Survival Curves of overstay and coup-entry leaders",
+           font.title = 14)
+```
 
+```{r}
+summary(s1, times = 1)$surv
+```
 
+```{r}
+s2 <- df |> 
+  survfit(Surv(time, death) ~ chemo, data = _) 
+summary(s2)
+```
+
+```{r}
+s2 |> 
+  ggsurvplot(risk.table = TRUE, 
+           risk.table.height = 0.3, 
+           pval = TRUE,
+           surv.median.line = "hv",
+           break.x.by = 3, 
+           xlab = "Survival Years",
+           #title = "Survival Curves of overstay and coup-entry leaders",
+           font.title = 14,
+           ggtheme = theme_bw())
+```
+
+### Cox regression
+```{r}
+mod_rot <- df |> 
+  coxph(Surv(time, death) ~ hormon + chemo + size + er + pgr + nodes + meno + grade + meno + age, data = _)
+mod_rot|> 
+  summary()
+```
+
+```{r}
+```
+
+```{r}
+mod_rot |> 
+  cox.zph() |> 
+  ggcoxzph()
+
+names(mod_rot$coefficients) <- c("Hormon", "chemo", "size20-50", "size>50", "er", "pgr", "nodes", "meno", "grade", "age")
+```
+
+```{r}
+mod_rot |> 
+  ggforest(data = df)
+```
 
