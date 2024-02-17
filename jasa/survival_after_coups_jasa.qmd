@@ -127,38 +127,45 @@ Finally, in Chapter 6, the paper concludes by synthesizing these findings and ex
 
 \newpage
 
-## Literature review: The dynamics of leadership survival in different scenarios
+## Literature review
 
 In their seminal work, @buenodemesquita2003 conducted a comprehensive examination of leaders spanning diverse political landscapes, encompassing democracies and autocracies, as well as parliamentary and presidential systems, while accounting for both civilian and military contexts.
-Their aim was to provide an general explanation for the dynamics of political leadership survival within a universal framework.
+Their aim was to provide a general explanation for the dynamics of political leadership survival within a universal framework.
 Proposing a universal theoretical framework regarding the political survival is highly intriguing.
 However, it is crucial to acknowledge the challenges that must be addressed in order to provide a more general theory of leadership survival across all types of regimes.
 
-First of all, the rules governing power transitions differ drastically between democracies and autocracies.
-In most autocratic regimes, the process of leadership selection remains shrouded in secrecy.
-Expressing dissenting views, whether as potential challengers or supporters of challengers, can be perilous.
-In Russia, despite the presence of general elections, challengers frequently face severe consequences such as assassination, poisoning, imprisonment, or exile.
-Due to the lack of transparent and fair conventional procedures for power transitions, it is a great challenge to assess who holds more power or has more supporters.
-A dictator could potentially survive a lengthy tenure despite weak support because the true balance of power remains undisclosed.
-Conversely, a powerful ruler could be ousted by a small number of guards because the army or other supporters hesitate to fight for them due to a lack of information regarding their predominant status in the power balance.
-Thus, accurately calculating selectorates or coalitions, as @buenodemesquita2003 did in their research, becomes impossible in such scenarios.
-In contrast, in democracies, challengers can openly vie for leadership without fear.
-Their support rates are easily discernible, and they can seek to gain more supporters through public speeches, TV or newspaper advertisements, or assemblies.
-If their support rates are not adequate to challenge the incumbents, different groups can try to collaborate one another, facilitating power transitions with a slightly higher level of support.
+First and foremost, the mechanisms governing power transitions exhibit stark contrasts across different regimes, particularly between democracies and autocracies.
+A prominent differentiating factor lies in whether the process of running for office is open to public participation.
+In many autocratic systems, the pool of candidates for supreme leadership is severely restricted, confined to royal families, military juntas, ruling parties, or other exclusive circles.
+The selection of leaders remains veiled in secrecy, and expressing dissenting views, whether as potential challengers or supporters of challengers, can carry significant risks.
+In countries like Russia, despite the facade of general elections, substantial barriers exist for individuals to legitimately contest for office, even if there is no explicit prohibition.
+Potential challengers often face severe repercussions such as assassination attempts, poisoning, imprisonment, or forced exile.
+In contrast, in democratic systems, challengers can openly vie for leadership positions without fear of reprisal.
+They can endeavour to garner support through public speeches, television or newspaper advertisements, or grassroots assemblies.
+If their levels of support prove insufficient to challenge incumbents, various factions can collaborate, facilitating power transitions with a somewhat higher threshold of support.
+This disparity is significant, as it renders accurate measurement of support rates or power balances in autocracies challenging, unlike in democracies.
+Consequently, accurately calculating selectorates or coalitions, as demonstrated by @buenodemesquita2003 in their research, becomes virtually impossible in such contexts.
+In democracies, power transitions typically occur due to shifts in support levels, whereas in autocracies, they often result from unforeseen factors or accidents.
+A dictator could potentially endure a prolonged tenure despite lacking widespread support because the true balance of power remains concealed.
+Conversely, a seemingly powerful ruler could be swiftly ousted by a small faction of guards, as the military or other supporters may hesitate to defend them due to a lack of clarity regarding their true standing in the power dynamics.
 
-Secondly, the division of residents into different coalitions or groups may not hold as much relevance in democracies when compared to autocracies.
-In democratic systems, while those who support and vote for incumbents may witness their advocated policies enacted, those opposing them still experience the same policies.
-For instance, if a candidate advocating for lower taxes wins an election, it does not lead to lower taxes for the elected leaders' supporters and higher taxes for their opponents; both groups encounter identical tax levels.
-This dynamic differs significantly in autocratic regimes, where different groups benefit unequally based on their status and relationships with the rulers.
+Secondly, the consequence of power transition holds vastly different implications in democracies compared to autocracies.
+In autocratic systems, rulers often wield significant power, and the shift in leadership can precipitate dramatic policy changes.
+For instance, during Mao Zedong's era, China endured prolonged turmoil and famine due to the prevalence of the ideology of class struggle, pushing the economy to the brink of collapse.
+However, following Mao Zedong's death in 1976, Deng Xiaoping initiated the policy of reform and opening up, propelling China to rapidly overcome its poverty and backwardness, ultimately emerging as the world's second-largest economy by around 2010.
+Notably, many political prisoners from Mao's era were released during Deng's tenure, and over 10 million "sent-down youth" were able to return to urban areas from rural regions [@spence1990search].
+Conversely, in democratic systems, the differences between successive leaders may not be as stark.
+Moreover, policies in democracies typically aim to treat all individuals equally.
+For instance, if a candidate advocating for lower taxes wins an election, it does not result in lower taxes for their supporters and higher taxes for their opponents; tax rates remain consistent for all residents.
+Therefore, the division of residents into different coalitions or groups, as demonstrated by @buenodemesquita2003 in their research, may not hold as much relevance in democracies as it does in autocracies.
 
-Furthermore, our interest in analyzing political survival stems from irregular and unforeseen power transitions.
+Furthermore, our interest in analysing political survival stems from irregular and unforeseen power transitions.
 Discussing regular and expected leadership tenures is neither necessary nor pertinent in this context.
 As previously mentioned, over 85% of leaders entering power through regular means also exited in a regular manner [@goemans2009].
 Many political leaders, especially in democracies and some autocracies, experience predictable and routine tenures.
 Consider the case of the United States, where presidents can serve up to eight years if re-elected for a second term, or at least complete a full four-year term despite underperformance.
 Similarly, in autocratic Mexico from 1919 to 2000, each president served a fixed six-year term without facing overthrows or overstays, as noted by [@klesner2019].
-Analyzing the survival of such leaders might seem futile as their power transitions typically occur within the bounds of constitutional rules.
-
+Analysing the survival of such leaders might seem futile as their power transitions typically occur within the bounds of constitutional rules.
 On the other hand, leaders who come into power through irregular means paint a more intricate and unpredictable picture.
 Take, for instance, Henri Namphy, who assumed the presidency of Haiti following a coup in June 1988, only to be ousted by another coup a mere three months later in September of the same year.
 However, Qaddafi, the dictator of Libya, seized power in a coup in 1969 and ruled for over 40 years before being killed in 2011 by NATO-backed rebel forces [@goemans2009].
