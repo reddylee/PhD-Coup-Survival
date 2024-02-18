@@ -54,8 +54,10 @@ Previous research on the longevity of political leaders has underscored two sign
 Firstly, scholars have predominantly concentrated on overarching frameworks rooted in regime types, spanning across all regime types or focusing on specific regimes such as autocracies or democracies, while allocating comparatively less attention to comparisons based on leader types.
 Secondly, while prior studies typically consider the entire duration in office when analysing political survival, fewer have explored how the mechanism of survival might evolve following critical events such as auto-coups.
 
-Due to these significant gaps, this paper aims to conduct a comparative analysis between two specific types of political leaders: those who rise to power through coups and those who exceed their designated term limits (auto-coups).
+Due to these significant gaps, this paper aims to conduct a comparative analysis between two specific types of political leaders: those who rise to power through coups and those who exceed their designated term limits (auto-coups)[^1].
 Examining the tenures of these two irregularly ascended leaders holds particular significance for two reasons.
+
+[^1]: In this study, I interchangeably use the terms "overstaying leaders" and "auto-coup-entry leaders."
 
 Firstly, irregularly ascended leaders constitute the majority of irregular exits from power.
 According to @goemans2009, between 1945 and 2015, out of 1472 leaders who assumed office through regular channels, approximately 213 exited irregularly (14.5%).
@@ -171,25 +173,25 @@ Take, for instance, Henri Namphy, who assumed the presidency of Haiti following 
 However, Qaddafi, the dictator of Libya, seized power in a coup in 1969 and ruled for over 40 years before being killed in 2011 by NATO-backed rebel forces [@goemans2009].
 Certain dictators maintain an indefinite grip on power until their death, subsequently transferring authority to family members, such as sons in the cases of Syria and North Korea, or brothers in Cuba.
 
-Given the distinct nature of political leadership survival in various regimes, scholars have increasingly focused on understanding the survival dynamics specific to certain regime types, such as democracies [@svolik2014] and autocracies [@davenport2021].
-Notably, considerable academic attention has been drawn towards unexpected tenures, particularly those leaders who either fail to complete their original terms or overstay their terms.
-Scholars have predominantly revolved around two primary dimensions.
-The first dimension encompasses contextual conditions and resources available to leaders.
-These factors include elements such as the leaders' personal competence [@yu2016], societal stability [@arriola2009], economic development level [@palmer1999; @williams2011], access to natural resources [@smith2004; @quirozflores2012], and external support networks [@licht2009; @wright2008; @thyne2017].
-The second dimension delves into the strategies implemented by leaders in enacting their political and economic policies.
-This includes their responses to challengers and dissent within their regimes [@escribà-folch2013; @davenport2021], as well as strategies used in policy-making [@gandhi2007; @morrison2009].
+Given the diverse mechanisms governing political leadership survival across different regimes, scholars have increasingly directed their attention towards understanding survival dynamics within specific regime types, such as democracies [@svolik2014] and autocracies [@davenport2021].
+Of particular interest is the phenomenon of unexpected tenures, notably when leaders either fail to complete their original terms or overstay their mandates.
+Scholars have attempted to explain these tenures from two primary perspectives.
+The first perspective considers contextual conditions and resources available to leaders.
+These factors encompass elements such as the leaders' personal competence [@yu2016], societal stability [@arriola2009], level of economic development [@palmer1999; @williams2011], access to natural resources [@smith2004; @quirozflores2012], and external support networks [@licht2009; @wright2008; @thyne2017].
+The second perspective delves into the strategies adopted by leaders in implementing their political and economic agendas.
+On one hand, this includes the political ideals or advocacies they aim to realize or actively promote [@gandhi2007; @morrison2009].
+On the other hand, it encompasses the measures they undertake in response to opposition, challenges, or even coups or rebellions [@escribà-folch2013; @davenport2021].
 
-Unsurprisingly, a considerable focus in previous studies has been directed towards coups, given their status as a prominent pathway leading to the exit of authoritarian leaders [@svolik2008; @frantz2016].
-Literature on leadership survival has examined strategies aimed at preventing coups [@powell2017; @sudduth2017; @debruin2020], as well as analyses of how leaders extend their tenures post-surviving failed coup attempts [@easton2018].
-For instance, @sudduth2017a, while primarily focused on purge strategies, examines the post-coup actions of a dictator.
-The central argument suggests that leaders ascending through coups experience a temporary surge in influence compared to elites immediately following the coups, making them less prone to subsequent ousting by coup attempts.
-This argument challenges the traditional notion that new leaders are generally in a weak position at the start of their tenure [@roessler2011].
-Despite this distinction, both Sudduth and prior scholars concur that new leaders tend to purge rival elite groups to consolidate their power.
-Sudduth argues that dictators undertake purges when they can do so without significant risk, while traditional views suggest purges occur when dictators perceive imminent threats.
-However, it is imperative to acknowledge that new leaders, particularly those ascending through unconventional means, do not adhere to a universal pattern of inherent weakness or strength.
-Leadership transitions unfold in varied contexts, presenting leaders with diverse challenges.
+Not surprisingly, a significant emphasis in prior research has been placed on coups, given their role as a prominent avenue leading to the removal of authoritarian leaders [@svolik2008; @frantz2016].
+Literature on leadership survival has explored strategies aimed at thwarting coups [@powell2017; @sudduth2017; @debruin2020], as well as analyses of how leaders prolong their tenures following surviving failed coup attempts [@easton2018].
+For instance, while primarily focused on purge strategies, @sudduth2017a examines the post-coup actions of dictators.
+The central argument posits that leaders who ascend through coups wield greater power compared to elites in the initial stages of their rule, thereby reducing the likelihood of elites launching new coups against coup-entry leaders.
+This argument challenges the conventional notion that new leaders are typically in a weak position at the outset of their tenure [@roessler2011].
+Despite this distinction, both Sudduth and previous scholars concur that new leaders often purge rival elite groups to consolidate their power.
+Sudduth contends that dictators undertake purges when they can do so without significant risk, while conventional perspectives suggest purges occur when dictators perceive imminent threats.
+While the debate over whether new coup-entry leaders are inherently weak or strong persists, both perspectives agree that purging elites at the onset of rule is more likely.
 
-Scholars have extensively analyzed the endurance of political leaders across various spheres, examining universal frameworks, autocratic regimes, and the aftermath of failed challenges, including coup attempts.
+Scholars have extensively analysed the endurance of political leaders across various spheres, examining universal frameworks, autocratic regimes, and the aftermath of failed challenges, including coup attempts.
 However, there remains a notable gap in discussions surrounding the survival dynamics of leaders who consolidate power after successful coups or prolonged incumbency.
 Specifically, there has been limited exploration and comparison of the survival tenures between overstaying leaders and coup-entry leaders.
 This study seeks to address this gap by scrutinizing and outlining the duration of survival among these two distinct categories of leaders.
@@ -241,7 +243,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favourable position across these three facets.
 
 | **Aspect**                       | **Overstaying Leaders**                                                                                             | **Coup-Entry Leaders**                                                                                                                                               |
-|------------------|----------------------|--------------------------------|
+|-------------------|----------------------|--------------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -296,27 +298,27 @@ coups |>
 For leaders surpassing their designated terms, the situation diverges.
 As incumbents, they abuse their power to manipulate the power transition dynamics.
 They might reinterpret or amend the constitution, utilizing avenues like parliamentary votes, supreme court decisions, or referendums, with aspirations for prolonged or even lifelong tenure.
-Yet fundamentally, most instances of overstaying lack authentic legitimacy as such leaders often exploit their authority, resorting at times to illegal measures like arresting, expelling, or even assassinating opposition figures[^1].
+Yet fundamentally, most instances of overstaying lack authentic legitimacy as such leaders often exploit their authority, resorting at times to illegal measures like arresting, expelling, or even assassinating opposition figures[^2].
 Consequently, these alterations in leadership tenure and power transitions do not genuinely reflect the populace's will.
 Nonetheless, it's notable that, on the surface, the methods employed by overstay leaders carry a semblance of legitimacy compared to coups.
 Even if contesting their legitimacy, challengers are normally constrained to adopt lawful means.
 
-[^1]: <https://www.france24.com/en/live-news/20221123-vladimir-putin-s-critics-dead-jailed-exiled>: Vladimir Putin's critics: dead, jailed, exiled.
+[^2]: <https://www.france24.com/en/live-news/20221123-vladimir-putin-s-critics-dead-jailed-exiled>: Vladimir Putin's critics: dead, jailed, exiled.
     Accessed on Dec 23, 2023.
 
 Additionally, overstaying might attract imitators, yet replicating overstaying differs significantly from replicating coups.
 While coups can happen at any moment, overstaying requires a prerequisite—those seeking to overstay must initially occupy leadership positions.
 Even if challengers openly reject legitimacy and attempt to employ similarly illegitimate methods, such as orchestrating coups to oust overstay leaders, it presents a far greater challenge, as it demands considerable strength or substantial support.
 Conversely, an overstay leader inherently possesses a position of advantage in terms of power.
-For instance, in 2018, China's National People's Congress sanctioned the removal of the two-term limit on the presidency—only two delegates opposed the change, and three abstained out of 2,964 votes—effectively granting Xi Jinping the potential to remain in power for life[^2].
-Similarly, in Russia's 2020 constitutional referendum, 79% of valid votes supported changes to the constitution enabling Putin to potentially rule until 2036[^3]
+For instance, in 2018, China's National People's Congress sanctioned the removal of the two-term limit on the presidency—only two delegates opposed the change, and three abstained out of 2,964 votes—effectively granting Xi Jinping the potential to remain in power for life[^3].
+Similarly, in Russia's 2020 constitutional referendum, 79% of valid votes supported changes to the constitution enabling Putin to potentially rule until 2036[^4]
 . While these figures may not accurately reflect genuine support from ruling groups or the populace, they do underscore the consolidation of power by the incumbents
 .
 
-[^2]: <https://www.bbc.co.uk/news/world-asia-china-43361276>: China's Xi allowed to remain 'president for life' as term limits removed.
+[^3]: <https://www.bbc.co.uk/news/world-asia-china-43361276>: China's Xi allowed to remain 'president for life' as term limits removed.
     Accessed on Dec 23, 2023.
 
-[^3]: <https://www.ucl.ac.uk/news/2020/jul/analysis-vladimir-putin-secures-constitutional-changes-allowing-him-rule-until-2036>: Analysis: Vladimir Putin secures constitutional changes allowing him to rule until 2036.
+[^4]: <https://www.ucl.ac.uk/news/2020/jul/analysis-vladimir-putin-secures-constitutional-changes-allowing-him-rule-until-2036>: Analysis: Vladimir Putin secures constitutional changes allowing him to rule until 2036.
     Accessed on Dec 23, 2023.
 
 Hence, from the legitimacy standpoint, while both overstaying leaders and coup-entry leaders lack genuine legitimacy, the former retain an edge in superficial legitimacy and are more powerful, potentially leading to longer-lasting regimes than those initiated by coup-entry leaders.
@@ -329,12 +331,12 @@ However, regimes led by overstay rulers generally exhibit comparatively lower le
 In the aftermath of coups, uncertainty arises concerning the identity of the leader and the duration of their tenure.
 The majority of coup leaders have retained power since their coups, such as Gamal Abdel Nasser in Egypt since the 1954 coup, Muammar Gaddafi in Libya following the 1969 coup, and Idi Amin in Uganda after the 1971 coup [@geddes2018].
 Some coup leaders have claimed to intend to transfer power to constitutionally elected leaders but failed to honor their commitments, as seen in the case of the military junta in Myanmar after the 2021 coup.
-Despite promising a new election after a year-long state of emergency, the military junta extended the emergency multiple times and retained power until the end of 2023[^4].
+Despite promising a new election after a year-long state of emergency, the military junta extended the emergency multiple times and retained power until the end of 2023[^5].
 Moreover, within military juntas themselves, uncertainties persist.
 For instance, following the Chilean Coup in 1973, a military junta initially planned to rotate the presidency among the commanders-in-chief of the four military branches.
 However, General Pinochet consolidated his control and retained power in Chile until 1990 [@svolik2012].
 
-[^4]: <https://thediplomat.com/2023/08/myanmar-junta-extends-state-of-emergency-for-fourth-time/>: Myanmar Junta Extends State of Emergency for Fourth Time.
+[^5]: <https://thediplomat.com/2023/08/myanmar-junta-extends-state-of-emergency-for-fourth-time/>: Myanmar Junta Extends State of Emergency for Fourth Time.
     Accessed on Dec 24, 2023.
 
 Notably, some coup leaders have honored their promises and restored power to constitutional civilian governments.
@@ -424,7 +426,7 @@ The dependent and independent data are sourced from the author's incumbent overs
     The dataset employed for these metrics is sourced from V-Dem Data.
 
 -   **Degree of Democracy:** The level of democracy is gauged using Polity 5 scores (`polity`) at the entry year for each respective country.
-    This dataset is sourced from the Center for Systemic Peace (CSP)[^5].
+    This dataset is sourced from the Center for Systemic Peace (CSP)[^6].
 
 -   **Population Size:** Accounting for its potential impact on leaders' tenures, the log population size (`pop_log`) is considered.
     This data is obtained from the V-Dem Data and is evaluated in relation to its influence on leadership survival.
@@ -435,7 +437,7 @@ The dependent and independent data are sourced from the author's incumbent overs
 -   **Leader's Age:** The age of the leader at the entry year serves as an additional variable in the analysis, providing insight into potential correlations with leadership survival.
     This data is sourced from the leaders dataset by [@goemans2009].
 
-[^5]: Center for Systemic Peace: <https://www.systemicpeace.org>.
+[^6]: Center for Systemic Peace: <https://www.systemicpeace.org>.
     Accessed on Dec 24, 2023.
 
 ### Method
