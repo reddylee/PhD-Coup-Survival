@@ -1,5 +1,5 @@
 ---
-title: Political Leadership Survival in the Aftermath of Coups and Autocoups
+title: Political Leadership Survival After Coups and Autocoups
 date: last-modified
 author: 
  name: Zhu Qi
@@ -12,7 +12,7 @@ format:
     papersize: A4
     indent: true
     number-sections: true
-    keywords: [Political survival, Coups, Auto-coups, Overstay]
+    keywords: [Political survival, Coup, Autocoup, Overstay]
 
 abstract: |
  This study endeavors to explore and compare the tenures of two categories of irregular-entry political leaders: those who ascend to power through coups and those who overstay their original term limits (autocoups). The central hypothesis posits that the mode of accession to power may exert an influence on the duration of their tenures. Employing survival analysis, the results indicate that leaders who extend their tenure by autocoups generally enjoy longer durations in office (after autocoups) compared to leaders who entered through coups.
@@ -52,12 +52,12 @@ This probing inquiry has garnered extensive attention and undergone thorough ana
 
 Previous research on the longevity of political leaders has underscored two significant aspects.
 Firstly, scholars have predominantly concentrated on overarching frameworks rooted in regime types, spanning across all regime types or focusing on specific regimes such as autocracies or democracies, while allocating comparatively less attention to comparisons based on leader types.
-Secondly, while prior studies typically consider the entire duration in office when analysing political survival, fewer have explored how the mechanism of survival might evolve following critical events such as auto-coups.
+Secondly, while prior studies typically consider the entire duration in office when analysing political survival, fewer have explored how the mechanism of survival might evolve following critical events such as autocoups.
 
-Due to these significant gaps, this paper aims to conduct a comparative analysis between two specific types of political leaders: those who rise to power through coups and those who exceed their designated term limits (auto-coups)[^1].
+Due to these significant gaps, this paper aims to conduct a comparative analysis between two specific types of political leaders: those who rise to power through coups and those who exceed their designated term limits (autocoups)[^1].
 Examining the tenures of these two irregularly ascended leaders holds particular significance for two reasons.
 
-[^1]: In this study, I interchangeably use the terms "overstaying leaders" and "auto-coup-entry leaders."
+[^1]: In this study, I interchangeably use the terms "overstaying leaders" and "autocou leaders."
 
 Firstly, irregularly ascended leaders constitute the majority of irregular exits from power.
 According to @goemans2009, between 1945 and 2015, out of 1472 leaders who assumed office through regular channels, approximately 213 exited irregularly (14.5%).
@@ -66,11 +66,11 @@ Conversely, out of 308 leaders who assumed office through irregular means, rough
 Secondly, among irregularly ascended leaders, the majority gained power through launching coups or overstaying in their office.
 As per [@goemans2009], out of 374 leaders who exited irregularly, 246 were ousted through coups, constituting 65.8% of these cases.
 Additionally, between 1945 and 2020, there were 106 attempts to overstay in power, of which 86 were successful [@zhu2024].
-This form of overstaying can be perceived as a type of auto-coup, as incumbents employ tactics to prolong their rule, effectively staging coups against potential future leaders.
-Hence, it becomes both relevant and enlightening to delve into and compare the tenures of survival between coup-entry leaders and auto-coup-entry leaders (over-stayers).
+This form of overstaying can be perceived as a type of autocoup, as incumbents employ tactics to prolong their rule, effectively staging coups against potential future leaders.
+Hence, it becomes both relevant and enlightening to delve into and compare the tenures of survival between coup-entry leaders and autocoup leaders (over-stayers).
 
-While it's expected that over-stayers survive longer than coup-entry leaders when considering their total tenures, a more insightful comparison arises when examining the tenures following auto-coups in contrast to those of coup-entry leaders.
-Conducting a log-rank test in survival analysis on the leaders dataset [@goemans2009] and the author's incumbent overstay dataset [@zhu2024] reveals a distinct contrast between auto-coup-entry leaders and coup-entry leaders.
+While it's expected that over-stayers survive longer than coup-entry leaders when considering their total tenures, a more insightful comparison arises when examining the tenures following autocoups in contrast to those of coup-entry leaders.
+Conducting a log-rank test in survival analysis on the leaders dataset [@goemans2009] and the author's incumbent overstay dataset [@zhu2024] reveals a distinct contrast between autocoup leaders and coup-entry leaders.
 
 ```{r}
 #| label: data
@@ -102,14 +102,14 @@ ggsurvplot(fit,
            surv.median.line = "hv",
            break.x.by = 5, 
            legend.title = "Leader Type",
-           legend.labs = c("entry by auto-coup", "entry by coup"),
+           legend.labs = c("entry by autocoup", "entry by coup"),
            xlab = "Survival Years",
            #title = "Survival Curves of overstay and coup-entry leaders",
            font.title = 14)
 ```
 
-Specifically, according to @fig-logrank, the average survival time after auto-coups, excluding their original term duration, is approximately `r avg$avg[1]` years.
-In contrast, leaders who ascend to power via coups typically have an average survival time of `r avg$avg[2]` years, signifying an average shortfall of 5 years in their tenure compared to auto-coup-entry leaders.
+Specifically, according to @fig-logrank, the average survival time after autocoups, excluding their original term duration, is approximately `r avg$avg[1]` years.
+In contrast, leaders who ascend to power via coups typically have an average survival time of `r avg$avg[2]` years, signifying an average shortfall of 5 years in their tenure compared to autocoup leaders.
 
 Thus, this study posits that the manner in which leaders ascend to power significantly influences the duration of their leadership tenure.
 Unlike leaders who overstay, those who seize power through coups encounter greater challenges related to legitimacy, uncertainty, instability, and power-sharing, potentially curtailing their survival duration.
@@ -204,22 +204,28 @@ This study seeks to address this gap by scrutinizing and outlining the duration 
 
 \newpage
 
-## Survival dynamics of overstay and coup-entry leaders
+## Survival dynamics of autocoup and coup-entry leaders
 
-In this paper, I maintain the definition of "***overstay***" as delineated in the second part of this dissertation, referring to situations where "*incumbent political leaders strive to exceed the maximum time permitted by constitutional norms or unwritten rules"* [@zhu2024, p5].
-A successful overstay is determined by an extension of power lasting at least six months or longer.
+In this paper, I follow the definition of "***autocoup***" as delineated in the second part of this dissertation, referring to situations where "*incumbent political leaders strive to exceed the maximum term limits permitted by constitutional norms or unwritten rules"* [@zhu2024, p5].
+A successful autocoup is determined by an extension of power lasting at least six months or longer.
 
-Regarding the definition of a "***coup***", I will adopt the definition outlined by Powell and Thyne: coups are characterized as "*illegal and overt attempts by the military or other elites within the state apparatus to unseat the sitting executive*" [@powell2011, p252].
+Regarding the definition of a "***coup***", I also take the definition outlined by Powell and Thyne: coups are "*illegal and overt attempts by the military or other elites within the state apparatus to unseat the sitting executive*" [@powell2011, p252].
 They categorize a coup attempt as successful if the perpetrators seize and retain power for a minimum of seven days.
-To align with the successful overstays discussed in this paper, I will focus on instances where the usurpation of power endures for at least six months.
+To align with the successful autocoup discussed in this paper, I will focus on instances where the usurpation of power endures for at least six months.
 
-Engaging in discussions on the survival strategies employed by political leaders in non-democratic systems presents a considerable challenge.
-This challenge is rooted in the intricate nature of power transitions within autocratic regimes, which lack a consistent and universally applicable pattern or set of conventions.
-In specific instances, such as Middle Eastern monarchies, the transfer of power does not strictly adhere to a hereditary father-to-son lineage, further complicating the landscape.
-Moreover, even if there are established rules governing power transitions, they are often flouted by incumbents or coup plotters.
+Studying the survival time of leaders in non-democratic countries presents inherent challenges.
+Unlike in democratic nations, where leadership transitions are typically determined by regular elections, autocratic regimes often lack fixed terms of office and standardized succession methods.
+Leadership turnover in autocratic countries can take various forms, including lifelong terms, irregular terms, or periodic terms.
+Succession methods may involve familial inheritance, such as father-to-son or brother-to-brother transfers within ruling families, as well as emergence from a junta or the ruling party.
+In some cases, leadership transitions may even mimic electoral processes found in democratic systems.
+Furthermore, many autocratic successions occur without clear constitutional rules.
+Even when constitutional rules exist, they are frequently disregarded by incumbent leaders or coup-makers, further complicating the study of leadership tenures.
 
-Nevertheless, amidst the diversity in regime types and leadership styles, leaders who prolong their rule through self-coups and those who seize power through coups exhibit certain similarities.
-Understanding these shared tactics provides insight into their strategies for survival.
+While studying the survival time of non-democratic leaders is more complex compared to democratic nations, it also renders this research more valuable.
+Furthermore, although the succession of authoritarian leaders is intricate and diverse, it is not entirely devoid of patterns.
+Notably, there is still strong comparability between leaders of similar types.
+This paper aims to conduct a comparative analysis of the ruling tenures of two similar types of leaders: leaders who came to power through coups and leaders who overstayed their terms through autocoups.
+In particular, leaders who come to power through coups and those who stage autocoups face three common challenges in maintaining their power.
 
 The first aspect concerns the issue of legitimacy.
 Leaders who ascend through coups lack legitimacy as they seize power through force or other unconstitutional means.
@@ -249,7 +255,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favourable position across these three facets.
 
 | **Aspect**                       | **Overstaying Leaders**                                                                                             | **Coup-Entry Leaders**                                                                                                                                               |
-|-------------------|----------------------|--------------------------------|
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |

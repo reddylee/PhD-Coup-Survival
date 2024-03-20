@@ -1,0 +1,29 @@
+---
+title: glue package
+format: pdf
+execute: 
+ echo: false
+ message: false
+ warning: false
+---
+
+## Setup
+```{r}
+library(tidyverse)
+library(glue)
+```
+
+
+## glue
+```{r}
+#| results: asis
+glue("There are **{nrow(diamonds)}** diamonds in the dataset.")
+cat("There are", nrow(diamonds), "diamonds in the dataset.")
+```
+
+```{r}
+diamonds |> 
+  select(cut) |>
+  unique() |> 
+  glue_data("{cut}", )
+```
