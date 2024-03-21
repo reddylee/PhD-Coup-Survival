@@ -4,14 +4,15 @@
 #| label: setup
 library(tidyverse)
 library(readxl)
-library(haven)
 library(data.table)
+library(survival)
+
+library(haven)
 library(vdemdata)
 library(democracyData)
 library(janitor)
 library(gtsummary)
 library(zoo)
-library(survival)
 library(survminer)
 library(kableExtra)
 library(jtools)
@@ -26,22 +27,24 @@ pop_{log} + polity5 + polstab + age$$
 ## overstays
 
 ```{r}
-# coups <- fread("powell_thyne_coups_final.txt") %>% 
-#   filter(coup==2) %>% 
+# coups <- fread("powell_thyne_coups_final.txt") %>%
+#   filter(coup==2) %>%
 #   mutate(startdate=ymd(paste(year,month,day)),
 #          joindate=interval(startdate - days(1), startdate + days(1))
-# ) %>% 
+# ) %>%
 #   select(-c(3,4,9))
 
-overstays <- read_excel("self_coup_Reddy.xlsx") %>% 
-  filter(Success==1) %>% 
-  select(ccode,ruler,starty,endy,overstay_year=year) 
+overstays <- read_excel("self_coup_Reddy.xlsx") %>%
+  filter(Success == 1) %>%
+  select(ccode, ruler, starty, sdate, endy, edate, overstay_year = year) |> 
+  mutate(overstay_date = make_date(overstay_year, month(sdate), day(sdate)))
+str(overstays)
 ```
 
 ## leaders
 
 ```{r}
-leaders <- fread("Archigos.txt",encoding = "Latin-1") 
+leaders <- fread("Archigos.txt", encoding = "Latin-1") 
 
 # update "still in office"
 leaders$enddate[leaders$leader=="Nguema Mbasogo"] <- "2023-11-27"
@@ -160,11 +163,10 @@ leaders2 <- leaders1 %>%
 
 ## leaders + overstays
 ```{r}
-mydata <- leaders2 %>% 
-  left_join(overstays,by=c("ccode","syear"="starty","eyear"="endy")) %>% 
-  filter(!(is.na(ruler)&coup_entry==0)) %>% 
-  select(leader,ruler,everything()) %>%
-  mutate(overstaydate = as.Date(paste(overstay_year, substr(startdate, 6, 10), sep = "-"))) 
+mydata <- leaders2 %>%
+  left_join(overstays, join_by(ccode, syear == starty, eyear == endy)) %>%
+  filter(!(is.na(ruler) & coup_entry == 0)) %>%
+  select(leader, ruler, everything())
 ```
 
 
@@ -174,7 +176,7 @@ mydata1 <- mydata %>%
     group = case_when(!is.na(overstay_year) ~ "A",
                       .default = "B"),
     survival_time = case_when(
-      group == "A" ~ ymd(enddate) - overstaydate,
+      group == "A" ~ ymd(enddate) - overstay_date,
       .default = ymd(enddate) - ymd(startdate)
     )
   ) %>%
@@ -197,7 +199,7 @@ table(mydata1$status)
 ```{r}
 mydata2 <- mydata1 |>
   mutate(
-    startdate = if_else(group == "A", ymd(overstaydate), ymd(startdate)),
+    startdate = if_else(group == "A", ymd(overstay_date), ymd(startdate)),
     enddate = ymd(enddate),
     age = if_else(group == "B", syear - yrborn, overstay_year -
                    yrborn)
@@ -332,5 +334,10 @@ write.csv(Mydata3A, "mydata2.csv")
 
 ```{r}
 export_summs(m1, m2)
+```
+
+```{r}
+read.csv("CCP.csv") |> 
+  view()
 ```
 
