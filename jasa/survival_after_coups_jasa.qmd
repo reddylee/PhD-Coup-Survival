@@ -4,7 +4,6 @@ date: last-modified
 author: 
  name: Zhu Qi
  affiliations: Department of Government, University of Essex
-
 format:
   jasa-pdf:
     keep-tex: true  
@@ -13,10 +12,8 @@ format:
     indent: true
     number-sections: true
     keywords: [Political survival, Coup, Autocoup, Overstay]
-
 abstract: |
  This study endeavors to explore and compare the tenures of two categories of irregular-entry political leaders: those who ascend to power through coups and those who overstay their original term limits (autocoups). The central hypothesis posits that the mode of accession to power may exert an influence on the duration of their tenures. Employing survival analysis, the results indicate that leaders who extend their tenure by autocoups generally enjoy longer durations in office (after autocoups) compared to leaders who entered through coups.
-
 bibliography: survival.bib
 mainfont: Times New Roman
 fontsize: 12pt
@@ -24,6 +21,9 @@ execute:
   echo: false
   warning: false
   message: false
+editor: 
+  markdown: 
+    wrap: sentence
 ---
 
 ```{r}
@@ -43,6 +43,7 @@ library(broom)
 library(jtools)
 #library(huxtable)
 library(flextable)
+library(here)
 ```
 
 ## Introduction
@@ -56,8 +57,6 @@ Secondly, while prior studies typically consider the entire duration in office w
 
 Due to these significant gaps, this paper aims to conduct a comparative analysis between two specific types of political leaders: those who rise to power through coups and those who exceed their designated term limits (autocoups)[^1].
 Examining the tenures of these two irregularly ascended leaders holds particular significance for two reasons.
-
-[^1]: In this study, I interchangeably use the terms "overstaying leaders" and "autocou leaders."
 
 Firstly, irregularly ascended leaders constitute the majority of irregular exits from power.
 According to @goemans2009, between 1945 and 2015, out of 1472 leaders who assumed office through regular channels, approximately 213 exited irregularly (14.5%).
@@ -75,7 +74,7 @@ Conducting a log-rank test in survival analysis on the leaders dataset [@goemans
 ```{r}
 #| label: data
 #| include: false
-Mydata1 <- read.csv("../data/mydata1.csv") |> 
+Mydata1 <- read.csv(here("data/mydata1.csv")) |> 
   mutate(survival_year = survival_time / 365)
 
 avg <- Mydata1 |>
@@ -202,29 +201,34 @@ However, there remains a notable gap in discussions surrounding the survival dyn
 Specifically, there has been limited exploration and comparison of the survival tenures between autocoup-entry leaders and coup-entry leaders.
 This study seeks to address this gap by scrutinizing and outlining the duration of survival among these two distinct categories of leaders.
 
-\newpage
+## Survival dynamics of autocoup leaders and coup-entry leaders
 
-## Survival dynamics of autocoup and coup-entry leaders
+### Autocoup leader and coup-entry leader
 
-In this paper, I follow the definition of "***autocoup***" as delineated in the second part of this dissertation, referring to situations where "*incumbent political leaders strive to exceed the maximum term limits permitted by constitutional norms or unwritten rules"* [@zhu2024, p5].
-A successful autocoup is determined by an extension of power lasting at least six months or longer.
+As highlighted in Chapter 2, investigating leadership survival presents inherent challenges due to factors such as the opacity and varied mechanisms of power transitions.
+However, these challenges underscore the importance of this research, as it provides insights into understudied dynamics.
 
-Regarding the definition of a "***coup***", I also take the definition outlined by Powell and Thyne: coups are "*illegal and overt attempts by the military or other elites within the state apparatus to unseat the sitting executive*" [@powell2011, p252].
-They categorize a coup attempt as successful if the perpetrators seize and retain power for a minimum of seven days.
-To align with the successful autocoup discussed in this paper, I will focus on instances where the usurpation of power endures for at least six months.
+While the succession of political leaders exhibits complexity and variation, it is not entirely devoid of patterns.
+Leaders of similar types often display significant comparability.
+This study leverages this comparative approach to analyse the ruling tenures of two distinct leader categories: coup-entry leaders and autocoup leaders.
 
-Studying the survival time of leaders in non-democratic countries presents inherent challenges.
-Unlike in democratic nations, where leadership transitions are typically determined by regular elections, autocratic regimes often lack fixed terms of office and standardized succession methods.
-Leadership turnover in autocratic countries can take various forms, including lifelong terms, irregular terms, or periodic terms.
-Succession methods may involve familial inheritance, such as father-to-son or brother-to-brother transfers within ruling families, as well as emergence from a junta or the ruling party.
-In some cases, leadership transitions may even mimic electoral processes found in democratic systems.
-Furthermore, many autocratic successions occur without clear constitutional rules.
-Even when constitutional rules exist, they are frequently disregarded by incumbent leaders or coup-makers, further complicating the study of leadership tenures.
+This study defines an autocoup as a situation where an incumbent leader utilizes illegitimate or unconstitutional methods to extend their tenure and remain in power.
+An autocoup is deemed successful if this power extension lasts for at least six months.
+Coups d'état, on the other hand, are defined as illegal and overt attempts by the military or other powerful groups within the state to unseat the sitting leader [@powell2011].
+Similar to coups, successful autocoups in this study will be measured by a power usurpation lasting at least six months, differing from the seven-day duration coded by Powell and Thyne.
 
-While studying the survival time of non-democratic leaders is more complex compared to democratic nations, it also renders this research more valuable.
-Furthermore, although the succession of authoritarian leaders is intricate and diverse, it is not entirely devoid of patterns.
-Notably, there is still strong comparability between leaders of similar types.
-This paper aims to conduct a comparative analysis of the ruling tenures of two similar types of leaders: leaders who came to power through coups and leaders who overstayed their terms through autocoups.
+It is also important to clarify the distinction between an autocoup leader and a coup-entry leader, as the topic of this study is the survival of leaders.
+
+-   **Autocoup Leader:** This refers to an incumbent leader who successfully uses illegitimate or unconstitutional means to extend their tenure in power.
+    In an autocoup, the leader orchestrates the power grab and continues to rule afterwards.
+
+-   **Coup-Entry Leader:** This term designates the leader who assumes power after a successful coup d'état.
+    Unlike in autocoups, coups often involve multiple coup leaders (individuals or groups) who overthrow the incumbent leader.
+    The coup-entry leader is the individual who ultimately takes the reins of power after the coup succeeds.
+    While coup leaders may play a role in selecting the coup-entry leader, this is not always the case.
+    In some instances, they may support someone outside the coup plot to become the new leader.
+    Regardless of the selection process, the coup-entry leader is the one who assumes formal leadership following a successful coup.
+
 In particular, leaders who come to power through coups and those who stage autocoups face three common challenges in maintaining their power.
 
 The first aspect concerns the issue of legitimacy.
@@ -246,7 +250,7 @@ Unlike in democratic countries, where capable individuals can compete fairly thr
 One is to gain the trust of the ruler and be designated as a successor, while the other is to seize power through unconstitutional means such as coups.
 However, the first route is not only exceptionally difficult, but even if one manages to be appointed as a successor, the timing of succession is uncertain, and a slight misstep could lead to be purged.
 Therefore, authoritarian regimes provide fertile ground for coups, which are the greatest concern and require the most vigilance from the highest rulers.
-Typically, the incumbent rulers cannot accurately discern who is loyal and who harbors ambitions against their power.
+Typically, the incumbent rulers cannot accurately discern who is loyal and who harbour ambitions against their power.
 Their only recourse is to ensure that their subordinates maintain a balance of power so that no one has the ability to overthrow them.
 This means that for outstanding subordinates, the rulers must constantly suppress and control their power expansion.
 This is not only extremely difficult but also leads to new problems, particularly when facing domestic resistance from the lower classes or foreign invasion or interference.
@@ -255,7 +259,7 @@ The convergence of illegitimacy, uncertainty, and power equilibrium, as highligh
 However, when juxtaposed with leaders who seize power through coups, those who overextend their terms enjoy a relatively favourable position across these three facets.
 
 | **Aspect**                       | **Overstaying Leaders**                                                                                             | **Coup-Entry Leaders**                                                                                                                                               |
-|---------------|-----------------------|----------------------------------|
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Legitimacy                       | Normally attained through lawful procedures, but lacking recognized legitimacy.                                     | Attained unlawfully, devoid of legitimacy.                                                                                                                           |
 | Uncertainty in Power Transitions | Initially stable; uncertainty grows with prolonged tenure, especially without designated successors as leaders age. | Significant uncertainty initially; stability emerges as power is consolidated, yet prolonged leadership poses similar challenges as overstay, fostering instability. |
 | Power Sharing                    | Fewer challenges in power equilibrium due to successful overstay.                                                   | Confront power-sharing issues promised during coup staging, potentially triggering dissatisfaction among supporters if agreements are unmet.                         |
@@ -315,9 +319,6 @@ Consequently, these alterations in leadership tenure and power transitions do no
 Nonetheless, it's notable that, on the surface, the methods employed by overstay leaders carry a semblance of legitimacy compared to coups.
 Even if contesting their legitimacy, challengers are normally constrained to adopt lawful means.
 
-[^2]: <https://www.france24.com/en/live-news/20221123-vladimir-putin-s-critics-dead-jailed-exiled>: Vladimir Putin's critics: dead, jailed, exiled.
-    Accessed on Dec 23, 2023.
-
 Additionally, overstaying might attract imitators, yet replicating overstaying differs significantly from replicating coups.
 While coups can happen at any moment, overstaying requires a prerequisite—those seeking to overstay must initially occupy leadership positions.
 Even if challengers openly reject legitimacy and attempt to employ similarly illegitimate methods, such as orchestrating coups to oust overstay leaders, it presents a far greater challenge, as it demands considerable strength or substantial support.
@@ -326,12 +327,6 @@ For instance, in 2018, China's National People's Congress sanctioned the removal
 Similarly, in Russia's 2020 constitutional referendum, 79% of valid votes supported changes to the constitution enabling Putin to potentially rule until 2036[^4]
 . While these figures may not accurately reflect genuine support from ruling groups or the populace, they do underscore the consolidation of power by the incumbents
 .
-
-[^3]: <https://www.bbc.co.uk/news/world-asia-china-43361276>: China's Xi allowed to remain 'president for life' as term limits removed.
-    Accessed on Dec 23, 2023.
-
-[^4]: <https://www.ucl.ac.uk/news/2020/jul/analysis-vladimir-putin-secures-constitutional-changes-allowing-him-rule-until-2036>: Analysis: Vladimir Putin secures constitutional changes allowing him to rule until 2036.
-    Accessed on Dec 23, 2023.
 
 Hence, from the legitimacy standpoint, while both overstaying leaders and coup-entry leaders lack genuine legitimacy, the former retain an edge in superficial legitimacy and are more powerful, potentially leading to longer-lasting regimes than those initiated by coup-entry leaders.
 
@@ -347,9 +342,6 @@ Despite promising a new election after a year-long state of emergency, the milit
 Moreover, within military juntas themselves, uncertainties persist.
 For instance, following the Chilean Coup in 1973, a military junta initially planned to rotate the presidency among the commanders-in-chief of the four military branches.
 However, General Pinochet consolidated his control and retained power in Chile until 1990 [@svolik2014].
-
-[^5]: <https://thediplomat.com/2023/08/myanmar-junta-extends-state-of-emergency-for-fourth-time/>: Myanmar Junta Extends State of Emergency for Fourth Time.
-    Accessed on Dec 24, 2023.
 
 Notably, some coup leaders have honored their promises and restored power to constitutional civilian governments.
 For instance, after the 2010 coup in Niger, a new constitution reinstated civilian rule and implemented a strict two-term limit on the presidency within the same year [@ginsburg2019].
@@ -449,9 +441,6 @@ The dependent and independent data are sourced from the author's incumbent overs
 -   **Leader's Age:** The age of the leader at the entry year serves as an additional variable in the analysis, providing insight into potential correlations with leadership survival.
     This data is sourced from the leaders dataset by [@goemans2009].
 
-[^6]: Center for Systemic Peace: <https://www.systemicpeace.org>.
-    Accessed on Dec 24, 2023.
-
 ### Method
 
 In order to test the hypothesis, I will employ two cox models to analyze the survival tenures of leaders who overstay their terms and those who come to power through coups.
@@ -475,7 +464,7 @@ Surv(survival\_time, status) &= group + \\
 ```
 \newpage
 
-## Outcome and discussion
+## Results and discussion
 
 Building on the preceding discussion, I investigated my hypothesis regarding the likelihood of prolonged regime survival among leaders who overstay their terms compared to those who assume power through coups.
 The regression results of both the Cox PH model and the Time-dependent Cox model are presented in @tbl-cox.
@@ -688,3 +677,20 @@ Notably, the hazard ratio for leaders who assume power through coups and the log
 \newpage
 
 ## References
+
+[^1]: In this study, I interchangeably use the terms "overstaying leaders" and "autocou leaders."
+
+[^2]: <https://www.france24.com/en/live-news/20221123-vladimir-putin-s-critics-dead-jailed-exiled>: Vladimir Putin's critics: dead, jailed, exiled.
+    Accessed on Dec 23, 2023.
+
+[^3]: <https://www.bbc.co.uk/news/world-asia-china-43361276>: China's Xi allowed to remain 'president for life' as term limits removed.
+    Accessed on Dec 23, 2023.
+
+[^4]: <https://www.ucl.ac.uk/news/2020/jul/analysis-vladimir-putin-secures-constitutional-changes-allowing-him-rule-until-2036>: Analysis: Vladimir Putin secures constitutional changes allowing him to rule until 2036.
+    Accessed on Dec 23, 2023.
+
+[^5]: <https://thediplomat.com/2023/08/myanmar-junta-extends-state-of-emergency-for-fourth-time/>: Myanmar Junta Extends State of Emergency for Fourth Time.
+    Accessed on Dec 24, 2023.
+
+[^6]: Center for Systemic Peace: <https://www.systemicpeace.org>.
+    Accessed on Dec 24, 2023.

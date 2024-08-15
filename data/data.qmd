@@ -18,7 +18,6 @@ library(kableExtra)
 library(jtools)
 ```
 
-
 $$
 Surv(\text{survival_time}, status) = group + 
 GDP_\text{growth_trend} + GDP_\text{pc_log} + 
@@ -27,6 +26,7 @@ pop_{log} + polity5 + polstab + age$$
 ## overstays
 
 ```{r}
+#| label: overstays
 # coups <- fread("powell_thyne_coups_final.txt") %>%
 #   filter(coup==2) %>%
 #   mutate(startdate=ymd(paste(year,month,day)),
@@ -34,7 +34,7 @@ pop_{log} + polity5 + polstab + age$$
 # ) %>%
 #   select(-c(3,4,9))
 
-overstays <- read_excel("self_coup_Reddy.xlsx") %>%
+overstays <- read_excel("data/self_coup_Reddy.xlsx") %>%
   filter(Success == 1) %>%
   select(ccode, ruler, starty, sdate, endy, edate, overstay_year = year) |> 
   mutate(overstay_date = make_date(overstay_year, month(sdate), day(sdate)))
@@ -44,9 +44,54 @@ str(overstays)
 ## leaders
 
 ```{r}
-leaders <- fread("Archigos.txt", encoding = "Latin-1") 
+#| label: PLAD
+
+PLAD <- read_excel("../PLAD/PLAD_April_2024.xls")
+plad <- PLAD |> 
+  select(1:6, entry, exit, gender, yrborn, birthdate) |>
+  mutate(startdate = dmy(startdate),
+         birthdate = dmy(birthdate),
+         enddate = case_when(exit == "Still in Office" ~ Sys.Date(),
+                             .default = dmy(enddate)),
+         yrborn = as.numeric(yrborn)
+         ) |> 
+  filter(enddate - startdate > 270)
+
+str(KSG)
+str(plad)
+```
+
+```{r}
+KSG<- fread("http://ksgleditsch.com/data/1March_Archigos_4.1.txt", encoding = "Latin-1") |> 
+  mutate(startdate = ymd(startdate),
+         enddate = ymd(enddate),
+         borndate = ymd(borndate)) |> 
+  filter(enddate > "1945-01-01",
+         enddate - startdate > 270) 
+
+
+KSG |> 
+  full_join(plad, by = c("idacr", "startdate")) |>
+  mutate(obsid = coalesce(obsid, plad_id),
+         leader.x = coalesce(leader.x, leader.y),
+         enddate.x = if_else(is.na(enddate.x) | exit.x == "Still in Office", enddate.y, enddate.x),
+         entry.x = coalesce(entry.x, entry.y),
+         exit.x = if_else(exit.x == "Still in Office" | is.na(exit.x), exit.y, exit.x),
+         exitcode = if_else(exitcode == "Still in Office" | is.na(exitcode), exit.y, exitcode),
+         gender.x = coalesce(gender.x, gender.y),
+         yrborn.x = coalesce(yrborn.x, yrborn.y),
+         borndate = coalesce(borndate, birthdate)) |> 
+  group_by(idacr) |>
+  fill(ccode) |>
+  ungroup() |>
+  view()
+
+str(plad)
+```
 
 # update "still in office"
+
+```{r}
 leaders$enddate[leaders$leader=="Nguema Mbasogo"] <- "2023-11-27"
 
 leaders$enddate[leaders$leader=="Rakhmonov"] <- "2023-11-27"
@@ -121,7 +166,7 @@ leaders$exit[leaders$leader=="Deby"] <- "Irregular"
 leaders$enddate[leaders$leader=="Conde"] <- "2021-9-5"
 leaders$exit[leaders$leader=="Conde"] <- "Irregular"
 
-leaders$enddate[leaders$leader=="Jammeh"] <- "2011-1-19"
+leaders$enddate[leaders$leader=="Jammeh"] <- "2017-1-19"
 leaders$exit[leaders$leader=="Jammeh"] <- "Irregular"
 
 
@@ -151,9 +196,15 @@ leaders$exit[leaders$leader=="Hun Sen"] <- "Regular"
 
 leaders1 <- leaders %>%
   mutate(syear=year(startdate),
-         eyear=year(enddate)) %>% 
+         eyear=year(enddate),
+         last_irregular_exit = if_else(exit == "Irregular", enddate, 
+                                       if_else(entry == "Irregular", startdate, NA))) %>%
+  group_by(ccode) %>%
+  fill(last_irregular_exit, 
+       .direction = "down") %>%
+  ungroup() |>
   filter(eyear > 1945) %>% 
-  select(3:5,syear,eyear,6:10, yrborn)
+  select(3:5,syear,eyear,6:10, yrborn, last_irregular_exit)
 
 leaders2 <- leaders1 %>% 
   mutate(coup_exit=ifelse(exitcode %in% c("Removed by Military, without Foreign Support","Removed by Other Government Actors, without Foreign Support"),1,0),
@@ -162,13 +213,13 @@ leaders2 <- leaders1 %>%
 ```
 
 ## leaders + overstays
+
 ```{r}
 mydata <- leaders2 %>%
   left_join(overstays, join_by(ccode, syear == starty, eyear == endy)) %>%
   filter(!(is.na(ruler) & coup_entry == 0)) %>%
   select(leader, ruler, everything())
 ```
-
 
 ```{r}
 mydata1 <- mydata %>%
@@ -201,15 +252,17 @@ mydata2 <- mydata1 |>
   mutate(
     startdate = if_else(group == "A", ymd(overstay_date), ymd(startdate)),
     enddate = ymd(enddate),
+    last_irregular_exit =ymd(last_irregular_exit),
     age = if_else(group == "B", syear - yrborn, overstay_year -
                    yrborn)
   ) |>
-  select(ccode, idacr, startdate, enddate, leader, age, group, survival_time, status) |>
+  select(ccode, idacr, startdate, enddate, last_irregular_exit, leader, age, group, survival_time, status) |>
   add_row(# add an observation for a new leader
     ccode = 552,
     idacr = "ZIM",
     startdate = ymd(20171124),
     enddate = ymd(20231127),
+    last_irregular_exit = ymd(20171121),
     leader = "Emmerson Mnangagwa",
     age = 75,
     group = "B",
@@ -217,18 +270,37 @@ mydata2 <- mydata1 |>
     status = 1
   )  |> 
   filter(survival_time > 180 & survival_time < 18000) 
+
+mydata2$last_irregular_exit[mydata2$leader=="Lukashenko"] <- "1991-09-18"
+mydata2$last_irregular_exit[mydata2$leader=="Kekkonen"] <- "1944-08-04"
+mydata2$last_irregular_exit[mydata2$leader=="Biya"] <- "1960-01-01"
+mydata2$last_irregular_exit[mydata2$leader=="Gouled Aptidon"] <- "1977-06-27"
+mydata2$last_irregular_exit[mydata2$leader=="Guelleh"] <- "1977-06-27"
+mydata2$last_irregular_exit[mydata2$leader=="Afeworki"] <- "1993-05-24"
+mydata2$last_irregular_exit[mydata2$leader=="Banda"] <- "1964-07-06"
+mydata2$last_irregular_exit[mydata2$leader=="Nujoma"] <- "1990-03-21"
+mydata2$last_irregular_exit[mydata2$leader=="EL Khoury"] <- "1943-11-22"
+mydata2$last_irregular_exit[mydata2$leader=="Niyazov"] <- "1990-10-27"
+mydata2$last_irregular_exit[mydata2$leader=="Karimov"] <- "1990-03-24"
+mydata2$last_irregular_exit[mydata2$leader=="Nazarbayev"] <- "1990-04-24"
+
+
 ```
 
 ## mydata2A
+
 ```{r}
 mydata2A <- mydata2 |> 
   mutate(tstart = as.numeric(year(startdate) + (startdate - floor_date(startdate, "year"))/365),
          tstop = as.numeric(year(enddate) + (enddate - floor_date(enddate, "year"))/365),
          year = year(startdate),
-         .after = enddate)
+         .after = enddate) |>
+  mutate(last_irregular_exit = if_else(last_irregular_exit == enddate, startdate, last_irregular_exit),
+         time_to_irregular_exit = log(as.numeric(enddate - last_irregular_exit)))
 ```
 
 ## mydata3
+
 ```{r}
 mydata3A <- mydata2 |>
   mutate(first_year = startdate,
@@ -254,20 +326,17 @@ mydata3A <- mydata2 |>
 # codebook |> 
 #   view()
 gdp <- vdem |> 
-  select(ccode = COWcode, country = country_name, year, GDP = e_gdp, GDP_pc = e_gdp, pop = e_pop) |>
+  select(ccode = COWcode, country = country_name, year, GDP_pc = e_gdppc, pop = e_pop) |>
   filter(year >= 1945)|> 
-  mutate(GDP_growth = (GDP - lag(GDP)) / lag(GDP)*100,
-         .by = ccode)
+  # create a new variable for 5-year moving average of GDP growth
+  mutate(GDP_trend = GDP_pc / lag(rollapply(GDP_pc, width = 5, FUN = mean,
+                               align = 'right', fill = NA)),
+         .by = c(ccode))
 
-# create a new variable for 3-year moving average of GDP growth
 
 GDP <- gdp |> 
-  mutate(GDP_growth_3yr = rollmean(GDP_growth, k = 3, fill = NA, align = "right"),
-         .by = ccode) |>
-  mutate(GDP_growth_trend = GDP_growth / lag(GDP_growth_3yr),
-         GDP_pc_log = log(GDP_pc),
-         pop_log = log(pop)) |>
-  select(ccode, country, year, GDP_growth_trend, GDP_pc_log, pop_log) |>
+  mutate(pop_log = log(pop)) |>
+  select(ccode, country, year, GDP_trend, GDP_pc, pop_log) |>
   drop_na() 
 ```
 
@@ -285,12 +354,14 @@ polity <- polity5 |>
 ```
 
 ## Political Stability
+
 ```{r}
-polstab <- read_excel("MEPVv2018.xls") |> 
+polstab <- read_excel("data/MEPVv2018.xls") |> 
   select(ccode, year, polstab= actotal)
 ```
 
 ## Merge data
+
 ```{r}
 Mydata2A <- mydata2A |> 
   mutate(year = year(startdate)) |> 
@@ -298,12 +369,12 @@ Mydata2A <- mydata2A |>
   left_join(polity, by = c("ccode", "year" = "year")) |>
   left_join(polstab, by = c("ccode", "year" = "year")) |>
   drop_na() |> 
-  select(ccode, idacr, country, year, tstart, tstop, leader, age, group, survival_time, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
+  select(ccode, idacr, country, year, tstart, tstop, last_irregular_exit, leader, age, group, survival_time, status, GDP_trend, GDP_pc, pop_log, polity5, polstab)
 
 m1 <- Mydata2A |> 
   mutate(group = factor(group, 
                         labels = c("Overstay leaders", "Coup-entry leaders"))) |>
-  coxph(Surv(survival_time, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age, data = _) 
+  coxph(Surv(survival_time, status) ~ group + GDP_trend + GDP_pc + pop_log + polity5 + polstab + age, data = _) 
 
 m1|>
   summary()
@@ -316,20 +387,22 @@ Mydata3A <- mydata3A |>
   left_join(polity, by = c("ccode", "tstart" = "year")) |>
   left_join(polstab, by = c("ccode", "tstart" = "year")) |>
   drop_na() |>
-  select(id, ccode, idacr, country, tstart, tstop, leader, age, group, survival_time, T1, T2, status, GDP_growth_trend, GDP_pc_log, pop_log, polity5, polstab)
+  select(id, ccode, idacr, country, tstart, tstop, leader, age, group, survival_time, T1, T2, status, GDP_trend, GDP_pc, pop_log, polity5, polstab)
 
 m2 <- Mydata3A |>
   mutate(group = factor(group, 
                         labels = c("Overstay leaders", "Coup-entry leaders"))) |>
-coxph(Surv(T1, T2, status) ~ group + GDP_growth_trend + GDP_pc_log + pop_log + polity5 + polstab + age + cluster(id), data = _)
+coxph(Surv(T1, T2, status) ~ group + GDP_trend+ GDP_pc + pop_log + polity5 + polstab + age + cluster(id), data = _)
 
 summary(m2)
 ```
 
 ## Write to csv
+
 ```{r}
 write.csv(Mydata2A, "mydata1.csv")
 write.csv(Mydata3A, "mydata2.csv")
+getwd()
 ```
 
 ```{r}
@@ -337,7 +410,6 @@ export_summs(m1, m2)
 ```
 
 ```{r}
-read.csv("CCP.csv") |> 
+read.csv("data/CCP.csv") |> 
   view()
 ```
-
